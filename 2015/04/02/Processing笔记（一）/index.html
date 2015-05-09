@@ -1,0 +1,525 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Processing笔记（一） | Xana&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xana">
+    
+
+    
+    <meta name="description" content="（今天把常用的方法整理了一下）
+1、几何图形点1point(x, y)
+直线1line(x1, y1, x2, y2)
+三角形1triangle(x1, y1, x2, y2, x3, y3)
+四边形1quad(x1, y1, x2, y2, x3, y3, x4, y4)
+矩形1rect(x, y, width, height)
+椭圆1ellipse(Ox, Oy, width, height)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Processing笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2015/04/02/Processing笔记（一）/index.html">
+<meta property="og:site_name" content="Xana's Blog">
+<meta property="og:description" content="（今天把常用的方法整理了一下）
+1、几何图形点1point(x, y)
+直线1line(x1, y1, x2, y2)
+三角形1triangle(x1, y1, x2, y2, x3, y3)
+四边形1quad(x1, y1, x2, y2, x3, y3, x4, y4)
+矩形1rect(x, y, width, height)
+椭圆1ellipse(Ox, Oy, width, height)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Processing笔记（一）">
+<meta name="twitter:description" content="（今天把常用的方法整理了一下）
+1、几何图形点1point(x, y)
+直线1line(x1, y1, x2, y2)
+三角形1triangle(x1, y1, x2, y2, x3, y3)
+四边形1quad(x1, y1, x2, y2, x3, y3, x4, y4)
+矩形1rect(x, y, width, height)
+椭圆1ellipse(Ox, Oy, width, height)">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Xana&#39;s Blog">Xana&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注大数据与可视化</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/02/Processing笔记（一）/" title="Processing笔记（一）" itemprop="url">Processing笔记（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-02T11:49:15.000Z" itemprop="datePublished"> 發表於 2015-04-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、几何图形"><span class="toc-number">1.</span> <span class="toc-text">1、几何图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#点"><span class="toc-number">1.1.</span> <span class="toc-text">点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直线"><span class="toc-number">1.2.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三角形"><span class="toc-number">1.3.</span> <span class="toc-text">三角形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四边形"><span class="toc-number">1.4.</span> <span class="toc-text">四边形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形"><span class="toc-number">1.5.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#椭圆"><span class="toc-number">1.6.</span> <span class="toc-text">椭圆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#曲线"><span class="toc-number">1.7.</span> <span class="toc-text">曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、颜色"><span class="toc-number">2.</span> <span class="toc-text">2、颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带有颜色属性的（括号内为默认值）"><span class="toc-number">2.1.</span> <span class="toc-text">带有颜色属性的（括号内为默认值）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#背景色"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">背景色</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#填充色"><span class="toc-number">2.1.0.2.</span> <span class="toc-text">填充色</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线条颜色"><span class="toc-number">2.1.0.3.</span> <span class="toc-text">线条颜色</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#色度方法"><span class="toc-number">2.2.</span> <span class="toc-text">色度方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、绘图属性"><span class="toc-number">3.</span> <span class="toc-text">3、绘图属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抗锯齿"><span class="toc-number">3.1.</span> <span class="toc-text">抗锯齿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线条属性"><span class="toc-number">3.2.</span> <span class="toc-text">线条属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#线条宽度"><span class="toc-number">3.2.0.1.</span> <span class="toc-text">线条宽度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端点方式"><span class="toc-number">3.2.0.2.</span> <span class="toc-text">端点方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拐点方式"><span class="toc-number">3.2.0.3.</span> <span class="toc-text">拐点方式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、绘图模式"><span class="toc-number">4.</span> <span class="toc-text">4、绘图模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#椭圆-1"><span class="toc-number">4.1.</span> <span class="toc-text">椭圆</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RADIUS模式"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">RADIUS模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNER模式"><span class="toc-number">4.1.0.2.</span> <span class="toc-text">CORNER模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNERS模式"><span class="toc-number">4.1.0.3.</span> <span class="toc-text">CORNERS模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形-1"><span class="toc-number">4.2.</span> <span class="toc-text">矩形</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNERS模式-1"><span class="toc-number">4.2.0.1.</span> <span class="toc-text">CORNERS模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CENTER模式"><span class="toc-number">4.2.0.2.</span> <span class="toc-text">CENTER模式</span></a></li></ol></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<p>（今天把常用的方法整理了一下）</p>
+<h2 id="1、几何图形">1、几何图形</h2><h3 id="点">点</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">point</span><span class="params">(x, y)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="直线">直线</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">line</span><span class="params">(x1, y1, x2, y2)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="三角形">三角形</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">triangle</span><span class="params">(x1, y1, x2, y2, x3, y3)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="四边形">四边形</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">quad</span><span class="params">(x1, y1, x2, y2, x3, y3, x4, y4)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="矩形">矩形</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rect</span>(x, y, <span class="variable">width</span>, <span class="variable">height</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="椭圆">椭圆</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ellipse</span>(Ox, Oy, <span class="variable">width</span>, <span class="variable">height</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="曲线">曲线</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">bezier</span><span class="params">(x1, y1, cx1, cy1, cx2, cy2, x2, y2)</span></span>	<span class="comment">//c是对应操纵杆上的点</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、颜色">2、颜色</h2><h3 id="带有颜色属性的（括号内为默认值）">带有颜色属性的（括号内为默认值）</h3><h5 id="背景色">背景色</h5><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background<span class="list">(<span class="number">204</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h5 id="填充色">填充色</h5><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fill<span class="list">(<span class="number">255</span>)</span><span class="comment">;</span></span><br><span class="line">noFill<span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h5 id="线条颜色">线条颜色</h5><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stroke<span class="list">(<span class="number">0</span>)</span><span class="comment">;</span></span><br><span class="line">noStroke<span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="色度方法">色度方法</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">color</span>(grey); 						<span class="comment">//灰(白)度</span></span><br><span class="line"><span class="built_in">color</span>(grey, <span class="built_in">alpha</span>); 				<span class="comment">//不透明度</span></span><br><span class="line"><span class="built_in">color</span>(<span class="built_in">red</span>, <span class="built_in">green</span>, <span class="built_in">blue</span>);</span><br><span class="line"><span class="built_in">color</span>(<span class="built_in">red</span>, <span class="built_in">green</span>, <span class="built_in">blue</span>, <span class="built_in">alpha</span>);		<span class="comment">//参数均为0~255</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、绘图属性">3、绘图属性</h2><h3 id="抗锯齿">抗锯齿</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">smooth<span class="list">()</span><span class="comment">;</span></span><br><span class="line">noSmooth<span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="线条属性">线条属性</h3><h5 id="线条宽度">线条宽度</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">strokeWeight</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="端点方式">端点方式</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">strokeCap</span><span class="params">()</span></span>	<span class="comment">//ROUND、SQUAER、PROJECT(混合型)</span></span><br></pre></td></tr></table></figure>
+<h5 id="拐点方式">拐点方式</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">strokeJoin</span><span class="params">()</span></span> <span class="comment">//BEVEL(方角)、MITER(点)、ROUND(曲线)</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、绘图模式">4、绘图模式</h2><h3 id="椭圆-1">椭圆</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ellipseMode<span class="comment">(CENTER)</span>;<span class="comment">(默认)</span></span><br></pre></td></tr></table></figure>
+<h5 id="RADIUS模式">RADIUS模式</h5><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ellipseMode<span class="comment">(RADIUS)</span>;</span><br><span class="line">ellipse<span class="comment">(Ox, Oy, a, b)</span>; 				<span class="comment">//长短半轴</span></span><br></pre></td></tr></table></figure>
+<h5 id="CORNER模式">CORNER模式</h5><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ellipseMode</span>(CORNER);</span><br><span class="line"><span class="built_in">ellipse</span>(x1, y1, <span class="variable">width</span>, <span class="variable">height</span>);		<span class="comment">//外切矩形</span></span><br></pre></td></tr></table></figure>
+<h5 id="CORNERS模式">CORNERS模式</h5><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ellipseMode</span>(CORNERS);</span><br><span class="line"><span class="built_in">ellipse</span>(x4, y4, <span class="variable">width</span>, <span class="variable">height</span>);		<span class="comment">//外切矩形(右下)</span></span><br></pre></td></tr></table></figure>
+<h3 id="矩形-1">矩形</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rectMode<span class="comment">(CORNER)</span>;<span class="comment">(默认)</span></span><br></pre></td></tr></table></figure>
+<h5 id="CORNERS模式-1">CORNERS模式</h5><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rectMode<span class="list">(<span class="keyword">CORNER</span>)</span><span class="comment">;</span></span><br><span class="line">rect<span class="list">(<span class="keyword">x4</span>, y4, width, height)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h5 id="CENTER模式">CENTER模式</h5><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">rectMode</span>(<span class="value">CENTER</span>);</span><br><span class="line"><span class="function">rect</span>(Ox, Oy, <span class="attribute">width</span>, <span class="attribute">height</span>);</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Processing/">Processing</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Processing/">Processing</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/04/02/Processing笔记（一）/" data-title="Processing笔记（一） | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/03/Processing笔记（二）/" title="Processing笔记（二）">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Processing笔记（二）</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/04/02/感慨（一）/"  title="感慨（一）">
+ <strong>下一篇：</strong><br/> 
+ <span>感慨（一）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、几何图形"><span class="toc-number">1.</span> <span class="toc-text">1、几何图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#点"><span class="toc-number">1.1.</span> <span class="toc-text">点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直线"><span class="toc-number">1.2.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三角形"><span class="toc-number">1.3.</span> <span class="toc-text">三角形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四边形"><span class="toc-number">1.4.</span> <span class="toc-text">四边形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形"><span class="toc-number">1.5.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#椭圆"><span class="toc-number">1.6.</span> <span class="toc-text">椭圆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#曲线"><span class="toc-number">1.7.</span> <span class="toc-text">曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、颜色"><span class="toc-number">2.</span> <span class="toc-text">2、颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带有颜色属性的（括号内为默认值）"><span class="toc-number">2.1.</span> <span class="toc-text">带有颜色属性的（括号内为默认值）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#背景色"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">背景色</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#填充色"><span class="toc-number">2.1.0.2.</span> <span class="toc-text">填充色</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线条颜色"><span class="toc-number">2.1.0.3.</span> <span class="toc-text">线条颜色</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#色度方法"><span class="toc-number">2.2.</span> <span class="toc-text">色度方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、绘图属性"><span class="toc-number">3.</span> <span class="toc-text">3、绘图属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抗锯齿"><span class="toc-number">3.1.</span> <span class="toc-text">抗锯齿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线条属性"><span class="toc-number">3.2.</span> <span class="toc-text">线条属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#线条宽度"><span class="toc-number">3.2.0.1.</span> <span class="toc-text">线条宽度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端点方式"><span class="toc-number">3.2.0.2.</span> <span class="toc-text">端点方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拐点方式"><span class="toc-number">3.2.0.3.</span> <span class="toc-text">拐点方式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、绘图模式"><span class="toc-number">4.</span> <span class="toc-text">4、绘图模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#椭圆-1"><span class="toc-number">4.1.</span> <span class="toc-text">椭圆</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RADIUS模式"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">RADIUS模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNER模式"><span class="toc-number">4.1.0.2.</span> <span class="toc-text">CORNER模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNERS模式"><span class="toc-number">4.1.0.3.</span> <span class="toc-text">CORNERS模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形-1"><span class="toc-number">4.2.</span> <span class="toc-text">矩形</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CORNERS模式-1"><span class="toc-number">4.2.0.1.</span> <span class="toc-text">CORNERS模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CENTER模式"><span class="toc-number">4.2.0.2.</span> <span class="toc-text">CENTER模式</span></a></li></ol></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/金云天" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Xana">Xana</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
