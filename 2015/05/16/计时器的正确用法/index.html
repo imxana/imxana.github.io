@@ -4,28 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Processing笔记（四点五） | Xana&#39;s Blog</title>
+    <title>计时器的正确用法 | Xana&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xana">
     
 
     
-    <meta name="description" content="妓多不压身
-
-最近学的东西有点多，又怒开了node坑，国内的资源很难找，文件配置又常常出错，还不能得到很好的解决。就像你一开始兴兴冲冲的想学音MAD，然后被MIDI，基础乐理什么的搞得心灰意冷，而且网上有些答案还是坑你的，于是乎，如果你是求知欲很强的人的话，那你的时间往往会花在奇怪的地方。我觉得很正常，多学一点东西总是好的嘛，实在不行就当买个教训，走了别人没走过的弯路，哪一天就成了你装X的资本也说">
+    <meta name="description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
+To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
+To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Processing笔记（四点五）">
-<meta property="og:url" content="http://yoursite.com/2015/04/08/Processing笔记（四点五）/index.html">
+<meta property="og:title" content="计时器的正确用法">
+<meta property="og:url" content="http://yoursite.com/2015/05/16/计时器的正确用法/index.html">
 <meta property="og:site_name" content="Xana's Blog">
-<meta property="og:description" content="妓多不压身
-
-最近学的东西有点多，又怒开了node坑，国内的资源很难找，文件配置又常常出错，还不能得到很好的解决。就像你一开始兴兴冲冲的想学音MAD，然后被MIDI，基础乐理什么的搞得心灰意冷，而且网上有些答案还是坑你的，于是乎，如果你是求知欲很强的人的话，那你的时间往往会花在奇怪的地方。我觉得很正常，多学一点东西总是好的嘛，实在不行就当买个教训，走了别人没走过的弯路，哪一天就成了你装X的资本也说">
+<meta property="og:description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
+To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
+To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Processing笔记（四点五）">
-<meta name="twitter:description" content="妓多不压身
-
-最近学的东西有点多，又怒开了node坑，国内的资源很难找，文件配置又常常出错，还不能得到很好的解决。就像你一开始兴兴冲冲的想学音MAD，然后被MIDI，基础乐理什么的搞得心灰意冷，而且网上有些答案还是坑你的，于是乎，如果你是求知欲很强的人的话，那你的时间往往会花在奇怪的地方。我觉得很正常，多学一点东西总是好的嘛，实在不行就当买个教训，走了别人没走过的弯路，哪一天就成了你装X的资本也说">
+<meta name="twitter:title" content="计时器的正确用法">
+<meta name="twitter:description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
+To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
+To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
 
     
     <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/08/Processing笔记（四点五）/" title="Processing笔记（四点五）" itemprop="url">Processing笔记（四点五）</a>
+      <a href="/2015/05/16/计时器的正确用法/" title="计时器的正确用法" itemprop="url">计时器的正确用法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-08T02:40:30.000Z" itemprop="datePublished"> 發表於 2015-04-08</time>
+    <time datetime="2015-05-16T15:14:51.000Z" itemprop="datePublished"> 發表於 2015-05-16</time>
     
   </p>
 </header>
@@ -97,15 +97,33 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_think_of_it"><span class="toc-number">2.</span> <span class="toc-text">To think of it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_do_this"><span class="toc-number">3.</span> <span class="toc-text">To do this</span></a></li></ol>
 		
 		</div>
 		
-		<blockquote>
-<p><em><del>妓多不压身</del></em></p>
-</blockquote>
-<p>最近学的东西有点多，又怒开了node坑，国内的资源很难找，文件配置又常常出错，还不能得到很好的解决。就像你一开始兴兴冲冲的想学音MAD，然后被MIDI，基础乐理什么的搞得心灰意冷，而且网上有些答案还是坑你的，于是乎，如果你是求知欲很强的人的话，那你的时间往往会花在奇怪的地方。我觉得很正常，多学一点东西总是好的嘛，实在不行就当买个教训，走了别人没走过的弯路，哪一天就成了你装X的资本也说不定。建议去知乎，博客之类的地方去查，百度<del>我真是日了百度了</del>就算了，除了贴吧首页帖找资源以外，我还真想不出百度还有什么作用。</p>
-<p>最近也是在模仿@暗流涌动 的Processing作品在学，效果一般，Processing.js也学了一点，感觉还不错，至少今后看到canvas里糟糕的语法会有一点不屑的感觉。某个老师又逼我用oracle，让我装虚拟机，我感觉很蛋疼，觉得上帝很不公平，为什么Java是必修，明明以后都不会去摸的东西，web又不是只有一条路。而且有多少人开发会用windows做系统环境，我觉得很不爽，然后就装了虚拟机。</p>
+		<h2 id="Introduction">Introduction</h2><p>之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。</p>
+<h2 id="To_think_of_it">To think of it</h2><p>我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。</p>
+<h2 id="To_do_this">To do this</h2><p>首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个TimerTask类参数，和下一次执行的时间。</p>
+<p>运行环境:Processing-Java</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Timer;</span><br><span class="line"><span class="keyword">import</span> java.util.TimerTask;</span><br><span class="line"><span class="built_in">boolean</span> fA = <span class="keyword">true</span>;	<span class="comment">//fireAvailable</span></span><br><span class="line">Timer timer;</span><br><span class="line"><span class="comment">//这里的draw()用来即时激活keyPressed()函数</span></span><br><span class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> <span class="built_in">keyPressed</span>() &#123;</span><br><span class="line">  fff();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//有汽油就烧！</span></span><br><span class="line"><span class="keyword">void</span> fff() &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">key</span> == <span class="string">'f'</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fA) &#123;</span><br><span class="line">      <span class="built_in">println</span>(<span class="string">"FFFFFF!"</span>);</span><br><span class="line">      setTimer();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="built_in">println</span>(<span class="string">"Fire is not prepared, please wait 5s."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//待我去买汽油</span></span><br><span class="line"><span class="keyword">void</span> setTimer() &#123;</span><br><span class="line">  fA = <span class="keyword">false</span>;</span><br><span class="line">  Timer timer = <span class="keyword">new</span> Timer();</span><br><span class="line">  timer.schedule(<span class="keyword">new</span> task(), <span class="number">5000</span>L);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//建立一个买汽油的任务</span></span><br><span class="line">class task extends java.util.TimerTask &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> run() &#123;</span><br><span class="line">    fA = <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<pre><code>FFFFFF!
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+FFFFFF!
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
+</code></pre><p>完美</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +137,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Processing/">Processing</a>
+  <span></span> <a href="/tags/Java/">Java</a><a href="/tags/Processing/">Processing</a>
   </div>
 
 </div>
@@ -128,7 +146,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/08/Processing笔记（四点五）/" data-title="Processing笔记（四点五） | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/05/16/计时器的正确用法/" data-title="计时器的正确用法 | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,19 +159,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/11/Processing笔记（五）/" title="Processing笔记（五）">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Processing笔记（五）</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/05/Processing笔记（四）/"  title="Processing笔记（四）">
+<a href="/2015/04/19/我在geekLub上的自我介绍/"  title="我在geekLub上的自我介绍">
  <strong>下一篇：</strong><br/> 
- <span>Processing笔记（四）
+ <span>我在geekLub上的自我介绍
 </span>
 </a>
 </div>
@@ -168,7 +178,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_think_of_it"><span class="toc-number">2.</span> <span class="toc-text">To think of it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_do_this"><span class="toc-number">3.</span> <span class="toc-text">To do this</span></a></li></ol>
  
   </div>
 
