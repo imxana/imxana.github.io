@@ -1,0 +1,1261 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>canvasAPI整理 | Xana&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xana">
+    
+
+    
+    <meta name="description" content="Forword本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽好像可以看的懂了，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）
+IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvasAPI整理">
+<meta property="og:url" content="http://yoursite.com/2015/05/18/canvasAPI整理/index.html">
+<meta property="og:site_name" content="Xana's Blog">
+<meta property="og:description" content="Forword本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽好像可以看的懂了，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）
+IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvasAPI整理">
+<meta name="twitter:description" content="Forword本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽好像可以看的懂了，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）
+IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Xana&#39;s Blog">Xana&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注大数据与可视化</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/18/canvasAPI整理/" title="canvasAPI整理" itemprop="url">canvasAPI整理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-18T11:55:43.000Z" itemprop="datePublished"> 發表於 2015-05-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser_support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML_DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标/键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="Forword">Forword</h1><p>本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽<del>好像可以看的懂了</del>，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）</p>
+<h1 id="Introduction">Introduction</h1><p>HTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。<br>不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您必须使用脚本来完成实际的绘图任务。<br>getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。<br>本手册提供完整的 getContext(“2d”) 对象属性和方法，可用于在画布上绘制文本、线条、矩形、圆形等等。</p>
+<h1 id="Browser_support">Browser support</h1><p>Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。</p>
+<p>注释：Internet Explorer 8 以及更早的版本不支持 canvas 元素。<del>H5新标签</del></p>
+<h1 id="canvasAPI">canvasAPI</h1><h2 id="颜色、样式和阴影">颜色、样式和阴影</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fillStyle</td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式</td>
+<td>color/gradient/pattern</td>
+</tr>
+<tr>
+<td>strokeStyle</td>
+<td>设置或返回用于笔触的颜色、渐变或模式</td>
+<td>color/gradient/pattern</td>
+</tr>
+<tr>
+<td>shadowColor</td>
+<td>设置或返回用于阴影的颜色</td>
+<td>color</td>
+</tr>
+<tr>
+<td>shadowBlur</td>
+<td>设置或返回用于阴影的模糊级别</td>
+<td>number</td>
+</tr>
+<tr>
+<td>shadowOffsetX</td>
+<td>设置或返回阴影距形状的水平距离</td>
+<td>number</td>
+</tr>
+<tr>
+<td>shadowOffsetY</td>
+<td>设置或返回阴影距形状的垂直距离</td>
+<td>number </td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数值说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createLinearGradient(x0,y0,x1,y1)</td>
+<td>创建线性渐变（用在画布内容上）</td>
+<td>渐变的开始与结束的坐标</td>
+</tr>
+<tr>
+<td>createPattern(image,repeatMode)</td>
+<td>在指定的方向上重复指定的元素</td>
+<td>“repeat/repeat-x/repeat-y/no-repeat”</td>
+</tr>
+<tr>
+<td>createRadialGradient(x0,y0,r0,x1,y1,r1)</td>
+<td>创建放射状/环形的渐变（用在画布内容上）</td>
+<td>渐变开始与结束的圆坐标和半径</td>
+</tr>
+<tr>
+<td>addColorStop(stop,color)</td>
+<td>规定渐变对象中的颜色和停止位置</td>
+<td>0.0~1.0表示渐变位置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="（属性值）">（属性值）</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>指示绘图填充色的 CSS 颜色值。默认值是 #000000。</td>
+</tr>
+<tr>
+<td>gradient</td>
+<td>用于填充绘图的渐变对象（线性或放射性）</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>用于填充绘图的 pattern 对象</td>
+</tr>
+</tbody>
+</table>
+<h2 id="线条样式">线条样式</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lineCap</td>
+<td>设置或返回线条的结束端点样式</td>
+<td>“butt/round/square”</td>
+</tr>
+<tr>
+<td>lineJoin</td>
+<td>设置或返回两条线相交时，所创建的拐角类型</td>
+<td>“bevel/round/miter”</td>
+</tr>
+<tr>
+<td>lineWidth</td>
+<td>设置或返回当前的线条宽度</td>
+<td>number</td>
+</tr>
+<tr>
+<td>miterLimit</td>
+<td>设置或返回最大斜接长度</td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<h2 id="矩形">矩形</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数值说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rect(x,y,width,height)</td>
+<td>创建矩形</td>
+<td>左上坐标与宽高</td>
+</tr>
+<tr>
+<td>fillRect(x,y,width,height)</td>
+<td>绘制“被填充”的矩形</td>
+<td>左上坐标与宽高</td>
+</tr>
+<tr>
+<td>strokeRect(x,y,width,height)</td>
+<td>绘制矩形（无填充）</td>
+<td>左上坐标与宽高</td>
+</tr>
+<tr>
+<td>clearRect(x,y,width,height)</td>
+<td>在给定的矩形内清除指定的像素</td>
+<td>左上坐标与宽高</td>
+</tr>
+</tbody>
+</table>
+<h2 id="路径">路径</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill()</td>
+<td>填充当前绘图（路径）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>stroke()</td>
+<td>绘制已定义的路径</td>
+<td>无</td>
+</tr>
+<tr>
+<td>beginPath()</td>
+<td>起始一条路径，或重置当前路径</td>
+<td>无</td>
+</tr>
+<tr>
+<td>moveTo(x,y)</td>
+<td>把路径移动到画布中的指定点，不创建线条</td>
+<td>目标位置的坐标</td>
+</tr>
+<tr>
+<td>closePath()</td>
+<td>创建从当前点回到起始点的路径</td>
+<td>无</td>
+</tr>
+<tr>
+<td>lineTo(x,y)</td>
+<td>添加一个新点，然后在画布中创建从该点到最后指定点的线条</td>
+<td>目标位置的坐标</td>
+</tr>
+<tr>
+<td>clip()</td>
+<td>从原始画布剪切任意形状和尺寸的区域</td>
+<td>无</td>
+</tr>
+<tr>
+<td>arc(x,y,r,sAngle,eAngle,w)</td>
+<td>创建弧/曲线（用于创建圆形或部分圆）</td>
+<td>圆的坐标半径、起始和结束角、方向顺0逆1</td>
+</tr>
+<tr>
+<td>arcTo(x1,y1,x2,y2,r)</td>
+<td>创建两切线之间的弧/曲线</td>
+<td>弧的起终点坐标和半径</td>
+</tr>
+<tr>
+<td>isPointInpath(x, y)</td>
+<td>如果指定的点位于当前路径中，则返回 true，否则返回 false</td>
+<td>测试坐标</td>
+</tr>
+</tbody>
+</table>
+<h2 id="转换">转换</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scale(scalewidth,scaleheight)</td>
+<td>缩放当前绘图至更大或更小</td>
+<td>比例系数number</td>
+</tr>
+<tr>
+<td>rotate(angle)</td>
+<td>旋转当前绘图</td>
+<td>弧度，顺时针</td>
+</tr>
+<tr>
+<td>translate(x,y)</td>
+<td>重新映射画布上的 (0,0) 位置</td>
+<td>平移坐标值</td>
+</tr>
+<tr>
+<td>transform(a,b,c,d,e,f)</td>
+<td>替换绘图的当前转换矩阵</td>
+<td>见下表</td>
+</tr>
+<tr>
+<td>setTransform(a,b,c,d,e,f)</td>
+<td>将当前转换重置为单位矩阵。然后运行transform()</td>
+<td>见下表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="（参数值）">（参数值）</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>水平缩放绘图</td>
+</tr>
+<tr>
+<td>b</td>
+<td>水平倾斜绘图</td>
+</tr>
+<tr>
+<td>c</td>
+<td>垂直倾斜绘图</td>
+</tr>
+<tr>
+<td>d</td>
+<td>垂直缩放绘图</td>
+</tr>
+<tr>
+<td>e</td>
+<td>水平移动绘图</td>
+</tr>
+<tr>
+<td>f</td>
+<td>垂直移动绘图</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本">文本</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>font</td>
+<td>设置或返回文本内容的当前字体属性</td>
+<td>“italic small-caps bold 12px arial”</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td>设置或返回文本内容的当前对齐方式</td>
+<td>“center/end/left/right/start”</td>
+</tr>
+<tr>
+<td>textBaseline</td>
+<td>设置或返回在绘制文本时使用的当前文本基线</td>
+<td>“alphabetic/top/hanging/middle/ideographic/bottom”</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fillText(text,x,y,maxWidth)</td>
+<td>在画布上绘制“被填充的”文本</td>
+<td>文字、起始坐标、最大文本宽度（可选）</td>
+</tr>
+<tr>
+<td>strokeText(text,x,y,maxWidth)</td>
+<td>在画布上绘制文本（无填充）</td>
+<td>文字、起始坐标、最大文本宽度（可选）</td>
+</tr>
+<tr>
+<td>measureText(text)</td>
+<td>返回包含指定文本宽度的对象</td>
+<td>.width：文本宽度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图像绘制">图像绘制</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drawImage(img,x,y)</td>
+<td>向画布上绘制图像、画布或视频</td>
+<td>图片左上坐标</td>
+</tr>
+<tr>
+<td>drawImage(img,x,y,width,height)</td>
+<td>向画布上绘制图像、画布或视频</td>
+<td>规定图像宽高</td>
+</tr>
+<tr>
+<td>drawImage(img,sx,sy,swidth,sheight,x,y,width,height)</td>
+<td>向画布上绘制图像、画布或视频</td>
+<td>定位被剪切的部分</td>
+</tr>
+</tbody>
+</table>
+<h2 id="像素操作">像素操作</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td>返回 ImageData 对象的宽度</td>
+<td>imgData.width 返回number</td>
+</tr>
+<tr>
+<td>height</td>
+<td>返回 ImageData 对象的高度</td>
+<td>imgData.height 返回number</td>
+</tr>
+<tr>
+<td>data</td>
+<td>返回一个对象，其包含指定的 ImageData 对象的图像数据</td>
+<td>imageData.data 返回obj</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createImageData(width,height/imageData)</td>
+<td>创建新的、空白的 ImageData 对象</td>
+<td>一个ImageData对象的宽高或者另一个ImageData对象</td>
+</tr>
+<tr>
+<td>getImageData(x,y,width,height)</td>
+<td>返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据</td>
+<td>左上坐标，复制宽高</td>
+</tr>
+<tr>
+<td>putImageData(imgData,x,y,dX,dY,dW,dH)</td>
+<td>把图像数据（从指定的 ImageData 对象）放回画布上</td>
+<td>iD对象，左上坐标，放置位置(可选)，使用宽高(可选)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="合成">合成</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>globalAlpha</td>
+<td>设置或返回绘图的当前 alpha 或透明值</td>
+<td>0.0~1.0的不透明度</td>
+</tr>
+<tr>
+<td>globalCompositeOperation</td>
+<td>设置或返回新图像如何绘制到已有的图像上</td>
+<td>“source-in”参数很多建议看文档</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他">其他</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>save()</td>
+<td>保存当前环境的状态</td>
+</tr>
+<tr>
+<td>restore()</td>
+<td>返回之前保存过的路径状态和属性</td>
+</tr>
+<tr>
+<td>createEvent()</td>
+<td></td>
+</tr>
+<tr>
+<td>getContext()</td>
+<td></td>
+</tr>
+<tr>
+<td>toDataURL()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="附录1：HTML_DOM事件">附录1：HTML DOM事件</h1><h2 id="目标事件对象">目标事件对象</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>DOM（事件级别）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addEventListener</td>
+<td>允许在目标事件中注册监听事件(IE8 = attachEvent())； element.addEventListener(“event”, function, useCapture);</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>兼容问题<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;                <span class="comment">//所有主流浏览器，除了 IE 8 及更早 IE版本</span></span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>, myFunction);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;             <span class="comment">// IE 8 及更早 IE 版本</span></span><br><span class="line">    <span class="built_in">document</span>.attachEvent(<span class="string">"onclick"</span>, myFunction);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="（参数说明）">（参数说明）</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>必须。字符串，指定事件名。注意: 不要使用 “on” 前缀。 例如，使用 “click” ,而不是使用 “onclick”。 提示： 所有 HTML DOM 事件，可以查看我们完整的 HTML DOM Event 对象参考手册。</td>
+</tr>
+<tr>
+<td>function</td>
+<td>必须。指定要事件触发时执行的函数。 当事件对象会作为第一个参数传入函数。 事件对象的类型取决于特定的事件。例如， “click” 事件属于 MouseEvent(鼠标事件) 对象。</td>
+</tr>
+<tr>
+<td>useCapture</td>
+<td>可选。布尔值，指定事件是否在捕获或冒泡阶段执行。可能值:true - 事件句柄在捕获阶段执行； false- 默认。事件句柄在冒泡阶段执行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="鼠标事件">鼠标事件</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onclick</td>
+<td>当用户点击某个对象时调用的事件句柄。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>oncontextmenu</td>
+<td>在用户点击鼠标右键打开上下文菜单时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondblclick</td>
+<td>当用户双击某个对象时调用的事件句柄。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>鼠标按钮被按下。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmouseenter</td>
+<td>当鼠标指针移动到元素上时触发。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmouseleave</td>
+<td>当鼠标指针移出元素时触发</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标被移动。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标移到某元素之上。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标从某元素移开。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>鼠标按键被松开。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="键盘事件">键盘事件</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onkeydown</td>
+<td>某个键盘按键被按下。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onkeypress</td>
+<td>某个键盘按键被按下并松开。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>某个键盘按键被松开。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="鼠标/键盘事件对象">鼠标/键盘事件对象</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>altKey</td>
+<td>返回当事件被触发时，”ALT” 是否被按下。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>button</td>
+<td>返回当事件被触发时，哪个鼠标按钮被点击。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>clientX</td>
+<td>返回当事件被触发时，鼠标指针的水平坐标。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>clientY</td>
+<td>返回当事件被触发时，鼠标指针的垂直坐标。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>ctrlKey</td>
+<td>返回当事件被触发时，”CTRL” 键是否被按下。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>返回按键在设备上的位置</td>
+<td>3</td>
+</tr>
+<tr>
+<td>charCode</td>
+<td>返回onkeypress事件触发键值的字母代码。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>key</td>
+<td>在按下按键时返回按键的标识符。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>keyCode</td>
+<td>返回onkeypress事件触发的键的值的字符代码，或者 onkeydown 或 onkeyup 事件的键的代码。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>which</td>
+<td>返回onkeypress事件触发的键的值的字符代码，或者 onkeydown 或 onkeyup 事件的键的代码。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>metaKey</td>
+<td>返回当事件被触发时，”meta” 键是否被按下。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>relatedTarget</td>
+<td>返回与事件的目标节点相关的节点。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>screenX</td>
+<td>返回当某个事件被触发时，鼠标指针的水平坐标。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>screenY</td>
+<td>返回当某个事件被触发时，鼠标指针的垂直坐标。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>shiftKey</td>
+<td>返回当事件被触发时，”SHIFT” 键是否被按下。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initMouseEvent()</td>
+<td>初始化鼠标事件对象的值</td>
+<td>2</td>
+</tr>
+<tr>
+<td>initKeyboardEvent()</td>
+<td>初始化键盘事件对象的值</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="拖动事件">拖动事件</h2><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ondrag</td>
+<td>该事件在元素正在拖动时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondragend</td>
+<td>该事件在用户完成元素的拖动时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondragenter</td>
+<td>该事件在拖动的元素进入放置目标时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondragleave</td>
+<td>该事件在拖动元素离开放置目标时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondragover</td>
+<td>该事件在拖动元素在放置目标上时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondragstart</td>
+<td>该事件在用户开始拖动元素时触发</td>
+<td></td>
+</tr>
+<tr>
+<td>ondrop</td>
+<td>该事件在拖动元素放置在目标区域时触发</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="滚轮事件">滚轮事件</h2><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+<th>DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onwheel</td>
+<td>该事件在鼠标滚轮在元素上下滚动时触发</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注：safary不支持</p>
+<h1 id="参考文档">参考文档</h1><p><a href="http://www.w3school.com.cn/tags/html_ref_canvas.asp" target="_blank" rel="external">http://www.w3school.com.cn/tags/html_ref_canvas.asp</a><br><a href="http://www.w3cschool.cc/jsref/met-document-addeventlistener.html" target="_blank" rel="external">http://www.w3cschool.cc/jsref/met-document-addeventlistener.html</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/canvas/">canvas</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/canvas/">canvas</a><a href="/tags/js/">js</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/05/18/canvasAPI整理/" data-title="canvasAPI整理 | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/05/16/计时器的正确用法/"  title="计时器的正确用法">
+ <strong>下一篇：</strong><br/> 
+ <span>计时器的正确用法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser_support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML_DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标/键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/金云天" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Xana">Xana</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
