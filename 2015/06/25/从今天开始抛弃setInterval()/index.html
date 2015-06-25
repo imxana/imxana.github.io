@@ -4,49 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>xana教你用vim | Xana&#39;s Blog</title>
+    <title>从今天开始抛弃setInterval() | Xana&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xana">
     
 
     
-    <meta name="description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+    <meta name="description" content="Forword关于超时调用与间歇调用的API不再累述。本文主要讨论性能问题
+间歇调用常见用法如下：
+1234567891011var num = 0,    max = 10,    intervalId = nullfunction incrementNumber() &amp;#123;    num++    if (num == max) &amp;#123;        clearInterval(i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xana教你用vim">
-<meta property="og:url" content="http://yoursite.com/2015/04/05/xana教你用vim/index.html">
+<meta property="og:title" content="从今天开始抛弃setInterval()">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/从今天开始抛弃setInterval()/index.html">
 <meta property="og:site_name" content="Xana's Blog">
-<meta property="og:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+<meta property="og:description" content="Forword关于超时调用与间歇调用的API不再累述。本文主要讨论性能问题
+间歇调用常见用法如下：
+1234567891011var num = 0,    max = 10,    intervalId = nullfunction incrementNumber() &amp;#123;    num++    if (num == max) &amp;#123;        clearInterval(i">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xana教你用vim">
-<meta name="twitter:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+<meta name="twitter:title" content="从今天开始抛弃setInterval()">
+<meta name="twitter:description" content="Forword关于超时调用与间歇调用的API不再累述。本文主要讨论性能问题
+间歇调用常见用法如下：
+1234567891011var num = 0,    max = 10,    intervalId = nullfunction incrementNumber() &amp;#123;    num++    if (num == max) &amp;#123;        clearInterval(i">
 
     
     <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
@@ -102,14 +81,14 @@ O">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/05/xana教你用vim/" title="xana教你用vim" itemprop="url">xana教你用vim</a>
+      <a href="/2015/06/25/从今天开始抛弃setInterval()/" title="从今天开始抛弃setInterval()" itemprop="url">从今天开始抛弃setInterval()</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-05T12:50:12.000Z" itemprop="datePublished"> 发表于 2015-04-05</time>
+    <time datetime="2015-06-25T14:13:37.000Z" itemprop="datePublished"> 发表于 2015-06-25</time>
     
   </p>
 </header>
@@ -118,43 +97,35 @@ O">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、打开vim"><span class="toc-number">1.</span> <span class="toc-text">1、打开vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、插入"><span class="toc-number">2.</span> <span class="toc-text">2、插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、保存"><span class="toc-number">3.</span> <span class="toc-text">3、保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、退出"><span class="toc-number">4.</span> <span class="toc-text">4、退出</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#间歇调用"><span class="toc-number">2.</span> <span class="toc-text">间歇调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#超时调用"><span class="toc-number">3.</span> <span class="toc-text">超时调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">5.</span> <span class="toc-text">else</span></a></li></ol>
 		
 		</div>
 		
-		<p>有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，<del>被水淹没</del>，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。<del>度娘如是说</del>。</p>
-<h3 id="1、打开vim">1、打开vim</h3><p>建立文档</p>
-<pre><code><span class="variable">$ </span>vim
-</code></pre><p>打开文档</p>
-<pre><code><span class="variable">$ </span>vim <span class="constant">Filename</span>
-</code></pre><h3 id="2、插入">2、插入</h3><p>进入vim默认命令模式，输入下列指令进入编辑模式</p>
-<pre><code><span class="tag">i</span>    光标处输入
-<span class="tag">a</span>    光标后输入    
-o    回车并输入
-O    标上方新增一行并输入
-</code></pre><h3 id="3、保存">3、保存</h3><p>按esc进入命令模式，对未命名文档进行保存</p>
-<pre><code><span class="pseudo">:w</span> <span class="tag">FileName</span>
-</code></pre><p>已命名直接保存</p>
-<pre><code><span class="attribute">:w</span>
-</code></pre><h3 id="4、退出">4、退出</h3><pre><code>:<span class="tag">q</span>        此时会提示是否保存
-</code></pre><p>不保存直接退出</p>
-<pre><code><span class="attribute">:q!</span>
-</code></pre><p>保存并退出</p>
-<pre><code><span class="attribute">:wq</span>
-</code></pre>  
+		<h1 id="Forword">Forword</h1><p>关于超时调用与间歇调用的API不再累述。本文主要讨论性能问题</p>
+<h1 id="间歇调用">间歇调用</h1><p>常见用法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>,</span><br><span class="line">    max = <span class="number">10</span>,</span><br><span class="line">    intervalId = <span class="literal">null</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incrementNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    num++</span><br><span class="line">    <span class="keyword">if</span> (num == max) &#123;</span><br><span class="line">        clearInterval(intervalId)</span><br><span class="line">        alert(<span class="string">"Done"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">intervalId = setInterval(incrementNumber, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<p>该方法返回一个间歇调用ID，如果不加干涉，该方法会一直重复调用直到页面卸载，取消间歇调用的重要性远远高于取消超时调用。<br>另外，无法根据需要直接更改间歇调用的时间间隔，只能通过“重新启动”的方法进行参数修正。<br>在实际过程中，<em>一个间歇调用很有可能在另一个间歇调用结束前启动</em>。<del>这源于间歇调用在“0时刻”会执行代码的特点</del>。</p>
+<h1 id="超时调用">超时调用</h1><p>下面是利用超时调用模拟间歇调用的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>,</span><br><span class="line">    max = <span class="number">100</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incrementNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    num++</span><br><span class="line">    <span class="keyword">if</span>(num &lt; max)&#123;</span><br><span class="line">        setTimeout(incrementNumber, <span class="number">500</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"Done"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(incrementNumber, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<p>该方法使用时可以发现，没有必要追踪超时调用ID，因为执行代码后调用将会停止，因此减少了一个。由于是延迟执行，超时调用也不存在上述问题。<em>甚至可以给函数传入参数来直接修改间隔时间</em>。</p>
+<h1 id="结论">结论</h1><p>除了某些<del>代码简单</del>情况下，<strong>最好不要使用间歇调用</strong>。</p>
+<h1 id="else">else</h1><p>理论上字符串代码块<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="string">"alert('mukyu')"</span>, <span class="number">10000</span>)</span><br></pre></td></tr></table></figure></p>
+<p>是可以执行的，但是尽量避免这种写法，因为代码超过1行后涉及到解析问题。<del>特别对于我这种无分号党</del></p>
+<p>老老实实用函数吧<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setInterval(Patchouli, <span class="number">10000</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Patchouli</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"mukyu!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/基础工具/">基础工具</a>
+  <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Others/">Others</a><a href="/tags/vim/">vim</a>
+  <span></span> <a href="/tags/js/">js</a>
   </div>
 
 </div>
@@ -163,7 +134,7 @@ O    标上方新增一行并输入
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/05/xana教你用vim/" data-title="xana教你用vim | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/06/25/从今天开始抛弃setInterval()/" data-title="从今天开始抛弃setInterval() | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -176,19 +147,11 @@ O    标上方新增一行并输入
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/05/Processing笔记（四）/" title="Processing笔记（四）">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Processing笔记（四）</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/04/我为什么要学习Processing/"  title="我为什么要学习Processing">
+<a href="/2015/06/04/WebAudioAPI整理/"  title="WebAudioAPI整理">
  <strong>下一篇：</strong><br/> 
- <span>我为什么要学习Processing
+ <span>WebAudioAPI整理
 </span>
 </a>
 </div>
@@ -203,7 +166,7 @@ O    标上方新增一行并输入
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、打开vim"><span class="toc-number">1.</span> <span class="toc-text">1、打开vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、插入"><span class="toc-number">2.</span> <span class="toc-text">2、插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、保存"><span class="toc-number">3.</span> <span class="toc-text">3、保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、退出"><span class="toc-number">4.</span> <span class="toc-text">4、退出</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#间歇调用"><span class="toc-number">2.</span> <span class="toc-text">间歇调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#超时调用"><span class="toc-number">3.</span> <span class="toc-text">超时调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">5.</span> <span class="toc-text">else</span></a></li></ol>
  
   </div>
 
