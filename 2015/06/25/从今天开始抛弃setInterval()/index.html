@@ -49,7 +49,7 @@
 				<h1 class="site-name"><a href="/" title="Xana&#39;s Blog">Xana&#39;s Blog</a></h1>
 				<h2 class="blog-motto">关注大数据与可视化</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -88,14 +88,14 @@
 		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-25T14:13:37.000Z" itemprop="datePublished"> 发表于 2015-06-25</time>
+    <time datetime="2015-06-25T14:13:37.000Z" itemprop="datePublished"> 發表於 2015-06-25</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#间歇调用"><span class="toc-number">2.</span> <span class="toc-text">间歇调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#超时调用"><span class="toc-number">3.</span> <span class="toc-text">超时调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">5.</span> <span class="toc-text">else</span></a></li></ol>
 		
@@ -107,11 +107,11 @@
 <p>该方法返回一个间歇调用ID，如果不加干涉，该方法会一直重复调用直到页面卸载，取消间歇调用的重要性远远高于取消超时调用。<br>另外，无法根据需要直接更改间歇调用的时间间隔，只能通过“重新启动”的方法进行参数修正。<br>在实际过程中，<em>一个间歇调用很有可能在另一个间歇调用结束前启动</em>。<del>这源于间歇调用在“0时刻”会执行代码的特点</del>。</p>
 <h1 id="超时调用">超时调用</h1><p>下面是利用超时调用模拟间歇调用的方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>,</span><br><span class="line">    max = <span class="number">100</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incrementNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    num++</span><br><span class="line">    <span class="keyword">if</span>(num &lt; max)&#123;</span><br><span class="line">        setTimeout(incrementNumber, <span class="number">500</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">"Done"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(incrementNumber, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
-<p>该方法使用时可以发现，没有必要追踪超时调用ID，因为执行代码后调用将会停止，因此减少了一个。由于是延迟执行，超时调用也不存在上述问题。<em>甚至可以给函数传入参数来直接修改间隔时间</em>。</p>
+<p>该方法使用时可以发现，没有必要追踪超时调用ID，因为执行代码后调用将会停止，因此减少了一个参数。由于是延迟执行，超时调用也不存在上述问题。<em>甚至可以给函数传入参数来直接修改间隔时间</em>。</p>
 <h1 id="结论">结论</h1><p>除了某些<del>代码简单</del>情况下，<strong>最好不要使用间歇调用</strong>。</p>
 <h1 id="else">else</h1><p>理论上字符串代码块<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="string">"alert('mukyu')"</span>, <span class="number">10000</span>)</span><br></pre></td></tr></table></figure></p>
 <p>是可以执行的，但是尽量避免这种写法，因为代码超过1行后涉及到解析问题。<del>特别对于我这种无分号党</del></p>
-<p>老老实实用函数吧<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setInterval(Patchouli, <span class="number">10000</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Patchouli</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"mukyu!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>老老实实用函数吧<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Patchouli</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    alert(<span class="string">"mukyu!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">setInterval(Patchouli, <span class="number">10000</span>)</span><br><span class="line"><span class="comment">//两个以上函数或带参数用匿名函数写法</span></span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Patchouli()</span><br><span class="line">&#125;, <span class="number">10000</span>)</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -147,6 +147,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/07/04/Js事件小结/" title="Js事件小结">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Js事件小结</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/06/04/WebAudioAPI整理/"  title="WebAudioAPI整理">
@@ -161,22 +169,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">文章目錄</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#间歇调用"><span class="toc-number">2.</span> <span class="toc-text">间歇调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#超时调用"><span class="toc-number">3.</span> <span class="toc-text">超时调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">5.</span> <span class="toc-text">else</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -196,7 +204,7 @@
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>1</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>2</sup></a></li>
 		  
 		
 		  
@@ -213,7 +221,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -225,11 +233,11 @@
 			
 		
 			
-				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
 			
 		
 			
@@ -261,7 +269,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -289,7 +297,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -494,7 +502,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/miku.gif"/></a>
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
