@@ -1,0 +1,507 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>xana教你速成Box2D(二) | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="更多的Box2D元素创建矩形物体1234567891011121314151617function createRectangularBody()&amp;#123;    var bodyDef = new b2BodyDef;    bodyDef.type = b2Body.b2_dynamicBody;    bodyDef.position.x = 40/scale;    bodyDef.po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xana教你速成Box2D(二)">
+<meta property="og:url" content="http://yoursite.com/2015/07/22/xana教你速成Box2D(二)/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="更多的Box2D元素创建矩形物体1234567891011121314151617function createRectangularBody()&amp;#123;    var bodyDef = new b2BodyDef;    bodyDef.type = b2Body.b2_dynamicBody;    bodyDef.position.x = 40/scale;    bodyDef.po">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xana教你速成Box2D(二)">
+<meta name="twitter:description" content="更多的Box2D元素创建矩形物体1234567891011121314151617function createRectangularBody()&amp;#123;    var bodyDef = new b2BodyDef;    bodyDef.type = b2Body.b2_dynamicBody;    bodyDef.position.x = 40/scale;    bodyDef.po">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注大数据与可视化</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/22/xana教你速成Box2D(二)/" title="xana教你速成Box2D(二)" itemprop="url">xana教你速成Box2D(二)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-22T10:58:24.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更多的Box2D元素"><span class="toc-number">1.</span> <span class="toc-text">更多的Box2D元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建矩形物体"><span class="toc-number">1.1.</span> <span class="toc-text">创建矩形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建圆形物体"><span class="toc-number">1.2.</span> <span class="toc-text">创建圆形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建多边形物体"><span class="toc-number">1.3.</span> <span class="toc-text">创建多边形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建多种形状的复杂物体"><span class="toc-number">1.4.</span> <span class="toc-text">创建多种形状的复杂物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接物体的接合点"><span class="toc-number">1.5.</span> <span class="toc-text">连接物体的接合点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建具有自定义属性的物体"><span class="toc-number">1.6.</span> <span class="toc-text">创建具有自定义属性的物体</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#追踪碰撞与损坏"><span class="toc-number">2.</span> <span class="toc-text">追踪碰撞与损坏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#接触监听器"><span class="toc-number">2.1.</span> <span class="toc-text">接触监听器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制角色"><span class="toc-number">2.2.</span> <span class="toc-text">绘制角色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="更多的Box2D元素">更多的Box2D元素</h1><h2 id="创建矩形物体">创建矩形物体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createRectangularBody</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bodyDef = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef.position.x = <span class="number">40</span>/scale;</span><br><span class="line">    bodyDef.position.y = <span class="number">100</span>/scale;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fixtureDef = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef.restitution = <span class="number">0.3</span>;</span><br><span class="line"></span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2PolygonShape;</span><br><span class="line">    fixtureDef.shape.SetAsBox(<span class="number">30</span>/scale, <span class="number">50</span>/scale);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body = world.CreateBody(bodyDef);</span><br><span class="line">    <span class="keyword">var</span> fixture = body.CreateFixture(fixtureDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建圆形物体">创建圆形物体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCircularBody</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bodyDef = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef.position.x = <span class="number">130</span>/scale;</span><br><span class="line">    bodyDef.position.y = <span class="number">130</span>/scale;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fixtureDef = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef.restitution = <span class="number">0.7</span>;</span><br><span class="line"></span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2CircleShape(<span class="number">30</span>/scale);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body = world.CreateBody(bodyDef);</span><br><span class="line">    <span class="keyword">var</span> fixture = body.CreateFixture(fixtureDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建多边形物体">创建多边形物体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSimplePolygonBody</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bodyDef = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef.position.x = <span class="number">230</span>/scale;</span><br><span class="line">    bodyDef.position.y = <span class="number">50</span>/scale;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fixtureDef = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef.restitution = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2PolygonShape();</span><br><span class="line">    <span class="comment">//按顺时针方向创建一个b2Vec2顶点数组</span></span><br><span class="line">    <span class="keyword">var</span> points = [</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用SetAsArray()来使用顶点数组定义形状</span></span><br><span class="line">    fixtureDef.shape.SetAsArray(points, points.length);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body = world.CreateBody(bodyDef);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fixture = body.CreateFixture(fixtureDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建多种形状的复杂物体">创建多种形状的复杂物体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createComplexBody</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bodyDef = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef.position.x = <span class="number">350</span>/scale;</span><br><span class="line">    bodyDef.position.y = <span class="number">50</span>/scale;</span><br><span class="line">    <span class="keyword">var</span> body = world.CreateBody(bodyDef);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第一个载具并为物体添加圆形状</span></span><br><span class="line">    <span class="keyword">var</span> fixtureDef = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef.restitution = <span class="number">0.7</span>;</span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2CircleShape(<span class="number">40</span>/scale);</span><br><span class="line">    body.CreateFixture(fixtureDef);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第二个载具并为物体添加多边形形状</span></span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2PolygonShape();</span><br><span class="line">    <span class="keyword">var</span> points = [</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">    ];</span><br><span class="line">    fixtureDef.shape.SetAsArray(points, points.length);</span><br><span class="line">    body.CreateFixture(fixtureDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="连接物体的接合点">连接物体的接合点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createRevoluteJoint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//定义第一个物体</span></span><br><span class="line">    <span class="keyword">var</span> bodyDef1 = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef1.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef1.position.x = <span class="number">480</span>/scale;</span><br><span class="line">    bodyDef1.position.y = <span class="number">50</span>/scale;</span><br><span class="line">    <span class="keyword">var</span> body1 = world.CreateBody(bodyDef1);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第一个载具并为物体添加圆形状</span></span><br><span class="line">    <span class="keyword">var</span> fixtureDef1 = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef1.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef1.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef1.restitution = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef1.shape = <span class="keyword">new</span> b2PolygonShape();</span><br><span class="line">    fixtureDef1.shape.SetAsBox(<span class="number">50</span>/scale, <span class="number">10</span>/scale);</span><br><span class="line"></span><br><span class="line">    body1.CreateFixture(fixtureDef1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义第二个物体</span></span><br><span class="line">    <span class="keyword">var</span> bodyDef2 = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef2.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef2.position.x = <span class="number">480</span>/scale;</span><br><span class="line">    bodyDef2.position.y = <span class="number">50</span>/scale;</span><br><span class="line">    <span class="keyword">var</span> body2 = world.CreateBody(bodyDef2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第二个载具并为物体添加多边形形状</span></span><br><span class="line">    <span class="keyword">var</span> fixtureDef2 = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef2.shape = <span class="keyword">new</span> b2PolygonShape();</span><br><span class="line">    <span class="keyword">var</span> points = [</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">50</span>/scale, <span class="number">100</span>/scale),</span><br><span class="line">        <span class="keyword">new</span> b2Vec2(-<span class="number">40</span>/scale, <span class="number">50</span>/scale),</span><br><span class="line">    ];</span><br><span class="line">    fixtureDef2.shape.SetAsArray(points, points.length);</span><br><span class="line">    body2.CreateFixture(fixtureDef2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建接合点连接body1和body2</span></span><br><span class="line">    <span class="keyword">var</span> jointDef = <span class="keyword">new</span> b2RevoluteJointDef;</span><br><span class="line">    <span class="keyword">var</span> jointCenter = <span class="keyword">new</span> b2Vec2(<span class="number">470</span>/scale, <span class="number">50</span>/scale);</span><br><span class="line"></span><br><span class="line">    jointDef.Initialize(body1, body2, jointCenter);</span><br><span class="line">    world.CreateJoint(jointDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建具有自定义属性的物体">创建具有自定义属性的物体</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> specialBody;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSpecialBody</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bodyDef = <span class="keyword">new</span> b2BodyDef;</span><br><span class="line">    bodyDef.type = b2Body.b2_dynamicBody;</span><br><span class="line">    bodyDef.position.x = <span class="number">450</span>/scale;</span><br><span class="line">    bodyDef.position.y = <span class="number">0</span>/scale;</span><br><span class="line"></span><br><span class="line">    specialBody = world.CreateBody(bodyDef);</span><br><span class="line">    specialBody.SetUserData(&#123; name:<span class="string">"special"</span>,life:<span class="number">250</span> &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建第一个载具并为物体添加圆形状</span></span><br><span class="line">    <span class="keyword">var</span> fixtureDef = <span class="keyword">new</span> b2FixtureDef;</span><br><span class="line">    fixtureDef.density = <span class="number">1.0</span>;</span><br><span class="line">    fixtureDef.friction = <span class="number">0.5</span>;</span><br><span class="line">    fixtureDef.restitution = <span class="number">0.5</span>;</span><br><span class="line"></span><br><span class="line">    fixtureDef.shape = <span class="keyword">new</span> b2CircleShape(<span class="number">30</span>/scale);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fixture = specialBody.CreateFixture(fixtureDef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="追踪碰撞与损坏">追踪碰撞与损坏</h1><h2 id="接触监听器">接触监听器</h2><h2 id="绘制角色">绘制角色</h2><h1 id="小结">小结</h1>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/webAudio/">webAudio</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Box2D/">Box2D</a><a href="/tags/js/">js</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/07/22/xana教你速成Box2D(二)/" data-title="xana教你速成Box2D(二) | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/07/21/xana教你速成Box2D(一)/"  title="xana教你速成Box2D(一)">
+ <strong>下一篇：</strong><br/> 
+ <span>xana教你速成Box2D(一)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更多的Box2D元素"><span class="toc-number">1.</span> <span class="toc-text">更多的Box2D元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建矩形物体"><span class="toc-number">1.1.</span> <span class="toc-text">创建矩形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建圆形物体"><span class="toc-number">1.2.</span> <span class="toc-text">创建圆形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建多边形物体"><span class="toc-number">1.3.</span> <span class="toc-text">创建多边形物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建多种形状的复杂物体"><span class="toc-number">1.4.</span> <span class="toc-text">创建多种形状的复杂物体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接物体的接合点"><span class="toc-number">1.5.</span> <span class="toc-text">连接物体的接合点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建具有自定义属性的物体"><span class="toc-number">1.6.</span> <span class="toc-text">创建具有自定义属性的物体</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#追踪碰撞与损坏"><span class="toc-number">2.</span> <span class="toc-text">追踪碰撞与损坏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#接触监听器"><span class="toc-number">2.1.</span> <span class="toc-text">接触监听器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制角色"><span class="toc-number">2.2.</span> <span class="toc-text">绘制角色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

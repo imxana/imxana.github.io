@@ -4,52 +4,40 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>xana教你用vim | Xana&#39;s Blog</title>
+    <title>xana教你用vim | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="Xana">
+    <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+    <meta name="description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。理解了这些，你就学会了游泳能较为熟练的使用vim，并且再也不想碰其他的编辑器。
+环境配置$ brew uninstall esmac
+首先是
+菜鸟级用vim打开文件进入对于路径后
+$ vim FileName
+编辑默认命令模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xana教你用vim">
 <meta property="og:url" content="http://yoursite.com/2015/04/05/xana教你用vim/index.html">
-<meta property="og:site_name" content="Xana's Blog">
-<meta property="og:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。理解了这些，你就学会了游泳能较为熟练的使用vim，并且再也不想碰其他的编辑器。
+环境配置$ brew uninstall esmac
+首先是
+菜鸟级用vim打开文件进入对于路径后
+$ vim FileName
+编辑默认命令模式">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xana教你用vim">
-<meta name="twitter:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。度娘如是说。
-1、打开vim建立文档
-$ vim
-打开文档
-$ vim Filename
-2、插入进入vim默认命令模式，输入下列指令进入编辑模式
-i    光标处输入
-a    光标后输入    
-o    回车并输入
-O">
+<meta name="twitter:description" content="有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，被水淹没，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。理解了这些，你就学会了游泳能较为熟练的使用vim，并且再也不想碰其他的编辑器。
+环境配置$ brew uninstall esmac
+首先是
+菜鸟级用vim打开文件进入对于路径后
+$ vim FileName
+编辑默认命令模式">
 
     
-    <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/xana.ico">
@@ -67,10 +55,10 @@ O">
 <div>
 		
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Xana&#39;s Blog">Xana&#39;s Blog</a></h1>
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">关注大数据与可视化</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -106,41 +94,69 @@ O">
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-05T12:50:12.000Z" itemprop="datePublished"> 發表於 2015-04-05</time>
+    <time datetime="2015-04-05T12:50:12.000Z" itemprop="datePublished"> 发表于 2015-04-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、打开vim"><span class="toc-number">1.</span> <span class="toc-text">1、打开vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、插入"><span class="toc-number">2.</span> <span class="toc-text">2、插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、保存"><span class="toc-number">3.</span> <span class="toc-text">3、保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、退出"><span class="toc-number">4.</span> <span class="toc-text">4、退出</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#菜鸟级"><span class="toc-number">2.</span> <span class="toc-text">菜鸟级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用vim打开文件"><span class="toc-number">2.1.</span> <span class="toc-text">用vim打开文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑"><span class="toc-number">2.2.</span> <span class="toc-text">编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存"><span class="toc-number">2.3.</span> <span class="toc-text">保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#退出"><span class="toc-number">2.4.</span> <span class="toc-text">退出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通级"><span class="toc-number">3.</span> <span class="toc-text">普通级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方向操作"><span class="toc-number">3.1.</span> <span class="toc-text">方向操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XCV操作"><span class="toc-number">3.2.</span> <span class="toc-text">XCV操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进阶级"><span class="toc-number">4.</span> <span class="toc-text">进阶级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些个人总结的。"><span class="toc-number">4.1.</span> <span class="toc-text">一些个人总结的。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim改造后"><span class="toc-number">4.2.</span> <span class="toc-text">vim改造后</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，<del>被水淹没</del>，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。<del>度娘如是说</del>。</p>
-<h3 id="1、打开vim">1、打开vim</h3><p>建立文档</p>
-<pre><code><span class="variable">$ </span>vim
-</code></pre><p>打开文档</p>
-<pre><code><span class="variable">$ </span>vim <span class="constant">Filename</span>
-</code></pre><h3 id="2、插入">2、插入</h3><p>进入vim默认命令模式，输入下列指令进入编辑模式</p>
+		<p>有很多小朋友在实际编程过程中时不时会遇到vim编辑，但是初次使用还是会一头雾水，不知所措，<del>被水淹没</del>，所以学习vim要首先过2关。第一关是理解vim的设计思路，第二关是命令关。理解了这些，你就<del>学会了游泳</del>能较为熟练的使用vim，并且再也不想碰其他的编辑器。</p>
+<h1 id="环境配置">环境配置</h1><pre><code><span class="variable">$ </span>brew uninstall esmac
+</code></pre><p>首先是</p>
+<h1 id="菜鸟级">菜鸟级</h1><h2 id="用vim打开文件">用vim打开文件</h2><p>进入对于路径后</p>
+<pre><code><span class="variable">$ </span>vim <span class="constant">FileName</span>
+</code></pre><h2 id="编辑">编辑</h2><p>默认命令模式，输入下列指令进入编辑模式</p>
 <pre><code><span class="tag">i</span>    光标处输入
-<span class="tag">a</span>    光标后输入    
-o    回车并输入
-O    标上方新增一行并输入
-</code></pre><h3 id="3、保存">3、保存</h3><p>按esc进入命令模式，对未命名文档进行保存</p>
-<pre><code><span class="pseudo">:w</span> <span class="tag">FileName</span>
-</code></pre><p>已命名直接保存</p>
+</code></pre><p>按ESC重新回到命令模式</p>
+<h2 id="保存">保存</h2><p>命令模式下</p>
 <pre><code><span class="attribute">:w</span>
-</code></pre><h3 id="4、退出">4、退出</h3><pre><code>:<span class="tag">q</span>        此时会提示是否保存
-</code></pre><p>不保存直接退出</p>
-<pre><code><span class="attribute">:q!</span>
-</code></pre><p>保存并退出</p>
-<pre><code><span class="attribute">:wq</span>
+</code></pre><h2 id="退出">退出</h2><p>命令模式下</p>
+<pre><code><span class="pseudo">:q</span>!    不保存直接退出
+<span class="pseudo">:wq</span>    保存并退出
+</code></pre><p>——————————————————————-7.11 更新——————————————————————</p>
+<h1 id="普通级">普通级</h1><h2 id="方向操作">方向操作</h2><pre><code><span class="title">jk</span> 下上
+hl 左右
+</code></pre><p>我只能说去适应它</p>
+<h2 id="XCV操作">XCV操作</h2><p>有一点要记住，vim里的所有删除操作，都是把文本放入剪切板。<del>道理我都懂，但是剪切键是哪个（打死）</del></p>
+<p>命令模式下</p>
+<pre><code>x     删除光标处的文本
+s     删除光标处文本并进入Insert模式
+<span class="tag">dd</span>    删除当前行
+yy    复制当前行
+<span class="tag">p</span>     回车并粘贴
+P     粘贴（更常用）
+</code></pre><p>按v进入Visual模式    ，在Visual模式下使用hjkl选择文本（当然觉得箭头方便也可，怎么爽怎么来，<del>尼玛反人类啊</del>）</p>
+<p>选择文本后，可以进行下面处理</p>
+<pre><code><span class="keyword">d</span>     删除
+y     复制
+&lt;     shift+<span class="keyword">tab</span>
+&gt;     <span class="keyword">tab</span>
+</code></pre><p>——————————————————————-华丽的进阶线——————————————————————</p>
+<h1 id="进阶级">进阶级</h1><h2 id="一些个人总结的。">一些个人总结的。</h2><p>1.想在行末继续输入</p>
+<pre><code>$ 光标定位行末
+<span class="tag">a</span> 在光标后输入
+</code></pre><p>2.删除10行</p>
+<pre><code>10<span class="pseudo">dd</span> 
+</code></pre><p>3.查找文本，以高亮显示</p>
+<pre><code>/你要找的文本
+</code></pre><p><del>（取消高亮/asdfjasdklfj）</del></p>
+<p>4.反括号</p>
+<pre><code>(    括号对
+<span class="keyword">delete</span>    删除左括号
+</code></pre><h2 id="vim改造后">vim改造后</h2><pre><code>:NERDTree    文档树
+t        在标签页打开
+<span class="keyword">control</span>+n    切换到下一个标签页
+<span class="keyword">control</span>+p    切换到上一个标签页
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -163,7 +179,7 @@ O    标上方新增一行并输入
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/05/xana教你用vim/" data-title="xana教你用vim | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/04/05/xana教你用vim/" data-title="xana教你用vim | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -198,22 +214,22 @@ O    标上方新增一行并输入
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、打开vim"><span class="toc-number">1.</span> <span class="toc-text">1、打开vim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、插入"><span class="toc-number">2.</span> <span class="toc-text">2、插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、保存"><span class="toc-number">3.</span> <span class="toc-text">3、保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、退出"><span class="toc-number">4.</span> <span class="toc-text">4、退出</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#菜鸟级"><span class="toc-number">2.</span> <span class="toc-text">菜鸟级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用vim打开文件"><span class="toc-number">2.1.</span> <span class="toc-text">用vim打开文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑"><span class="toc-number">2.2.</span> <span class="toc-text">编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存"><span class="toc-number">2.3.</span> <span class="toc-text">保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#退出"><span class="toc-number">2.4.</span> <span class="toc-text">退出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通级"><span class="toc-number">3.</span> <span class="toc-text">普通级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方向操作"><span class="toc-number">3.1.</span> <span class="toc-text">方向操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XCV操作"><span class="toc-number">3.2.</span> <span class="toc-text">XCV操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进阶级"><span class="toc-number">4.</span> <span class="toc-text">进阶级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些个人总结的。"><span class="toc-number">4.1.</span> <span class="toc-text">一些个人总结的。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim改造后"><span class="toc-number">4.2.</span> <span class="toc-text">vim改造后</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -233,11 +249,11 @@ O    标上方新增一行并输入
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>2</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>3</sup></a></li>
 		  
 		
 		  
@@ -250,7 +266,7 @@ O    标上方新增一行并输入
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -258,11 +274,11 @@ O    标上方新增一行并输入
 			
 		
 			
-				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>8</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
 			
 		
 			
@@ -274,11 +290,15 @@ O    标上方新增一行并输入
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
@@ -298,7 +318,7 @@ O    标上方新增一行并输入
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -326,7 +346,7 @@ O    标上方新增一行并输入
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -371,7 +391,7 @@ O    标上方新增一行并输入
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
 		
-		<a href="/about" target="_blank" title="Xana">Xana</a>
+		<a href="/about" target="_blank" title="XANA">XANA</a>
 		
 		
 		</p>
@@ -531,7 +551,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

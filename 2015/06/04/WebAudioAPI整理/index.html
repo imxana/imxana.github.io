@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>WebAudioAPI整理 | Xana&#39;s Blog</title>
+    <title>WebAudioAPI整理 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="Xana">
+    <meta name="author" content="XANA">
     
 
     
@@ -18,7 +18,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebAudioAPI整理">
 <meta property="og:url" content="http://yoursite.com/2015/06/04/WebAudioAPI整理/index.html">
-<meta property="og:site_name" content="Xana's Blog">
+<meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="Forword自我娱乐，纯手工整理。然并卵。
 WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，可以理解为audio上下文对象。绝大多数情况下，一个document中只有一个AudioContext
 创建1var ac = new window.AudioContext();//(webkit,moz等兼容前缀)
@@ -32,7 +32,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 属性destination： Audi">
 
     
-    <link rel="alternative" href="/atom.xml" title="Xana&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/xana.ico">
@@ -50,10 +50,10 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 <div>
 		
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Xana&#39;s Blog">Xana&#39;s Blog</a></h1>
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">关注大数据与可视化</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -89,17 +89,17 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Xana" target="_blank" itemprop="author">Xana</a>
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-04T14:30:33.000Z" itemprop="datePublished"> 發表於 2015-06-04</time>
+    <time datetime="2015-06-04T14:30:33.000Z" itemprop="datePublished"> 发表于 2015-06-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioAPI"><span class="toc-number">2.</span> <span class="toc-text">WebAudioAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioContext"><span class="toc-number">2.1.</span> <span class="toc-text">AudioContext</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">2.1.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">2.1.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioBufferSourseNode"><span class="toc-number">2.2.</span> <span class="toc-text">AudioBufferSourseNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GainNode"><span class="toc-number">2.3.</span> <span class="toc-text">GainNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AnalyserNode"><span class="toc-number">2.4.</span> <span class="toc-text">AnalyserNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-3"><span class="toc-number">2.4.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-2"><span class="toc-number">2.4.3.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioImage"><span class="toc-number">3.</span> <span class="toc-text">WebAudioImage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">4.</span> <span class="toc-text">else</span></a></li></ol>
 		
@@ -168,7 +168,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/06/04/WebAudioAPI整理/" data-title="WebAudioAPI整理 | Xana&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/06/04/WebAudioAPI整理/" data-title="WebAudioAPI整理 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -203,22 +203,22 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioAPI"><span class="toc-number">2.</span> <span class="toc-text">WebAudioAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioContext"><span class="toc-number">2.1.</span> <span class="toc-text">AudioContext</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">2.1.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">2.1.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioBufferSourseNode"><span class="toc-number">2.2.</span> <span class="toc-text">AudioBufferSourseNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GainNode"><span class="toc-number">2.3.</span> <span class="toc-text">GainNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AnalyserNode"><span class="toc-number">2.4.</span> <span class="toc-text">AnalyserNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-3"><span class="toc-number">2.4.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-2"><span class="toc-number">2.4.3.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioImage"><span class="toc-number">3.</span> <span class="toc-text">WebAudioImage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">4.</span> <span class="toc-text">else</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -238,11 +238,11 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>2</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>3</sup></a></li>
 		  
 		
 		  
@@ -255,7 +255,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -263,11 +263,11 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 			
 		
 			
-				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>8</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
 			
 		
 			
@@ -279,11 +279,15 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
@@ -303,7 +307,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -331,7 +335,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -376,7 +380,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
 		
-		<a href="/about" target="_blank" title="Xana">Xana</a>
+		<a href="/about" target="_blank" title="XANA">XANA</a>
 		
 		
 		</p>
@@ -536,7 +540,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
