@@ -115,7 +115,7 @@
 <p>略微思考了一会，然后测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ins1() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//false</span></span><br><span class="line">ins2() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
 <p>到这里我马上明白，经过Array.prototype.slice.call处理带有length属性的对象之后，会返回一个数组的实例，这样就可以调用原本没有的Array的方法了，类似的String.prototype.slice.call同理。</p>
 <p>另外，就上面最初的那个函数而言，使用arguments也没问题，大丈夫萌大奶。</p>
-<p><del>BTW，Function.prototype.call方法理解起来实在太抽象，我每次看到都会慌慌的，dokidoki。</del></p>
+<p><del>BTW，Function.prototype.call方法理解起来实在太抽象，实质是改变this指向的对象，我每次看到都会慌慌的，dokidoki。</del></p>
   
 	</div>
 		<footer class="article-footer clearfix">
