@@ -1,0 +1,551 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>初识Phaser.js | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="基础能吃人
+
+无意义的碎碎念之前花了一周左右的时间细读了《Pro HTML5 Games》这本书的前5章，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。
+没有任何基础的情况下（纯原生canvas），当初做一个类东方游戏的时候，我是这样写的；总共近1k行，放个前一百行，你们体验一下：
+捂眼（瞎）1234567891011121">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Phaser.js">
+<meta property="og:url" content="http://yoursite.com/2015/08/03/初识Phaser-js/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="基础能吃人
+
+无意义的碎碎念之前花了一周左右的时间细读了《Pro HTML5 Games》这本书的前5章，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。
+没有任何基础的情况下（纯原生canvas），当初做一个类东方游戏的时候，我是这样写的；总共近1k行，放个前一百行，你们体验一下：
+捂眼（瞎）1234567891011121">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识Phaser.js">
+<meta name="twitter:description" content="基础能吃人
+
+无意义的碎碎念之前花了一周左右的时间细读了《Pro HTML5 Games》这本书的前5章，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。
+没有任何基础的情况下（纯原生canvas），当初做一个类东方游戏的时候，我是这样写的；总共近1k行，放个前一百行，你们体验一下：
+捂眼（瞎）1234567891011121">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">关注大数据与可视化</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/03/初识Phaser-js/" title="初识Phaser.js" itemprop="url">初识Phaser.js</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-03T12:59:58.000Z" itemprop="datePublished"> 發表於 2015-08-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无意义的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">无意义的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的安全问题"><span class="toc-number">2.</span> <span class="toc-text">头疼的安全问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伪·正片"><span class="toc-number">3.</span> <span class="toc-text">伪·正片</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>基础能吃人</p>
+</blockquote>
+<h1 id="无意义的碎碎念">无意义的碎碎念</h1><p>之前花了一周左右的时间细读了《Pro HTML5 Games》这本书<del>的前5章</del>，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。</p>
+<p>没有任何基础的情况下（纯原生canvas），当初做一个类东方游戏的时候，我是这样写的；总共近1k行，放个前一百行，你们体验一下：</p>
+<p>捂眼（瞎）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// game.js</span></span><br><span class="line"><span class="keyword">var</span> canvas,</span><br><span class="line">	ctx,</span><br><span class="line">	w,</span><br><span class="line">	h,</span><br><span class="line">	bgPIC = <span class="keyword">new</span> Image(),</span><br><span class="line">	picLoc,</span><br><span class="line">	picSpeed = <span class="number">0.2</span>;</span><br><span class="line"><span class="comment">//load the background</span></span><br><span class="line">bgPIC.src = <span class="string">"./img/bg.png"</span>;</span><br><span class="line"><span class="comment">//console.log(bgPIC.src)</span></span><br><span class="line"></span><br><span class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"load"</span>, start);</span><br><span class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"keydown"</span>, key_down)</span><br><span class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"keyup"</span>, key_up)</span><br><span class="line"></span><br><span class="line"><span class="comment">//the game</span></span><br><span class="line"><span class="keyword">var</span> gameover = <span class="literal">false</span>,</span><br><span class="line">	score = <span class="number">0</span>,</span><br><span class="line">	Fscore = <span class="number">0</span>,</span><br><span class="line">	scoreL = <span class="literal">true</span>,</span><br><span class="line">	edgeScore = <span class="number">5</span>,</span><br><span class="line">	sScore = <span class="number">200</span>,</span><br><span class="line">	mScore = <span class="number">500</span>,</span><br><span class="line">	backgroundColor = <span class="string">"rgb(235,0,0)"</span>,</span><br><span class="line">	menuColor = <span class="string">"rgb(30, 30 ,100)"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//your role</span></span><br><span class="line"><span class="keyword">var</span> ballinit = &#123;</span><br><span class="line">	x : <span class="number">150</span>, </span><br><span class="line">	y : <span class="number">300</span>,</span><br><span class="line">	r : <span class="number">4</span>,</span><br><span class="line">	vx : <span class="number">0</span>,</span><br><span class="line">	vy : <span class="number">0</span>,</span><br><span class="line">	v : <span class="number">5</span>,	<span class="comment">//temp speed</span></span><br><span class="line">	sv : <span class="number">2</span>,	<span class="comment">//slow speed</span></span><br><span class="line">	nv : <span class="number">5</span>, <span class="comment">//normal speed</span></span><br><span class="line">	rate : <span class="number">2.5</span>,	<span class="comment">// nv/sv</span></span><br><span class="line">	color : <span class="string">"rgba(255,0,0,1)"</span>,</span><br><span class="line">	isSlow : <span class="literal">false</span>,</span><br><span class="line">	isProtected : <span class="literal">false</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//to get the copyright</span></span><br><span class="line"><span class="keyword">var</span> ball = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> pro <span class="keyword">in</span> ballinit)&#123;ball[pro] = ballinit[pro];&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//myThings</span></span><br><span class="line"><span class="keyword">var</span> lifeLeft = <span class="number">2</span>,</span><br><span class="line">	bombsinit = <span class="number">3</span>,</span><br><span class="line">	bombsLeft = <span class="number">3</span>,</span><br><span class="line">	bullets = [],</span><br><span class="line">	bombs = [],</span><br><span class="line">	bombAvai = <span class="literal">true</span>,</span><br><span class="line">	bombCD = <span class="number">5000</span>,</span><br><span class="line">	protectTime = <span class="number">2000</span>;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="comment">//enemyThings</span></span><br><span class="line"><span class="keyword">var</span> enemyBullet = [],</span><br><span class="line">	enemis = [],</span><br><span class="line">	levelupCD = <span class="number">30000</span>,</span><br><span class="line">	levelNum = <span class="number">0</span>,</span><br><span class="line">	level = &#123;</span><br><span class="line">		dayuT : <span class="number">3000</span>,</span><br><span class="line">		zhongyuT : <span class="number">2000</span>,</span><br><span class="line">		EST : <span class="number">1000</span>,</span><br><span class="line">		EMT : <span class="number">2000</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">	ts1,ts2,ts3,ts4,ts5,ts6,levelup;</span><br><span class="line"></span><br><span class="line"><span class="comment">//check the key</span></span><br><span class="line"><span class="keyword">var</span> isDowninit = &#123;</span><br><span class="line">	up : <span class="literal">false</span>,</span><br><span class="line">	down : <span class="literal">false</span>,</span><br><span class="line">	left : <span class="literal">false</span>,</span><br><span class="line">	right : <span class="literal">false</span>,</span><br><span class="line">	item : <span class="literal">false</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//getthe copyof isDown</span></span><br><span class="line"><span class="keyword">var</span> isDown = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> pro <span class="keyword">in</span> isDowninit)&#123;isDown[pro] = isDowninit[pro]&#125;;</span><br><span class="line">isDown.shoot = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line">	ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line">	canvas.width = <span class="number">500</span></span><br><span class="line">	canvas.height = <span class="number">400</span></span><br><span class="line">	w = canvas.width - <span class="number">200</span></span><br><span class="line">	h = canvas.height</span><br><span class="line">	picLoc=bgPIC.height-bgPIC.width*h/w</span><br><span class="line">	<span class="comment">//isProtected()	//init protect</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> ts1 = setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;		</span><br><span class="line">		update(ball)</span><br><span class="line">		render(ball, ctx)</span><br><span class="line">	&#125;, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> ts2 = setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//quadra shot</span></span><br><span class="line">		<span class="keyword">if</span>(isDown.shoot)&#123;</span><br><span class="line">			<span class="keyword">if</span>(ball.isSlow)&#123;</span><br><span class="line">				bullets.push(</span><br><span class="line">					bullet(&#123;swing:<span class="number">0.3</span>,dx:<span class="number">4</span>,dy:-<span class="number">3</span>&#125;), </span><br><span class="line">					bullet(&#123;swing:-<span class="number">0.3</span>,dx:-<span class="number">4</span>,dy:-<span class="number">3</span>&#125;),</span><br><span class="line">					bullet(&#123;swing:<span class="number">1</span>,dx:<span class="number">10</span>,dy:<span class="number">5</span>&#125;),</span><br><span class="line">					bullet(&#123;swing:-<span class="number">1</span>,dx:-<span class="number">10</span>,dy:<span class="number">5</span>&#125;)</span><br><span class="line">				);</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				bullets.push(</span><br><span class="line">					bullet(&#123;swing:<span class="number">2</span>,dx:<span class="number">7</span>,dy:-<span class="number">3</span>&#125;), </span><br><span class="line">					bullet(&#123;swing:-<span class="number">2</span>,dx:-<span class="number">7</span>,dy:-<span class="number">3</span>&#125;),</span><br><span class="line">					bullet(&#123;swing:<span class="number">6</span>,dx:<span class="number">15</span>,dy:<span class="number">20</span>&#125;),</span><br><span class="line">					bullet(&#123;swing:-<span class="number">6</span>,dx:-<span class="number">15</span>,dy:<span class="number">20</span>&#125;)</span><br><span class="line">				);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;, <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">	IntervalStart()</span><br><span class="line"></span><br><span class="line">	levelup = setInterval(levelUP, levelupCD)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>举个例子。<br>一个场景对象state，我们要创建它，初始化它，更新它，渲染它，我们就不应该凌乱的陈列函数，应该用对象或是方法去封装它们比如这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state = &#123;</span><br><span class="line">    create: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;,</span><br><span class="line">    init:  <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;,</span><br><span class="line">    update:  <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不过我更推荐下面这个构造函数（慎用）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">state</span> <span class="params">()</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.create = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.init = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.update = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.render = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一些零碎而重要的全局变量和参数，也应该封装：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> game = &#123;</span><br><span class="line">    ctx: Document.getElementById(<span class="string">"canvas"</span>).getContext(<span class="string">'2d'</span>),</span><br><span class="line">    </span><br><span class="line">    init: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;,</span><br><span class="line">    <span class="comment">// sth else</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> box2d = &#123;</span><br><span class="line">    scale: <span class="number">30</span>,</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// else...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样说可能让人更凌乱了。但是不管一个HTML游戏怎么变，都可以归于几个模块（以angry bird为例）：</p>
+<ul>
+<li><p>最开头的自执行函数<br>用于某些无法解释的黑科技。</p>
+</li>
+<li><p>game对象<br>包含其他对象的初始化，DOM的操作判断，背景音乐的判断控制，游戏的进程管理控制，动画的数据更新与渲染器管理，<del>以及其他不会分类的变量与方法</del>。</p>
+</li>
+<li><p>levels对象<br>用于存放每一关的数据，包括音乐图片敌人数据以及它们的初始化方法和加载的方法。</p>
+</li>
+<li><p>entities对象<br>存放每一种敌人或互动物体的详细信息，和创建它们时“数形结合”的方法。</p>
+</li>
+<li><p>box2d对象<br>具体的物理引擎的内部方法的简化与具体实现。</p>
+</li>
+<li><p>loader对象<br>加载器，所有的音乐图片加载统一用这个对象里的的方法，包括浏览器的支持，加载与渲染的顺序问题等。</p>
+</li>
+<li><p>mouse对象<br>初始化鼠标操作的事件，监听移动，按下，放开等状态。</p>
+</li>
+</ul>
+<p>封装好以后，游戏就变成这样辣<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// game.js</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;...</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">$(<span class="built_in">window</span>).load(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    game.init();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基本的游戏对象</span></span><br><span class="line"><span class="keyword">var</span> game = &#123;...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关卡对象</span></span><br><span class="line"><span class="keyword">var</span> levels = &#123;...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有物体</span></span><br><span class="line"><span class="keyword">var</span> entities = &#123;...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Box2D世界对象</span></span><br><span class="line"><span class="keyword">var</span> box2d = &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图像声音资源加载器</span></span><br><span class="line"><span class="keyword">var</span> loader = &#123;...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标</span></span><br><span class="line"><span class="keyword">var</span> mouse = &#123;...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>是不是看的很爽！</p>
+<h1 id="头疼的安全问题">头疼的安全问题</h1><p>在涉及到webGL的时候，学习瓶颈的出现往往是代码OK的情况下，只要一出现drawImage，Safari抛出个”SecurityError”，Chrome抛出个”canvas tainted by cross-origin data”，解决无果，心灰意冷，放弃。</p>
+<p>今天要学习的Phaser也是一样，就好像好不容易看上挺好一妹子，谈不上话，心塞塞。英文文档看的很吃力，前辈们表示不会，心灰意冷。一个简单的图片移动的例子，十几行代码，就是跑不动。幸好把源码放到FF里时，它跑动了，在解决跨域资源问题之前，我先把火狐当祖宗一样供着吧！(拥抱ES6)</p>
+<h1 id="伪·正片">伪·正片</h1><p>我们来谈谈Phaser</p>
+<p>Phaser.js是一个游戏引擎，目前将要出Phaser3版本。它帮开发者造好了轮子，直接通过Phaser对象方法来完成游戏的开发。</p>
+<p>这个引擎说大不大，说小不小，近10w行代码，压缩后也还有700多kb。用这个引擎做的<a href="http://phaser.io" target="_blank" rel="external">游戏</a>很多，在js游戏引擎里它现在的排名是第一。我始终保持这个一个观点，<em>框架、引擎这种东西，永远是让你程序写得更舒服而存在的，如果它让你不舒服了，那就没有学的必要。</em></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Phaser/">Phaser</a><a href="/tags/js/">js</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/08/03/初识Phaser-js/" data-title="初识Phaser.js | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/07/22/xana教你速成Box2D(二)/"  title="xana教你速成Box2D(二)">
+ <strong>下一篇：</strong><br/> 
+ <span>xana教你速成Box2D(二)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无意义的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">无意义的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的安全问题"><span class="toc-number">2.</span> <span class="toc-text">头疼的安全问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伪·正片"><span class="toc-number">3.</span> <span class="toc-text">伪·正片</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
