@@ -4,37 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello Miku | XANA&#39;s Blog</title>
+    <title>A web server?But I want to make games! | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="Welcome to My Blog!!
-
-我是夏纳，欢迎光临我的博客!I’m XANA , follow me on&quot;imxana.github.io&quot; 
-or&quot;mikumiku.com.cn&quot;
-基于Hexo默认模板，GitHub服务器的博客，等我哪天有心情技术的时候就把这个样式改一改。
- Fork me on GitHub : imxana">
+    <meta name="description" content="By Richard Davey on 17th June 2014   @photonstorm
+In this tutorial we’re going to cover setting-up a development environment with which you can build your Phaser games. This will include running a loc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Miku">
-<meta property="og:url" content="http://yoursite.com/2015/04/01/hello-miku/index.html">
+<meta property="og:title" content="A web server?But I want to make games!">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/webServer/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="Welcome to My Blog!!
-
-我是夏纳，欢迎光临我的博客!I’m XANA , follow me on&quot;imxana.github.io&quot; 
-or&quot;mikumiku.com.cn&quot;
-基于Hexo默认模板，GitHub服务器的博客，等我哪天有心情技术的时候就把这个样式改一改。
- Fork me on GitHub : imxana">
+<meta property="og:description" content="By Richard Davey on 17th June 2014   @photonstorm
+In this tutorial we’re going to cover setting-up a development environment with which you can build your Phaser games. This will include running a loc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Miku">
-<meta name="twitter:description" content="Welcome to My Blog!!
-
-我是夏纳，欢迎光临我的博客!I’m XANA , follow me on&quot;imxana.github.io&quot; 
-or&quot;mikumiku.com.cn&quot;
-基于Hexo默认模板，GitHub服务器的博客，等我哪天有心情技术的时候就把这个样式改一改。
- Fork me on GitHub : imxana">
+<meta name="twitter:title" content="A web server?But I want to make games!">
+<meta name="twitter:description" content="By Richard Davey on 17th June 2014   @photonstorm
+In this tutorial we’re going to cover setting-up a development environment with which you can build your Phaser games. This will include running a loc">
 
     
     <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
@@ -90,47 +78,46 @@ or&quot;mikumiku.com.cn&quot;
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/01/hello-miku/" title="Hello Miku" itemprop="url">Hello Miku</a>
+      <a href="/2015/08/21/webServer/" title="A web server?But I want to make games!" itemprop="url">A web server?But I want to make games!</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-01T13:39:04.000Z" itemprop="datePublished"> 發表於 2015-04-01</time>
+    <time datetime="2015-08-21T08:54:52.000Z" itemprop="datePublished"> 發表於 2015-08-21</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我是夏纳，欢迎光临我的博客!"><span class="toc-number">1.</span> <span class="toc-text">我是夏纳，欢迎光临我的博客!</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I’m_XANA_,_follow_me_on"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">I’m XANA , follow me on</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#or"><span class="toc-number">1.1.</span> <span class="toc-text">or</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<blockquote>
-<p><em>Welcome to My Blog!!</em></p>
+		<p>By Richard Davey on 17th June 2014   @photonstorm</p>
+<p>In this tutorial we’re going to cover setting-up a development environment with which you can build your Phaser games. This will include running a local web server, picking an IDE, getting the latest version of Phaser and checking it all works together.</p>
+<p>If you trust us that you do need a local web server for development, then you can skip the explanation below and head directly to part 2.</p>
+<p>If you’d like to know the reasoning why, please read on …</p>
+<h3 id="A_web_server?_But_I_want_to_make_games!"><strong>A web server? But I want to make games!</strong></h3><blockquote>
+<p><em>“Why do I need a local web server? Can’t I just drag the html files onto my browser?”</em></p>
 </blockquote>
-<h1 id="我是夏纳，欢迎光临我的博客!"><em>我是夏纳，欢迎光临我的博客!</em></h1><h4 id="I’m_XANA_,_follow_me_on">I’m <a href="http://mikumiku.com.cn" target="_blank" rel="external">XANA</a> , follow me on</h4><pre><code><span class="string">"imxana.github.io"</span> 
-</code></pre><h2 id="or">or</h2><pre><code><span class="string">"mikumiku.com.cn"</span>
-</code></pre><p>基于Hexo默认模板，GitHub服务器的博客，等我哪天有心情<del>技术</del>的时候就把这个样式改一改。</p>
-<p> Fork me on GitHub : <a href="https://github.com/imxana" target="_blank" rel="external">imxana</a></p>
+<p align="right"><strong>—A. SANE, DEVELOPER</strong></p>
+
+
+<p>Not these days, no. I appreciate that it’s a bit confusing, even contradictory at times, but it all boils down to browser security. If you’re making a static html web page then you can happily drag this file into your browser and see the end results. You can also “Save As” entire web pages locally and re-open them with most the contents intact. If both of these things work why can’t you drag an HTML5 game into a browser and run it?</p>
+<p>It’s to do with the protocol used to access the files. When you request anything over the web you’re using <code>http</code>, and the server level security is enough to ensure you can only access files you’re meant to. But when you drag a file in it’s loaded via the local file system (technically <code>file://</code>) and that is massively restricted, for obvious reasons. Under <code>file://</code> there’s no concept of domains, no server level security, just a raw file system.</p>
+<p>Ask yourself this: do you really want JavaScript to have the ability to load files from anywhere on your local file system?</p>
+<p>Your immediate answer should of course be “not in a million years!”. If JavaScript had free reign while operating under <code>file://</code> there would be nothing stopping it loading pretty much any file, and sending it off who knows where.</p>
+<p>Because this is so dangerous browsers lock themselves down tighter than Alcatraz when running under <code>file://</code>. Every single page becomes treated as a unique local domain. That is why “Save Web page” works, to a degree. It opens under the same cross-site restrictions as if they were on a live server.</p>
+<p>There’s a detailed post about it on the Chromium blog that is well worth a read if you’d like to learn more.</p>
+<p>Your game is going to need to load resources: images, audio files, JSON data, maybe other JavaScript files. And in order to do this it needs to run unhindered by the browser security shackles. It needs <code>http://</code> access to the game files. And for that we need a web server.</p>
+<p>original text: Phaser Intro <a href="http://phaser.io/tutorials/getting-started/part2" target="_blank" rel="external">Part 1</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Others/">Others</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Others/">Others</a>
+  <span></span> <a href="/tags/js/">js</a>
   </div>
 
 </div>
@@ -139,7 +126,7 @@ or&quot;mikumiku.com.cn&quot;
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/01/hello-miku/" data-title="Hello Miku | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/21/webServer/" data-title="A web server?But I want to make games! | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,14 +139,14 @@ or&quot;mikumiku.com.cn&quot;
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/02/xana教你用markdown/" title="xana教你用markdown">
-  <strong>上一篇：</strong><br/>
-  <span>
-  xana教你用markdown</span>
+
+<div class="next">
+<a href="/2015/08/03/初识Phaser-js/"  title="初识Phaser.js">
+ <strong>下一篇：</strong><br/> 
+ <span>初识Phaser.js
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -167,13 +154,6 @@ or&quot;mikumiku.com.cn&quot;
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我是夏纳，欢迎光临我的博客!"><span class="toc-number">1.</span> <span class="toc-text">我是夏纳，欢迎光临我的博客!</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I’m_XANA_,_follow_me_on"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">I’m XANA , follow me on</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#or"><span class="toc-number">1.1.</span> <span class="toc-text">or</span></a></li></ol></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
@@ -396,8 +376,6 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
