@@ -11,49 +11,34 @@
     
 
     
-    <meta name="description" content="Processing!!
+    <meta name="description" content="Processing Demo
 
 
 
 function sketchProc(processing) {
-  var color1 = 0;
-  var abox = 125;
-  var bbox = 75;
-  var cbox = 30.0;
-  var value = &quot;Created by Xana&quot;;
-  var dbox = 60;
-  processing.setup = functio">
+  var color1 = 0,abox = 125, bbox = 75,cbox = 30.0,value = &quot;Created by Xana&quot;,dbox = 60;
+  processing.setup = function () {processing.size(400, 400,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我在geekLub上的自我介绍">
 <meta property="og:url" content="http://yoursite.com/2015/04/19/我在geekLub上的自我介绍/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="Processing!!
+<meta property="og:description" content="Processing Demo
 
 
 
 function sketchProc(processing) {
-  var color1 = 0;
-  var abox = 125;
-  var bbox = 75;
-  var cbox = 30.0;
-  var value = &quot;Created by Xana&quot;;
-  var dbox = 60;
-  processing.setup = functio">
-<meta property="og:image" content="http://7xje08.com1.z0.glb.clouddn.com/miku.jpg">
+  var color1 = 0,abox = 125, bbox = 75,cbox = 30.0,value = &quot;Created by Xana&quot;,dbox = 60;
+  processing.setup = function () {processing.size(400, 400,">
+<meta property="og:image" content="http://7xkzbr.com1.z0.glb.clouddn.com/coding/GeeKlub/avatar/miku.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我在geekLub上的自我介绍">
-<meta name="twitter:description" content="Processing!!
+<meta name="twitter:description" content="Processing Demo
 
 
 
 function sketchProc(processing) {
-  var color1 = 0;
-  var abox = 125;
-  var bbox = 75;
-  var cbox = 30.0;
-  var value = &quot;Created by Xana&quot;;
-  var dbox = 60;
-  processing.setup = functio">
+  var color1 = 0,abox = 125, bbox = 75,cbox = 30.0,value = &quot;Created by Xana&quot;,dbox = 60;
+  processing.setup = function () {processing.size(400, 400,">
 
     
     <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
@@ -125,100 +110,37 @@ function sketchProc(processing) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing!!"><span class="toc-number">1.</span> <span class="toc-text">Processing!!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XANA"><span class="toc-number">2.</span> <span class="toc-text">XANA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imformation"><span class="toc-number">3.</span> <span class="toc-text">Imformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Study"><span class="toc-number">4.</span> <span class="toc-text">Study</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contact"><span class="toc-number">5.</span> <span class="toc-text">Contact</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing_Demo"><span class="toc-number">1.</span> <span class="toc-text">Processing Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XANA"><span class="toc-number">2.</span> <span class="toc-text">XANA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imformation"><span class="toc-number">3.</span> <span class="toc-text">Imformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Study"><span class="toc-number">4.</span> <span class="toc-text">Study</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contact"><span class="toc-number">5.</span> <span class="toc-text">Contact</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Processing!!">Processing!!</h2><hr>
+		<h2 id="Processing_Demo">Processing Demo</h2><hr>
 <script src="https://coding.net/u/xana/p/yinyong/git/raw/master/processing.js"></script>
 <canvas id="canvas1"></canvas>
 <script id="script1" type="text/javascript">
 function sketchProc(processing) {
-  var color1 = 0;
-  var abox = 125;
-  var bbox = 75;
-  var cbox = 30.0;
-  var value = "Created by Xana";
-  var dbox = 60;
-  processing.setup = function () {
-      processing.size(400, 400, processing.P3D);
-      processing.noFill();
-      processing.smooth();
-  }
-  processing.draw = function() {
-      if (processing.mousePressed == true) { processing.background(0); } 
-      else{ processing.background(255); };
+  var color1 = 0,abox = 125, bbox = 75,cbox = 30.0,value = "Created by Xana",dbox = 60;
+  processing.setup = function () {processing.size(400, 400, processing.P3D);processing.noFill();processing.smooth();}
+  processing.draw = function() {if (processing.mousePressed == true){processing.background(0); } else{ processing.background(255); };
       processing.translate(processing.width/2, processing.height/2, -(processing.width/2));    //在中心绘图
       processing.rotateY(processing.map(processing.mouseX, 0, processing.width, -Math.PI, Math.PI));    //水平旋转
-      processing.stroke(100);
-      processing.box(2*abox);
-      processing.textSize(25);
-    processing.text(value, abox, abox);
-
-        for(var i = -1;i<2;i+=2)
-          for(var j = -1;j<2;j+=2)
-              for(var k = -1; k<2; k+=2){
-                    processing.translate(abox*i, abox*j, abox*k);
-                    processing.box(abox/5);
-                    processing.translate(-abox*i, -abox*j, -abox*k);
-                }
-
+      processing.stroke(100);processing.box(2*abox);processing.textSize(25);    processing.text(value, abox, abox);
     processing.rotateX(processing.map(processing.mouseY, 0, processing.height, -Math.PI, Math.PI));    //竖直旋转
-    processing.stroke(150);
-      processing.box(2*bbox);                    //绘制立方体
-      for(var i = -1;i<2;i+=2)
-          for(var j = -1;j<2;j+=2)
-              for(var k = -1; k<2; k+=2){
-                  processing.translate(bbox*i, bbox*j, bbox*k);
-          processing.box(bbox/4);
-          processing.translate(-bbox*i, -bbox*j, -bbox*k);
-        }
-    processing.rotateZ(processing.map(-processing.mouseX, 0, processing.width, -Math.PI, Math.PI));
-    processing.strokeWeight(5);
-
-    if(dbox > 0 ){
-      processing.stroke(255)
-      processing.fill(0);
-    } else {
-      processing.stroke(0);
-      processing.fill(255);
-    }
-
-
-
-    processing.box(dbox);
-    processing.noFill();
-    processing.strokeWeight(1);
-  }
-    /*鼠标滚轮似乎出了点问题(web问题)
-    processing.mouseWheel = function(MouseEvent event) {
-      var e = event.getAmount();
-      println(e);
-
-      value += e;
-      println(value);
-    }
-    */
-
-}
-
-
-
-var canvas = document.getElementById("canvas1");
-var p = new Processing(canvas, sketchProc);
+    processing.stroke(150);      processing.box(2*bbox);                    //绘制立方体
+      processing.rotateZ(processing.map(-processing.mouseX, 0, processing.width, -Math.PI, Math.PI));processing.strokeWeight(5);if(dbox > 0 ){processing.stroke(255); processing.fill(0);} else {processing.stroke(0);processing.fill(255);}processing.box(dbox*(Math.random()*0.2+0.9));processing.noFill();processing.strokeWeight(1);}}var canvas = document.getElementById("canvas1");var p = new Processing(canvas, sketchProc);
 </script>
 
 <hr>
-<h2 id="XANA">XANA</h2><p><img src="http://7xje08.com1.z0.glb.clouddn.com/miku.jpg" alt=""><br><del>才不是随便找的一张</del></p>
+<h2 id="XANA">XANA</h2><p><img src="http://7xkzbr.com1.z0.glb.clouddn.com/coding/GeeKlub/avatar/miku.jpg" alt=""></p>
 <hr>
 <h2 id="Imformation">Imformation</h2><p>金云天/喜欢女孩子/14108417</p>
 <p>ID：xana/imxana/极黑的夏纳/<del>非常迷的同学</del>/<del>被miku掉的同学</del></p>
 <p>blog：<a href="http://mikumiku.com.cn" target="_blank" rel="external">mikumiku.com.cn</a></p>
 <p>GitHub：<a href="http://github.com/imxana" target="_blank" rel="external">github.com/imxana</a></p>
 <hr>
-<h2 id="Study">Study</h2><p>大数据与可视化<br>canvas<br>Processing<br>processing.js<br><del>口味很杂</del></p>
+<h2 id="Study">Study</h2><p>JavaScript<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Y88b   d88P       d8888888b    888       d8888 </span><br><span class="line"> Y88b d88P       d888888888b   888      d88888 </span><br><span class="line">  Y88o88P       d88P88888888b  888     d88P888 </span><br><span class="line">   Y888P       d88P 888888Y88b 888    d88P 888 </span><br><span class="line">   d888b      d88P  888888 Y88b888   d88P  888 </span><br><span class="line">  d88888b    d88P   888888  Y88888  d88P   888 </span><br><span class="line"> d88P Y88b  d8888888888888   Y8888 d8888888888 </span><br><span class="line">d88P   Y88bd88P     888888    Y888d88P     888 </span><br><span class="line">                                               </span><br><span class="line">                                               </span><br><span class="line">                                               </span><br><span class="line"> .d8888b.        d8888888b     d8888888888888 .d8888b.  </span><br><span class="line">d88P  Y88b      d888888888b   d8888888       d88P  Y88b </span><br><span class="line">888    888     d88P88888888b.d88888888       Y88b.      </span><br><span class="line">888           d88P 888888Y88888P8888888888    "Y888b.   </span><br><span class="line">888  88888   d88P  888888 Y888P 888888           "Y88b. </span><br><span class="line">888    888  d88P   888888  Y8P  888888             "888 </span><br><span class="line">Y88b  d88P d8888888888888   "   888888       Y88b  d88P </span><br><span class="line"> "Y8888P88d88P     888888       8888888888888 "Y8888P"</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="Contact">Contact</h2><p>QQ：243582060<br>邮箱：<del>imxana@foxmail.com听说用qq邮箱会被鄙视</del></p>
+<h2 id="Contact">Contact</h2><p>QQ：243582060<br>Email：imxana@foxmail.com</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -281,7 +203,7 @@ var p = new Processing(canvas, sketchProc);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing!!"><span class="toc-number">1.</span> <span class="toc-text">Processing!!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XANA"><span class="toc-number">2.</span> <span class="toc-text">XANA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imformation"><span class="toc-number">3.</span> <span class="toc-text">Imformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Study"><span class="toc-number">4.</span> <span class="toc-text">Study</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contact"><span class="toc-number">5.</span> <span class="toc-text">Contact</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing_Demo"><span class="toc-number">1.</span> <span class="toc-text">Processing Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XANA"><span class="toc-number">2.</span> <span class="toc-text">XANA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imformation"><span class="toc-number">3.</span> <span class="toc-text">Imformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Study"><span class="toc-number">4.</span> <span class="toc-text">Study</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contact"><span class="toc-number">5.</span> <span class="toc-text">Contact</span></a></li></ol>
  
   </div>
 

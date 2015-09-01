@@ -21,6 +21,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 <meta property="og:description" content="刚刚回到学校，整个人都不好了
 Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的思考过程。
 变量说明123touching.down			// 与下方物体接触 (boolean)cursor.up			// 方向键的上箭头 (Object)player.body.">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/nduantiao.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(一)实现多段跳(airJump)">
 <meta name="twitter:description" content="刚刚回到学校，整个人都不好了
@@ -102,7 +103,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 		</div>
 		
 		<p><del>刚刚回到学校，整个人都不好了</del></p>
-<h1 id="Forward">Forward</h1><p>一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的<code>思考过程</code>。</p>
+<h1 id="Forward">Forward</h1><p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/nduantiao.png" alt=""><br>一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的<code>思考过程</code>。</p>
 <h1 id="变量说明">变量说明</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touching.down			<span class="comment">// 与下方物体接触 (boolean)</span></span><br><span class="line">cursor.up			<span class="comment">// 方向键的上箭头 (Object)</span></span><br><span class="line">player.body.velocity.y		<span class="comment">// 玩家的y轴速度 (Number)</span></span><br></pre></td></tr></table></figure>
 <h1 id="实现基本跳跃">实现基本跳跃</h1><p>玩家的默认操作，与左右行走相同，都是放在update函数(即时更新函数)里的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( cursors.up.isDown &amp;&amp; player.body.touching.down ) </span><br><span class="line">&#123;</span><br><span class="line">  player.body.velocity.y = -<span class="number">500</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="特别说明">特别说明</h1><p>和东方类游戏的”shift”集中状态一样，所有的操作都是布尔状态量！<br>例如向左行走，就是打开了velocity.x=-100的开关，而不是触发一次position.x-=100，哪怕位移间隔再小也不行。一个原因是行为的流畅度，第二个原因是计算的需要。<br>跳跃也是如此，cursors.up.isDown是按下上箭头这个状态，对于我们后续的计算不利，所以我们用原生的事件方法，把跳跃变成事件，这样对于一次按键只会触发一次事件，直到松开按键。</p>
