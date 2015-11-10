@@ -1,0 +1,541 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>cli | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="写属于你的命令行(CLI)工具
+
+可执行文件我们在平时使用Linux和类Linux的终端时，一般对一些系统指令的使用觉得十分自然，比如查看当前目录下的文件：12/usr » ls                                                                          xana@localhostX11        X11R6      a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cli">
+<meta property="og:url" content="http://yoursite.com/2015/11/02/cli/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="写属于你的命令行(CLI)工具
+
+可执行文件我们在平时使用Linux和类Linux的终端时，一般对一些系统指令的使用觉得十分自然，比如查看当前目录下的文件：12/usr » ls                                                                          xana@localhostX11        X11R6      a">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cli">
+<meta name="twitter:description" content="写属于你的命令行(CLI)工具
+
+可执行文件我们在平时使用Linux和类Linux的终端时，一般对一些系统指令的使用觉得十分自然，比如查看当前目录下的文件：12/usr » ls                                                                          xana@localhostX11        X11R6      a">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Freedom is good</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/02/cli/" title="cli" itemprop="url">cli</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-02T07:58:31.000Z" itemprop="datePublished"> 發表於 2015-11-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#可执行文件"><span class="toc-number">1.</span> <span class="toc-text">可执行文件</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>写属于你的命令行(CLI)工具</p>
+</blockquote>
+<h1 id="可执行文件">可执行文件</h1><p>我们在平时使用Linux和类Linux的终端时，一般对一些系统指令的使用觉得十分自然，比如查看当前目录下的文件：<br><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr » ls                                                                          xana<span class="macrocall">@localhost</span></span><br><span class="line">X11        X11R6      adic       bin        lib        libexec    <span class="keyword">local</span>      sbin       share      standalone</span><br></pre></td></tr></table></figure></p>
+<p>一些非系统指令更是能让我们的操作如鱼得水。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/lua » tree                                                                          xana@localhost</span><br><span class="line">.</span><br><span class="line">├── a.lua</span><br><span class="line">├── b.lua</span><br><span class="line">├── f.lua</span><br><span class="line">├── for.lua</span><br><span class="line">├── hw.lua</span><br><span class="line">├── local.lua</span><br><span class="line">├── recursion.lua</span><br><span class="line">├── snake</span><br><span class="line">└── table.lua</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> directory, <span class="number">8</span> files</span><br></pre></td></tr></table></figure>
+<p>我们知道可以通过编译执行脚本文件<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/lua » lua hw.lua                                                                          xana@localhost</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
+<p>也可以通过改变文件权限把文件直接变成可执行文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/lua » chmod a+x hw<span class="class">.lua</span>                                                                  xana@localhost</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">~/Documents/lua » l                                                                                 xana@localhost</span><br><span class="line">total <span class="number">80</span></span><br><span class="line">drwxr-xr-x  <span class="number">12</span> xana  staff   <span class="number">408</span>B <span class="number">11</span>  <span class="number">2</span> <span class="number">16</span>:<span class="number">09</span> .</span><br><span class="line">drwx------+ <span class="number">42</span> xana  staff   <span class="number">1.4</span>K <span class="number">11</span>  <span class="number">2</span> <span class="number">11</span>:<span class="number">01</span> ..</span><br><span class="line">-rw-r--r--@  <span class="number">1</span> xana  staff   <span class="number">6.0</span>K  <span class="number">9</span> <span class="number">11</span> <span class="number">10</span>:<span class="number">33</span> <span class="class">.DS_Store</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">31</span>B  <span class="number">9</span> <span class="number">10</span> <span class="number">23</span>:<span class="number">34</span> <span class="tag">a</span><span class="class">.lua</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">34</span>B  <span class="number">9</span> <span class="number">10</span> <span class="number">23</span>:<span class="number">37</span> <span class="tag">b</span><span class="class">.lua</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">58</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">00</span>:<span class="number">01</span> f<span class="class">.lua</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">91</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">00</span>:<span class="number">28</span> <span class="keyword">for</span><span class="class">.lua</span></span><br><span class="line">-rwxr-xr-x   <span class="number">1</span> xana  staff    <span class="number">41</span>B <span class="number">11</span>  <span class="number">2</span> <span class="number">16</span>:<span class="number">09</span> hw<span class="class">.lua</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">86</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">00</span>:<span class="number">03</span> local<span class="class">.lua</span></span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff   <span class="number">152</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">00</span>:<span class="number">43</span> recursion<span class="class">.lua</span></span><br><span class="line">drwxr-xr-x   <span class="number">2</span> xana  staff    <span class="number">68</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">10</span>:<span class="number">32</span> snake</span><br><span class="line">-rw-r--r--   <span class="number">1</span> xana  staff    <span class="number">45</span>B  <span class="number">9</span> <span class="number">11</span> <span class="number">01</span>:<span class="number">03</span> <span class="tag">table</span><span class="class">.lua</span></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">~/Documents/lua » ./hw<span class="class">.lua</span>                                                                          xana@localhost</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
+<p>-rwxr-xr-x 就表示现在此文件可以执行了。</p>
+<p>当然文件中需要加上一行用于脚本解释器<br>hw.lua<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env lua</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"hello world!"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>但是我们现在只能通过<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./hw.<span class="keyword">lua</span></span><br></pre></td></tr></table></figure></p>
+<p>这种 路径/文件 方式执行文件，要是我想通过文件名直接执行文件怎么办？</p>
+<p>我们尝试<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/lua » where ls                                                                          xana@localhost</span><br><span class="line">ls: aliased to ls -G</span><br><span class="line"><span class="header">/bin/ls</span><br><span class="line">------------------------------------------------------------</span></span><br><span class="line">~/Documents/lua » where cd                                                                          xana@localhost</span><br><span class="line">cd: shell built-in command</span><br><span class="line"><span class="header">/usr/bin/cd</span><br><span class="line">------------------------------------------------------------</span></span><br><span class="line">~/Documents/lua » where mkdir                                                                       xana@localhost</span><br><span class="line">/bin/mkdir</span><br></pre></td></tr></table></figure></p>
+<p>发现一些系统级命令存在于 /bin 和 /usr/bin 目录下，进入文件夹后发现其内容无法进行更改，这些命令数量有限，受到系统的保护。<br>然后我们尝试一些非系统级命令。<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~/Documents/lua » where node                                                                        xana@localhost</span><br><span class="line"><span class="header">/usr/local/bin/node</span><br><span class="line">------------------------------------------------------------</span></span><br><span class="line">~/Documents/lua » where tree                                                                        xana@localhost</span><br><span class="line">/usr/local/bin/tree</span><br></pre></td></tr></table></figure></p>
+<p>我们把脚本文件移动至 /usr/local/bin 文件夹中<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~<span class="regexp">/Documents/</span>lua » mv hw.lua <span class="regexp">/usr/</span>local<span class="regexp">/bin</span></span><br></pre></td></tr></table></figure></p>
+<p>发现可以执行了。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~<span class="regexp">/Documents/lua</span> » hw.lua                                                                            xana<span class="variable">@localhost</span></span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
+<p>其实文件并不需要文件名，可去掉后缀名。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~<span class="regexp">/Documents/lua</span> » hw                                                                                xana<span class="variable">@localhost</span></span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
+<p>我们总结一下全过程<br>1、新建一个脚本文件，文件名为你想要执行的脚本名称<br>2、脚本首行添加一行 脚本解释器目录<br>3、次行开始写脚本语言<br>4、修改文件权限，变成可执行文件<br>5、将文件移动至 /usr/local/bin</p>
+<p>实际上我们查看系统环境变量<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">~/Documents/</span>lua » env $PATH                                                                         xana<span class="annotation">@localhost</span></span><br><span class="line"><span class="string">env:</span> <span class="regexp">/usr/</span>local<span class="regexp">/bin:/</span>usr<span class="regexp">/bin:/</span><span class="string">bin:</span><span class="regexp">/usr/</span><span class="string">sbin:</span><span class="regexp">/sbin:/</span>Applications<span class="regexp">/Server.app/</span>Contents<span class="regexp">/ServerRoot/</span>usr<span class="regexp">/bin:/</span>Applications<span class="regexp">/Server.app/</span>Contents<span class="regexp">/ServerRoot/</span>usr<span class="regexp">/sbin:/</span>Users<span class="regexp">/xana/</span>Documents<span class="regexp">/quick-3.5/</span><span class="string">templates:</span><span class="regexp">/Users/</span>xana<span class="regexp">/Documents/</span>quick-<span class="number">3.5</span>:<span class="regexp">/Users/</span>xana<span class="regexp">/Documents/</span>quick-<span class="number">3.5</span><span class="regexp">/tools/</span>cocos2d-console/<span class="string">bin:</span> No such file or directory</span><br></pre></td></tr></table></figure></p>
+<p>发现它是按照这个顺序查找路径的。所以覆盖等问题转换为路径优先问题。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/11/02/cli/" data-title="cli | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/11/10/Swift-Diary/" title="Swift Diary">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Swift Diary</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/26/dyc-py/"  title="dyc.py">
+ <strong>下一篇：</strong><br/> 
+ <span>dyc.py
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#可执行文件"><span class="toc-number">1.</span> <span class="toc-text">可执行文件</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
