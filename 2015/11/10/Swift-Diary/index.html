@@ -14,7 +14,7 @@
     <meta name="description" content="天气渐冷，我内心反而愈加炙热。最近更是翘掉了很多不想上的课，虽然老师有善意地发过警告，但是我思考了相当长的一段时间，也纠结过，矛盾过，但是最终还是决定挂掉几门课。不管后不后悔，反正我就这样做下去了。
 
 Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一门正在发生剧烈革命的语言。截止到此时Swift已经更新到了2.0版本，其语法发生了很大的改动。网上的许多教程刚出来就过时了。
-对于">
+对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift Diary">
 <meta property="og:url" content="http://yoursite.com/2015/11/10/Swift-Diary/index.html">
@@ -22,13 +22,14 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 <meta property="og:description" content="天气渐冷，我内心反而愈加炙热。最近更是翘掉了很多不想上的课，虽然老师有善意地发过警告，但是我思考了相当长的一段时间，也纠结过，矛盾过，但是最终还是决定挂掉几门课。不管后不后悔，反正我就这样做下去了。
 
 Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一门正在发生剧烈革命的语言。截止到此时Swift已经更新到了2.0版本，其语法发生了很大的改动。网上的许多教程刚出来就过时了。
-对于">
+对">
+<meta property="og:updated_time" content="2015-11-10T07:16:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift Diary">
 <meta name="twitter:description" content="天气渐冷，我内心反而愈加炙热。最近更是翘掉了很多不想上的课，虽然老师有善意地发过警告，但是我思考了相当长的一段时间，也纠结过，矛盾过，但是最终还是决定挂掉几门课。不管后不后悔，反正我就这样做下去了。
 
 Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一门正在发生剧烈革命的语言。截止到此时Swift已经更新到了2.0版本，其语法发生了很大的改动。网上的许多教程刚出来就过时了。
-对于">
+对">
 
     
     <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
@@ -40,7 +41,7 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -50,9 +51,9 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 		
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
-				<h2 class="blog-motto">Freedom is good</h2>
+				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -91,14 +92,14 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-10T06:45:54.000Z" itemprop="datePublished"> 發表於 2015-11-10</time>
+    <time datetime="2015-11-10T06:45:54.000Z" itemprop="datePublished"> 发表于 2015-11-10</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Swift"><span class="toc-number">1.</span> <span class="toc-text">Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Optional"><span class="toc-number">2.</span> <span class="toc-text">Optional</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storyborad_or_Code?"><span class="toc-number">3.</span> <span class="toc-text">Storyborad or Code?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-number">4.</span> <span class="toc-text">End</span></a></li></ol>
 		
@@ -112,7 +113,7 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 <p>为什么说它是<del>伪</del>动态类型呢，因为它的动态类型一点都不好用，调用函数时还是要进行显式转换，它的隐性转换还有很大的发展空间，大概过几个版本希望它与JS一样好用。</p>
 <h2 id="Optional">Optional</h2><p>Swift 有个类型叫做Optional，相当于赋予一个初始值nil，实质是一个元组(value, nil)，在进行解绑(unwrapped)时如果没有值就返回nil</p>
 <p>我最初被这些 <em>叹号!</em>  <em>问号?</em> 弄得头晕脑胀，方法随着版本的更替更是让这两兄弟跳来跳去；习惯了JS默认值写法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = value || defalutValue</span><br></pre></td></tr></table></figure></p>
-<p>的我，对于Optional的默认值写法<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> a</span> = valueOptional ?? defaultValue</span><br></pre></td></tr></table></figure></p>
+<p>的我，对于Optional的默认值写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var a = valueOptional ?? defaultValue</span><br></pre></td></tr></table></figure></p>
 <p>感到非常的不适，首先valueOptional是一个Optional类型，进行unwrapped时如果没有value值，就赋予默认值，用于代替nil。</p>
 <p><del>所以说这个Optional到底是干吗的嘛</del></p>
 <p>方法也可以是Optional类型，这样创建一个类的时候就没用必要实现所有的方法了。<br><del>就这样？</del></p>
@@ -176,22 +177,22 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Swift"><span class="toc-number">1.</span> <span class="toc-text">Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Optional"><span class="toc-number">2.</span> <span class="toc-text">Optional</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Storyborad_or_Code?"><span class="toc-number">3.</span> <span class="toc-text">Storyborad or Code?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-number">4.</span> <span class="toc-text">End</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -228,7 +229,7 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -248,15 +249,39 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
 			
 		
 			
@@ -268,31 +293,11 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -300,7 +305,7 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -321,6 +326,12 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
             
           </li>
         
+          <li>
+            
+            	<a href="http://tecotaku.cn" target="_blank" title="SinoReimu&#39;s Blog">SinoReimu&#39;s Blog</a>
+            
+          </li>
+        
     </ul>
 </div>
 
@@ -328,7 +339,7 @@ Swift作为一个纯JS的新手，初始Swift时倍感亲切，然而这是一�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -533,7 +544,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
