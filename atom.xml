@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-20T14:57:26.000Z</updated>
+  <updated>2016-03-22T03:37:50.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,17 +16,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>snzxg</title>
+    <title>水南照相馆技术支持文档</title>
     <link href="http://yoursite.com/2016/03/20/snzxg/"/>
     <id>http://yoursite.com/2016/03/20/snzxg/</id>
     <published>2016-03-20T14:51:48.000Z</published>
-    <updated>2016-03-20T14:57:26.000Z</updated>
+    <updated>2016-03-22T03:37:50.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;水南照相馆技术支持&quot;&gt;水南照相馆技术支持&lt;/h1&gt;</content>
+    <content type="html">&lt;p&gt;水南照相馆提供的便捷照片洗印服务，轻松快捷&lt;br&gt;1.在家中下单，立等可取！&lt;br&gt;2.多种照片大小，多种类型任您选择。&lt;br&gt;3.不定时超特价优惠，享受会员低价折扣。&lt;/p&gt;
+&lt;h1 id=&quot;产品说明&quot;&gt;产品说明&lt;/h1&gt;&lt;p&gt;本应用为用户提供水南照相馆的照片洗印在线订单提交服务，由于需要订单提交需要使用到在线支付，所以选择应用到支付宝的第三方支付平台。&lt;br&gt;消费群体:日常使用照片洗印服务的用户群&lt;/p&gt;
+&lt;p&gt;应用部分截图：&lt;/p&gt;
+&lt;h1 id=&quot;接口使用情景&quot;&gt;接口使用情景&lt;/h1&gt;&lt;p&gt;用户在选择好需要打印的照片后点击提交订单，此时需要调用到支付接口，对选择好的打印项目进行付费，付费完成后才提交订单至服务器。即在图二所示情景中会使用到支付宝第三方支付服务。&lt;/p&gt;
+&lt;h1 id=&quot;资费情况&quot;&gt;资费情况&lt;/h1&gt;&lt;p&gt;该服务不采取虚拟货币兑换，故为人民币1：1的资费模式。价格区间大概在0-500元。&lt;/p&gt;
+&lt;h1 id=&quot;使用流程&quot;&gt;使用流程&lt;/h1&gt;&lt;h2 id=&quot;注册/登录&quot;&gt;注册/登录&lt;/h2&gt;&lt;p&gt;用户可以通过 用户名/密码 注册或登录&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;成功登录后，下次将自动登录该账号&lt;/li&gt;
+&lt;li&gt;支持QQ第三方登录&lt;/li&gt;
+&lt;li&gt;支持微信第三方登录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;查询&quot;&gt;查询&lt;/h2&gt;&lt;h2 id=&quot;支付&quot;&gt;支付&lt;/h2&gt;</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;水南照相馆技术支持&quot;&gt;水南照相馆技术支持&lt;/h1&gt;
+      &lt;p&gt;水南照相馆提供的便捷照片洗印服务，轻松快捷&lt;br&gt;1.在家中下单，立等可取！&lt;br&gt;2.多种照片大小，多种类型任您选择。&lt;br&gt;3.不定时超特价优惠，享受会员低价折扣。&lt;/p&gt;
+&lt;h1 id=&quot;产品说明&quot;&gt;产品说明&lt;/h1&gt;&lt;p&gt;本应用为用户提供水南照相馆的照片洗印在线订单
     
     </summary>
     
