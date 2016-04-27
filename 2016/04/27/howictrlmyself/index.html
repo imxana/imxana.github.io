@@ -4,29 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于JS函数的多参数处理 | XANA&#39;s Blog</title>
+    <title>我是如何失败地约束自己的 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="关于JS函数的多参数处理
-我们先来看个例子(提供：Mephisto)
-123456789101112//模长计算公式function mag()&amp;#123;	var arg = Array.prototype.slice.call(arguments)	var mag = 0	for(var i=0; arg[i] !== undefined ;i++)	if (typeof arg[i] !==">
+    <meta name="description" content="我是如何失败地约束自己的大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是其他原因，那应该就是那个原因，本文本意是为了尽量从第三方角度来阐述并且用聚光那个阴暗的自己。
+这种表演型人格很有可能来自于我的家庭。我的母亲家里的人都是很在意自己利益的人，平时说话">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于JS函数的多参数处理">
-<meta property="og:url" content="http://yoursite.com/2015/07/10/关于JS函数的多参数处理/index.html">
+<meta property="og:title" content="我是如何失败地约束自己的">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/howictrlmyself/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="关于JS函数的多参数处理
-我们先来看个例子(提供：Mephisto)
-123456789101112//模长计算公式function mag()&amp;#123;	var arg = Array.prototype.slice.call(arguments)	var mag = 0	for(var i=0; arg[i] !== undefined ;i++)	if (typeof arg[i] !==">
-<meta property="og:updated_time" content="2015-07-21T11:53:58.000Z">
+<meta property="og:description" content="我是如何失败地约束自己的大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是其他原因，那应该就是那个原因，本文本意是为了尽量从第三方角度来阐述并且用聚光那个阴暗的自己。
+这种表演型人格很有可能来自于我的家庭。我的母亲家里的人都是很在意自己利益的人，平时说话">
+<meta property="og:updated_time" content="2016-04-27T14:58:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于JS函数的多参数处理">
-<meta name="twitter:description" content="关于JS函数的多参数处理
-我们先来看个例子(提供：Mephisto)
-123456789101112//模长计算公式function mag()&amp;#123;	var arg = Array.prototype.slice.call(arguments)	var mag = 0	for(var i=0; arg[i] !== undefined ;i++)	if (typeof arg[i] !==">
+<meta name="twitter:title" content="我是如何失败地约束自己的">
+<meta name="twitter:description" content="我是如何失败地约束自己的大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是其他原因，那应该就是那个原因，本文本意是为了尽量从第三方角度来阐述并且用聚光那个阴暗的自己。
+这种表演型人格很有可能来自于我的家庭。我的母亲家里的人都是很在意自己利益的人，平时说话">
 
     
     <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
@@ -82,55 +79,37 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/10/关于JS函数的多参数处理/" title="关于JS函数的多参数处理" itemprop="url">关于JS函数的多参数处理</a>
+      <a href="/2016/04/27/howictrlmyself/" title="我是如何失败地约束自己的" itemprop="url">我是如何失败地约束自己的</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-09T16:58:29.000Z" itemprop="datePublished"> Published 2015-07-10</time>
+    <time datetime="2016-04-27T13:20:55.000Z" itemprop="datePublished"> Published 2016-04-27</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			
-		
-		</div>
-		
-		<p>关于JS函数的多参数处理</p>
-<p>我们先来看个例子(提供：Mephisto)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模长计算公式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> arg = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">	<span class="keyword">var</span> mag = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; arg[i] !== <span class="literal">undefined</span> ;i++)</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> arg[i] !== <span class="string">"number"</span>)&#123;</span><br><span class="line">		mag += arg[i]*arg[i]</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">break</span></span><br><span class="line">	<span class="keyword">return</span>  <span class="built_in">Math</span>.sqrt(mag)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">mag(<span class="number">3</span>, <span class="number">4</span>, <span class="number">12</span>)		<span class="comment">//13</span></span><br></pre></td></tr></table></figure>
-<p>当初为了理解这个函数，我写了一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方便起见，写两个例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	fun1(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	fun2(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重头戏开始！<br>当我传入相同参数的时候，发生了这样的现象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ins1()				<span class="comment">//[undefined, 2, "3"]</span></span><br><span class="line">ins2()				<span class="comment">//[undefined, 2, "3"]</span></span><br></pre></td></tr></table></figure>
-<p>靠，那为啥不直接使用arguments呢，不理解</p>
-<p>随即测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> ins1()			<span class="comment">//"object"</span></span><br><span class="line"><span class="keyword">typeof</span> ins2()			<span class="comment">//"object"</span></span><br></pre></td></tr></table></figure></p>
-<p>这自然，数组本身也是对象</p>
-<p>略微思考了一会，然后测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ins1() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//false</span></span><br><span class="line">ins2() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>到这里我马上明白，经过Array.prototype.slice.call处理带有length属性的对象之后，会返回一个数组的实例，这样就可以调用原本没有的Array的方法了，类似的String.prototype.slice.call同理。</p>
-<p>另外，就上面最初的那个函数而言，使用arguments也没问题，大丈夫萌大奶。</p>
-<p><del>BTW，Function.prototype.call方法理解起来实在太抽象，实质是改变this指向的对象，我每次看到都会慌慌的，dokidoki。</del></p>
+		<h2 id="我是如何失败地约束自己的">我是如何失败地约束自己的</h2><p>大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是其他原因，那应该就是那个原因，本文本意是为了尽量从第三方角度来阐述并且用聚光那个阴暗的自己。</p>
+<p>这种表演型人格很有可能来自于我的家庭。我的母亲家里的人都是很在意自己利益的人，平时说话都是把自己说成是最无辜的，其他人是千方百计的要害他\她，哪怕是自己的直系亲属。我的母亲从小屈服于父母和两个弟弟，吃了很多苦，一直处于没有安全感的状态。可以出于这个原因，她说话一般都带有大量的假设与臆想，同样让我从小开始就没有安全感。小时候因为我只是偶然发现喜欢看书，家里就给我订了很多杂志，这又形成了我被动接受事情的习惯。我的父亲家庭比较不好，他属于懂事太早，比较倾向独自决策的类型。太有主见有个坏处，就是人容易受到情绪的干扰，于是经常会表现出很幼稚的行为，但是自己又不能承认是错的，就要闷不做声的擦屁股。</p>
+<p>我的性格从形成之际，就显得有些格格不入，很明显的一点就是：『如果大家都选择了A，我会放弃A，花上大量的时间在B上，以此来满足自己的表演人格。』这一点让我非常的痛苦，常常我就把自己孤立出去了。然而我的人格又迫使我不愿意承认自己这是错的。于是和老师讨论哲学问题就成了从幼儿园开始每个学期必然的事情，直到高二才停止。</p>
+<p>初中的记忆有些模糊，印象中是被很多人关注，然后被很多人失望，那个时候很多的决策都是一拍脑子做出的『最佳决策』，已经不能说是中二病了，比中二病羞耻的多。</p>
+<p>我挺喜欢那个时候的自己的，因为我再也不可能回到那种充满激情的状态了。现在我看到非常叛逆但是胆子小的孩子，都会莫名的想亲近。那个时候非常喜欢听林肯公园，近乎到了痴迷的地步，LP的每一首歌我都会唱。看看LP的歌词，大概就能猜出那时候的状态。</p>
+<p>高中整个三年的时候我再不停地排斥自己的表演型人格，具体表现为保持自己的大量独处时间（消除观众），开始不停的揭穿自我为了表演的实际目的（自我打击）。现在我替那个时候的自己深深的反省，虽然我想到了，但是我对我的认识还是不够。我的表演型人格已经深入骨髓，甚至开始为了揭穿自己的表演而表演。就如为了仅仅为了迎合而捏造的带常识错误的反鸡汤文章一样恶心。我陷入了一个自我表演的循环。歌词里说『我要摆脱你，做真正的我』，然而从哲学上说物必有根，不可能凭空产生。虽然我从未停止过思考这个问题，但是很长一段时间，我都不知道没了观众，我真正要为自己做什么，只能不断的为自己的决策买单。</p>
+<p>一个人独处的时候，先是放纵，之后空虚，之后要么继续放纵，要么开始面对现实。从大学开始我意识到与人交流是一门基本课，不管是为了课堂学习，还是为了技术交流。我开始意识到不是每个人都足够了解自己，人不能救人，人只能自救。建立在利益上的友谊，比友谊上的利益要可靠的多。</p>
+<p>我反省了一下大学的自己，对自己的要求是『比旁边的人厉害一点』，这样别人都会look upon  me。寒假的时候是花了点时间。但是我之前也说过，不要做井底之蛙。周围的人一旦开始咸鱼了，自己也跟着咸鱼了，而且每次玩过游戏以后都会散发大量罪恶感，却不去行动，给舍友带来大量负能量。</p>
+<p>之前写过一篇关于吐槽大学生基本的待人接物的基本规范，但是后来想了一想还是删了。道德只能用于律己，不能律人。换个角度想，如果别人做了让你感到不舒服的事情，很有可能是他想表达的那件事情不重要，当做没听到也无妨。如果事情比较重要的话，他应该是会积极协商探讨的。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/js/">js</a>
+  <span></span> <a href="/tags/Others/">Others</a>
   </div>
 
 </div>
@@ -139,7 +118,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/10/关于JS函数的多参数处理/" data-title="关于JS函数的多参数处理 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/04/27/howictrlmyself/" data-title="我是如何失败地约束自己的 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/11/函数的奇技淫巧/" title="函数高级技巧">
-  <strong>上一篇：</strong><br/>
-  <span>
-  函数高级技巧</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/04/Js事件小结/"  title="Js事件小结">
+<a href="/2016/03/20/snzxg/"  title="水南照相馆技术支持文档">
  <strong>下一篇：</strong><br/> 
- <span>Js事件小结
+ <span>水南照相馆技术支持文档
 </span>
 </a>
 </div>
@@ -175,13 +146,6 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- 
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -432,8 +396,6 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
