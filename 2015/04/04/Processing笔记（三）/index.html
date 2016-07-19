@@ -56,7 +56,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -72,7 +72,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -95,28 +95,28 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-04T06:53:58.000Z" itemprop="datePublished"> Published 2015-04-04</time>
+    <time datetime="2015-04-04T06:53:58.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建3D图形"><span class="toc-number">1.</span> <span class="toc-text">创建3D图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建3D画布"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建3D画布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒模型"><span class="toc-number">1.1.</span> <span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3D坐标系统转换"><span class="toc-number">1.1.1.</span> <span class="toc-text">3D坐标系统转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#光线模型"><span class="toc-number">1.2.</span> <span class="toc-text">光线模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#照明半径"><span class="toc-number">1.2.1.</span> <span class="toc-text">照明半径</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="创建3D图形">创建3D图形</h2><h4 id="创建3D画布">创建3D画布</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">size</span>(x, y, <span class="literal">P3D</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="盒模型">盒模型</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">box</span>(<span class="built_in">size</span>)					<span class="comment">//在左上角绘制边长为size的立方体</span></span><br></pre></td></tr></table></figure>
-<h4 id="3D坐标系统转换">3D坐标系统转换</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rotateY</span>(<span class="built_in">map</span>(<span class="built_in">mouseX</span>, <span class="number">0</span>, <span class="built_in">width</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//围绕y轴旋转，坐标/旋转范围</span></span><br></pre></td></tr></table></figure>
+		<h2 id="创建3D图形">创建3D图形</h2><h4 id="创建3D画布">创建3D画布</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">size</span>(x, y, <span class="literal">P3D</span>)</div></pre></td></tr></table></figure>
+<h3 id="盒模型">盒模型</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">box</span>(<span class="built_in">size</span>)					<span class="comment">//在左上角绘制边长为size的立方体</span></div></pre></td></tr></table></figure>
+<h4 id="3D坐标系统转换">3D坐标系统转换</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">rotateY</span>(<span class="built_in">map</span>(<span class="built_in">mouseX</span>, <span class="number">0</span>, <span class="built_in">width</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//围绕y轴旋转，坐标/旋转范围</span></div></pre></td></tr></table></figure>
 <p>基于鼠标的<del>简单</del> 3D 旋转示例，很短，很酷</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</span><br><span class="line">  <span class="built_in">size</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="literal">P3D</span>);</span><br><span class="line">  <span class="built_in">noFill</span>();</span><br><span class="line">  <span class="built_in">smooth</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</span><br><span class="line">  <span class="built_in">background</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">translate</span>(<span class="built_in">width</span>/<span class="number">2</span>, <span class="built_in">height</span>/<span class="number">2</span>, -(<span class="built_in">width</span>/<span class="number">2</span>));	<span class="comment">//在中心绘图</span></span><br><span class="line">  <span class="built_in">rotateY</span>(<span class="built_in">map</span>(<span class="built_in">mouseX</span>, <span class="number">0</span>, <span class="built_in">width</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//水平旋转</span></span><br><span class="line">  <span class="built_in">stroke</span>(<span class="number">100</span>);</span><br><span class="line">  <span class="built_in">box</span>(<span class="number">150</span>);</span><br><span class="line">  <span class="built_in">rotateX</span>(<span class="built_in">map</span>(<span class="built_in">mouseY</span>, <span class="number">0</span>, <span class="built_in">height</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//竖直旋转</span></span><br><span class="line">  <span class="built_in">stroke</span>(<span class="number">150</span>);</span><br><span class="line">  <span class="built_in">box</span>(<span class="number">75</span>);					<span class="comment">//绘制立方体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="光线模型">光线模型</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pointLight</span>(<span class="number">50</span>, <span class="number">100</span>, <span class="number">180</span>, <span class="number">80</span>, <span class="number">20</span>, <span class="number">40</span>);		<span class="comment">//RGB颜色和光源位置</span></span><br></pre></td></tr></table></figure>
-<h4 id="照明半径">照明半径</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sphere</span>(<span class="number">40</span>);					<span class="comment">//照明半径为40，默认以(0, 0)为中心</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line">  <span class="built_in">size</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="literal">P3D</span>);</div><div class="line">  <span class="built_in">noFill</span>();</div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line">  <span class="built_in">background</span>(<span class="number">0</span>);</div><div class="line">  <span class="built_in">translate</span>(<span class="built_in">width</span>/<span class="number">2</span>, <span class="built_in">height</span>/<span class="number">2</span>, -(<span class="built_in">width</span>/<span class="number">2</span>));	<span class="comment">//在中心绘图</span></div><div class="line">  <span class="built_in">rotateY</span>(<span class="built_in">map</span>(<span class="built_in">mouseX</span>, <span class="number">0</span>, <span class="built_in">width</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//水平旋转</span></div><div class="line">  <span class="built_in">stroke</span>(<span class="number">100</span>);</div><div class="line">  <span class="built_in">box</span>(<span class="number">150</span>);</div><div class="line">  <span class="built_in">rotateX</span>(<span class="built_in">map</span>(<span class="built_in">mouseY</span>, <span class="number">0</span>, <span class="built_in">height</span>, -<span class="literal">PI</span>, <span class="literal">PI</span>));	<span class="comment">//竖直旋转</span></div><div class="line">  <span class="built_in">stroke</span>(<span class="number">150</span>);</div><div class="line">  <span class="built_in">box</span>(<span class="number">75</span>);					<span class="comment">//绘制立方体</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="光线模型">光线模型</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">pointLight</span>(<span class="number">50</span>, <span class="number">100</span>, <span class="number">180</span>, <span class="number">80</span>, <span class="number">20</span>, <span class="number">40</span>);		<span class="comment">//RGB颜色和光源位置</span></div></pre></td></tr></table></figure>
+<h4 id="照明半径">照明半径</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sphere</span>(<span class="number">40</span>);					<span class="comment">//照明半径为40，默认以(0, 0)为中心</span></div></pre></td></tr></table></figure>
 <p>举个例子(markdown不会发图<del>好蛋疼</del>)</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">size</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="literal">P3D</span>);</span><br><span class="line"><span class="built_in">background</span>(<span class="number">0</span>);</span><br><span class="line"><span class="built_in">noStroke</span>();</span><br><span class="line"><span class="built_in">pointLight</span>(<span class="number">50</span>, <span class="number">100</span>, <span class="number">180</span>, <span class="number">80</span>, <span class="number">20</span>, <span class="number">40</span>);		<span class="comment">//设置光源</span></span><br><span class="line"><span class="built_in">translate</span>(<span class="number">20</span>, <span class="number">50</span>, <span class="number">0</span>);				<span class="comment">//设置照明区域中心</span></span><br><span class="line"><span class="built_in">sphere</span>(<span class="number">40</span>);					<span class="comment">//照明范围</span></span><br></pre></td></tr></table></figure>  
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">size</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="literal">P3D</span>);</div><div class="line"><span class="built_in">background</span>(<span class="number">0</span>);</div><div class="line"><span class="built_in">noStroke</span>();</div><div class="line"><span class="built_in">pointLight</span>(<span class="number">50</span>, <span class="number">100</span>, <span class="number">180</span>, <span class="number">80</span>, <span class="number">20</span>, <span class="number">40</span>);		<span class="comment">//设置光源</span></div><div class="line"><span class="built_in">translate</span>(<span class="number">20</span>, <span class="number">50</span>, <span class="number">0</span>);				<span class="comment">//设置照明区域中心</span></div><div class="line"><span class="built_in">sphere</span>(<span class="number">40</span>);					<span class="comment">//照明范围</span></div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -173,22 +173,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建3D图形"><span class="toc-number">1.</span> <span class="toc-text">创建3D图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建3D画布"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建3D画布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒模型"><span class="toc-number">1.1.</span> <span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3D坐标系统转换"><span class="toc-number">1.1.1.</span> <span class="toc-text">3D坐标系统转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#光线模型"><span class="toc-number">1.2.</span> <span class="toc-text">光线模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#照明半径"><span class="toc-number">1.2.1.</span> <span class="toc-text">照明半径</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -225,15 +225,15 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
 			
 		
 			
@@ -245,11 +245,11 @@
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -258,10 +258,6 @@
 		
 			
 				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
@@ -277,11 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -293,9 +289,11 @@
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -303,7 +301,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -337,7 +335,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -542,7 +540,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

@@ -50,7 +50,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +66,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -89,14 +89,14 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-09T16:58:29.000Z" itemprop="datePublished"> Published 2015-07-10</time>
+    <time datetime="2015-07-09T16:58:29.000Z" itemprop="datePublished"> 发表于 2015-07-10</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			
 		
@@ -104,16 +104,16 @@
 		
 		<p>关于JS函数的多参数处理</p>
 <p>我们先来看个例子(提供：Mephisto)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模长计算公式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> arg = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">	<span class="keyword">var</span> mag = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; arg[i] !== <span class="literal">undefined</span> ;i++)</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> arg[i] !== <span class="string">"number"</span>)&#123;</span><br><span class="line">		mag += arg[i]*arg[i]</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">break</span></span><br><span class="line">	<span class="keyword">return</span>  <span class="built_in">Math</span>.sqrt(mag)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">mag(<span class="number">3</span>, <span class="number">4</span>, <span class="number">12</span>)		<span class="comment">//13</span></span><br></pre></td></tr></table></figure>
-<p>当初为了理解这个函数，我写了一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//模长计算公式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mag</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> arg = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</div><div class="line">	<span class="keyword">var</span> mag = <span class="number">0</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; arg[i] !== <span class="literal">undefined</span> ;i++)</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> arg[i] !== <span class="string">"number"</span>)&#123;</div><div class="line">		mag += arg[i]*arg[i]</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">break</span></div><div class="line">	<span class="keyword">return</span>  <span class="built_in">Math</span>.sqrt(mag)</div><div class="line">&#125;</div><div class="line"><span class="comment">//使用</span></div><div class="line">mag(<span class="number">3</span>, <span class="number">4</span>, <span class="number">12</span>)		<span class="comment">//13</span></div></pre></td></tr></table></figure>
+<p>当初为了理解这个函数，我写了一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>方便起见，写两个例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	fun1(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	fun2(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	fun1(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ins2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	fun2(<span class="literal">undefined</span>, <span class="number">2</span>, <span class="string">"3"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>重头戏开始！<br>当我传入相同参数的时候，发生了这样的现象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ins1()				<span class="comment">//[undefined, 2, "3"]</span></span><br><span class="line">ins2()				<span class="comment">//[undefined, 2, "3"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ins1()				<span class="comment">//[undefined, 2, "3"]</span></div><div class="line">ins2()				<span class="comment">//[undefined, 2, "3"]</span></div></pre></td></tr></table></figure>
 <p>靠，那为啥不直接使用arguments呢，不理解</p>
-<p>随即测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> ins1()			<span class="comment">//"object"</span></span><br><span class="line"><span class="keyword">typeof</span> ins2()			<span class="comment">//"object"</span></span><br></pre></td></tr></table></figure></p>
+<p>随即测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> ins1()			<span class="comment">//"object"</span></div><div class="line"><span class="keyword">typeof</span> ins2()			<span class="comment">//"object"</span></div></pre></td></tr></table></figure></p>
 <p>这自然，数组本身也是对象</p>
-<p>略微思考了一会，然后测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ins1() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//false</span></span><br><span class="line">ins2() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>略微思考了一会，然后测试<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ins1() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//false</span></div><div class="line">ins2() <span class="keyword">instanceof</span> <span class="built_in">Array</span>		<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
 <p>到这里我马上明白，经过Array.prototype.slice.call处理带有length属性的对象之后，会返回一个数组的实例，这样就可以调用原本没有的Array的方法了，类似的String.prototype.slice.call同理。</p>
 <p>另外，就上面最初的那个函数而言，使用arguments也没问题，大丈夫萌大奶。</p>
 <p><del>BTW，Function.prototype.call方法理解起来实在太抽象，实质是改变this指向的对象，我每次看到都会慌慌的，dokidoki。</del></p>
@@ -174,22 +174,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -226,15 +226,15 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
 			
 		
 			
@@ -246,11 +246,11 @@
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -259,10 +259,6 @@
 		
 			
 				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
@@ -278,11 +274,11 @@
 			
 		
 			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -294,9 +290,11 @@
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -304,7 +302,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -338,7 +336,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -543,7 +541,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

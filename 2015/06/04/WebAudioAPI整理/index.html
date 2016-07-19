@@ -55,7 +55,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -71,7 +71,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -94,14 +94,14 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-04T14:30:33.000Z" itemprop="datePublished"> Published 2015-06-04</time>
+    <time datetime="2015-06-04T14:30:33.000Z" itemprop="datePublished"> 发表于 2015-06-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioAPI"><span class="toc-number">2.</span> <span class="toc-text">WebAudioAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioContext"><span class="toc-number">2.1.</span> <span class="toc-text">AudioContext</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">2.1.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">2.1.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioBufferSourseNode"><span class="toc-number">2.2.</span> <span class="toc-text">AudioBufferSourseNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GainNode"><span class="toc-number">2.3.</span> <span class="toc-text">GainNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AnalyserNode"><span class="toc-number">2.4.</span> <span class="toc-text">AnalyserNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-3"><span class="toc-number">2.4.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-2"><span class="toc-number">2.4.3.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioImage"><span class="toc-number">3.</span> <span class="toc-text">WebAudioImage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">4.</span> <span class="toc-text">else</span></a></li></ol>
 		
@@ -109,7 +109,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 		
 		<h1 id="Forword">Forword</h1><p><em>自我娱乐，纯手工整理。<del>然并卵。</del></em></p>
 <h1 id="WebAudioAPI">WebAudioAPI</h1><h2 id="AudioContext">AudioContext</h2><p>包含各个AudioNode对象以及它们联系的对象，可以理解为audio上下文对象。绝大多数情况下，一个document中只有一个<strong>AudioContext</strong></p>
-<h3 id="创建">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ac = <span class="keyword">new</span> <span class="built_in">window</span>.AudioContext();<span class="comment">//(webkit,moz等兼容前缀)</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ac = <span class="keyword">new</span> <span class="built_in">window</span>.AudioContext();<span class="comment">//(webkit,moz等兼容前缀)</span></div></pre></td></tr></table></figure>
 <h3 id="属性">属性</h3><p><strong>destination</strong>： AudioDestinationNode对象，所有的音频输出聚集地，相当于音频的硬件，所有的AudioNode都直接或间接的连接到这里。</p>
 <p><strong>currentTime</strong>： AudioContext从创建开始到当前的时间（秒）。<em>与很多时间参数有关</em></p>
 <h3 id="方法">方法</h3><p><strong>decodeAudioData(arrayBuffer, succ(buffer), err)</strong><br>异步解码包含在arrayBuffer中的音频数据<br>第一个参数就是Ajax向服务端请求得到的音频数据</p>
@@ -117,7 +117,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 <p><strong>createAnalyser()</strong><br>创建AnalyserNode对象</p>
 <p><strong>createGain()</strong>/<strong>createGainNode()</strong><br>创建GainNode对象</p>
 <h2 id="AudioBufferSourseNode">AudioBufferSourseNode</h2><p>表示内存中的一段音频资源，其音频数据存在于AudioBuffer中（其buffer属性）</p>
-<h3 id="创建-1">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buffersource = ac.createBufferSource();</span><br></pre></td></tr></table></figure>
+<h3 id="创建-1">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> buffersource = ac.createBufferSource();</div></pre></td></tr></table></figure>
 <h3 id="属性-1">属性</h3><p><strong>buffer</strong>：AudioBuffer对象，表示要播放的音频资源数据。（必须）<br>—子属性：<strong>duration</strong>，该音频资源的时长（秒）</p>
 <p><strong>loop</strong>：是否循环播放，默认false</p>
 <p><strong>onended</strong>：可绑定音频播放完毕时调用的事件处理程序</p>
@@ -125,10 +125,10 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 <p><strong>start/noteOn(when=ac.currenTime, offset=0, duration=buffer.duration-offset)</strong><br>开始播放音频。<strong>when</strong>：何时开始播放；<strong>offset</strong>：从音频的第几秒开始播放；<strong>duration</strong>：播放几秒；</p>
 <p><strong>stop/noteOff(when=ac.currentTime)</strong><br>结束播放音频</p>
 <h2 id="GainNode">GainNode</h2><p>改变音频音量的对象，会改变通过它的音频数据所有的sample frame的信号强度。（通过间接连接作为一个过渡器，详见图解）</p>
-<h3 id="创建-2">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gainNode = ac.createGain()/ac.createGainNode();</span><br></pre></td></tr></table></figure>
+<h3 id="创建-2">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gainNode = ac.createGain()/ac.createGainNode();</div></pre></td></tr></table></figure>
 <h3 id="属性-2">属性</h3><p><strong>gain</strong>，AudioParam对象，通过改变其value值可以改变音频信号的强弱，默认的value属性值为1，通常最小值为0，最大值为1，其value值也可以大于1，小于0</p>
 <h2 id="AnalyserNode">AnalyserNode</h2><p>音频分析对象，它能实时地分析音频资源的频域和时域信息，但不会对 音频流做任何处理</p>
-<h3 id="创建-3">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> analyser = ac.createAnalyser();</span><br></pre></td></tr></table></figure>
+<h3 id="创建-3">创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> analyser = ac.createAnalyser();</div></pre></td></tr></table></figure>
 <h3 id="属性-3">属性</h3><p><strong>fftSize</strong>，设置FFT值的大小，用于分析得到频域，为32~2048之间2的整数次倍，默认为2048实时得到的音频频域的数据个数为fftSize的一半。（FFT是傅里叶变换的快速算法，用于将一个信号变换到频域）</p>
 <p><strong>frequencyBinCount</strong>，FFT值的一半，即实时得到的音频频域数据个数</p>
 <h3 id="方法-2">方法</h3><p><strong>getByteFrequencyData(Uint8Array)</strong>，复制音频当前的频域数据（数量是frequencyBinCount）<br>到Uint8Array（8位无符号整型类型化数组）中</p>
@@ -205,22 +205,22 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioAPI"><span class="toc-number">2.</span> <span class="toc-text">WebAudioAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioContext"><span class="toc-number">2.1.</span> <span class="toc-text">AudioContext</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">2.1.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">2.1.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">2.1.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AudioBufferSourseNode"><span class="toc-number">2.2.</span> <span class="toc-text">AudioBufferSourseNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GainNode"><span class="toc-number">2.3.</span> <span class="toc-text">GainNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AnalyserNode"><span class="toc-number">2.4.</span> <span class="toc-text">AnalyserNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性-3"><span class="toc-number">2.4.2.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-2"><span class="toc-number">2.4.3.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebAudioImage"><span class="toc-number">3.</span> <span class="toc-text">WebAudioImage</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">4.</span> <span class="toc-text">else</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -257,15 +257,15 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
 			
 		
 			
@@ -277,11 +277,11 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -290,10 +290,6 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 		
 			
 				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
@@ -309,11 +305,11 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 			
 		
 			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -325,9 +321,11 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -335,7 +333,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -369,7 +367,7 @@ WebAudioAPIAudioContext包含各个AudioNode对象以及它们联系的对象，
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -574,7 +572,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

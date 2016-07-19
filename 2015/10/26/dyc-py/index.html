@@ -44,7 +44,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,7 +60,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -83,18 +83,18 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-26T06:25:53.000Z" itemprop="datePublished"> Published 2015-10-26</time>
+    <time datetime="2015-10-26T06:25:53.000Z" itemprop="datePublished"> 发表于 2015-10-26</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<h4 id="delete_your_comments">delete your comments</h4><p>写了一个删除注释的python脚本，能够通过正则匹配：<br>文档注释：<code>/** */</code><br>区块注释：<code>/* */</code><br>单行注释：<code>//</code><br><strong>注：无法识别字符串内的注释</strong><br><br>dyc_raw.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">__author__ = &apos;xana&apos;</span><br><span class="line">import re, sys</span><br><span class="line">def rename(old, str=&apos;dyc&apos;):</span><br><span class="line">    new = old.split(&apos;.&apos;)</span><br><span class="line">    return new[0]+&apos;_&apos;+str+&apos;.&apos;+new[1]</span><br><span class="line">def success(str):</span><br><span class="line">    str = re.sub(r&apos;//[\s\S]*?\n&apos;, &apos;\n&apos;, str) # //(.*)</span><br><span class="line">    str = re.sub(r&apos;/\*&#123;1,2&#125;[\s\S]*?\*/&apos;, &apos;&apos;, str)</span><br><span class="line">    return str</span><br><span class="line">def failed():</span><br><span class="line">    pass</span><br><span class="line">with open(sys.argv[1], &apos;r&apos;) as fi:</span><br><span class="line">    with open(rename(sys.argv[1]), &apos;w&apos;) as fo:</span><br><span class="line">        fo.write(success(fi.read()))</span><br></pre></td></tr></table></figure></p>
-<p>在命令行移动到目标文件路径下后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── a</span><br><span class="line">│   └── a.js</span><br><span class="line">├── dyc.py</span><br><span class="line">├── fuck.txt</span><br><span class="line">└── test.js</span><br></pre></td></tr></table></figure></p>
-<p>执行<code>python dyc.py fuck.txt</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── a</span><br><span class="line">│   └── a.js</span><br><span class="line">├── dyc.py</span><br><span class="line">├── fuck.txt</span><br><span class="line">├── fuck_dyc.txt</span><br><span class="line">└── test.js</span><br></pre></td></tr></table></figure></p>
+		<h4 id="delete_your_comments">delete your comments</h4><p>写了一个删除注释的python脚本，能够通过正则匹配：<br>文档注释：<code>/** */</code><br>区块注释：<code>/* */</code><br>单行注释：<code>//</code><br><strong>注：无法识别字符串内的注释</strong><br><br>dyc_raw.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">__author__ = &apos;xana&apos;</div><div class="line">import re, sys</div><div class="line">def rename(old, str=&apos;dyc&apos;):</div><div class="line">    new = old.split(&apos;.&apos;)</div><div class="line">    return new[0]+&apos;_&apos;+str+&apos;.&apos;+new[1]</div><div class="line">def success(str):</div><div class="line">    str = re.sub(r&apos;//[\s\S]*?\n&apos;, &apos;\n&apos;, str) # //(.*)</div><div class="line">    str = re.sub(r&apos;/\*&#123;1,2&#125;[\s\S]*?\*/&apos;, &apos;&apos;, str)</div><div class="line">    return str</div><div class="line">def failed():</div><div class="line">    pass</div><div class="line">with open(sys.argv[1], &apos;r&apos;) as fi:</div><div class="line">    with open(rename(sys.argv[1]), &apos;w&apos;) as fo:</div><div class="line">        fo.write(success(fi.read()))</div></pre></td></tr></table></figure></p>
+<p>在命令行移动到目标文件路径下后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── a</div><div class="line">│   └── a.js</div><div class="line">├── dyc.py</div><div class="line">├── fuck.txt</div><div class="line">└── test.js</div></pre></td></tr></table></figure></p>
+<p>执行<code>python dyc.py fuck.txt</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── a</div><div class="line">│   └── a.js</div><div class="line">├── dyc.py</div><div class="line">├── fuck.txt</div><div class="line">├── fuck_dyc.txt</div><div class="line">└── test.js</div></pre></td></tr></table></figure></p>
 <p>即可生成所需的dyc文件</p>
-<p>附带烧脑的测试代码·真：<br>test.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * this is a document comment</span><br><span class="line"> * Created by xana on 15/10/26.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// this is a line comment</span></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">        // this is an area comment</span><br><span class="line">    */</span></span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">'please//don\'t/*delete'</span>, str2 = <span class="string">'me"in*/your//test'</span>; <span class="comment">// ouch!"</span></span><br><span class="line">    <span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>test_out.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">'please//don\'t/*delete'</span>, str2 = <span class="string">'me"in*/your//test'</span>;</span><br><span class="line">    <span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>附带烧脑的测试代码·真：<br>test.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * this is a document comment</div><div class="line"> * Created by xana on 15/10/26.</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="comment">// this is a line comment</span></div><div class="line">    <span class="comment">/*</span></div><div class="line">        // this is an area comment</div><div class="line">    */</div><div class="line">    <span class="keyword">var</span> str = <span class="string">'please//don\'t/*delete'</span>, str2 = <span class="string">'me"in*/your//test'</span>; <span class="comment">// ouch!"</span></div><div class="line">    <span class="keyword">return</span> e;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>test_out.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> str = <span class="string">'please//don\'t/*delete'</span>, str2 = <span class="string">'me"in*/your//test'</span>;</div><div class="line">    <span class="keyword">return</span> e;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -147,15 +147,15 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -192,15 +192,15 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
 			
 		
 			
@@ -212,11 +212,11 @@
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -225,10 +225,6 @@
 		
 			
 				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
@@ -244,11 +240,11 @@
 			
 		
 			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -260,9 +256,11 @@
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -270,7 +268,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -304,7 +302,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -507,7 +505,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

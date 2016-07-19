@@ -53,7 +53,7 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -69,7 +69,7 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -92,14 +92,14 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-15T05:57:34.000Z" itemprop="datePublished"> Published 2016-03-15</time>
+    <time datetime="2016-03-15T05:57:34.000Z" itemprop="datePublished"> 发表于 2016-03-15</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目中用过的"><span class="toc-number">1.</span> <span class="toc-text">项目中用过的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GMImagePicker"><span class="toc-number">1.1.</span> <span class="toc-text">GMImagePicker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MBProgressHUD"><span class="toc-number">1.2.</span> <span class="toc-text">MBProgressHUD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ZipArchive"><span class="toc-number">1.3.</span> <span class="toc-text">ZipArchive</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#想用但是放弃的"><span class="toc-number">2.</span> <span class="toc-text">想用但是放弃的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iCarousel"><span class="toc-number">2.1.</span> <span class="toc-text">iCarousel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Material-Controls-For-iOS"><span class="toc-number">2.2.</span> <span class="toc-text">Material-Controls-For-iOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ios-material-design"><span class="toc-number">2.3.</span> <span class="toc-text">ios-material-design</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#外部链接"><span class="toc-number">3.</span> <span class="toc-text">外部链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附iOS尺寸规范"><span class="toc-number">4.</span> <span class="toc-text">附iOS尺寸规范</span></a></li></ol>
 		
@@ -108,18 +108,18 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 		<h1 id="项目中用过的">项目中用过的</h1><p>使用一些集成库能帮你节省下大量的时间和代码量。</p>
 <p>3.17 更新：添加测试使用的库 Reachability</p>
 <h2 id="GMImagePicker">GMImagePicker</h2><p>iOS上的图片多选view，用GMImagePickerControllerDelegate中的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)assetsPickerController:(GMImagePickerController *)picker didFinishPickingAssets:(NSArray *)assetArray;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)assetsPickerController:(GMImagePickerController *)picker didFinishPickingAssets:(NSArray *)assetArray;</div></pre></td></tr></table></figure>
 <p>方法拿到assetArray转型为PHAsset组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[PHImageManager defaultManager] requestImageDataForAsset:asset </span><br><span class="line">                                                  options:imageRequestOptions </span><br><span class="line">                                            resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) &#123;</span><br><span class="line">                                            // Do something with imageData...</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[[PHImageManager defaultManager] requestImageDataForAsset:asset </div><div class="line">                                                  options:imageRequestOptions </div><div class="line">                                            resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) &#123;</div><div class="line">                                            // Do something with imageData...</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <p>拿到每张图片的NSData，保存在本地沙盒中</p>
 <h2 id="MBProgressHUD">MBProgressHUD</h2><p>在需要花费较长时间的事件处理过程中，为了防止用户误操作，将用户界面锁定并显示进度条或提示。（锁定主线程，直到异步事件处理完毕）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[MBProgressHUD showHUDAddedTo:self.view animated:YES];</span><br><span class="line">dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^&#123;</span><br><span class="line">	// Do something...</span><br><span class="line">	dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">		[MBProgressHUD hideHUDForView:self.view animated:YES];</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[MBProgressHUD showHUDAddedTo:self.view animated:YES];</div><div class="line">dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^&#123;</div><div class="line">	// Do something...</div><div class="line">	dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">		[MBProgressHUD hideHUDForView:self.view animated:YES];</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>If you need to configure the HUD you can do this by using the MBProgressHUD reference that showHUDAddedTo:animated: returns.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];</span><br><span class="line">hud.mode = MBProgressHUDModeAnnularDeterminate;</span><br><span class="line">hud.labelText = @&quot;Loading&quot;;</span><br><span class="line">[self doSomethingInBackgroundWithProgressCallback:^(float progress) &#123;</span><br><span class="line">	hud.progress = progress;</span><br><span class="line">&#125; completionCallback:^&#123;</span><br><span class="line">	[hud hide:YES];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];</div><div class="line">hud.mode = MBProgressHUDModeAnnularDeterminate;</div><div class="line">hud.labelText = @&quot;Loading&quot;;</div><div class="line">[self doSomethingInBackgroundWithProgressCallback:^(float progress) &#123;</div><div class="line">	hud.progress = progress;</div><div class="line">&#125; completionCallback:^&#123;</div><div class="line">	[hud hide:YES];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <h2 id="ZipArchive">ZipArchive</h2><p><strong>注意，不是重写过的 SSZipArchive</strong></p>
 <p>Google写的zip解压缩工具，用于一次上传多个文件。注意在向zip添加文件的时候文件必须要在沙盒路径下，否则绝对路径只能读出(null)。（大坑，也是没有系统、基础的学习iOS的漏洞。）</p>
 <p>tip：临时文件本身可以放在tmp文件下，作为自动处理的缓存，启动APP时会自动清理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *) GetZip&#123;</span><br><span class="line">    ZipArchive* zip = [[ZipArchive alloc] init];</span><br><span class="line">    NSString *documentPath = NSTemporaryDirectory();</span><br><span class="line">    NSString* l_zipfile = [NSString stringWithFormat:@&quot;%@/tmp.zip&quot;,documentPath];</span><br><span class="line">    BOOL ret = [zip CreateZipFile2:l_zipfile];</span><br><span class="line">    for (int i=0; i&lt;imagesArray.count; i++) &#123;</span><br><span class="line">        NSString *imgURL = imagesArray[i];</span><br><span class="line">        ret = [zip addFileToZip:imgURL newname:[NSString stringWithFormat:@&quot;%d.PNG&quot;,i]];</span><br><span class="line">    &#125;</span><br><span class="line">    if( ![zip CloseZipFile2] )</span><br><span class="line">    &#123;</span><br><span class="line">        l_zipfile = @&quot;&quot;;  </span><br><span class="line">    &#125;</span><br><span class="line">    return l_zipfile;</span><br><span class="line">//    [zip release];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (NSString *) GetZip&#123;</div><div class="line">    ZipArchive* zip = [[ZipArchive alloc] init];</div><div class="line">    NSString *documentPath = NSTemporaryDirectory();</div><div class="line">    NSString* l_zipfile = [NSString stringWithFormat:@&quot;%@/tmp.zip&quot;,documentPath];</div><div class="line">    BOOL ret = [zip CreateZipFile2:l_zipfile];</div><div class="line">    for (int i=0; i&lt;imagesArray.count; i++) &#123;</div><div class="line">        NSString *imgURL = imagesArray[i];</div><div class="line">        ret = [zip addFileToZip:imgURL newname:[NSString stringWithFormat:@&quot;%d.PNG&quot;,i]];</div><div class="line">    &#125;</div><div class="line">    if( ![zip CloseZipFile2] )</div><div class="line">    &#123;</div><div class="line">        l_zipfile = @&quot;&quot;;  </div><div class="line">    &#125;</div><div class="line">    return l_zipfile;</div><div class="line">//    [zip release];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="想用但是放弃的">想用但是放弃的</h1><h2 id="iCarousel">iCarousel</h2><p>一个比较有名的旋转式选择界面库，可以使用它做出格式各样的3D选择界面，可以100%还原iPhone原生的app选择界面</p>
 <h2 id="Material-Controls-For-iOS">Material-Controls-For-iOS</h2><p>仿照Android的原生Material样式的各种控件和逻辑过渡的重写，</p>
 <h2 id="ios-material-design">ios-material-design</h2><p>点击view的某处或者button会用波浪式的颜色渲染过渡，很炫。</p>
@@ -186,22 +186,22 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目中用过的"><span class="toc-number">1.</span> <span class="toc-text">项目中用过的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GMImagePicker"><span class="toc-number">1.1.</span> <span class="toc-text">GMImagePicker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MBProgressHUD"><span class="toc-number">1.2.</span> <span class="toc-text">MBProgressHUD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ZipArchive"><span class="toc-number">1.3.</span> <span class="toc-text">ZipArchive</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#想用但是放弃的"><span class="toc-number">2.</span> <span class="toc-text">想用但是放弃的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iCarousel"><span class="toc-number">2.1.</span> <span class="toc-text">iCarousel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Material-Controls-For-iOS"><span class="toc-number">2.2.</span> <span class="toc-text">Material-Controls-For-iOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ios-material-design"><span class="toc-number">2.3.</span> <span class="toc-text">ios-material-design</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#外部链接"><span class="toc-number">3.</span> <span class="toc-text">外部链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附iOS尺寸规范"><span class="toc-number">4.</span> <span class="toc-text">附iOS尺寸规范</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -238,15 +238,15 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/js/" title="js">js<sup>11</sup></a></li>
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
 			
 		
 			
@@ -258,11 +258,11 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -271,10 +271,6 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 		
 			
 				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
@@ -290,11 +286,11 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 			
 		
 			
-				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -306,9 +302,11 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -316,7 +314,7 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -350,7 +348,7 @@ GMImagePickeriOS上的图片多选view，用GMImagePickerControllerDelegate中�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -555,7 +553,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
