@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Tags : Others | XANA&#39;s Blog</title>
+    <title>Tags : others | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -14,7 +14,7 @@
     <meta name="description" content="iOS/JS">
 <meta property="og:type" content="website">
 <meta property="og:title" content="XANA's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Others/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/others/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="iOS/JS">
 <meta name="twitter:card" content="summary">
@@ -72,7 +72,7 @@
         
 
 <div class="archive-title" >
-  <h2 class="tag-icon">Others</h2>
+  <h2 class="tag-icon">others</h2>
   
 </div>
 <div id="main" class="archive-part clearfix">
@@ -80,73 +80,17 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/04/27/howictrlmyself/" title="我是如何失败地约束自己的" itemprop="url">
+    <a href="/1016/07/23/sorry/" title="sorry" itemprop="url">
   
 
-    <time datetime="2016-04-27T13:20:55.000Z" itemprop="datePublished">2016-04-27</time>
+    <time datetime="1016-07-22T16:11:51.000Z" itemprop="datePublished">1016-07-23</time>
 
 
-    <h1 itemprop="name">我是如何失败地约束自己的</h1>
+    <h1 itemprop="name">sorry</h1>
 
   </a>
 </section>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/04/05/Processing笔记（四）/" title="Processing笔记（四）" itemprop="url">
-  
-
-    <time datetime="2015-04-05T14:12:15.000Z" itemprop="datePublished">2015-04-05</time>
-
-
-    <h1 itemprop="name">Processing笔记（四）</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/04/05/xana教你用vim/" title="xana教你用vim" itemprop="url">
-  
-
-    <time datetime="2015-04-05T12:50:12.000Z" itemprop="datePublished">2015-04-05</time>
-
-
-    <h1 itemprop="name">xana教你用vim</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/04/04/我为什么要学习Processing/" title="我为什么要学习Processing" itemprop="url">
-  
-
-    <time datetime="2015-04-04T10:49:01.000Z" itemprop="datePublished">2015-04-04</time>
-
-
-    <h1 itemprop="name">我为什么要学习Processing</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/04/02/xana教你用markdown/" title="xana教你用markdown" itemprop="url">
-  
-
-    <time datetime="2015-04-02T06:12:31.000Z" itemprop="datePublished">2015-04-02</time>
-
-
-    <h1 itemprop="name">xana教你用markdown</h1>
-
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix archive-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/Others/page/2/">2</a><a class="extend next" rel="next" href="/tags/Others/page/2/">Next<span></span></a>
-  </nav>
 
   </div>
 </div>
@@ -236,6 +180,83 @@ $(document).ready(function(){
     getSize(); 
     if (myWidth >= 1024) {
       $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+    </body>
+   </html>
+er nav').removeClass('shownav');
     }else{
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
