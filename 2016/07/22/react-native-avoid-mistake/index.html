@@ -1,0 +1,584 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>react-native不完全避坑指南(iOS版) | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="安装测试RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了
+
+版本发展的太快，导致新手在使用RN时，参考的文档会不可避免的发生一些版本更迭导致的错误（比如语法全面转向ES6等），下面就以0.30为例，我重新写一个RN项目，取名为bitch
+首先更新RN版本
+1sudo npm install -g react-native-cli
+测试安装
+12react-n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native不完全避坑指南(iOS版)">
+<meta property="og:url" content="http://yoursite.com/2016/07/22/react-native-avoid-mistake/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="安装测试RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了
+
+版本发展的太快，导致新手在使用RN时，参考的文档会不可避免的发生一些版本更迭导致的错误（比如语法全面转向ES6等），下面就以0.30为例，我重新写一个RN项目，取名为bitch
+首先更新RN版本
+1sudo npm install -g react-native-cli
+测试安装
+12react-n">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/2.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/3.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/4.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/5.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/6.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/7.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/8.png">
+<meta property="og:updated_time" content="2016-07-22T16:03:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-native不完全避坑指南(iOS版)">
+<meta name="twitter:description" content="安装测试RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了
+
+版本发展的太快，导致新手在使用RN时，参考的文档会不可避免的发生一些版本更迭导致的错误（比如语法全面转向ES6等），下面就以0.30为例，我重新写一个RN项目，取名为bitch
+首先更新RN版本
+1sudo npm install -g react-native-cli
+测试安装
+12react-n">
+<meta name="twitter:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/2.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/22/react-native-avoid-mistake/" title="react-native不完全避坑指南(iOS版)" itemprop="url">react-native不完全避坑指南(iOS版)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-22T13:57:58.000Z" itemprop="datePublished"> Published 2016-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装测试"><span class="toc-number">1.</span> <span class="toc-text">安装测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#node路径_问题"><span class="toc-number">2.1.</span> <span class="toc-text">node路径 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真机测试Bug"><span class="toc-number">2.2.</span> <span class="toc-text">真机测试Bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6"><span class="toc-number">2.3.</span> <span class="toc-text">ES6</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="安装测试">安装测试</h1><p>RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/2.png" alt=""></p>
+<p>版本发展的太快，导致新手在使用RN时，参考的文档会不可避免的发生一些版本更迭导致的错误（比如语法全面转向ES6等），下面就以0.30为例，我重新写一个RN项目，取名为bitch</p>
+<p>首先更新RN版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g react-native-cli</div></pre></td></tr></table></figure>
+<p>测试安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native init bitch</div><div class="line"><span class="built_in">cd</span> bitch</div></pre></td></tr></table></figure>
+<p>查看package.json</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">~/workspace/reactnative/bitch » cat package.json </div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"bitch"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"start"</span>: <span class="string">"node node_modules/react-native/local-cli/cli.js start"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"dependencies"</span>: &#123;</div><div class="line">    <span class="string">"react"</span>: <span class="string">"15.2.1"</span>,</div><div class="line">    <span class="string">"react-native"</span>: <span class="string">"0.30.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>直接运行iOS模拟器脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native run-ios</div></pre></td></tr></table></figure>
+<p>可能会卡一段时间，当前会执行安装iOS APP的脚本，另一个弹出的是node后端，关于所有APP的信息都放在这个服务器上。之后毫无疑问的，渲染出来一个iPhone6的界面应用<img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/3.png" alt=""></p>
+<p>然后官方文档就开始撒花了。(懵逼</p>
+<h1 id="坑">坑</h1><h2 id="node路径_问题">node路径 问题</h2><p>我们在使用xcode进行应用安装时，如果你是一个好的jser，会使用nvm(node version manager)管理node版本，但是通过修改.zshrc加入node环境变量启动的话，shell会找不到<code>node</code>命令，xcode会显示build failed，此时要到项目的Build Phases 里去找到shell中的node路径，具体可以通过<code>where node</code> or <code>which node</code>命令查看 <img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/4.png" alt=""></p>
+<h2 id="真机测试Bug">真机测试Bug</h2><p>关于真机调试，中文官方文档是这样说的：<br><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/5.png" alt="http://reactnative.cn/docs/0.28/debugging.html#content"><br>然而实际上要到<code>AppDelegate.m</code>去修改localhost为本机IP才会生效，修改<code>RCTWebSocketExecutor.m</code>没有实质作用(0.27版本)，然而在0.30版本里似乎进行了优化，代码优化如下：</p>
+<p>RCTWebSocketExecutor.m</p>
+<p><strong>Before</strong></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/6.png" alt=""></p>
+<p><strong>After</strong></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/7.png" alt=""></p>
+<p>测试之后，发现似乎是真机调试时主动把本机IP自动替换localhost，因此不需要修改任何代码就可以进行真机调试</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/8.png" alt="iPhone截图"></p>
+<p>但是0.30版本前的项目还是会有这个坑。可以通过</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save react-native@0.30</div><div class="line">react-native upgrade</div></pre></td></tr></table></figure>
+<p>进行项目更新</p>
+<p>实际上，你的app只是一个js解释器，我可以在用一台服务器上开不同的后台让它变成不同的app，只要按装好一次app，就告别Xcode，用你喜欢的编辑器，比如vim，进行iOS的APP编写了。</p>
+<h2 id="ES6">ES6</h2><p>其实这个不算一个坑，因为现在ES5是被兼容的。作为一个prototype的忠实用户，对于所有的oo语言是无法接受的，何必要包上一层糖纸去迎合那些没有class就活不下去的人呢？ES6的到来完全抢走了JS各种方言的饭碗，像之前很多人推荐的CoffeeScript、TypeScript。我大原型链指针灵活，继承自由，现在被强行规范化了。rn马上也要抛弃es5了，如果你没有接触过es5的话，那这个就不是一个坑，自动忽视掉之前版本的教程、官方/非官方例子就好。慢慢的习惯每个自定义view都用上class和它的构造函数吧。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/reactnative/">reactnative</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/07/22/react-native-avoid-mistake/" data-title="react-native不完全避坑指南(iOS版) | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/07/19/mongoose/"  title="Mongoose使用小结">
+ <strong>下一篇：</strong><br/> 
+ <span>Mongoose使用小结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装测试"><span class="toc-number">1.</span> <span class="toc-text">安装测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#node路径_问题"><span class="toc-number">2.1.</span> <span class="toc-text">node路径 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真机测试Bug"><span class="toc-number">2.2.</span> <span class="toc-text">真机测试Bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6"><span class="toc-number">2.3.</span> <span class="toc-text">ES6</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/phaser/" title="phaser">phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephistopheies.me/" target="_blank" title="MephistoPheies&#39;s Blog">MephistoPheies&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://arthury.cn/" target="_blank" title="Arthury&#39;s Blog">Arthury&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me/" target="_blank" title="Jury Xiong&#39;s Blog">Jury Xiong&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://tecotaku.cn" target="_blank" title="SinoReimu&#39;s Blog">SinoReimu&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imxana@foxmain.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

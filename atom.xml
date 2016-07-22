@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-19T06:42:55.000Z</updated>
+  <updated>2016-07-22T16:03:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,28 +16,81 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mongoose使用小结</title>
-    <link href="http://yoursite.com/2016/07/19/mongoose%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/"/>
-    <id>http://yoursite.com/2016/07/19/mongoose使用小结/</id>
-    <published>2016-07-19T05:38:10.000Z</published>
-    <updated>2016-07-19T06:42:55.000Z</updated>
+    <title>react-native不完全避坑指南(iOS版)</title>
+    <link href="http://yoursite.com/2016/07/22/react-native-avoid-mistake/"/>
+    <id>http://yoursite.com/2016/07/22/react-native-avoid-mistake/</id>
+    <published>2016-07-22T13:57:58.000Z</published>
+    <updated>2016-07-22T16:03:31.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Preview&quot;&gt;Preview&lt;/h1&gt;&lt;h2 id=&quot;wrting-&quot;&gt;wrting..&lt;/h2&gt;&lt;p&gt;暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，但是大多数都是来『玩』的。期间一直在被很多小白叫大神，说实话我心里是极不舒服的。因为我本身就是个小白，是来系统、基础的学习一些平时途径学不到的东西的，本来是来学习交流的，结果变成来装X和开着热点自学的了。这些老师互相吹逼，我问了所谓技术大牛的老师一个reactnative的问题，他居然说完全不了解，好不容易上了一节关于技术的课，却又只涉及。或许这个圈子不太适合我吧，&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;安装测试&quot;&gt;安装测试&lt;/h1&gt;&lt;p&gt;RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;版本发展的太快，导致新手在使用RN时，参考的文档会不可避免的发生一些版本更迭导致的错误（比如语法全面转向ES6等），下面就以0.30为例，我重新写一个RN项目，取名为bitch&lt;/p&gt;
+&lt;p&gt;首先更新RN版本&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo npm install -g react-native-cli&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;测试安装&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;react-native init bitch&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; bitch&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看package.json&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;~/workspace/reactnative/bitch » cat package.json &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;bitch&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;version&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;private&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;node node_modules/react-native/local-cli/cli.js start&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;15.2.1&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react-native&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;0.30.0&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;直接运行iOS模拟器脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;react-native run-ios&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可能会卡一段时间，当前会执行安装iOS APP的脚本，另一个弹出的是node后端，关于所有APP的信息都放在这个服务器上。之后毫无疑问的，渲染出来一个iPhone6的界面应用&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后官方文档就开始撒花了。(懵逼&lt;/p&gt;
+&lt;h1 id=&quot;坑&quot;&gt;坑&lt;/h1&gt;&lt;h2 id=&quot;node路径_问题&quot;&gt;node路径 问题&lt;/h2&gt;&lt;p&gt;我们在使用xcode进行应用安装时，如果你是一个好的jser，会使用nvm(node version manager)管理node版本，但是通过修改.zshrc加入node环境变量启动的话，shell会找不到&lt;code&gt;node&lt;/code&gt;命令，xcode会显示build failed，此时要到项目的Build Phases 里去找到shell中的node路径，具体可以通过&lt;code&gt;where node&lt;/code&gt; or &lt;code&gt;which node&lt;/code&gt;命令查看 &lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;真机测试Bug&quot;&gt;真机测试Bug&lt;/h2&gt;&lt;p&gt;关于真机调试，中文官方文档是这样说的：&lt;br&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/5.png&quot; alt=&quot;http://reactnative.cn/docs/0.28/debugging.html#content&quot;&gt;&lt;br&gt;然而实际上要到&lt;code&gt;AppDelegate.m&lt;/code&gt;去修改localhost为本机IP才会生效，修改&lt;code&gt;RCTWebSocketExecutor.m&lt;/code&gt;没有实质作用(0.27版本)，然而在0.30版本里似乎进行了优化，代码优化如下：&lt;/p&gt;
+&lt;p&gt;RCTWebSocketExecutor.m&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;测试之后，发现似乎是真机调试时主动把本机IP自动替换localhost，因此不需要修改任何代码就可以进行真机调试&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.22/8.png&quot; alt=&quot;iPhone截图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;但是0.30版本前的项目还是会有这个坑。可以通过&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install --save react-native@0.30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;react-native upgrade&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进行项目更新&lt;/p&gt;
+&lt;p&gt;实际上，你的app只是一个js解释器，我可以在用一台服务器上开不同的后台让它变成不同的app，只要按装好一次app，就告别Xcode，用你喜欢的编辑器，比如vim，进行iOS的APP编写了。&lt;/p&gt;
+&lt;h2 id=&quot;ES6&quot;&gt;ES6&lt;/h2&gt;&lt;p&gt;其实这个不算一个坑，因为现在ES5是被兼容的。作为一个prototype的忠实用户，对于所有的oo语言是无法接受的，何必要包上一层糖纸去迎合那些没有class就活不下去的人呢？ES6的到来完全抢走了JS各种方言的饭碗，像之前很多人推荐的CoffeeScript、TypeScript。我大原型链指针灵活，继承自由，现在被强行规范化了。rn马上也要抛弃es5了，如果你没有接触过es5的话，那这个就不是一个坑，自动忽视掉之前版本的教程、官方/非官方例子就好。慢慢的习惯每个自定义view都用上class和它的构造函数吧。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;安装测试&quot;&gt;安装测试&lt;/h1&gt;&lt;p&gt;RN发展的非常非常快，在我写这篇文章（7月22日 星期五）的时候已经更新到0.30版本了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/i
+    
+    </summary>
+    
+    
+      <category term="reactnative" scheme="http://yoursite.com/tags/reactnative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mongoose使用小结</title>
+    <link href="http://yoursite.com/2016/07/19/mongoose/"/>
+    <id>http://yoursite.com/2016/07/19/mongoose/</id>
+    <published>2016-07-19T05:38:10.000Z</published>
+    <updated>2016-07-19T06:59:51.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Preview&quot;&gt;Preview&lt;/h1&gt;&lt;p&gt;（张兄让我写一点收获，没办法，就写一点吧&lt;/p&gt;
+&lt;h2 id=&quot;Wrting-&quot;&gt;Wrting..&lt;/h2&gt;&lt;p&gt;暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，不过认识了几位有想法，有自己作品的朋友，在一起交流了很久，感觉大家虽然目的不同，但是走的路，挖的坑都是惊人的相似。但是大多数人都是来『玩』的，包括老师。期间一直在被很多小白叫大神，说实话我心里是极不舒服的。因为我本身就是个小白，是来系统、基础的学习一些平时途径学不到的东西的，本来是来学习交流的，结果变成来装X和开着热点自学的了。这些老师互相吹逼，我问了所谓技术大牛的老师一个reactnative的问题，他居然说完全不了解，好不容易上了一节关于技术的课，却又只涉及纯理论和大量的假设和推理。。宿舍WiFi超级差，又不稳定，最后老师干脆就不管了，66666&lt;/p&gt;
 &lt;h2 id=&quot;Example&quot;&gt;Example&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/imxana/db_test.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;imxana/db_test&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is mongodb + nodejs, a universal backend, just tested for some showing demo..（火车上写的一点东西。。&lt;/p&gt;
-&lt;h2 id=&quot;nosql&quot;&gt;nosql&lt;/h2&gt;&lt;p&gt;MongoDB作为一个nosql型数据库，在数据模型使用方面，必须摆脱sql那种链式储存的思维。使用起来更加的自由，特别是JSON与JavaScript对象类型的亲和度非常高，使用时会让你更加的得心应手，而不是需要死记sql语句。一个储存对象就是JSONtree一个分支，可以无限延伸，因此可以存储相当复杂的树数据。&lt;/p&gt;
+&lt;h2 id=&quot;NoSQL&quot;&gt;NoSQL&lt;/h2&gt;&lt;p&gt;MongoDB作为一个nosql型数据库，在数据模型使用方面，必须摆脱sql那种链式储存的思维。使用起来更加的自由，特别是JSON与JavaScript对象类型的亲和度非常高，使用时会让你更加的得心应手，而不是需要死记sql语句。一个储存对象就是JSONtree一个分支，可以无限延伸，因此可以存储相当复杂的树数据。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : ObjectId(&lt;span class=&quot;string&quot;&gt;&quot;578319aab115df5938efcdf9&quot;&lt;/span&gt;), &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;Ruri&quot;&lt;/span&gt;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;userid&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;Yvo1D5X9p4c58GAJ&quot;&lt;/span&gt;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;comments&quot;&lt;/span&gt; : &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;: &amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;__v&quot;&lt;/span&gt; : &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;mongoose-js?_mongodb-js?&quot;&gt;mongoose.js? mongodb.js?&lt;/h2&gt;&lt;p&gt;Mongoose作为mongodb-node的一个封装API库，相比于mongo.js来说，它使用了Scheme来作为mongodb的collection的「骨架」，对于骨架具体化的model进行操作。而mongodb.js还是一样使用语句进行操作，这样可能会导致更多的代码，更多的错误。&lt;/p&gt;
-&lt;h1 id=&quot;Quick_Start&quot;&gt;Quick Start&lt;/h1&gt;&lt;p&gt;先假设情景，我需要一个用户模型，用于注册，登陆，储存用户ID(userid)&lt;/p&gt;
+&lt;h1 id=&quot;Quick_Start&quot;&gt;Quick Start&lt;/h1&gt;&lt;p&gt;先假设情景，我需要一个用户模型，用于注册，登陆，储存用户ID(userid)和名字(name)&lt;/p&gt;
 &lt;h2 id=&quot;intialize&quot;&gt;intialize&lt;/h2&gt;&lt;p&gt;数据库初始化代码 db_init.js&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; mongoose = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;mongoose&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;mongodb&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; userSchema = mongoose.Schema(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    name: &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    userid: &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  mongoose.model(&lt;span class=&quot;string&quot;&gt;&#39;user&#39;&lt;/span&gt;, userSchema);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  mongoose.connect(&lt;span class=&quot;string&quot;&gt;&#39;mongodb://localhost/db_test&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; db = mongoose.connection&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  db.on(&lt;span class=&quot;string&quot;&gt;&#39;error&#39;&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.error.bind(&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;connection error:&#39;&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  db.once(&lt;span class=&quot;string&quot;&gt;&#39;open&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;callback&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;MongoDB once opened..&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = mongodb;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这段代码做了啥？首先引入mongoose模块，连接本地名为db_test的mongodb数据库(没有的话会自动创建)，然后监听错误和开启事件，之后新建了一个user模型userSchema，最后把这个模型注册给名称为’user’的collection。&lt;/p&gt;
 &lt;h2 id=&quot;common_method&quot;&gt;common method&lt;/h2&gt;&lt;p&gt;其他方法 db.js&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; mongoose = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;mongoose&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; User = mongoose.model(&lt;span class=&quot;string&quot;&gt;&#39;user&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 1.add-work&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; user = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; User();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.name = &lt;span class=&quot;string&quot;&gt;&#39;Ruri&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.id = Randon16();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.save(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (err) &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; err;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;User saved.&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 4.search doc&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;User.find(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Ayase&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err, users&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; users.length; i++) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;ID:&#39;&lt;/span&gt; + users[i].userid);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(users[i].name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 5.del doc&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// &#39;&#39; is the ID&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Task.findById(&lt;span class=&quot;string&quot;&gt;&#39;56037be2b3293deaa4a98477&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err, user&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	user.remove();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; mongoose = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;mongoose&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; User = mongoose.model(&lt;span class=&quot;string&quot;&gt;&#39;user&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 1.add-work&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; user = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; User();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.name = &lt;span class=&quot;string&quot;&gt;&#39;Ruri&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.id = RandomID();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;user.save(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (err) &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; err;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;User saved.&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 2.search doc&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;User.find(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Ayase&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err, users&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; users.length; i++) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;ID:&#39;&lt;/span&gt; + users[i].userid);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(users[i].name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 3.del doc&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// &#39;&#39; is the ID&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Task.findById(&lt;span class=&quot;string&quot;&gt;&#39;56037be2b3293deaa4a98477&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err, user&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	user.remove();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;user注册完毕后，取出已注册的user模型（未注册会报错），然后实例化user，调用模型的save方法，就能直接储存。也能直接传入参数save，等价于&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; User(&amp;#123;name:&lt;span class=&quot;string&quot;&gt;&#39;Ruri&#39;&lt;/span&gt;, id: RandomID()&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.save(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;err&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (err) &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; err;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;User saved.&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;删除方法通常配合查询方法，这里只是简单涉及，具体查阅相关资料。&lt;br&gt;修改方法也配合查询方法，直接修改对象属性然后调用save即可，相当于mongodb语法里的$set（如果没记错的话）&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Preview&quot;&gt;Preview&lt;/h1&gt;&lt;h2 id=&quot;wrting-&quot;&gt;wrting..&lt;/h2&gt;&lt;p&gt;暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，但是大多数都是来『玩』的。期间一直在被很多小白叫大神，说实话我心里是极不舒服的
+      &lt;h1 id=&quot;Preview&quot;&gt;Preview&lt;/h1&gt;&lt;p&gt;（张兄让我写一点收获，没办法，就写一点吧&lt;/p&gt;
+&lt;h2 id=&quot;Wrting-&quot;&gt;Wrting..&lt;/h2&gt;&lt;p&gt;暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，不过认识了几位有想法，
     
     </summary>
     
@@ -111,8 +164,8 @@
   
   <entry>
     <title>GitHub上用到几个iOS库</title>
-    <link href="http://yoursite.com/2016/03/15/GitHub%E4%B8%8A%E7%94%A8%E5%88%B0%E5%87%A0%E4%B8%AAiOS%E5%BA%93/"/>
-    <id>http://yoursite.com/2016/03/15/GitHub上用到几个iOS库/</id>
+    <link href="http://yoursite.com/2016/03/15/GitHub_iOS_lib/"/>
+    <id>http://yoursite.com/2016/03/15/GitHub_iOS_lib/</id>
     <published>2016-03-15T05:57:34.000Z</published>
     <updated>2016-03-17T12:39:24.000Z</updated>
     
@@ -162,8 +215,8 @@
   
   <entry>
     <title>这是我今年写过最烂的代码</title>
-    <link href="http://yoursite.com/2016/01/12/%E8%BF%99%E6%98%AF%E6%88%91%E4%BB%8A%E5%B9%B4%E5%86%99%E8%BF%87%E6%9C%80%E7%83%82%E7%9A%84%E4%BB%A3%E7%A0%81/"/>
-    <id>http://yoursite.com/2016/01/12/这是我今年写过最烂的代码/</id>
+    <link href="http://yoursite.com/2016/01/12/worst_code_of_year/"/>
+    <id>http://yoursite.com/2016/01/12/worst_code_of_year/</id>
     <published>2016-01-11T17:11:14.000Z</published>
     <updated>2016-04-27T14:47:19.000Z</updated>
     
@@ -184,8 +237,8 @@
   
   <entry>
     <title>2015总结</title>
-    <link href="http://yoursite.com/2015/12/29/2015%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2015/12/29/2015总结/</id>
+    <link href="http://yoursite.com/2015/12/29/2015/"/>
+    <id>http://yoursite.com/2015/12/29/2015/</id>
     <published>2015-12-29T02:51:57.000Z</published>
     <updated>2015-12-30T06:02:34.000Z</updated>
     
@@ -487,8 +540,8 @@
   
   <entry>
     <title>初识Phaser.js</title>
-    <link href="http://yoursite.com/2015/08/03/%E5%88%9D%E8%AF%86Phaser-js/"/>
-    <id>http://yoursite.com/2015/08/03/初识Phaser-js/</id>
+    <link href="http://yoursite.com/2015/08/03/Knowing_Phaser-js/"/>
+    <id>http://yoursite.com/2015/08/03/Knowing_Phaser-js/</id>
     <published>2015-08-03T12:59:58.000Z</published>
     <updated>2015-08-03T14:46:20.000Z</updated>
     
@@ -793,70 +846,6 @@
     </summary>
     
       <category term="js" scheme="http://yoursite.com/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebAudioAPI整理</title>
-    <link href="http://yoursite.com/2015/06/04/WebAudioAPI%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2015/06/04/WebAudioAPI整理/</id>
-    <published>2015-06-04T14:30:33.000Z</published>
-    <updated>2015-06-05T17:10:37.000Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;Forword&quot;&gt;Forword&lt;/h1&gt;&lt;p&gt;&lt;em&gt;自我娱乐，纯手工整理。&lt;del&gt;然并卵。&lt;/del&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id=&quot;WebAudioAPI&quot;&gt;WebAudioAPI&lt;/h1&gt;&lt;h2 id=&quot;AudioContext&quot;&gt;AudioContext&lt;/h2&gt;&lt;p&gt;包含各个AudioNode对象以及它们联系的对象，可以理解为audio上下文对象。绝大多数情况下，一个document中只有一个&lt;strong&gt;AudioContext&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;创建&quot;&gt;创建&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ac = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.AudioContext();&lt;span class=&quot;comment&quot;&gt;//(webkit,moz等兼容前缀)&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;属性&quot;&gt;属性&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;destination&lt;/strong&gt;： AudioDestinationNode对象，所有的音频输出聚集地，相当于音频的硬件，所有的AudioNode都直接或间接的连接到这里。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;currentTime&lt;/strong&gt;： AudioContext从创建开始到当前的时间（秒）。&lt;em&gt;与很多时间参数有关&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;方法&quot;&gt;方法&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;decodeAudioData(arrayBuffer, succ(buffer), err)&lt;/strong&gt;&lt;br&gt;异步解码包含在arrayBuffer中的音频数据&lt;br&gt;第一个参数就是Ajax向服务端请求得到的音频数据&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;createBufferSource()&lt;/strong&gt;&lt;br&gt;创建audioBufferSourceNode对象&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;createAnalyser()&lt;/strong&gt;&lt;br&gt;创建AnalyserNode对象&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;createGain()&lt;/strong&gt;/&lt;strong&gt;createGainNode()&lt;/strong&gt;&lt;br&gt;创建GainNode对象&lt;/p&gt;
-&lt;h2 id=&quot;AudioBufferSourseNode&quot;&gt;AudioBufferSourseNode&lt;/h2&gt;&lt;p&gt;表示内存中的一段音频资源，其音频数据存在于AudioBuffer中（其buffer属性）&lt;/p&gt;
-&lt;h3 id=&quot;创建-1&quot;&gt;创建&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; buffersource = ac.createBufferSource();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;属性-1&quot;&gt;属性&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;buffer&lt;/strong&gt;：AudioBuffer对象，表示要播放的音频资源数据。（必须）&lt;br&gt;—子属性：&lt;strong&gt;duration&lt;/strong&gt;，该音频资源的时长（秒）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;loop&lt;/strong&gt;：是否循环播放，默认false&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;onended&lt;/strong&gt;：可绑定音频播放完毕时调用的事件处理程序&lt;/p&gt;
-&lt;h3 id=&quot;方法-1&quot;&gt;方法&lt;/h3&gt;&lt;p&gt;以下两个方法可均无参数&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;start/noteOn(when=ac.currenTime, offset=0, duration=buffer.duration-offset)&lt;/strong&gt;&lt;br&gt;开始播放音频。&lt;strong&gt;when&lt;/strong&gt;：何时开始播放；&lt;strong&gt;offset&lt;/strong&gt;：从音频的第几秒开始播放；&lt;strong&gt;duration&lt;/strong&gt;：播放几秒；&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;stop/noteOff(when=ac.currentTime)&lt;/strong&gt;&lt;br&gt;结束播放音频&lt;/p&gt;
-&lt;h2 id=&quot;GainNode&quot;&gt;GainNode&lt;/h2&gt;&lt;p&gt;改变音频音量的对象，会改变通过它的音频数据所有的sample frame的信号强度。（通过间接连接作为一个过渡器，详见图解）&lt;/p&gt;
-&lt;h3 id=&quot;创建-2&quot;&gt;创建&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; gainNode = ac.createGain()/ac.createGainNode();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;属性-2&quot;&gt;属性&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;gain&lt;/strong&gt;，AudioParam对象，通过改变其value值可以改变音频信号的强弱，默认的value属性值为1，通常最小值为0，最大值为1，其value值也可以大于1，小于0&lt;/p&gt;
-&lt;h2 id=&quot;AnalyserNode&quot;&gt;AnalyserNode&lt;/h2&gt;&lt;p&gt;音频分析对象，它能实时地分析音频资源的频域和时域信息，但不会对 音频流做任何处理&lt;/p&gt;
-&lt;h3 id=&quot;创建-3&quot;&gt;创建&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; analyser = ac.createAnalyser();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;属性-3&quot;&gt;属性&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;fftSize&lt;/strong&gt;，设置FFT值的大小，用于分析得到频域，为32~2048之间2的整数次倍，默认为2048实时得到的音频频域的数据个数为fftSize的一半。（FFT是傅里叶变换的快速算法，用于将一个信号变换到频域）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;frequencyBinCount&lt;/strong&gt;，FFT值的一半，即实时得到的音频频域数据个数&lt;/p&gt;
-&lt;h3 id=&quot;方法-2&quot;&gt;方法&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;getByteFrequencyData(Uint8Array)&lt;/strong&gt;，复制音频当前的频域数据（数量是frequencyBinCount）&lt;br&gt;到Uint8Array（8位无符号整型类型化数组）中&lt;/p&gt;
-&lt;h1 id=&quot;WebAudioImage&quot;&gt;WebAudioImage&lt;/h1&gt;&lt;p&gt;&lt;em&gt;这张图能够帮助你更好的理解&lt;/em&gt;&lt;br&gt;&lt;img src=&quot;https://coding.net/u/xana/p/yinyong/git/raw/master/img/webAudioAPI.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;首先创建AudioContext对象&lt;/p&gt;
-&lt;p&gt;通过AudioContext对象的decodeAudioData()方法解码AudioBuffer得到buffer&lt;/p&gt;
-&lt;p&gt;这需要接收一个AudioBuffer类型的数据(ajax请求)&lt;/p&gt;
-&lt;p&gt;通过AudioContext对象的createBufferSource()方法，创建AudioBufferSourceNode音频播放的音频资源对象，它的音频资源数据需要放在buffer属性里&lt;/p&gt;
-&lt;p&gt;然后我们需要把AudioBufferSourceNode连接到AudioDestinationNode上（所有的音频节点都要连接到destination上）&lt;/p&gt;
-&lt;p&gt;之后有一个分析(AnalyserNode)和调节音量(GainNode)的节点，也间接的连接到AudioDestinationNode~&lt;/p&gt;
-&lt;p&gt;但开始要将AudioBufferSourceNode直接连接到AudioDestinationNode上，然后加上这两个过滤器（&lt;del&gt;一开始我是拒绝的&lt;/del&gt;）&lt;/p&gt;
-&lt;p&gt;这样所有的节点都有了一个最终的目的地&lt;/p&gt;
-&lt;p&gt;这个时候在调用start()方法，或者较老的noteOn()方法，就可以播放这个音频资源。&lt;/p&gt;
-&lt;p&gt;requestAnimationFrame()用于绘制动画，此时就可以通过拿到AnalyserNode里的数组在进行canvas绘图&lt;/p&gt;
-&lt;p&gt;以上&lt;/p&gt;
-&lt;h1 id=&quot;else&quot;&gt;else&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://webaudio.github.io/web-audio-api/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方API&lt;/a&gt;，实时更新，目前还处于草案阶段&lt;/p&gt;
-&lt;p&gt;PS：话说好想去日本旅游啊。有这方面兴趣的朋友不妨一约？&lt;del&gt;求老司机带飞&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;—————————2015.6.5—————————&lt;/p&gt;
-&lt;p&gt;PS2：整理的好累啊。按照音乐可视化的节奏，做到canvas绘图为止，canvas的内容就不再放出来了&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Forword&quot;&gt;Forword&lt;/h1&gt;&lt;p&gt;&lt;em&gt;自我娱乐，纯手工整理。&lt;del&gt;然并卵。&lt;/del&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h1 id=&quot;WebAudioAPI&quot;&gt;WebAudioAPI&lt;/h1&gt;&lt;h2 id=&quot;AudioContext&quot;&gt;AudioCont
-    
-    </summary>
-    
-      <category term="webAudio" scheme="http://yoursite.com/categories/webAudio/"/>
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
