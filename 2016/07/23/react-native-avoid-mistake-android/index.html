@@ -29,7 +29,15 @@
 <meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/2.png">
 <meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/3.png">
 <meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/4.png">
-<meta property="og:updated_time" content="2016-07-23T05:41:03.000Z">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/18.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/11.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/12.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/13.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/14.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/15.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/16.png">
+<meta property="og:image" content="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/17.png">
+<meta property="og:updated_time" content="2016-07-24T07:47:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native不完全避坑指南(Android版)">
 <meta name="twitter:description" content="PreAndroid Studio在windows上的安装部署让我在大一的时候放弃了安卓，在mac上as的表现尚可，部署工程也变得不是那么坑了。
@@ -61,7 +69,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -100,16 +108,16 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-23T02:57:56.000Z" itemprop="datePublished"> 发表于 2016-07-23</time>
+    <time datetime="2016-07-23T02:57:56.000Z" itemprop="datePublished"> 發表於 2016-07-23</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pre"><span class="toc-number">1.</span> <span class="toc-text">Pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工程路径"><span class="toc-number">2.1.</span> <span class="toc-text">工程路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AS里的Android版本"><span class="toc-number">2.2.</span> <span class="toc-text">AS里的Android版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pre"><span class="toc-number">1.</span> <span class="toc-text">Pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工程路径"><span class="toc-number">2.1.</span> <span class="toc-text">工程路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AS里的Android版本"><span class="toc-number">2.2.</span> <span class="toc-text">AS里的Android版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟器"><span class="toc-number">2.3.</span> <span class="toc-text">模拟器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -131,7 +139,22 @@
 <p>原因其实我并不是很了解，可能与版本有关，可能与机型有关。但是react-native理论上适配所有机型，也避免了魅族坑:)</p>
 <p>但是如果只能高版本模拟器进行测试的话，估计低版本真机测试的时候又会出现这样那样的问题。</p>
 <p>真机调试待更。。</p>
-<h1 id="总结">总结</h1><p>为了同时适配谷歌和苹果，尽量使用react-native标准模块，而不是原生模块，虽然是<br><code>Learn once, write everywhere</code>，我觉得更像是<code>install once, write everywhere</code>，所有的坑，在APP成功安装运行一次后，就把重心完全放到了js上。<del>好吧不仅限于iPhone版本更新以后APP找不到DiskImage直接闪退，手机上20多个demo全部GG</del></p>
+<h2 id="模拟器">模拟器</h2><p>Mac上可以直接在<code>Application/Xcode.app/Contents/Developer/Application/</code>中或者Alfred、spotlight中搜索simulator来打开Simulator.app，每个尺寸的simulator都是一个独立的device，会保存之前使用过的应用、本地数据，都会保存在对应device中。这就让后续开发绕过了Xcode，以延长电脑寿命（雾</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/18.png" alt="启动模拟器"></p>
+<p>Android Studio通过启动AVD manager来启动各种型号的安卓模拟器</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/11.png" alt="就是这个东西"></p>
+<p>要去绕过AS启动它<del>以延长Mac寿命</del>，首先找到AS的sdk下的tools</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/12.png" alt=""></p>
+<p>然后注意到emulator这个可执行文件。。执行它发现似乎需要参数</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/13.png" alt=""></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/14.png" alt=""></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/15.png" alt=""></p>
+<p>提示我到<code>$HOME/.android/avd</code>下去寻找模拟器</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/16.png" alt=""></p>
+<p>把需要的模拟器复制过来</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/17.png" alt=""></p>
+<p>模拟器就开始运行了，撒花（雾）。我这里提示该升级了</p>
+<h1 id="总结">总结</h1><p>为了同时适配谷歌和苹果，尽量使用react-native标准模块，而不是原生模块，虽然是<br><code>Learn once, write everywhere</code>，我觉得更像是<code>install once, write everywhere</code>，所有的坑，在APP成功安装运行一次后，就把重心完全放到了js上。<del>好吧不仅限于上个月iPhone版本更新以后APP找不到DiskImage直接闪退，手机上20多个demo全部GG</del></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -176,22 +199,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pre"><span class="toc-number">1.</span> <span class="toc-text">Pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工程路径"><span class="toc-number">2.1.</span> <span class="toc-text">工程路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AS里的Android版本"><span class="toc-number">2.2.</span> <span class="toc-text">AS里的Android版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pre"><span class="toc-number">1.</span> <span class="toc-text">Pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑"><span class="toc-number">2.</span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工程路径"><span class="toc-number">2.1.</span> <span class="toc-text">工程路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AS里的Android版本"><span class="toc-number">2.2.</span> <span class="toc-text">AS里的Android版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟器"><span class="toc-number">2.3.</span> <span class="toc-text">模拟器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -228,7 +251,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -312,7 +335,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -346,7 +369,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -551,7 +574,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/miku.gif"/></a>
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
