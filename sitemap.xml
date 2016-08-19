@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/08/19/moon/</loc>
+    
+    <lastmod>2016-08-19T15:33:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/07/23/react-native-avoid-mistake-android/</loc>
     
     <lastmod>2016-07-24T07:47:21.000Z</lastmod>
