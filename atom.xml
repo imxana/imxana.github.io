@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-30T15:56:11.000Z</updated>
+  <updated>2016-08-30T18:12:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,13 +20,76 @@
     <link href="http://yoursite.com/2016/08/30/16Aug/"/>
     <id>http://yoursite.com/2016/08/30/16Aug/</id>
     <published>2016-08-30T15:43:55.000Z</published>
-    <updated>2016-08-30T15:56:11.000Z</updated>
+    <updated>2016-08-30T18:12:31.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Python3">Python3</h1><p><a href="https://github.com/imxana/show-me-the-code" target="_blank" rel="external">imxana/show-me-the-code</a></p>
-<p>部分练习</p>
+<p>部分练习 ( 0~13, 21, 22 )</p>
 <h1 id="Linux">Linux</h1><p><a href="https://github.com/imxana/shell_test" target="_blank" rel="external">imxana/shell_test</a></p>
-<p>《Linux Shell脚本攻略》学习代码，作者是一个20岁的印度大学生</p>
-<h1 id="邮箱迁移">邮箱迁移</h1><p>New email: xana.awaken@gmail.com</p>
+<p>《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生</p>
+<h1 id="邮箱迁移">邮箱迁移</h1><p>New email: <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x78;&#x61;&#110;&#x61;&#x2e;&#97;&#119;&#x61;&#107;&#x65;&#x6e;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#x78;&#x61;&#110;&#x61;&#x2e;&#97;&#119;&#x61;&#107;&#x65;&#x6e;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a></p>
+<p>部分迁移情况</p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aliyun</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Amazon</td>
+<td>√</td>
+</tr>
+<tr>
+<td>App Can</td>
+<td>remove</td>
+</tr>
+<tr>
+<td>Apple</td>
+<td>:(</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Facebook</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Github</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Instagram</td>
+<td>√</td>
+</tr>
+<tr>
+<td>iturning</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Leap Motion</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>remove</td>
+</tr>
+<tr>
+<td>Segmentfault</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Steam</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     
     <summary type="html">
