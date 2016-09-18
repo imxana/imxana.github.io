@@ -4,23 +4,68 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Processing与canvas实现同一运动模拟的差异 | XANA&#39;s Blog</title>
+    <title>立项报告：实验班交流论坛 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="Processing1234567891011121314151617181920212223242526float x = 33;float y = 5;float velocity = 0.0;		//初速度float radius = 15.0;		//半径float friction = 0.99;		//摩擦系数float acceleration = 0.3;	//加速度void se">
+    <meta name="description" content="项目简介名称：实验班交流论坛
+提交人：金云天小组
+项目背景与意义设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围
+项目用户
+面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限
+
+项目功能声望系统
+基于声望值给予对应的行为规范，如支持与反对等
+
+问答系统
+鼓励具有高质量、代表性的提问，及高质量的回答
+
+发表文章
+鼓励用户发表文章
+
+内部公告与通知">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Processing与canvas实现同一运动模拟的差异">
-<meta property="og:url" content="http://yoursite.com/2015/04/04/Processing与canvas实现同一运动模拟的差异/index.html">
+<meta property="og:title" content="立项报告：实验班交流论坛">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/立项报告：实验班交流论坛/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="Processing1234567891011121314151617181920212223242526float x = 33;float y = 5;float velocity = 0.0;		//初速度float radius = 15.0;		//半径float friction = 0.99;		//摩擦系数float acceleration = 0.3;	//加速度void se">
-<meta property="og:updated_time" content="2015-04-18T12:03:00.000Z">
+<meta property="og:description" content="项目简介名称：实验班交流论坛
+提交人：金云天小组
+项目背景与意义设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围
+项目用户
+面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限
+
+项目功能声望系统
+基于声望值给予对应的行为规范，如支持与反对等
+
+问答系统
+鼓励具有高质量、代表性的提问，及高质量的回答
+
+发表文章
+鼓励用户发表文章
+
+内部公告与通知">
+<meta property="og:updated_time" content="2016-09-18T06:40:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Processing与canvas实现同一运动模拟的差异">
-<meta name="twitter:description" content="Processing1234567891011121314151617181920212223242526float x = 33;float y = 5;float velocity = 0.0;		//初速度float radius = 15.0;		//半径float friction = 0.99;		//摩擦系数float acceleration = 0.3;	//加速度void se">
+<meta name="twitter:title" content="立项报告：实验班交流论坛">
+<meta name="twitter:description" content="项目简介名称：实验班交流论坛
+提交人：金云天小组
+项目背景与意义设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围
+项目用户
+面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限
+
+项目功能声望系统
+基于声望值给予对应的行为规范，如支持与反对等
+
+问答系统
+鼓励具有高质量、代表性的提问，及高质量的回答
+
+发表文章
+鼓励用户发表文章
+
+内部公告与通知">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -76,14 +121,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/04/Processing与canvas实现同一运动模拟的差异/" title="Processing与canvas实现同一运动模拟的差异" itemprop="url">Processing与canvas实现同一运动模拟的差异</a>
+      <a href="/2016/09/12/立项报告：实验班交流论坛/" title="立项报告：实验班交流论坛" itemprop="url">立项报告：实验班交流论坛</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-03T18:19:38.000Z" itemprop="datePublished"> Published 2015-04-04</time>
+    <time datetime="2016-09-12T05:55:52.000Z" itemprop="datePublished"> Published 2016-09-12</time>
     
   </p>
 </header>
@@ -92,27 +137,75 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing"><span class="toc-number">1.</span> <span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas"><span class="toc-number">2.</span> <span class="toc-text">canvas</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目简介"><span class="toc-number">1.</span> <span class="toc-text">项目简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目背景与意义"><span class="toc-number">2.</span> <span class="toc-text">项目背景与意义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目用户"><span class="toc-number">3.</span> <span class="toc-text">项目用户</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目功能"><span class="toc-number">4.</span> <span class="toc-text">项目功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#声望系统"><span class="toc-number">4.1.</span> <span class="toc-text">声望系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问答系统"><span class="toc-number">4.2.</span> <span class="toc-text">问答系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发表文章"><span class="toc-number">4.3.</span> <span class="toc-text">发表文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部公告与通知管理"><span class="toc-number">4.4.</span> <span class="toc-text">内部公告与通知管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户档案管理"><span class="toc-number">4.5.</span> <span class="toc-text">用户档案管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实现方案"><span class="toc-number">5.</span> <span class="toc-text">项目实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统架构"><span class="toc-number">5.1.</span> <span class="toc-text">系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术路线"><span class="toc-number">5.2.</span> <span class="toc-text">技术路线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目成员与分工"><span class="toc-number">6.</span> <span class="toc-text">项目成员与分工</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目的学习价值"><span class="toc-number">7.</span> <span class="toc-text">项目的学习价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可行性分析"><span class="toc-number">8.</span> <span class="toc-text">可行性分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#难点与风险"><span class="toc-number">9.</span> <span class="toc-text">难点与风险</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Processing">Processing</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">float</span> x = <span class="number">33</span>;</div><div class="line"><span class="built_in">float</span> y = <span class="number">5</span>;</div><div class="line"><span class="built_in">float</span> velocity = <span class="number">0.0</span>;		<span class="comment">//初速度</span></div><div class="line"><span class="built_in">float</span> radius = <span class="number">15.0</span>;		<span class="comment">//半径</span></div><div class="line"><span class="built_in">float</span> friction = <span class="number">0.99</span>;		<span class="comment">//摩擦系数</span></div><div class="line"><span class="built_in">float</span> acceleration = <span class="number">0.3</span>;	<span class="comment">//加速度</span></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>()&#123;</div><div class="line">  <span class="built_in">size</span>(<span class="number">500</span>, <span class="number">100</span>);		<span class="comment">//画布大小</span></div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">  <span class="built_in">noStroke</span>();</div><div class="line">  <span class="built_in">ellipseMode</span>(RADIUS);</div><div class="line">&#125; </div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>()&#123;</div><div class="line">  <span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">12</span>);</div><div class="line">  <span class="built_in">rect</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line">  <span class="built_in">fill</span>(<span class="number">255</span>);</div><div class="line">  velocity += acceleration;</div><div class="line">  velocity *= friction;</div><div class="line">  y += velocity;</div><div class="line">  x++;</div><div class="line">  <span class="keyword">if</span> (y &gt; (<span class="built_in">height</span> - radius)) &#123;</div><div class="line">    y = <span class="built_in">height</span> - radius;</div><div class="line">    velocity = -velocity;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">ellipse</span>(x, y, radius, radius);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="canvas">canvas</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">   <span class="keyword">var</span> ball = &#123;x:<span class="number">33</span>, y:<span class="number">15</span>, radius:<span class="number">15.0</span>, acceleration:<span class="number">3</span>, velocity:<span class="number">0</span>, friction:<span class="number">0.98</span>, color:<span class="string">"#005588"</span>&#125;</div><div class="line">   <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   	<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);	<span class="comment">//拿到canvas画布</span></div><div class="line">   	canvas.width = <span class="number">1000</span>;</div><div class="line">  		canvas.height = <span class="number">250</span>;</div><div class="line">  		<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);	<span class="comment">//取得canvas绘图环境</span></div><div class="line">  		setInterval(				<span class="comment">//每50ms执行一次function函数</span></div><div class="line">  			<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   				render(context);</div><div class="line">  				update();</div><div class="line">  			&#125;,<span class="number">50</span></div><div class="line">  		)</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   		ball.x += <span class="number">2</span>;</div><div class="line">   		ball.y += ball.velocity；</div><div class="line">   		ball.velocity *= ball.friction;</div><div class="line">   		ball.velocity += ball.acceleration;</div><div class="line">   		<span class="keyword">if</span>(ball.y &gt;= canvas.height - ball.radius)&#123;</div><div class="line">   			ball.y = canvas.height - ball.radius;</div><div class="line">   			ball.velocity = - ball.velocity;</div><div class="line">   		&#125;</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">cxt</span>)</span>&#123;</div><div class="line">   		cxt.clearRect(<span class="number">0</span> , <span class="number">0</span> , cxt.canvas.width , cxt.canvas.height);</div><div class="line">   		cxt.fillStyle = ball.color;</div><div class="line">   		cxt.beginPath();</div><div class="line">   		cxt.arc(ball.x , ball.y , ball.radius , <span class="number">0</span> , <span class="number">2</span>*<span class="built_in">Math</span>.PI);</div><div class="line">   		cxt.closePath();</div><div class="line">   		cxt.fill()</div><div class="line">   	&#125;</div><div class="line">   &lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<p>就从效果上看，Processing的效果比canvas要好的多，而且代码更加直观，更易理解，下次学了d3以后也一同放上来</p>
+		<h1 id="项目简介">项目简介</h1><p>名称：实验班交流论坛</p>
+<p>提交人：金云天小组</p>
+<h1 id="项目背景与意义">项目背景与意义</h1><p>设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围</p>
+<h1 id="项目用户">项目用户</h1><ul>
+<li>面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限</li>
+</ul>
+<h1 id="项目功能">项目功能</h1><h2 id="声望系统">声望系统</h2><ul>
+<li>基于声望值给予对应的行为规范，如支持与反对等</li>
+</ul>
+<h2 id="问答系统">问答系统</h2><ul>
+<li>鼓励具有高质量、代表性的提问，及高质量的回答</li>
+</ul>
+<h2 id="发表文章">发表文章</h2><ul>
+<li>鼓励用户发表文章</li>
+</ul>
+<h2 id="内部公告与通知管理">内部公告与通知管理</h2><ul>
+<li>公告看板</li>
+<li>站点短消息</li>
+<li>与第三方消息系统的集成，如email、微博、微信等</li>
+</ul>
+<h2 id="用户档案管理">用户档案管理</h2><ul>
+<li>注册与登录</li>
+<li>权限</li>
+<li>通讯录与档案，如项目记录、github、博客地址等等</li>
+</ul>
+<h1 id="项目实现方案">项目实现方案</h1><blockquote>
+<p>基本的系统架构与技术路线</p>
+</blockquote>
+<h2 id="系统架构">系统架构</h2><p>典型的BS架构，以浏览器的使用为主。目前主要以PC端交互为主，但部分关键或常用功能应保证移动WEB兼容性。同时，在技术架构上，应考虑全端支持的可扩展性。</p>
+<h2 id="技术路线">技术路线</h2><ul>
+<li>后端采用以 Flask 为中心的框架，</li>
+<li>数据库使用主流sql数据库MySQL</li>
+<li>开发环境，完全基于*nix平台的开发、部署与运维</li>
+</ul>
+<h1 id="项目成员与分工">项目成员与分工</h1><ul>
+<li><p>金云天 </p>
+<ul>
+<li>项目负责人：项目策划与管理、团队管理、负责整体技术架构</li>
+<li>后端开发、运维、部署、运维等</li>
+</ul>
+</li>
+<li><p>余小兰 </p>
+<ul>
+<li>前台开发：参与各关键功能的开发，web独立开发</li>
+</ul>
+</li>
+</ul>
+<h1 id="项目的学习价值">项目的学习价值</h1><p>本应用是典型的基于WEB的信息管理应用，利于掌握WEB应用开发的基本要素和技术<br>Flask是最好的WEB后端开发框架，其涉及的各种设计模式与开发技术，是后端工程师的必备技能。</p>
+<h1 id="可行性分析">可行性分析</h1><ul>
+<li>该项目来源于我们正在进行的实践，持续的需求和即时的用户反馈将会推动项目的健康发展 </li>
+</ul>
+<h1 id="难点与风险">难点与风险</h1><ul>
+<li>需求并未定型，除了技术能力，还需要产品设计能力</li>
+<li>工作量可能过大</li>
+<li>….</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Processing/">Processing</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Processing/">Processing</a><a href="/tags/canvas/">canvas</a>
+  <span></span> <a href="/tags/实验班/">实验班</a>
   </div>
 
 </div>
@@ -121,7 +214,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/04/Processing与canvas实现同一运动模拟的差异/" data-title="Processing与canvas实现同一运动模拟的差异 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/09/12/立项报告：实验班交流论坛/" data-title="立项报告：实验班交流论坛 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,18 +228,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/04/04/Processing笔记（三）/" title="Processing笔记（三）">
+ <a href="/2016/09/13/run-again/" title="又他喵的要阳光长跑了">
   <strong>上一篇：</strong><br/>
   <span>
-  Processing笔记（三）</span>
+  又他喵的要阳光长跑了</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/04/03/Processing笔记（二）/"  title="Processing笔记（二）">
+<a href="/2016/08/30/16Aug/"  title="我为暑假续一秒">
  <strong>下一篇：</strong><br/> 
- <span>Processing笔记（二）
+ <span>我为暑假续一秒
 </span>
 </a>
 </div>
@@ -161,7 +254,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing"><span class="toc-number">1.</span> <span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas"><span class="toc-number">2.</span> <span class="toc-text">canvas</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目简介"><span class="toc-number">1.</span> <span class="toc-text">项目简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目背景与意义"><span class="toc-number">2.</span> <span class="toc-text">项目背景与意义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目用户"><span class="toc-number">3.</span> <span class="toc-text">项目用户</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目功能"><span class="toc-number">4.</span> <span class="toc-text">项目功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#声望系统"><span class="toc-number">4.1.</span> <span class="toc-text">声望系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问答系统"><span class="toc-number">4.2.</span> <span class="toc-text">问答系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发表文章"><span class="toc-number">4.3.</span> <span class="toc-text">发表文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部公告与通知管理"><span class="toc-number">4.4.</span> <span class="toc-text">内部公告与通知管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户档案管理"><span class="toc-number">4.5.</span> <span class="toc-text">用户档案管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目实现方案"><span class="toc-number">5.</span> <span class="toc-text">项目实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统架构"><span class="toc-number">5.1.</span> <span class="toc-text">系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术路线"><span class="toc-number">5.2.</span> <span class="toc-text">技术路线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目成员与分工"><span class="toc-number">6.</span> <span class="toc-text">项目成员与分工</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目的学习价值"><span class="toc-number">7.</span> <span class="toc-text">项目的学习价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可行性分析"><span class="toc-number">8.</span> <span class="toc-text">可行性分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#难点与风险"><span class="toc-number">9.</span> <span class="toc-text">难点与风险</span></a></li></ol>
  
   </div>
 
