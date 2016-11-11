@@ -74,19 +74,17 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/09/28/wc-new/" title="新学期扯淡" itemprop="url">
+    <a href="/2016/11/09/pymysql_localhost/" title="【实验班】pymysql无法使用localhost连接MySQL的解决方法" itemprop="url">
   
-    <h1 itemprop="name">新学期扯淡</h1>
+    <h1 itemprop="name">【实验班】pymysql无法使用localhost连接MySQL的解决方法</h1>
     
      
-           <p itemprop="description" >最近非常闲，闲的我都在玩腻游戏之后开始写东西来排遣剩下的时间。
-
-先对最近的小朋友的问题做一个统一的回复：大神抱大腿~1 我不是大神，你看我后面的回答就知道了2 请阅读这篇文章
-学长你在做啥我的项目基本开源，自己去看，欢迎fork和star
-在哪，在Github？能给个链接么我叫</p>
+           <p itemprop="description" >我的阿里服务器快过期了，在迁移项目的部署过程中抛了一个pymysql不能连接127.0.0.1的错误，host改成localhost也不行
+源抛错代码
+1pymysql.Connect(host=&#39;127.0.0.1&#39;,user=MyConfig.USERNAME,passwd=</p>
         
     
-    <time datetime="2016-09-28T15:51:48.000Z" itemprop="datePublished">2016-09-28</time>
+    <time datetime="2016-11-09T12:05:27.000Z" itemprop="datePublished">2016-11-09</time>
   </a>
 </section>
 
@@ -94,17 +92,19 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/09/13/run-again/" title="又他喵的要阳光长跑了" itemprop="url">
+    <a href="/2016/11/05/things-not-to-do-in-python/" title="【翻译】Python中你不应该做的事" itemprop="url">
   
-    <h1 itemprop="name">又他喵的要阳光长跑了</h1>
+    <h1 itemprop="name">【翻译】Python中你不应该做的事</h1>
     
      
-           <p itemprop="description" >看了下校内网发现距离微调过了，于是开始划线。。
-long_run.py
-123456789101112131415161718192021222324252627282930313233343536#coding=utf-8 ifo = &amp;#123; 1:&#39;体活&#39;, 2:&#39;副馆&#39;</p>
+           <p itemprop="description" >标题译文标题：Python中你不应该做的事
+原文标题：Things You Shouldn’t Do in Python
+原文链接: https://www.airpair.com/python/posts/things-not-to-do-in-python
+疑难句1
+“Pre</p>
         
     
-    <time datetime="2016-09-13T08:54:40.000Z" itemprop="datePublished">2016-09-13</time>
+    <time datetime="2016-11-04T16:05:27.000Z" itemprop="datePublished">2016-11-05</time>
   </a>
 </section>
 
@@ -112,22 +112,17 @@ long_run.py
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/09/12/立项报告：实验班交流论坛/" title="立项报告：实验班交流论坛" itemprop="url">
+    <a href="/2016/10/22/supervisor/" title="【实验班】使用supervisor守护进程" itemprop="url">
   
-    <h1 itemprop="name">立项报告：实验班交流论坛</h1>
+    <h1 itemprop="name">【实验班】使用supervisor守护进程</h1>
     
      
-           <p itemprop="description" >项目简介名称：实验班交流论坛
-提交人：金云天小组
-项目背景与意义设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围
-项目用户
-面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限
-
-项目功能声望系统
-基于声望值给予对应的行为规范，</p>
+           <p itemprop="description" >误导向
+Forward当初我一看到supervisor，第一反应是nodejs的那个supervisor，一个修改保存文件之后自动重启node应用的一个好用的小工具。然而这个supervisor是Linux上的用于守护进程的脚本（当然后来我才知道它是python写的）。
+Easy</p>
         
     
-    <time datetime="2016-09-12T05:55:52.000Z" itemprop="datePublished">2016-09-12</time>
+    <time datetime="2016-10-22T03:55:59.000Z" itemprop="datePublished">2016-10-22</time>
   </a>
 </section>
 
@@ -135,19 +130,16 @@ long_run.py
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/08/30/16Aug/" title="我为暑假续一秒" itemprop="url">
+    <a href="/2016/10/06/mysql-bug/" title="【实验班】MySQL的问题以及解决过程" itemprop="url">
   
-    <h1 itemprop="name">我为暑假续一秒</h1>
+    <h1 itemprop="name">【实验班】MySQL的问题以及解决过程</h1>
     
      
-           <p itemprop="description" >Python3imxana/show-me-the-code
-部分练习 ( 0~13, 21, 22 )
-Linuximxana/shell_test
-《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生
-邮箱迁移New_email: &amp;#x</p>
+           <p itemprop="description" >牢骚向
+Forword我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我</p>
         
     
-    <time datetime="2016-08-30T15:43:55.000Z" itemprop="datePublished">2016-08-30</time>
+    <time datetime="2016-10-06T03:55:37.000Z" itemprop="datePublished">2016-10-06</time>
   </a>
 </section>
 
@@ -155,26 +147,23 @@ Linuximxana/shell_test
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2016/08/19/moon/" title="月亮忘记了" itemprop="url">
+    <a href="/2016/10/03/socket_pool/" title="【实验班】数据库连接池" itemprop="url">
   
-    <h1 itemprop="name">月亮忘记了</h1>
+    <h1 itemprop="name">【实验班】数据库连接池</h1>
     
      
-           <p itemprop="description" >看见的，看不见了。夏风轻轻吹过，在瞬间消失无踪，记住的，遗忘了。只留下一地微微晃动的迷离树影……
-看不见的，是不是就等于不存在？也许只是被浓云遮住，也许刚巧风砂飞入眼帘，我看不见你，却依然感到温暖。
-
-每一个黄昏过后，大家焦虑地等待，却再也没有等到月亮升起。
-潮水慢慢平静下来，海</p>
+           <p itemprop="description" >科普向
+forward在后端连接数据库的时候，测试时我们一般初始化一个连接对象，把所有的操作都引入这个对象，然后进行数据库的操作。在实际生产时这样有一个问题，如果这个连接对象崩掉了，那么服务器就肯定挂掉。或者同时有大量访问请求的时候，可能访问会变慢。而每次访问去生成一个连接对象，</p>
         
     
-    <time datetime="2016-08-19T12:18:48.000Z" itemprop="datePublished">2016-08-19</time>
+    <time datetime="2016-10-03T08:11:27.000Z" itemprop="datePublished">2016-10-03</time>
   </a>
 </section>
 
 
 
   <nav id="page-nav" class="clearfix unexpand">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -210,6 +199,18 @@ Linuximxana/shell_test
 		  
 		
 		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
 		  
 		
@@ -235,6 +236,14 @@ Linuximxana/shell_test
 			
 		
 			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Others/" title="Others">Others<sup>6</sup></a></li>
 			
 		
@@ -247,11 +256,7 @@ Linuximxana/shell_test
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
 			
 		
 			
@@ -259,11 +264,19 @@ Linuximxana/shell_test
 			
 		
 			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
 			
 		
 			
@@ -275,15 +288,11 @@ Linuximxana/shell_test
 			
 		
 			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -291,19 +300,11 @@ Linuximxana/shell_test
 			
 		
 			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/服务外包/" title="服务外包">服务外包<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/实验班/" title="实验班">实验班<sup>1</sup></a></li>
 			
 		
 		</ul>

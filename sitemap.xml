@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/09/28/wc-new/</loc>
+    <loc>http://yoursite.com/2016/11/09/pymysql_localhost/</loc>
     
-    <lastmod>2016-09-28T17:49:28.000Z</lastmod>
+    <lastmod>2016-11-11T04:11:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/06/mysql-bug/</loc>
+    
+    <lastmod>2016-11-11T04:05:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/11/05/things-not-to-do-in-python/</loc>
+    
+    <lastmod>2016-11-11T04:04:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/22/supervisor/</loc>
+    
+    <lastmod>2016-11-09T02:19:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/09/22/unittest/</loc>
+    
+    <lastmod>2016-11-08T03:54:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/10/03/socket_pool/</loc>
+    
+    <lastmod>2016-11-08T03:35:34.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/09/12/%E7%AB%8B%E9%A1%B9%E6%8A%A5%E5%91%8A%EF%BC%9A%E5%AE%9E%E9%AA%8C%E7%8F%AD%E4%BA%A4%E6%B5%81%E8%AE%BA%E5%9D%9B/</loc>
     
-    <lastmod>2016-09-18T06:40:51.000Z</lastmod>
+    <lastmod>2016-11-08T03:12:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/09/28/wc-new/</loc>
+    
+    <lastmod>2016-09-28T17:49:28.000Z</lastmod>
     
   </url>
   
