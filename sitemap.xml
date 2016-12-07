@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/28/artists_and_hackers/</loc>
+    
+    <lastmod>2016-12-07T13:24:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/11/05/things-not-to-do-in-python/</loc>
+    
+    <lastmod>2016-11-14T10:02:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/09/pymysql_localhost/</loc>
     
     <lastmod>2016-11-11T04:11:27.000Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2016/10/06/mysql-bug/</loc>
     
     <lastmod>2016-11-11T04:05:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/11/05/things-not-to-do-in-python/</loc>
-    
-    <lastmod>2016-11-11T04:04:40.000Z</lastmod>
     
   </url>
   
