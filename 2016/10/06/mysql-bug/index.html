@@ -21,7 +21,7 @@ The problem前台说请求报错，她那">
 <meta property="og:description" content="牢骚向
 Forword我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。
 The problem前台说请求报错，她那">
-<meta property="og:updated_time" content="2016-11-11T04:05:26.000Z">
+<meta property="og:updated_time" content="2016-12-30T00:57:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【实验班】MySQL的问题以及解决过程">
 <meta name="twitter:description" content="牢骚向
@@ -51,7 +51,7 @@ The problem前台说请求报错，她那">
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -67,7 +67,7 @@ The problem前台说请求报错，她那">
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -89,16 +89,16 @@ The problem前台说请求报错，她那">
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-06T03:55:37.000Z" itemprop="datePublished"> Published 2016-10-06</time>
+    <time datetime="2016-10-06T03:55:37.000Z" itemprop="datePublished"> 發表於 2016-10-06</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The_problem"><span class="toc-number">2.</span> <span class="toc-text">The problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">2.1.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fix_up"><span class="toc-number">2.2.</span> <span class="toc-text">Fix up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final"><span class="toc-number">3.</span> <span class="toc-text">Final</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The_problem"><span class="toc-number">2.</span> <span class="toc-text">The problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">2.1.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fix_up"><span class="toc-number">2.2.</span> <span class="toc-text">Fix up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final"><span class="toc-number">3.</span> <span class="toc-text">Final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#improve（date:_Dec-）"><span class="toc-number">4.</span> <span class="toc-text">improve（date: Dec.）</span></a></li></ol>
 		
 		</div>
 		
@@ -115,8 +115,10 @@ The problem前台说请求报错，她那">
 <pre><code><span class="operator"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%timeout%'</span>;</span>
 </code></pre><p>发现<code>wait_timeout</code>的值为28800s，相等于8小时没操作MySQL就会断开连接。于是我用最简单暴力的方法：</p>
 <pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">global</span> wait_timeout=<span class="number">2880000</span>;</span>
-</code></pre><p>服务器再也不抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
+</code></pre><p>服务器再也不频繁抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
 <h2 id="Final">Final</h2><p>在条件允许的情况下，尽量使用更加稳定而简单的nosql数据库，避免给自己挖坑</p>
+<h2 id="improve（date:_Dec-）">improve（date: Dec.）</h2><p>修改MySQL变量不是权宜之计，MySQL休眠是因为长期没有操作，所以自动断开连接节点，而且不是所有的服务器都支持修改MySQL全局变量的，有时候root也不能改- -。所以用计时器每隔一段时间向MySQL发一次查询，重置连接时间。若还抛出错误<code>pipeBroken</code>的时候换一条新的管道。</p>
+<p>实际效果：MySQL能够平稳的运行好几天，几天之内查询成功率在90%左右，仍然不太能够令人满意，但是相比以前，已经进步了很多。。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -124,7 +126,7 @@ The problem前台说请求报错，她那">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/mysql/">mysql</a>►<a class="article-category-link" href="/categories/mysql/python3/">python3</a>
+  <a class="article-category-link" href="/categories/mysql/">mysql</a>
 </div>
 
 
@@ -174,22 +176,22 @@ The problem前台说请求报错，她那">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The_problem"><span class="toc-number">2.</span> <span class="toc-text">The problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">2.1.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fix_up"><span class="toc-number">2.2.</span> <span class="toc-text">Fix up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final"><span class="toc-number">3.</span> <span class="toc-text">Final</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The_problem"><span class="toc-number">2.</span> <span class="toc-text">The problem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">2.1.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fix_up"><span class="toc-number">2.2.</span> <span class="toc-text">Fix up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final"><span class="toc-number">3.</span> <span class="toc-text">Final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#improve（date:_Dec-）"><span class="toc-number">4.</span> <span class="toc-text">improve（date: Dec.）</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -213,15 +215,15 @@ The problem前台说请求报错，她那">
 		  
 		
 		  
+		
+		  
 			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/mysql/python3/" title="python3">python3<sup>3</sup></a></li>
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
 		  
 		
-		  
-			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
 		  
 		
 		  
@@ -238,7 +240,7 @@ The problem前台说请求报错，她那">
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -250,11 +252,11 @@ The problem前台说请求报错，她那">
 			
 		
 			
-				<li><a href="/tags/实验班/" title="实验班">实验班<sup>7</sup></a></li>
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Others/" title="Others">Others<sup>6</sup></a></li>
+				<li><a href="/tags/Others/" title="Others">Others<sup>7</sup></a></li>
 			
 		
 			
@@ -266,15 +268,11 @@ The problem前台说请求报错，她那">
 			
 		
 			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
 			
 		
 			
@@ -282,7 +280,7 @@ The problem前台说请求报错，她那">
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
 			
 		
 			
@@ -290,11 +288,7 @@ The problem前台说请求报错，她那">
 			
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -302,15 +296,23 @@ The problem前台说请求报错，她那">
 			
 		
 			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
 			
 		
 			
@@ -326,7 +328,7 @@ The problem前台说请求报错，她那">
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -360,7 +362,7 @@ The problem前台说请求报错，她那">
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -569,7 +571,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

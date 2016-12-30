@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-07T13:24:38.000Z</updated>
+  <updated>2016-12-30T06:27:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,178 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Job-hunting</title>
+    <link href="http://yoursite.com/3017/01/01/Job-hunting/"/>
+    <id>http://yoursite.com/3017/01/01/Job-hunting/</id>
+    <published>3017-01-01T11:16:21.000Z</published>
+    <updated>2016-12-30T06:27:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>【手动置顶】此内容长期有效</p>
+</blockquote>
+<p>金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发/测试/运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</p>
+<p>我2014年入学，大一开始学习编程，到目前为止学习的东西很杂，基本为了兴趣而编程(第一门接触的语言是Processing)。现在主要使用的语言工具是Python3和NodeJS，能独立开发、部署中小型web服务，linux/vim党，写过一段时间的C/Java但不是很熟。大学期间基本不参加文档式的ppt比赛，更喜欢快速开发出实际产品的game。hackathon已经参加过2次，第二次(龙驰杯)和朋友做的一个即时对战游戏作品拿了第二名的成绩，当时有拿到网易云的实习资格，但是因为一方面大二是在没有时间，另一方面我也不觉得当时的我够格，还是需要提升自己，所以只能不了了之。</p>
+<p>大二寒假的时候业余外包写过一个iOS应用，花了半天时间学习oc（有swift基础），写了1个月的，最后在AppStore上架了，(app_name：水南照相馆)，第三方涉及微信/QQ/支付宝/应用交付流程。后来还用React Native想重写这个应用，不过只是重写了外观和样式，里面的东西原本我设计的也不太好就没有做下去。</p>
+<p>我希望加入这样的团体：技术氛围浓厚，工作氛围自由，一切以解决问题为导向的工程师文化</p>
+<p>如果某HR对我有兴趣，请通过邮箱或者其他方式联系我，我的邮箱是 xana.awaken@gmail.com 我觉得我们谈的来就马上去面试。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;【手动置顶】此内容长期有效&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发/测试/运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到
+    
+    </summary>
+    
+    
+      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python3修饰器和线程锁</title>
+    <link href="http://yoursite.com/3016/12/29/decorator/"/>
+    <id>http://yoursite.com/3016/12/29/decorator/</id>
+    <published>3016-12-29T11:16:21.000Z</published>
+    <updated>2016-12-30T01:32:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Python的修饰器">Python的修饰器</h2><p>先看一个很常见的例子</p>
+<p>req.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_request</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">        print(<span class="string">'before_request...'</span>, args, kwargs)</div><div class="line">        <span class="keyword">return</span> func(*args, **kwargs)</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">after_request</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">        result = func(*args, **kwargs)</div><div class="line">        print(<span class="string">'after_request...'</span>)</div><div class="line">        <span class="keyword">return</span> result</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line"></div><div class="line"><span class="meta">@after_request   </span></div><div class="line"><span class="meta">@before_request </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(a,b,c)</span>:</span></div><div class="line">    print(<span class="string">'render index.....'</span>)</div><div class="line">    </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    index([],<span class="number">2</span>,c=<span class="string">'fk'</span>)</div></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">before_request... ([], 2) &#123;<span class="string">'c'</span>: <span class="string">'fk'</span>&#125;</div><div class="line">render index.....</div><div class="line">after_request...</div></pre></td></tr></table></figure>
+<h3 id="原理解释">原理解释</h3><p>你写了一个很棒的通用方法，但是有点长。但是老板这时候来了需求，要求它在不同的情况下进行一些不同的操作（例如不同情境下的验证操作）。为了遵循封闭开发原则，尽量不去改已经完成的代码，或许修饰器是一个不错而优雅的选择。</p>
+<p>先举个简单例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">awesome_method</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># do a lot!</span></div><div class="line">    print(<span class="string">'main func'</span>)</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_do_that</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># ready for that</span></div><div class="line">    print(<span class="string">'before func'</span>)</div></pre></td></tr></table></figure>
+<p>你想在函数<code>awesome_method</code>前先执行<code>before_do_that</code>，并且要在同一个context下，如果直接修改通用代码，不仅不简洁，而且不优雅。这个时候你利用修饰符稍加修改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@before_do_that</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">awesome_method</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># do a lot!</span></div><div class="line">    print(<span class="string">'main func'</span>)</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_do_that</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span> </div><div class="line">        <span class="comment"># ready for that</span></div><div class="line">        print(<span class="string">'before func'</span>)</div><div class="line">        <span class="keyword">return</span> func()</div><div class="line">    <span class="keyword">return</span> inner</div></pre></td></tr></table></figure>
+<p>这里解释一下，在一个函数添加一个修饰符，相当于把awesome_method作为before_do_that的参数，转换成了一个新的同名函数，这里的before_do_that相当于一个工厂，进去的函数都必须通过加工。</p>
+<p>那么多个修饰符的情况下，代码执行顺序如何？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">w1</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">'w1 ready go'</span>)</div><div class="line">        <span class="keyword">return</span> func()</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">w2</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></div><div class="line">        print(<span class="string">'w2 ready go'</span>)</div><div class="line">        <span class="keyword">return</span> func()</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line"></div><div class="line"><span class="meta">@w2</span></div><div class="line"><span class="meta">@w1</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">'f1'</span>)</div></pre></td></tr></table></figure>
+<p>若执行<code>f1()</code>，此时相当于</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">w2(w1(f1))()</div></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">w2 ready go</div><div class="line">w1 ready go</div><div class="line">f1</div></pre></td></tr></table></figure>
+<p>带参数写法如下，这次用<code>after</code>举例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">after_request</span><span class="params">(func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">        result = func(*args, **kwargs)</div><div class="line">        print(<span class="string">'after_request...'</span>, args, kwargs)</div><div class="line">        <span class="keyword">return</span> result</div><div class="line">    <span class="keyword">return</span> inner</div><div class="line"></div><div class="line"><span class="meta">@after_request</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(a,b,c)</span>:</span></div><div class="line">    print(<span class="string">'render index.....'</span>)</div></pre></td></tr></table></figure>
+<p>此时执行 <code>index([],2,c=&#39;fk&#39;)</code>，输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">render index.....</div><div class="line">after_request... ([], 2) &#123;&apos;c&apos;: &apos;fk&apos;&#125;</div></pre></td></tr></table></figure>
+<p><code>**</code>表示对键值对的引用，关于<code>**</code>的用法，我们可以甚至可以写一个漂亮的字典构造函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a=<span class="keyword">lambda</span> **x:x</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a(a=<span class="number">2</span>,c=<span class="number">2</span>)</div><div class="line">&#123;<span class="string">'c'</span>: <span class="number">2</span>, <span class="string">'a'</span>: <span class="number">2</span>&#125;</div></pre></td></tr></table></figure>
+<p>如果多个修饰符写的不好看，还有修饰符带参数的闭包写法</p>
+<p>dec.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Before</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'some thing before..'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">After</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'some thing after..'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Filter</span><span class="params">(before_func, after_func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(main_func)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(request, kargs)</span>:</span></div><div class="line"></div><div class="line">            before_result = before_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (before_result != <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> before_result</div><div class="line"></div><div class="line">            main_result = main_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (main_result !=  <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> main_result</div><div class="line"></div><div class="line">            after_result = after_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (after_result != <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> after_result</div><div class="line"></div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> outer</div><div class="line"></div><div class="line"><span class="meta">@Filter(Before, After)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Index</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'index'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    Index([],<span class="number">2</span>,c=<span class="string">'fk'</span>)</div></pre></td></tr></table></figure>
+<p>这个闭包利用了<code>Filter</code>和<code>outer</code>的三个参数函数，重新改写执行顺序，直到其中有一个函数抛出返回值为止。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Python的修饰器&quot;&gt;Python的修饰器&lt;/h2&gt;&lt;p&gt;先看一个很常见的例子&lt;/p&gt;
+&lt;p&gt;req.py&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div 
+    
+    </summary>
+    
+    
+      <category term="Python3" scheme="http://yoursite.com/tags/Python3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【实验班】项目期末总结</title>
+    <link href="http://yoursite.com/2016/12/22/program-final-summary/"/>
+    <id>http://yoursite.com/2016/12/22/program-final-summary/</id>
+    <published>2016-12-22T11:49:20.000Z</published>
+    <updated>2016-12-30T00:56:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>系统架构为BS架构，基于Flask和React的web应用</p>
+</blockquote>
+<p><a href="http://github.com/imxana/ec_forum" target="_blank" rel="external">项目地址</a> (托管于Github)</p>
+<h2 id="开发技术栈">开发技术栈</h2><h3 id="Python3">Python3</h3><p>osx下安装python3</p>
+<pre><code>brew <span class="keyword">install</span> python3
+</code></pre><p>ubuntu下安装python3(自带3.4版本)</p>
+<pre><code>apt-<span class="built_in">get</span> install <span class="keyword">python3</span>
+</code></pre><p>Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。</p>
+<p>为什么在这个项目选择Python而不是nodejs，因为使用Python开发快，语言简洁，没那么多技巧，所以读起来很清楚容易。加上Python标准库确实很庞大。它可以帮助你处理各种工作，包括正则表达式、文档生成、单元测试、线程、数据库、网页浏览器、CGI、FTP、电子邮件、XML、XML-RPC、HTML、WAV文件、密码系统、GUI（图形用户界面）、Tk和其他与系统有关的操作。记住，只要安装了Python，所有这些功能都是可用的。而且构架选择多，开源社区活跃。缺点是国内文档基本没有，需要自己看懂。</p>
+<h3 id="Flask">Flask</h3><p>安装flask</p>
+<pre><code>pip3 <span class="keyword">install</span> flask
+</code></pre><p>Flask是一个使用 Python 编写的轻量级 Web 应用框架。优点是小，定制性高，能让开发人员从0开始享受折腾的结果。缺点也就是重复造轮子，不过flask插件多，能提高开发效率。</p>
+<h3 id="MySQL">MySQL</h3><p>osx下安装mysql</p>
+<pre><code>brew <span class="keyword">install</span> mysql
+</code></pre><p>ubuntu下安装mysql</p>
+<pre><code>1. sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span>
+<span class="number">2.</span> apt-<span class="keyword">get</span> isntall mysql-client
+<span class="number">3.</span> sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> libmysqlclient-dev</span>
+</code></pre><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p>MySQL是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+<p>对我来说，sql型数据库与其说是成熟，不如说是历史遗留问题，用拼接字符串组成sql语句的执行方式，不但留下了注入式攻击漏洞，而且本身也让人多了额外的学习成本，来学习一些奇奇怪怪的语法。nosql不仅完美与JSON贴合，而且因为本身键值对的数据结构，可以放心的进行删除、插入操作，不用担心什么外键的问题。抹去一个人的数据，其所有子数据都会消除，就不用再一条条的到别的表去查找删除。尤其的表多了的时候。</p>
+<p>选择MySQL的原因一部分是因为没有办法，很多公司还是用的这种数据库，MySQL是开源的这点还是值得肯定的。针对MySQL的问题有很多在社区中得到了解决。</p>
+<h2 id="开发环境">开发环境</h2><h3 id="Unix-like">Unix-like</h3><p>不管如何，linux永远是最适合开发的系统环境。其对用户最小开发程度的限制，能让你高度定制你的生产环境。只要是一台Linux的终端，你就可以从0开始把它完全复原成你所用过的那台Linux的环境。有很多问题，不像win，你可以从系统层次上去解决这类问题，例如启动项，进程管理这一类。我们可以写一些简单脚本来做到一下很酷的事情。</p>
+<h3 id="Vim">Vim</h3><p>下载</p>
+<pre><code>apt-<span class="built_in">get</span> install <span class="keyword">vim</span>
+</code></pre><p>vim像是一杯酒，越酿越醇，在unix-like上使用nvim，在一些插件的辅助下，已经成为unix-like下的最强大的编译器。</p>
+<h2 id="部署环境">部署环境</h2><h3 id="Ubuntu">Ubuntu</h3><p>Ubuntu下能快速搭建工作环境，安装系统后，跑个脚本，把自己开发需要的环境，工具（git/vim和自己的配置）什么的一通自动安装好，一切简单快捷。</p>
+<p>Ubuntu有开源的第三方软件安装，因此漏洞少，开源反而安全。</p>
+<h3 id="Nginx">Nginx</h3><p>下载</p>
+<pre><code>apt-<span class="keyword">get</span> install nginx
+</code></pre><p>Nginx (“engine x”) 是一个高性能的HTTP和反向代理服务器。拥有负载均衡的功能，但是在单台服务器上无法体现。</p>
+<h3 id="uWSGI">uWSGI</h3><p>下载</p>
+<pre><code>pip3 <span class="keyword">install</span> uwsgi
+</code></pre><p>uWSGI是一个Web服务器，它实现了WSGI协议、uwsgi、http等协议。Nginx中HttpUwsgiModule的作用是与uWSGI服务器进行交换。</p>
+<h3 id="Supervisord">Supervisord</h3><p>下载</p>
+<pre><code>pip <span class="keyword">install</span> supervisor
+</code></pre><p>Supervisor是一个客户/服务器系统，它可以在类Unix系统中管理控制大量进程。Supervisor使用python开发，有多年历史，目前很多生产环境下的服务器都在使用Supervisor。</p>
+<h2 id="测试工具">测试工具</h2><h3 id="unittest（单元测试）">unittest（单元测试）</h3><p>The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.</p>
+<p>下载</p>
+<pre><code>pip3 <span class="keyword">install</span> unittest
+</code></pre><h3 id="curl（脚本测试）">curl（脚本测试）</h3><p>下载</p>
+<pre><code>apt-<span class="keyword">get</span> install curl
+</code></pre><p>curl  is  a  tool  to  transfer  data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS,  TELNET  and TFTP). The command is designed to work without user interaction.</p>
+<p>curl offers a busload of useful tricks like proxy support, user authentication, FTP upload, HTTP post, SSL connections,cookies, file transfer resume, Metalink, and more. As you will see below, the number of features will  make  your  head spin!</p>
+<p>curl is powered by libcurl for all transfer-related features. See libcurl(3) for details.</p>
+<h2 id="遇到的问题">遇到的问题</h2><h3 id="pymysql无法使用localhost连接MySQL的解决方法">pymysql无法使用localhost连接MySQL的解决方法</h3><p>我的阿里服务器快过期了，在迁移项目的部署过程中抛了一个pymysql不能连接127.0.0.1的错误，host改成localhost也不行</p>
+<p>源抛错代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pymysql.Connect(host=<span class="string">'127.0.0.1'</span>,user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
+<p>解决方法：使用mysql中的.sock文件进行连接，放弃通过IP匹配本地的方法。</p>
+<p>执行 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin variables| grep socket</div></pre></td></tr></table></figure>
+<p>查看socket所在位置，然后尝试使用格式如下的连接     </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pymysql.Connect(user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>,unix_socket=<span class="string">'/var/run/mysqld/mysqld.sock'</span>)</div></pre></td></tr></table></figure>
+<h2 id="MySQL的问题以及解决过程">MySQL的问题以及解决过程</h2><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
+<h3 id="The_problem">The problem</h3><p>前台说请求报错，她那里格式正常。启动服务器简单脚本测试，发送get正常，post报<code>pipeBroken</code>。重启应用，好了。过了半天，一发post，跪。</p>
+<h4 id="Debug">Debug</h4><p>get能用，post挂了，肯定是数据库问题，看了下错误类型，连接管道断了，那就是pymysql的问题。</p>
+<p>第一反应，连接对象过期了，定期更新it，无解。</p>
+<p>加快更新频率，无解。</p>
+<p>启用连接池，加大连接节点数，加快更新频率，均无解。此时已过2周，暂时用无限手动重启应用的方法应付问题。</p>
+<p>通过<code>supervisor</code>查应用日志，发现启动应用大约过了半天时间一发<code>post</code>服务器才会<code>pipeBroken</code>，而报错期间并没有主动断开。就是过期了啊（葛优瘫）</p>
+<h4 id="Fix_up">Fix up</h4><p>经过一段时间的思考，我感觉是MySQL本身的问题，查了一会相关资料，把服务器日志<code>pipeBroken</code>的报文Google了一下，发现是MySQL长时间没有操作，进入睡眠了。。</p>
+<p>进入MySQL交互界面输入</p>
+<pre><code><span class="operator"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%timeout%'</span>;</span>
+</code></pre><p>发现<code>wait_timeout</code>的值为28800s，相等于8小时没操作MySQL就会断开连接。于是我用最简单暴力的方法：</p>
+<pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">global</span> wait_timeout=<span class="number">2880000</span>;</span>
+</code></pre><p>服务器再也不频繁抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
+<h4 id="improve">improve</h4><p>修改MySQL变量不是权宜之计，MySQL休眠是因为长期没有操作，所以自动断开连接节点，而且不是所有的服务器都支持修改MySQL全局变量的，有时候root也不能改- -。所以用计时器每隔一段时间向MySQL发一次查询，重置连接时间。若还抛出错误<code>pipeBroken</code>的时候换一条新的管道。</p>
+<p>实际效果：MySQL能够平稳的运行好几天，几天之内查询成功率在90%左右，仍然不太能够令人满意，但是相比以前，已经进步了很多。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;系统架构为BS架构，基于Flask和React的web应用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://github.com/imxana/ec_forum&quot; target=&quot;_blank&quot; rel=&quot;external
+    
+    </summary>
+    
+    
+      <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>大三读《黑客与画家》</title>
@@ -66,7 +238,7 @@
     <link href="http://yoursite.com/2016/11/09/pymysql_localhost/"/>
     <id>http://yoursite.com/2016/11/09/pymysql_localhost/</id>
     <published>2016-11-09T12:05:27.000Z</published>
-    <updated>2016-11-11T04:11:27.000Z</updated>
+    <updated>2016-12-29T11:25:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>我的阿里服务器快过期了，在迁移项目的部署过程中抛了一个pymysql不能连接127.0.0.1的错误，host改成localhost也不行</p>
 <p>源抛错代码</p>
@@ -90,8 +262,6 @@
     </summary>
     
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/categories/mysql/python3/"/>
     
     
       <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
@@ -182,7 +352,7 @@
     <link href="http://yoursite.com/2016/10/22/supervisor/"/>
     <id>http://yoursite.com/2016/10/22/supervisor/</id>
     <published>2016-10-22T03:55:59.000Z</published>
-    <updated>2016-11-09T02:19:41.000Z</updated>
+    <updated>2016-12-29T11:26:46.000Z</updated>
     
     <content type="html"><![CDATA[<p><del>误导向</del></p>
 <h2 id="Forward">Forward</h2><p>当初我一看到supervisor，第一反应是nodejs的那个supervisor，一个修改保存文件之后自动重启node应用的一个好用的小工具。然而这个supervisor是Linux上的用于守护进程的脚本（当然后来我才知道它是python写的）。</p>
@@ -201,9 +371,7 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/categories/mysql/python3/"/>
+      <category term="python3" scheme="http://yoursite.com/categories/python3/"/>
     
     
       <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
@@ -219,7 +387,7 @@
     <link href="http://yoursite.com/2016/10/06/mysql-bug/"/>
     <id>http://yoursite.com/2016/10/06/mysql-bug/</id>
     <published>2016-10-06T03:55:37.000Z</published>
-    <updated>2016-11-11T04:05:26.000Z</updated>
+    <updated>2016-12-30T00:57:11.000Z</updated>
     
     <content type="html"><![CDATA[<p><del>牢骚向</del></p>
 <h2 id="Forword">Forword</h2><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
@@ -234,8 +402,10 @@
 <pre><code><span class="operator"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%timeout%'</span>;</span>
 </code></pre><p>发现<code>wait_timeout</code>的值为28800s，相等于8小时没操作MySQL就会断开连接。于是我用最简单暴力的方法：</p>
 <pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">global</span> wait_timeout=<span class="number">2880000</span>;</span>
-</code></pre><p>服务器再也不抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
+</code></pre><p>服务器再也不频繁抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
 <h2 id="Final">Final</h2><p>在条件允许的情况下，尽量使用更加稳定而简单的nosql数据库，避免给自己挖坑</p>
+<h2 id="improve（date:_Dec-）">improve（date: Dec.）</h2><p>修改MySQL变量不是权宜之计，MySQL休眠是因为长期没有操作，所以自动断开连接节点，而且不是所有的服务器都支持修改MySQL全局变量的，有时候root也不能改- -。所以用计时器每隔一段时间向MySQL发一次查询，重置连接时间。若还抛出错误<code>pipeBroken</code>的时候换一条新的管道。</p>
+<p>实际效果：MySQL能够平稳的运行好几天，几天之内查询成功率在90%左右，仍然不太能够令人满意，但是相比以前，已经进步了很多。。</p>
 ]]></content>
     
     <summary type="html">
@@ -246,8 +416,6 @@
     </summary>
     
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/categories/mysql/python3/"/>
     
     
       <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
@@ -263,7 +431,7 @@
     <link href="http://yoursite.com/2016/10/03/socket_pool/"/>
     <id>http://yoursite.com/2016/10/03/socket_pool/</id>
     <published>2016-10-03T08:11:27.000Z</published>
-    <updated>2016-11-08T03:35:34.000Z</updated>
+    <updated>2016-12-29T11:26:04.000Z</updated>
     
     <content type="html"><![CDATA[<p><del>科普向</del></p>
 <h2 id="forward">forward</h2><p>在后端连接数据库的时候，测试时我们一般初始化一个连接对象，把所有的操作都引入这个对象，然后进行数据库的操作。在实际生产时这样有一个问题，如果这个连接对象崩掉了，那么服务器就肯定挂掉。或者同时有大量访问请求的时候，可能访问会变慢。而每次访问去生成一个连接对象，处理完之后就close肯定是不现实的，因为会吃服务器资源。所以我们需要一个连接池，用于处理比较复杂的实际情况。这就是我对连接池的初步理解。</p>
@@ -283,10 +451,12 @@
     
     </summary>
     
-      <category term="python3" scheme="http://yoursite.com/categories/python3/"/>
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
     
       <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
       <category term="python3" scheme="http://yoursite.com/tags/python3/"/>
     
@@ -418,72 +588,98 @@
     <link href="http://yoursite.com/2016/09/12/%E7%AB%8B%E9%A1%B9%E6%8A%A5%E5%91%8A%EF%BC%9A%E5%AE%9E%E9%AA%8C%E7%8F%AD%E4%BA%A4%E6%B5%81%E8%AE%BA%E5%9D%9B/"/>
     <id>http://yoursite.com/2016/09/12/立项报告：实验班交流论坛/</id>
     <published>2016-09-12T05:55:52.000Z</published>
-    <updated>2016-11-08T03:12:55.000Z</updated>
+    <updated>2016-12-23T05:45:32.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="项目简介">项目简介</h1><p>名称：实验班交流论坛</p>
-<p>提交人：金云天小组</p>
-<h1 id="项目背景与意义">项目背景与意义</h1><p>设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围</p>
-<h1 id="项目用户">项目用户</h1><ul>
-<li>面向全师生，质量驱动，通过高质量回答、发表优质文章来获取声望，从而获得更高的权限</li>
+    <content type="html"><![CDATA[<p>文章更新于：2016年12月23日 星期五 13时44分12秒 CST</p>
+<p>来源：<a href="https://github.com/imxana/ec_forum/blob/dev/doc/introduction.md" target="_blank" rel="external">Github</a></p>
+<h1 id="实验班交流问答平台">实验班交流问答平台</h1><p>A forum of experimental class. ;)</p>
+<h1 id="项目背景与意义">项目背景与意义</h1><p>设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围。。</p>
+<h1 id="项目用户">项目用户</h1><p>面向全师生，质量驱动，通过高质量问答、发表优质文章来获取声望</p>
+<hr>
+<h1 id="项目功能">项目功能</h1><h2 id="一期目标">一期目标</h2><h3 id="用户档案管理">用户档案管理</h3><ul>
+<li>注册与登录</li>
+<li>通讯录与档案，如项目记录、github、博客地址等等</li>
+<li>单元测试（覆盖率90%以上）</li>
 </ul>
-<h1 id="项目功能">项目功能</h1><h2 id="声望系统">声望系统</h2><ul>
-<li>基于声望值给予对应的行为规范，如支持与反对等</li>
-</ul>
-<h2 id="问答系统">问答系统</h2><ul>
-<li>鼓励具有高质量、代表性的提问，及高质量的回答</li>
-</ul>
-<h2 id="发表文章">发表文章</h2><ul>
+<h3 id="文章系统">文章系统</h3><ul>
 <li>鼓励用户发表文章</li>
+<li>评论，收藏</li>
+<li>声望相应变换(做好接口)</li>
+<li>单元测试（覆盖率90%以上）</li>
 </ul>
-<h2 id="内部公告与通知管理">内部公告与通知管理</h2><ul>
+<hr>
+<h2 id="二期目标">二期目标</h2><h3 id="声望系统">声望系统</h3><ul>
+<li>基于声望值给予对应的行为规范，如支持与反对等</li>
+<li>声望权限系统、声望变化接口</li>
+<li>用户声望动态计算？</li>
+<li>单元测试（覆盖率90%以上）</li>
+</ul>
+<h3 id="问答系统">问答系统</h3><ul>
+<li>鼓励具有高质量、代表性的提问，及高质量的回答</li>
+<li>鼓励高质量回答</li>
+<li>根据赞同与被赞变化声望</li>
+</ul>
+<hr>
+<h2 id="三期目标">三期目标</h2><h3 id="内部公告与通知管理">内部公告与通知管理</h3><ul>
 <li>公告看板</li>
 <li>站点短消息</li>
-<li>与第三方消息系统的集成，如email、微博、微信等</li>
 </ul>
-<h2 id="用户档案管理">用户档案管理</h2><ul>
-<li>注册与登录</li>
-<li>权限</li>
-<li>通讯录与档案，如项目记录、github、博客地址等等</li>
+<h3 id="界面完善">界面完善</h3><ul>
+<li>调研，运营</li>
 </ul>
+<hr>
 <h1 id="项目实现方案">项目实现方案</h1><blockquote>
 <p>基本的系统架构与技术路线</p>
 </blockquote>
 <h2 id="系统架构">系统架构</h2><p>典型的BS架构，以浏览器的使用为主。目前主要以PC端交互为主，但部分关键或常用功能应保证移动WEB兼容性。同时，在技术架构上，应考虑全端支持的可扩展性。</p>
 <h2 id="技术路线">技术路线</h2><ul>
-<li>后端采用以 Flask 为中心的框架，</li>
-<li>数据库使用主流sql数据库MySQL</li>
-<li>开发环境，完全基于*nix平台的开发、部署与运维</li>
+<li>单页应用</li>
+<li>前端 express(暂) 搭建的静态页面服务</li>
+<li>后端技术栈 Python3 + Flask + MySQL.</li>
+<li>开发与部署平台  *nix</li>
+<li>项目托管 Github</li>
+<li>项目原型 Quora &amp; SF</li>
 </ul>
+<p>因为流量不大，项目轻量，加上需要根据需求快速部署开发，所以选择py</p>
+<p>不用node的原因是因为写腻了</p>
+<p>第一次在项目中使用单元测试，使用的是py的unittest</p>
+<p>附：单页应用的优缺点<br>作者：clia<br>链接：<a href="https://www.zhihu.com/question/20792064/answer/22784862" target="_blank" rel="external">https://www.zhihu.com/question/20792064/answer/22784862</a><br>来源：知乎<br>著作权归作者所有，转载请联系作者获得授权。</p>
+<p>优点：<br>1、分离前后端关注点，前端负责界面显示，后端负责数据存储和计算，各司其职，不会把前后端的逻辑混杂在一起；<br>2、减轻服务器压力，服务器只用出数据就可以，不用管展示逻辑和页面合成，吞吐能力会提高几倍；<br>3、同一套后端程序代码，不用修改就可以用于Web界面、手机、平板等多种客户端；</p>
+<p>缺点：<br>1、SEO问题，现在可以通过Prerender等技术解决一部分；<br>2、前进、后退、地址栏等，需要程序进行管理；<br>3、书签，需要程序来提供支持；</p>
 <h1 id="项目成员与分工">项目成员与分工</h1><ul>
-<li><p>金云天 </p>
+<li><p>金云天</p>
 <ul>
-<li>项目负责人：项目策划与管理、团队管理、负责整体技术架构</li>
-<li>后端开发、运维、部署、运维等</li>
+<li>项目负责人：项目策划与管理、负责整体技术架构、团队管理</li>
+<li>后台开发、运维、部署、总体单元测试</li>
 </ul>
 </li>
-<li><p>余小兰 </p>
+<li><p>余小兰</p>
 <ul>
-<li>前台开发：参与各关键功能的开发，web独立开发</li>
+<li>前台开发：参与各关键功能的开发，web独立开发，测试</li>
+</ul>
+</li>
+<li><p>韩培</p>
+<ul>
+<li>移动端：安卓独立开发，测试</li>
 </ul>
 </li>
 </ul>
-<h1 id="项目的学习价值">项目的学习价值</h1><p>本应用是典型的基于WEB的信息管理应用，利于掌握WEB应用开发的基本要素和技术<br>Flask是最好的WEB后端开发框架，其涉及的各种设计模式与开发技术，是后端工程师的必备技能。</p>
+<h1 id="项目的学习价值">项目的学习价值</h1><p>本应用是典型的基于WEB的信息管理应用，利于掌握WEB应用开发的基本要素和技术</p>
+<p>Flask是最好的WEB后端开发框架，其涉及的各种设计模式与开发技术，是后端工程师的必备技能。（雾）</p>
 <h1 id="可行性分析">可行性分析</h1><ul>
-<li>该项目来源于我们正在进行的实践，持续的需求和即时的用户反馈将会推动项目的健康发展 </li>
+<li>该项目来源于我们正在进行的实践，持续的需求和即时的用户反馈将会推动项目的健康发展</li>
 </ul>
 <h1 id="难点与风险">难点与风险</h1><ul>
 <li>需求并未定型，除了技术能力，还需要产品设计能力</li>
-<li>工作量可能过大</li>
+<li>工作量可能过小（老师说的）</li>
 <li>….</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;项目简介&quot;&gt;项目简介&lt;/h1&gt;&lt;p&gt;名称：实验班交流论坛&lt;/p&gt;
-&lt;p&gt;提交人：金云天小组&lt;/p&gt;
-&lt;h1 id=&quot;项目背景与意义&quot;&gt;项目背景与意义&lt;/h1&gt;&lt;p&gt;设立实验班交流论坛，是为了促进内部交流，内外交流，鼓励分享，活跃技术氛围&lt;/p&gt;
-&lt;h1 id=&quot;项
+      &lt;p&gt;文章更新于：2016年12月23日 星期五 13时44分12秒 CST&lt;/p&gt;
+&lt;p&gt;来源：&lt;a href=&quot;https://github.com/imxana/ec_forum/blob/dev/doc/introduction.md&quot; target=&quot;_blank&quot; r
     
     </summary>
     
@@ -507,7 +703,7 @@
 <p>部分练习 ( 0~13, 21, 22 )</p>
 <h1 id="Linux">Linux</h1><p><a href="https://github.com/imxana/shell_test" target="_blank" rel="external">imxana/shell_test</a></p>
 <p>《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生</p>
-<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#120;&#97;&#x6e;&#x61;&#x2e;&#x61;&#119;&#x61;&#x6b;&#x65;&#110;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#120;&#97;&#x6e;&#x61;&#x2e;&#x61;&#119;&#x61;&#x6b;&#x65;&#110;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
+<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x78;&#x61;&#x6e;&#97;&#46;&#97;&#x77;&#97;&#107;&#x65;&#110;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x61;&#x6e;&#97;&#46;&#97;&#x77;&#97;&#107;&#x65;&#110;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
 <p>部分迁移情况</p>
 <table>
 <thead>
@@ -893,118 +1089,6 @@
     
     
       <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>水南照相馆技术支持文档</title>
-    <link href="http://yoursite.com/2016/03/20/snzxg/"/>
-    <id>http://yoursite.com/2016/03/20/snzxg/</id>
-    <published>2016-03-20T14:51:48.000Z</published>
-    <updated>2016-04-27T14:46:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>水南照相馆提供的便捷照片洗印服务，轻松快捷<br>1.在家中下单，立等可取！<br>2.多种照片大小，多种类型任您选择。<br>3.不定时超特价优惠，享受会员低价折扣。</p>
-<h1 id="产品说明">产品说明</h1><p>本应用为用户提供水南照相馆的照片洗印在线订单提交服务，由于需要订单提交需要使用到在线支付，所以选择应用到支付宝的第三方支付平台。<br>消费群体:日常使用照片洗印服务的用户群</p>
-<p>应用部分截图：</p>
-<h1 id="接口使用情景">接口使用情景</h1><p>用户在选择好需要打印的照片后点击提交订单，此时需要调用到支付接口，对选择好的打印项目进行付费，付费完成后才提交订单至服务器。即在图二所示情景中会使用到支付宝第三方支付服务。</p>
-<h1 id="资费情况">资费情况</h1><p>该服务不采取虚拟货币兑换，故为人民币1：1的资费模式。价格区间大概在0-500元。</p>
-<h1 id="使用流程">使用流程</h1><h2 id="注册/登录">注册/登录</h2><p>用户可以通过 用户名/密码 注册或登录</p>
-<ul>
-<li>成功登录后，下次将自动登录该账号</li>
-<li>支持QQ第三方登录</li>
-<li>支持微信第三方登录</li>
-</ul>
-<h2 id="查询">查询</h2><p>用户可以随时查询自己的所有订单的打印状态。</p>
-<h2 id="支付">支付</h2><p>用户通过积分支付，也可以通过支付宝支付。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;水南照相馆提供的便捷照片洗印服务，轻松快捷&lt;br&gt;1.在家中下单，立等可取！&lt;br&gt;2.多种照片大小，多种类型任您选择。&lt;br&gt;3.不定时超特价优惠，享受会员低价折扣。&lt;/p&gt;
-&lt;h1 id=&quot;产品说明&quot;&gt;产品说明&lt;/h1&gt;&lt;p&gt;本应用为用户提供水南照相馆的照片洗印在线订单
-    
-    </summary>
-    
-    
-      <category term="APP" scheme="http://yoursite.com/tags/APP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub上用到几个iOS库</title>
-    <link href="http://yoursite.com/2016/03/15/GitHub_iOS_lib/"/>
-    <id>http://yoursite.com/2016/03/15/GitHub_iOS_lib/</id>
-    <published>2016-03-15T05:57:34.000Z</published>
-    <updated>2016-03-17T12:39:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="项目中用过的">项目中用过的</h1><p>使用一些集成库能帮你节省下大量的时间和代码量。</p>
-<p>3.17 更新：添加测试使用的库 Reachability</p>
-<h2 id="GMImagePicker">GMImagePicker</h2><p>iOS上的图片多选view，用GMImagePickerControllerDelegate中的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)assetsPickerController:(GMImagePickerController *)picker didFinishPickingAssets:(NSArray *)assetArray;</div></pre></td></tr></table></figure>
-<p>方法拿到assetArray转型为PHAsset组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[[PHImageManager defaultManager] requestImageDataForAsset:asset </div><div class="line">                                                  options:imageRequestOptions </div><div class="line">                                            resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) &#123;</div><div class="line">                                            // Do something with imageData...</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<p>拿到每张图片的NSData，保存在本地沙盒中</p>
-<h2 id="MBProgressHUD">MBProgressHUD</h2><p>在需要花费较长时间的事件处理过程中，为了防止用户误操作，将用户界面锁定并显示进度条或提示。（锁定主线程，直到异步事件处理完毕）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[MBProgressHUD showHUDAddedTo:self.view animated:YES];</div><div class="line">dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^&#123;</div><div class="line">	// Do something...</div><div class="line">	dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">		[MBProgressHUD hideHUDForView:self.view animated:YES];</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>If you need to configure the HUD you can do this by using the MBProgressHUD reference that showHUDAddedTo:animated: returns.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];</div><div class="line">hud.mode = MBProgressHUDModeAnnularDeterminate;</div><div class="line">hud.labelText = @&quot;Loading&quot;;</div><div class="line">[self doSomethingInBackgroundWithProgressCallback:^(float progress) &#123;</div><div class="line">	hud.progress = progress;</div><div class="line">&#125; completionCallback:^&#123;</div><div class="line">	[hud hide:YES];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h2 id="ZipArchive">ZipArchive</h2><p><strong>注意，不是重写过的 SSZipArchive</strong></p>
-<p>Google写的zip解压缩工具，用于一次上传多个文件。注意在向zip添加文件的时候文件必须要在沙盒路径下，否则绝对路径只能读出(null)。（大坑，也是没有系统、基础的学习iOS的漏洞。）</p>
-<p>tip：临时文件本身可以放在tmp文件下，作为自动处理的缓存，启动APP时会自动清理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (NSString *) GetZip&#123;</div><div class="line">    ZipArchive* zip = [[ZipArchive alloc] init];</div><div class="line">    NSString *documentPath = NSTemporaryDirectory();</div><div class="line">    NSString* l_zipfile = [NSString stringWithFormat:@&quot;%@/tmp.zip&quot;,documentPath];</div><div class="line">    BOOL ret = [zip CreateZipFile2:l_zipfile];</div><div class="line">    for (int i=0; i&lt;imagesArray.count; i++) &#123;</div><div class="line">        NSString *imgURL = imagesArray[i];</div><div class="line">        ret = [zip addFileToZip:imgURL newname:[NSString stringWithFormat:@&quot;%d.PNG&quot;,i]];</div><div class="line">    &#125;</div><div class="line">    if( ![zip CloseZipFile2] )</div><div class="line">    &#123;</div><div class="line">        l_zipfile = @&quot;&quot;;  </div><div class="line">    &#125;</div><div class="line">    return l_zipfile;</div><div class="line">//    [zip release];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="想用但是放弃的">想用但是放弃的</h1><h2 id="iCarousel">iCarousel</h2><p>一个比较有名的旋转式选择界面库，可以使用它做出格式各样的3D选择界面，可以100%还原iPhone原生的app选择界面</p>
-<h2 id="Material-Controls-For-iOS">Material-Controls-For-iOS</h2><p>仿照Android的原生Material样式的各种控件和逻辑过渡的重写，</p>
-<h2 id="ios-material-design">ios-material-design</h2><p>点击view的某处或者button会用波浪式的颜色渲染过渡，很炫。</p>
-<h1 id="外部链接">外部链接</h1><p>Reachability: <a href="https://github.com/tonymillion/Reachability.git" target="_blank" rel="external">tonymillion/Reachability</a><br>用于检测当前网络状态</p>
-<p>ZipArchive: <a href="https://github.com/mattconnolly/ZipArchive.git" target="_blank" rel="external">mattconnolly/ZipArchive</a><br>只需要其中的miniZip, ZipArchive.h和ZipArchive.m</p>
-<p>GMImagePicker: <a href="https://github.com/guillermomuntaner/GMImagePicker.git" target="_blank" rel="external">guillermomuntaner/GMImagePicker</a></p>
-<p>MBProgressHUD: <a href="https://github.com/jdg/MBProgressHUD.git" target="_blank" rel="external">jdg/MBProgressHUD</a></p>
-<p>Material-Controls-For-iOS: <a href="https://github.com/fpt-software/Material-Controls-For-iOS.git" target="_blank" rel="external">fpt-software/Material-Controls-For-iOS</a></p>
-<p>ios-material-design: <a href="https://github.com/moqod/ios-material-design.git" target="_blank" rel="external">moqod/ios-material-design</a></p>
-<p>iCarousel: <a href="https://github.com/nicklockwood/iCarousel.git" target="_blank" rel="external">nicklockwood/iCarousel</a></p>
-<h1 id="附iOS尺寸规范">附iOS尺寸规范</h1><table border="1" cellspacing="0" cellpadding="0" style="text-align:center"><tbody><tr><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">设备</span></span></strong></p><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">iPhone</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">宽</span></span></strong></p><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">Width</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">高</span></span></strong></p><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">Height</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">对角线</span></span></strong></p><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">Diagonal</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="font-family:Microsoft YaHei; font-size:14px"><span style="color:#984806">逻辑分辨率</span><span style="color:#984806">(point)</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">Scale Factor</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="font-family:Microsoft YaHei; font-size:14px"><span style="color:#984806">设备分辨率</span><span style="color:#984806">(pixel)</span></span></strong></p></td><td valign="top"><p align="center"><strong><span style="color:#984806"><span style="font-family:Microsoft YaHei; font-size:14px">PPI</span></span></strong></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">3GS</span></p></td><td valign="top"><p align="left"><span style="font-family:Microsoft YaHei; font-size:14px">2.4 inches (62.1 mm)</span></p></td><td valign="top"><p align="left"><span style="font-family:Microsoft YaHei; font-size:14px">4.5 inches (115.5 mm)</span></p></td><td valign="top"><p align="left"><span style="font-family:Microsoft YaHei; font-size:14px">3.5-inch</span></p><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">&nbsp;</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">320x480</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@1x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">320x480</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">163</span></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4(s)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">2.31 inches (58.6 mm)</span></p></td><td valign="top"><p align="left"><span style="font-family:Microsoft YaHei; font-size:14px">4.5 inches (115.2 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">3.5-inch</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">320x480</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@2x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">640x960</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">326</span></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">5c</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">2.33 inches (59.2 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4.90 inches (124.4 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4-inch</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">320x568</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@2x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">640x1136</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">326</span></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">5(s)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">2.31 inches (58.6 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4.87 inches (123.8 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4-inch</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">320x568</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@2x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">640x1136</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">326</span></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">6</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">2.64 inches (67.0 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">5.44 inches (138.1 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">4.7-inch</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">375x667</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@2x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">750x1334</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">326</span></p></td></tr><tr><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">6+</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">3.06 inches (77.8 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">6.22 inches (158.1 mm)</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">5.5-inch</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">414x736</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">@3x</span></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">(<span style="color:#7F7F7F">1242x2208</span>-&gt;)</span></p><p align="center"><strong><em><span style="font-family:Microsoft YaHei; font-size:14px">1080x1920</span></em></strong></p></td><td valign="top"><p align="center"><span style="font-family:Microsoft YaHei; font-size:14px">401&nbsp;</span></p></td></tr></tbody></table>
-
-
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;项目中用过的&quot;&gt;项目中用过的&lt;/h1&gt;&lt;p&gt;使用一些集成库能帮你节省下大量的时间和代码量。&lt;/p&gt;
-&lt;p&gt;3.17 更新：添加测试使用的库 Reachability&lt;/p&gt;
-&lt;h2 id=&quot;GMImagePicker&quot;&gt;GMImagePicker&lt;/h2&gt;&lt;p&gt;i
-    
-    </summary>
-    
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>这是我今年写过最烂的代码</title>
-    <link href="http://yoursite.com/2016/01/12/worst_code_of_year/"/>
-    <id>http://yoursite.com/2016/01/12/worst_code_of_year/</id>
-    <published>2016-01-11T17:11:14.000Z</published>
-    <updated>2016-07-22T16:44:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>（后注，一个GalGame的保存界面</p>
-<p>IB的垃圾引用，fuck me</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  SaveViewController.swift</span></div><div class="line"><span class="comment">//  Yzk</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by 极黑的夏纳 on 16/1/4.</span></div><div class="line"><span class="comment">//  Copyright © 2016年 xana. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="comment">// tofix:</span></div><div class="line"><span class="keyword">var</span> saves: [<span class="type">Int</span>?] = [<span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SaveViewController</span>: <span class="title">UIViewController</span>, <span class="title">UIPopoverPresentationControllerDelegate</span> </span>&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveText1: <span class="type">UITextView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveText2: <span class="type">UITextView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveText3: <span class="type">UITextView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveText4: <span class="type">UITextView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveImageView1: <span class="type">UIImageView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveImageView2: <span class="type">UIImageView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveImageView3: <span class="type">UIImageView</span>!</div><div class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> saveImageView4: <span class="type">UIImageView</span>!</div><div class="line">    </div><div class="line"><span class="comment">//    private var saveImage1: UIImage? &#123;</span></div><div class="line"><span class="comment">//        get &#123; return saveImageView1.image &#125;</span></div><div class="line"><span class="comment">//        set &#123; saveImageView1.image = newValue &#125;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"><span class="comment">//    private var saveImage2: UIImage? &#123;</span></div><div class="line"><span class="comment">//        get &#123; return saveImageView2.image &#125;</span></div><div class="line"><span class="comment">//        set &#123; saveImageView2.image = newValue &#125;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"><span class="comment">//    private var saveImage3: UIImage? &#123;</span></div><div class="line"><span class="comment">//        get &#123; return saveImageView3.image &#125;</span></div><div class="line"><span class="comment">//        set &#123; saveImageView3.image = newValue &#125;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"><span class="comment">//    private var saveImage4: UIImage? &#123;</span></div><div class="line"><span class="comment">//        get &#123; return saveImageView4.image &#125;</span></div><div class="line"><span class="comment">//        set &#123; saveImageView4.image = newValue &#125;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line">    </div><div class="line"><span class="comment">//    var SaveViewDatas: [[String: AnyObject?]] = [];</span></div><div class="line">    </div><div class="line">    <span class="comment">// todo:</span></div><div class="line"><span class="comment">//    private let defaults = NSUserDefaults.standardUserDefaults()</span></div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">       </div><div class="line">        </div><div class="line"><span class="comment">//        SaveViewDatas = [</span></div><div class="line"><span class="comment">//            ["img": saveImageView1.image,"text": saveText1.text,],</span></div><div class="line"><span class="comment">//            ["img": saveImageView2.image,"text": saveText2.text,],</span></div><div class="line"><span class="comment">//            ["img": saveImageView3.image,"text": saveText3.text,],</span></div><div class="line"><span class="comment">//            ["img": saveImageView4.image,"text": saveText4.text,],</span></div><div class="line"><span class="comment">//        ]</span></div><div class="line">        </div><div class="line">        saveText1.addGestureRecognizer(<span class="type">TGR</span>(<span class="string">"save1"</span>))</div><div class="line">        saveText2.addGestureRecognizer(<span class="type">TGR</span>(<span class="string">"save2"</span>))</div><div class="line">        saveText3.addGestureRecognizer(<span class="type">TGR</span>(<span class="string">"save3"</span>))</div><div class="line">        saveText4.addGestureRecognizer(<span class="type">TGR</span>(<span class="string">"save4"</span>))</div><div class="line">        </div><div class="line">        unwrapAll()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">TGR</span><span class="params">(name:String)</span></span> -&gt; <span class="type">UITapGestureRecognizer</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">UITapGestureRecognizer</span>(target: <span class="keyword">self</span>, action: <span class="type">Selector</span>(name))</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="comment">//    func unwrap() &#123;</span></div><div class="line"><span class="comment">//        for i in 0...3 &#123;</span></div><div class="line"><span class="comment">//            </span></div><div class="line"><span class="comment">//            var views = SaveViewDatas[i]</span></div><div class="line"><span class="comment">//            </span></div><div class="line"><span class="comment">//            if let num = saves[i] &#123; // every savePoint</span></div><div class="line"><span class="comment">//                </span></div><div class="line"><span class="comment">//                let source = data[num]</span></div><div class="line"><span class="comment">//                </span></div><div class="line"><span class="comment">//                if let bgStr = source["bg"] &#123;</span></div><div class="line"><span class="comment">//                    </span></div><div class="line"><span class="comment">//                    print(UIImage(named: bgStr))</span></div><div class="line"><span class="comment">//                    print(views["img"]!)</span></div><div class="line"><span class="comment">//                    views["img"]! = UIImage(named: bgStr)</span></div><div class="line"><span class="comment">//                    //saveImage1 = UIImage(named: bgStr)</span></div><div class="line"><span class="comment">//                    print(saveImage1)</span></div><div class="line"><span class="comment">//                    print(views["img"]!)</span></div><div class="line"><span class="comment">//                &#125;</span></div><div class="line"><span class="comment">//                </span></div><div class="line"><span class="comment">//                if let words = source["words"] &#123;</span></div><div class="line"><span class="comment">//                    </span></div><div class="line"><span class="comment">//                    print(words)</span></div><div class="line"><span class="comment">//                    print(views["text"])</span></div><div class="line"><span class="comment">//                    print(views["text"]!)</span></div><div class="line"><span class="comment">//                    print(views["text"]!!)</span></div><div class="line"><span class="comment">//                    views["text"]!! = words</span></div><div class="line"><span class="comment">//                    print(words)</span></div><div class="line"><span class="comment">//                    print(views["text"])</span></div><div class="line"><span class="comment">//                    print(views["text"]!)</span></div><div class="line"><span class="comment">//                    print(views["text"]!!)</span></div><div class="line"><span class="comment">//                &#125;</span></div><div class="line"><span class="comment">//                </span></div><div class="line"><span class="comment">//            &#125; else &#123;</span></div><div class="line"><span class="comment">//                //print("\(index) is nil.\n");</span></div><div class="line"><span class="comment">//            &#125;</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unwrapAll</span><span class="params">()</span></span> &#123;</div><div class="line">        unwrap1()</div><div class="line">        unwrap2()</div><div class="line">        unwrap3()</div><div class="line">        unwrap4()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unwrap1</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> n = saves[<span class="number">0</span>] &#123;</div><div class="line">            <span class="keyword">let</span> source1 = data[n]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> bgStr = source1[<span class="string">"bg"</span>] &#123;</div><div class="line">                saveImageView1.image = <span class="type">UIImage</span>(named: bgStr)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> words = source1[<span class="string">"words"</span>] &#123;</div><div class="line">                saveText1.text = words</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unwrap2</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> n = saves[<span class="number">1</span>] &#123;</div><div class="line">            <span class="keyword">let</span> source2 = data[n]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> bgStr = source2[<span class="string">"bg"</span>] &#123;</div><div class="line">                saveImageView2.image = <span class="type">UIImage</span>(named: bgStr)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> words = source2[<span class="string">"words"</span>] &#123;</div><div class="line">                saveText2.text = words</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unwrap3</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> n = saves[<span class="number">2</span>] &#123;</div><div class="line">            <span class="keyword">let</span> source3 = data[n]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> bgStr = source3[<span class="string">"bg"</span>] &#123;</div><div class="line">                saveImageView3.image = <span class="type">UIImage</span>(named: bgStr)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> words = source3[<span class="string">"words"</span>] &#123;</div><div class="line">                saveText3.text = words</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unwrap4</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> n = saves[<span class="number">3</span>] &#123;</div><div class="line">            <span class="keyword">let</span> source4 = data[n]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> bgStr = source4[<span class="string">"bg"</span>] &#123;</div><div class="line">                saveImageView4.image = <span class="type">UIImage</span>(named: bgStr)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> words = source4[<span class="string">"words"</span>] &#123;</div><div class="line">                saveText4.text = words</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">save1</span><span class="params">()</span></span>&#123;</div><div class="line">        saves[<span class="number">0</span>] = number</div><div class="line">        unwrap1()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">save2</span><span class="params">()</span></span>&#123;</div><div class="line">        saves[<span class="number">1</span>] = number</div><div class="line">        unwrap2()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">save3</span><span class="params">()</span></span>&#123;</div><div class="line">        saves[<span class="number">2</span>] = number</div><div class="line">        unwrap3()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">save4</span><span class="params">()</span></span>&#123;</div><div class="line">        saves[<span class="number">3</span>] = number</div><div class="line">        unwrap4()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>（后后注，听说你们要看图？前方高能预警</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.1.12/1.PNG" alt="title"></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.1.12/2.PNG" alt="title"></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.1.12/3.PNG" alt="title"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;（后注，一个GalGame的保存界面&lt;/p&gt;
-&lt;p&gt;IB的垃圾引用，fuck me&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div
-    
-    </summary>
-    
     
   </entry>
   
