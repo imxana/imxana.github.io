@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-30T06:27:26.000Z</updated>
+  <updated>2016-12-30T07:02:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,17 @@
   
   <entry>
     <title>Job-hunting</title>
-    <link href="http://yoursite.com/3017/01/01/Job-hunting/"/>
-    <id>http://yoursite.com/3017/01/01/Job-hunting/</id>
-    <published>3017-01-01T11:16:21.000Z</published>
-    <updated>2016-12-30T06:27:26.000Z</updated>
+    <link href="http://yoursite.com/2017/01/01/Job-hunting/"/>
+    <id>http://yoursite.com/2017/01/01/Job-hunting/</id>
+    <published>2016-12-31T16:00:00.000Z</published>
+    <updated>2016-12-30T07:02:18.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>【手动置顶】此内容长期有效</p>
 </blockquote>
-<p>金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发/测试/运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</p>
-<p>我2014年入学，大一开始学习编程，到目前为止学习的东西很杂，基本为了兴趣而编程(第一门接触的语言是Processing)。现在主要使用的语言工具是Python3和NodeJS，能独立开发、部署中小型web服务，linux/vim党，写过一段时间的C/Java但不是很熟。大学期间基本不参加文档式的ppt比赛，更喜欢快速开发出实际产品的game。hackathon已经参加过2次，第二次(龙驰杯)和朋友做的一个即时对战游戏作品拿了第二名的成绩，当时有拿到网易云的实习资格，但是因为一方面大二是在没有时间，另一方面我也不觉得当时的我够格，还是需要提升自己，所以只能不了了之。</p>
-<p>大二寒假的时候业余外包写过一个iOS应用，花了半天时间学习oc（有swift基础），写了1个月的，最后在AppStore上架了，(app_name：水南照相馆)，第三方涉及微信/QQ/支付宝/应用交付流程。后来还用React Native想重写这个应用，不过只是重写了外观和样式，里面的东西原本我设计的也不太好就没有做下去。</p>
+<p>金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</p>
+<p>我2014年入学，大一开始学习编程，到目前为止学习的东西很杂，基本为了兴趣而编程(第一门接触的语言是Processing)。现在主要使用的语言工具是Python3和NodeJS，能独立开发、部署中小型web服务，linux\vim党，写过一段时间的C\Java但不是很熟。大学期间基本不参加文档式的ppt比赛<del>如xx外包\x苗\xx网+\x战杯</del>，更喜欢快速开发出实际产品的game。hackathon已经参加过2次，第二次(龙驰杯)和朋友做的一个即时对战游戏作品<del>「闷声发大财」</del>拿了第二名的成绩，当时有拿到网易云的实习资格，但是因为一方面大二是在没有时间，另一方面我也不觉得当时的我够格，还是需要提升自己，所以只能不了了之。</p>
+<p>大二寒假的时候业余外包写过一个iOS应用，花了半天时间学习oc（有swift基础），写了1个月，涉及微信\QQ\支付宝\应用交付流程，最后在AppStore上架了<del>（交付审核又花了一个月）</del>，(app_name：水南照相馆<del>，界面写的丑请见谅，不是专业前端</del>)。后来还用React Native想重写这个应用，不过只是重写了外观和样式，里面的东西原本我设计的也不太好就没有做下去。</p>
 <p>我希望加入这样的团体：技术氛围浓厚，工作氛围自由，一切以解决问题为导向的工程师文化</p>
 <p>如果某HR对我有兴趣，请通过邮箱或者其他方式联系我，我的邮箱是 xana.awaken@gmail.com 我觉得我们谈的来就马上去面试。</p>
 ]]></content>
@@ -37,21 +37,23 @@
       &lt;blockquote&gt;
 &lt;p&gt;【手动置顶】此内容长期有效&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发/测试/运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到
+&lt;p&gt;金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。因为大三下学期每周还有2~4门课（已经都排到
     
     </summary>
     
     
       <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
     
+      <category term="job" scheme="http://yoursite.com/tags/job/"/>
+    
   </entry>
   
   <entry>
     <title>Python3修饰器和线程锁</title>
-    <link href="http://yoursite.com/3016/12/29/decorator/"/>
-    <id>http://yoursite.com/3016/12/29/decorator/</id>
-    <published>3016-12-29T11:16:21.000Z</published>
-    <updated>2016-12-30T01:32:17.000Z</updated>
+    <link href="http://yoursite.com/2016/12/29/decorator/"/>
+    <id>http://yoursite.com/2016/12/29/decorator/</id>
+    <published>2016-12-29T11:16:21.000Z</published>
+    <updated>2016-12-30T06:35:37.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Python的修饰器">Python的修饰器</h2><p>先看一个很常见的例子</p>
 <p>req.py</p>
@@ -80,6 +82,8 @@
 <p>dec.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Before</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'some thing before..'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">After</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'some thing after..'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Filter</span><span class="params">(before_func, after_func)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(main_func)</span>:</span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(request, kargs)</span>:</span></div><div class="line"></div><div class="line">            before_result = before_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (before_result != <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> before_result</div><div class="line"></div><div class="line">            main_result = main_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (main_result !=  <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> main_result</div><div class="line"></div><div class="line">            after_result = after_func(request, kargs)</div><div class="line">            <span class="keyword">if</span> (after_result != <span class="keyword">None</span>):</div><div class="line">                <span class="keyword">return</span> after_result</div><div class="line"></div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> outer</div><div class="line"></div><div class="line"><span class="meta">@Filter(Before, After)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Index</span><span class="params">(request, kargs)</span>:</span></div><div class="line">    print(<span class="string">'index'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    Index([],<span class="number">2</span>,c=<span class="string">'fk'</span>)</div></pre></td></tr></table></figure>
 <p>这个闭包利用了<code>Filter</code>和<code>outer</code>的三个参数函数，重新改写执行顺序，直到其中有一个函数抛出返回值为止。</p>
+<p>至此关于修饰符的内容基本交代完毕</p>
+<h2 id="多线程">多线程</h2><p>// Todo:</p>
 ]]></content>
     
     <summary type="html">
@@ -100,7 +104,7 @@
     <link href="http://yoursite.com/2016/12/22/program-final-summary/"/>
     <id>http://yoursite.com/2016/12/22/program-final-summary/</id>
     <published>2016-12-22T11:49:20.000Z</published>
-    <updated>2016-12-30T00:56:17.000Z</updated>
+    <updated>2016-12-30T06:29:26.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>系统架构为BS架构，基于Flask和React的web应用</p>
@@ -156,8 +160,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin variables| grep socket</div></pre></td></tr></table></figure>
 <p>查看socket所在位置，然后尝试使用格式如下的连接     </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pymysql.Connect(user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>,unix_socket=<span class="string">'/var/run/mysqld/mysqld.sock'</span>)</div></pre></td></tr></table></figure>
-<h2 id="MySQL的问题以及解决过程">MySQL的问题以及解决过程</h2><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
-<h3 id="The_problem">The problem</h3><p>前台说请求报错，她那里格式正常。启动服务器简单脚本测试，发送get正常，post报<code>pipeBroken</code>。重启应用，好了。过了半天，一发post，跪。</p>
+<h3 id="MySQL的问题以及解决过程">MySQL的问题以及解决过程</h3><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
+<h4 id="The_problem">The problem</h4><p>前台说请求报错，她那里格式正常。启动服务器简单脚本测试，发送get正常，post报<code>pipeBroken</code>。重启应用，好了。过了半天，一发post，跪。</p>
 <h4 id="Debug">Debug</h4><p>get能用，post挂了，肯定是数据库问题，看了下错误类型，连接管道断了，那就是pymysql的问题。</p>
 <p>第一反应，连接对象过期了，定期更新it，无解。</p>
 <p>加快更新频率，无解。</p>

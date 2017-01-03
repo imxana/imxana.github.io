@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/3017/01/01/Job-hunting/</loc>
+    <loc>http://yoursite.com/2017/01/01/Job-hunting/</loc>
     
-    <lastmod>2016-12-30T06:27:26.000Z</lastmod>
+    <lastmod>2016-12-30T07:02:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/3016/12/29/decorator/</loc>
+    <loc>http://yoursite.com/2016/12/29/decorator/</loc>
     
-    <lastmod>2016-12-30T01:32:17.000Z</lastmod>
+    <lastmod>2016-12-30T06:35:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/22/program-final-summary/</loc>
+    
+    <lastmod>2016-12-30T06:29:26.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2016/10/06/mysql-bug/</loc>
     
     <lastmod>2016-12-30T00:57:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/12/22/program-final-summary/</loc>
-    
-    <lastmod>2016-12-30T00:56:17.000Z</lastmod>
     
   </url>
   
