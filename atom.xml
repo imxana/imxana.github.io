@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-04T04:49:22.000Z</updated>
+  <updated>2017-01-15T16:53:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,22 +20,22 @@
     <link href="http://yoursite.com/2017/01/01/Job-hunting/"/>
     <id>http://yoursite.com/2017/01/01/Job-hunting/</id>
     <published>2016-12-31T16:00:00.000Z</published>
-    <updated>2017-01-04T04:49:22.000Z</updated>
+    <updated>2017-01-15T16:53:17.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>【手动置顶】此内容长期有效</p>
 </blockquote>
 <p><del>已经重新排版，尽量挑选出简洁有效的内容</del></p>
 <ol>
-<li>金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。我要求不高，只是大三下学期每周还有2~4门水课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</li>
+<li>我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。我要求不高，只是大三下学期每周还有2~4门水课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</li>
+<li>我从大一才开始学编程，大学之前并没有算法等基础，可能这方面会有些薄弱。大学基本靠自学踩坑出来的。</li>
 <li>主要使用的语言工具是Python3和NodeJS，能独立开发、部署中小型web服务。（举例：Flask+uWSGI+Nginx+Supervisor+MySQL 或Express+MongoDB+Supervisor 的http服务）熟悉测试流程，遵循封闭开发原则。</li>
-<li>linux\vim党，不喜欢IDE。</li>
-<li>大二写过半年时间的iOS，在AppStore上有一个应用，尝试用RN重写一次，坑太多，不了了之。</li>
+<li>重度Linux/Vim党，IDE-fucker。</li>
+<li>大二学过半年时间的iOS，在AppStore上丢了一个第三方登录-支付流程完整的应用。<del>尝试用ReactNative重写一次，坑太多，不了了之。</del>未来不打算写移动，仅证明自学能力。</li>
 <li>写过一段时间的C\Java但不是很熟</li>
-<li>不参加文档式的ppt比赛<del>如xx外包\x苗\xx网+\x战杯</del>，更喜欢快速开发出实际产品的game。hackathon已经参加过2次。</li>
-<li>我从大一开始自学编程，大学之前并没有算法竞赛等基础，可能这方面会有些薄弱。</li>
+<li>不参加文档式的ppt比赛<del>如xx外包\x苗\xx网+\x战杯</del>，更喜欢快速开发出实际产品的game。参加过2次hackathon。</li>
 </ol>
-<p>如果与某HR志同道合，请通过邮箱或者其他方式联系我</p>
+<p>欢迎推荐~HR请通过邮箱或者其他方式联系我</p>
 <p>邮箱 xana.awaken@gmail.com </p>
 ]]></content>
     
@@ -46,7 +46,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;del&gt;已经重新排版，尽量挑选出简洁有效的内容&lt;/del&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;金云天，杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受
+&lt;li&gt;我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受
     
     </summary>
     
