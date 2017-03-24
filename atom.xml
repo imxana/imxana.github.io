@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-15T16:53:17.000Z</updated>
+  <updated>2017-03-24T02:41:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,18 +16,85 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>svn快速入门</title>
+    <link href="http://yoursite.com/2017/03/23/svn%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2017/03/23/svn快速入门/</id>
+    <published>2017-03-23T01:40:47.000Z</published>
+    <updated>2017-03-24T02:41:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。</p>
+<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此您应该从部分checkout开始。</p>
+<p>1.在GitHub上找到repository的导航主页.</p>
+<p>2.在repository名称的下面, 点击<code>Clone or download</code>.</p>
+<p>3.选择<code>Clone with HTTPS</code>, 复制其中的链接.</p>
+<p>4.在本地repository中创建一个空的checkout:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo</div><div class="line">Checked out revision 1.</div><div class="line">$ <span class="built_in">cd</span> repo</div></pre></td></tr></table></figure>
+<p>5.获取<code>trunk</code>分支. SVN会把<code>trunk</code>桥接映射到<code>Git HEAD branch</code>(通常指<code>master</code>).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">A    trunk</div><div class="line">A    trunk/README.md</div><div class="line">A    trunk/gizmo.rb</div><div class="line">Updated to revision 1.</div></pre></td></tr></table></figure>
+<p>6.在<code>branches</code>路径下获取空的checkout. 这是所有非<code>HEAD</code>分支存在的地方，你将在这里做<code>feature branches</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up --depth empty branches</div><div class="line">Updated to revision 1.</div></pre></td></tr></table></figure>
+<p>my ex:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ tree                                                                                                                                                                </div><div class="line">.</div><div class="line">├── branches</div><div class="line">│   └── more_awesome</div><div class="line">│       ├── LICENSE</div><div class="line">│       ├── README.md</div><div class="line">│       └── <span class="built_in">test</span></div><div class="line">└── trunk</div><div class="line">    ├── LICENSE</div><div class="line">    └── README.md</div></pre></td></tr></table></figure>
+<h2 id="创建分支">创建分支</h2><p>你也可以使用Subversion桥接到GitHub创建分支。</p>
+<p>从svn客户端，通过更新确保<code>master</code>是最新的trunk：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">At revision 1.</div></pre></td></tr></table></figure>
+<p>接下来，您可以使用<code>svn copy</code>创建新分支:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ svn copy trunk branches/more_awesome</div><div class="line">A    branches/more_awesome</div><div class="line">$ svn commit -m <span class="string">'Added more_awesome topic branch'</span></div><div class="line">Adding    branches/more_awesome</div><div class="line"></div><div class="line">Committed revision 2.</div></pre></td></tr></table></figure>
+<p>You can confirm that the new branch exists in the repository’s branch dropdown in Github.</p>
+<p><img src="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png" alt=""></p>
+<p>您可以确认新分支存在于存储库的分支下拉列表中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git fetch</div><div class="line">From https://github.com/user/repo/</div><div class="line">* [new branch]    more_awesome -&gt; origin/more_awesome</div></pre></td></tr></table></figure>
+<h2 id="提交修改">提交修改</h2><p>在添加了一些功能并修复了一些错误之后，你需要将这些更改提交给GitHub。这就和你平时使用svn一样。编辑文件，并使用<code>svn commit</code>记录你的更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ svn status</div><div class="line">M    gizmo.rb</div><div class="line">$ svn commit -m <span class="string">'Guard against known problems'</span></div><div class="line">Sending    more_awesome/gizmo.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 3.</div><div class="line">$ svn status</div><div class="line">?    <span class="built_in">test</span></div><div class="line">$ svn add <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span>/gizmo_test.rb</div><div class="line">$ svn commit -m <span class="string">'Test coverage for problems'</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span>/gizmo_test.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 4.</div></pre></td></tr></table></figure>
+<h2 id="切换分支">切换分支</h2><p>要在分支机构之间切换，您可能需要首先检查<code>trunk</code>的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo/trunk</div></pre></td></tr></table></figure>
+<p>然后，您可以切换到另一个分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn switch https://github.com/user/repo/branches/more_awesome</div></pre></td></tr></table></figure>
+<p><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del> </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Checkout&quot;&gt;Checkout&lt;/h2&gt;&lt;p&gt;首先你要做的事情是Subversion(以下简称svn) checkout。由于&lt;code&gt;Git clones&lt;/code&gt;将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。&lt;
+    
+    </summary>
+    
+    
+      <category term="svn" scheme="http://yoursite.com/tags/svn/"/>
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见的sql攻击</title>
+    <link href="http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/"/>
+    <id>http://yoursite.com/2017/03/22/常见的sql攻击/</id>
+    <published>2017-03-22T10:12:34.000Z</published>
+    <updated>2017-03-24T01:32:35.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+      <category term="mongodb" scheme="http://yoursite.com/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Job-hunting</title>
     <link href="http://yoursite.com/2017/01/01/Job-hunting/"/>
     <id>http://yoursite.com/2017/01/01/Job-hunting/</id>
     <published>2016-12-31T16:00:00.000Z</published>
-    <updated>2017-01-15T16:53:17.000Z</updated>
+    <updated>2017-03-22T10:10:35.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
-<p>【手动置顶】此内容长期有效</p>
-</blockquote>
-<p><del>已经重新排版，尽量挑选出简洁有效的内容</del></p>
+    <content type="html"><![CDATA[<p><del>已经重新排版，尽量挑选出简洁有效的内容</del></p>
+<p><del>已找到工作, 勿念</del></p>
 <ol>
-<li>我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。我要求不高，只是大三下学期每周还有2~4门水课（已经都排到晚上），所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</li>
+<li>我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学习。我要求不高，只是大三下学期每周还有2~4门水课，所以希望在实习地区在杭州之内，最好离下沙不要太远，包住另说:）。</li>
 <li>我从大一才开始学编程，大学之前并没有算法等基础，可能这方面会有些薄弱。大学基本靠自学踩坑出来的。</li>
 <li>主要使用的语言工具是Python3和NodeJS，能独立开发、部署中小型web服务。（举例：Flask+uWSGI+Nginx+Supervisor+MySQL 或Express+MongoDB+Supervisor 的http服务）熟悉测试流程，遵循封闭开发原则。</li>
 <li>重度Linux/Vim党，IDE-fucker。</li>
@@ -41,12 +108,10 @@
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;【手动置顶】此内容长期有效&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;del&gt;已经重新排版，尽量挑选出简洁有效的内容&lt;/del&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;del&gt;已经重新排版，尽量挑选出简洁有效的内容&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;已找到工作, 勿念&lt;/del&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受
+&lt;li&gt;我目前是杭电大三学生，热爱互联网，现想找一份实习工作，研发\测试\运维均可，主要在学校易受到工具、环境、规模限制，想在实践中进行学
     
     </summary>
     
@@ -62,7 +127,7 @@
     <link href="http://yoursite.com/2016/12/29/decorator/"/>
     <id>http://yoursite.com/2016/12/29/decorator/</id>
     <published>2016-12-29T11:16:21.000Z</published>
-    <updated>2016-12-30T06:35:37.000Z</updated>
+    <updated>2017-03-16T17:49:36.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Python的修饰器">Python的修饰器</h2><p>先看一个很常见的例子</p>
 <p>req.py</p>
@@ -716,7 +781,7 @@
 <p>部分练习 ( 0~13, 21, 22 )</p>
 <h1 id="Linux">Linux</h1><p><a href="https://github.com/imxana/shell_test" target="_blank" rel="external">imxana/shell_test</a></p>
 <p>《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生</p>
-<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x78;&#x61;&#x6e;&#97;&#46;&#97;&#x77;&#97;&#107;&#x65;&#110;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x61;&#x6e;&#97;&#46;&#97;&#x77;&#97;&#107;&#x65;&#110;&#64;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x78;&#97;&#x6e;&#97;&#x2e;&#x61;&#x77;&#97;&#x6b;&#x65;&#110;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x78;&#97;&#x6e;&#97;&#x2e;&#x61;&#x77;&#97;&#x6b;&#x65;&#110;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
 <p>部分迁移情况</p>
 <table>
 <thead>
@@ -1037,71 +1102,6 @@
     
     
       <category term="reactnative" scheme="http://yoursite.com/tags/reactnative/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mongoose使用小结</title>
-    <link href="http://yoursite.com/2016/07/19/mongoose/"/>
-    <id>http://yoursite.com/2016/07/19/mongoose/</id>
-    <published>2016-07-19T05:38:10.000Z</published>
-    <updated>2016-07-19T06:59:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Preview">Preview</h1><p>（张兄让我写一点收获，没办法，就写一点吧</p>
-<h2 id="Wrting-">Wrting..</h2><p>暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，不过认识了几位有想法，有自己作品的朋友，在一起交流了很久，感觉大家虽然目的不同，但是走的路，挖的坑都是惊人的相似。但是大多数人都是来『玩』的，包括老师。期间一直在被很多小白叫大神，说实话我心里是极不舒服的。因为我本身就是个小白，是来系统、基础的学习一些平时途径学不到的东西的，本来是来学习交流的，结果变成来装X和开着热点自学的了。这些老师互相吹逼，我问了所谓技术大牛的老师一个reactnative的问题，他居然说完全不了解，好不容易上了一节关于技术的课，却又只涉及纯理论和大量的假设和推理。。宿舍WiFi超级差，又不稳定，最后老师干脆就不管了，66666</p>
-<h2 id="Example">Example</h2><p><a href="https://github.com/imxana/db_test.git" target="_blank" rel="external">imxana/db_test</a></p>
-<p>This is mongodb + nodejs, a universal backend, just tested for some showing demo..（火车上写的一点东西。。</p>
-<h2 id="NoSQL">NoSQL</h2><p>MongoDB作为一个nosql型数据库，在数据模型使用方面，必须摆脱sql那种链式储存的思维。使用起来更加的自由，特别是JSON与JavaScript对象类型的亲和度非常高，使用时会让你更加的得心应手，而不是需要死记sql语句。一个储存对象就是JSONtree一个分支，可以无限延伸，因此可以存储相当复杂的树数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">	<span class="string">"_id"</span> : ObjectId(<span class="string">"578319aab115df5938efcdf9"</span>), </div><div class="line">	<span class="string">"name"</span> : <span class="string">"Ruri"</span>, </div><div class="line">	<span class="string">"userid"</span> : <span class="string">"Yvo1D5X9p4c58GAJ"</span>, </div><div class="line">	<span class="string">"comments"</span> : &#123;</div><div class="line">		<span class="string">"a"</span>: &#123;&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="string">"__v"</span> : <span class="number">0</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="mongoose-js?_mongodb-js?">mongoose.js? mongodb.js?</h2><p>Mongoose作为mongodb-node的一个封装API库，相比于mongo.js来说，它使用了Scheme来作为mongodb的collection的「骨架」，对于骨架具体化的model进行操作。而mongodb.js还是一样使用语句进行操作，这样可能会导致更多的代码，更多的错误。</p>
-<h1 id="Quick_Start">Quick Start</h1><p>先假设情景，我需要一个用户模型，用于注册，登陆，储存用户ID(userid)和名字(name)</p>
-<h2 id="intialize">intialize</h2><p>数据库初始化代码 db_init.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mongodb</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> userSchema = mongoose.Schema(&#123;</div><div class="line">    name: <span class="built_in">String</span>,</div><div class="line">    userid: <span class="built_in">String</span></div><div class="line">  &#125;)</div><div class="line">  mongoose.model(<span class="string">'user'</span>, userSchema);</div><div class="line"></div><div class="line">  mongoose.connect(<span class="string">'mongodb://localhost/db_test'</span>);</div><div class="line">  <span class="keyword">var</span> db = mongoose.connection</div><div class="line"></div><div class="line">  db.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>, <span class="string">'connection error:'</span>));</div><div class="line">  db.once(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'MongoDB once opened..'</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = mongodb;</div></pre></td></tr></table></figure>
-<p>这段代码做了啥？首先引入mongoose模块，连接本地名为db_test的mongodb数据库(没有的话会自动创建)，然后监听错误和开启事件，之后新建了一个user模型userSchema，最后把这个模型注册给名称为’user’的collection。</p>
-<h2 id="common_method">common method</h2><p>其他方法 db.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"><span class="keyword">var</span> User = mongoose.model(<span class="string">'user'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 1.add-work</span></div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User();</div><div class="line">user.name = <span class="string">'Ruri'</span>;</div><div class="line">user.id = RandomID();</div><div class="line">user.save(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'User saved.'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 2.search doc</span></div><div class="line">User.find(&#123;<span class="string">'name'</span>: <span class="string">'Ayase'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, users</span>) </span>&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; users.length; i++) &#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'ID:'</span> + users[i].userid);</div><div class="line">		<span class="built_in">console</span>.log(users[i].name);</div><div class="line">	&#125;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 3.del doc</span></div><div class="line"><span class="comment">// '' is the ID</span></div><div class="line">Task.findById(<span class="string">'56037be2b3293deaa4a98477'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, user</span>) </span>&#123;</div><div class="line">	user.remove();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>user注册完毕后，取出已注册的user模型（未注册会报错），然后实例化user，调用模型的save方法，就能直接储存。也能直接传入参数save，等价于<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> User(&#123;name:<span class="string">'Ruri'</span>, id: RandomID()&#125;)</div><div class="line">.save(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'User saved.'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>删除方法通常配合查询方法，这里只是简单涉及，具体查阅相关资料。<br>修改方法也配合查询方法，直接修改对象属性然后调用save即可，相当于mongodb语法里的$set（如果没记错的话）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Preview&quot;&gt;Preview&lt;/h1&gt;&lt;p&gt;（张兄让我写一点收获，没办法，就写一点吧&lt;/p&gt;
-&lt;h2 id=&quot;Wrting-&quot;&gt;Wrting..&lt;/h2&gt;&lt;p&gt;暑假前的iOS俱乐部举行了一次夏令营，收获还是有的，认识了很多本校的学弟学妹，不过认识了几位有想法，
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我是如何失败地约束自己的</title>
-    <link href="http://yoursite.com/2016/04/27/howictrlmyself/"/>
-    <id>http://yoursite.com/2016/04/27/howictrlmyself/</id>
-    <published>2016-04-27T13:20:55.000Z</published>
-    <updated>2016-04-27T14:58:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="我是如何失败地约束自己的">我是如何失败地约束自己的</h2><p>大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是其他原因，那应该就是那个原因，本文本意是为了尽量从第三方角度来阐述并且用聚光那个阴暗的自己。</p>
-<p>这种表演型人格很有可能来自于我的家庭。我的母亲家里的人都是很在意自己利益的人，平时说话都是把自己说成是最无辜的，其他人是千方百计的要害他\她，哪怕是自己的直系亲属。我的母亲从小屈服于父母和两个弟弟，吃了很多苦，一直处于没有安全感的状态。可以出于这个原因，她说话一般都带有大量的假设与臆想，同样让我从小开始就没有安全感。小时候因为我只是偶然发现喜欢看书，家里就给我订了很多杂志，这又形成了我被动接受事情的习惯。我的父亲家庭比较不好，他属于懂事太早，比较倾向独自决策的类型。太有主见有个坏处，就是人容易受到情绪的干扰，于是经常会表现出很幼稚的行为，但是自己又不能承认是错的，就要闷不做声的擦屁股。</p>
-<p>我的性格从形成之际，就显得有些格格不入，很明显的一点就是：『如果大家都选择了A，我会放弃A，花上大量的时间在B上，以此来满足自己的表演人格。』这一点让我非常的痛苦，常常我就把自己孤立出去了。然而我的人格又迫使我不愿意承认自己这是错的。于是和老师讨论哲学问题就成了从幼儿园开始每个学期必然的事情，直到高二才停止。</p>
-<p>初中的记忆有些模糊，印象中是被很多人关注，然后被很多人失望，那个时候很多的决策都是一拍脑子做出的『最佳决策』，已经不能说是中二病了，比中二病羞耻的多。</p>
-<p>我挺喜欢那个时候的自己的，因为我再也不可能回到那种充满激情的状态了。现在我看到非常叛逆但是胆子小的孩子，都会莫名的想亲近。那个时候非常喜欢听林肯公园，近乎到了痴迷的地步，LP的每一首歌我都会唱。看看LP的歌词，大概就能猜出那时候的状态。</p>
-<p>高中整个三年的时候我再不停地排斥自己的表演型人格，具体表现为保持自己的大量独处时间（消除观众），开始不停的揭穿自我为了表演的实际目的（自我打击）。现在我替那个时候的自己深深的反省，虽然我想到了，但是我对我的认识还是不够。我的表演型人格已经深入骨髓，甚至开始为了揭穿自己的表演而表演。就如为了仅仅为了迎合而捏造的带常识错误的反鸡汤文章一样恶心。我陷入了一个自我表演的循环。歌词里说『我要摆脱你，做真正的我』，然而从哲学上说物必有根，不可能凭空产生。虽然我从未停止过思考这个问题，但是很长一段时间，我都不知道没了观众，我真正要为自己做什么，只能不断的为自己的决策买单。</p>
-<p>一个人独处的时候，先是放纵，之后空虚，之后要么继续放纵，要么开始面对现实。从大学开始我意识到与人交流是一门基本课，不管是为了课堂学习，还是为了技术交流。我开始意识到不是每个人都足够了解自己，人不能救人，人只能自救。建立在利益上的友谊，比友谊上的利益要可靠的多。</p>
-<p>我反省了一下大学的自己，对自己的要求是『比旁边的人厉害一点』，这样别人都会look upon  me。寒假的时候是花了点时间。但是我之前也说过，不要做井底之蛙。周围的人一旦开始咸鱼了，自己也跟着咸鱼了，而且每次玩过游戏以后都会散发大量罪恶感，却不去行动，给舍友带来大量负能量。</p>
-<p>之前写过一篇关于吐槽大学生基本的待人接物的基本规范，但是后来想了一想还是删了。道德只能用于律己，不能律人。换个角度想，如果别人做了让你感到不舒服的事情，很有可能是他想表达的那件事情不重要，当做没听到也无妨。如果事情比较重要的话，他应该是会积极协商探讨的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;我是如何失败地约束自己的&quot;&gt;我是如何失败地约束自己的&lt;/h2&gt;&lt;p&gt;大约在初中的时候，我就发现了自己很严重的表演型人格。从懂事以来，别人的反应就是我做事的出发点，不管自己表现出什么样的情绪，总是要把它发挥到极致，并且要让最多的人看到。写这篇文章的目的，如果你觉得是
-    
-    </summary>
-    
-    
-      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
     
   </entry>
   
