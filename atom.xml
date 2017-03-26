@@ -67,13 +67,114 @@
   </entry>
   
   <entry>
-    <title>常见的sql攻击</title>
+    <title>数据储存区常见攻击(一)</title>
     <link href="http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/"/>
     <id>http://yoursite.com/2017/03/22/常见的sql攻击/</id>
     <published>2017-03-22T10:12:34.000Z</published>
-    <updated>2017-03-24T01:32:35.000Z</updated>
+    <updated>2017-03-26T15:00:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="注入解释性语言">注入解释性语言</h2><p>开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.</p>
+<h3 id="避开登录">避开登录</h3><p>不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对数据库储存区实施自主访问控制, 基于用户账户和类型构造语句查询来增删改查. 修改查询的成功注入攻击可以避开程序的自主访问控制并获取未授权访问.</p>
+<p>如果需要安全保护的应用通过查询结果控制, 攻击就可以通过修改查询来更改应用的逻辑, 以下是一个实例:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">'xana'</span> <span class="keyword">and</span> <span class="keyword">password</span> = <span class="string">'secret'</span></div></pre></td></tr></table></figure>
+<p>这个查询通过匹配检索用户, 如果返回一名用户的资料, 则登录成功, 建立一个通过验证的会话. 在这种情况下, 如果知道管理员的用户名为<code>admin</code>,那他就可以通过提交以下用户名和任意密码, 以管理身份登录:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin'<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>应用程序将执行以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">'admin'</span><span class="comment">--' AND password = 'foo'</span></div></pre></td></tr></table></figure>
+<p>因为其中使用了注释符号(—), 所以查询等同于:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">'admin'</span></div></pre></td></tr></table></figure>
+<p>于是查询完全避开了密码检查…</p>
+<ul>
+<li>提示</li>
+</ul>
+<p>即时攻击者不知道管理员的用户名, 由于大多数应用程序第一个账户为管理用户, 而且程序一般查询<em>有可能返回几名用户的同时, 只会获取处理第一名用户</em>, 于是提交以下用户名, 以整个数据库第一个用户的身份登录:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">' OR 1=1<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>应用程序将执行以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">''</span> <span class="keyword">OR</span> <span class="number">1</span>=<span class="number">1</span><span class="comment">--' AND password = 'foo'</span></div></pre></td></tr></table></figure>
+<p>因为其中使用了注释符号(—), 所以查询等同于:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">''</span> <span class="keyword">OR</span> <span class="number">1</span>=<span class="number">1</span></div></pre></td></tr></table></figure>
+<p>返回整个应用所有用户的资料…</p>
+<h2 id="SQL注入">SQL注入</h2><p>首先要意识到一个问题, 随着安全意识增强, SQL注入漏洞愈来愈少, 很多主流应用使用API来避免SQL注入(如果正确使用的话), 有时候查找SQL注入漏洞是一件非常困难的事情, 需要渗透测试员检测不懈的查找和挖掘. 因此这里只能列举一些比较基本的情况, 然后进一步描述最新的技巧</p>
+<h3 id="利用基本漏洞">利用基本漏洞</h3><p>当一个用户搜索Wiley出版的所有书籍时, 应用程序执行以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> author, title, <span class="keyword">year</span> <span class="keyword">from</span> books <span class="keyword">WHERE</span> publisher=<span class="string">'Wiley'</span> <span class="keyword">and</span> published=<span class="number">1</span></div></pre></td></tr></table></figure>
+<p>该查询检查了<code>books</code>表的每一行, 提取所有作者列为<code>Wiley</code>值的结果, 并以HTML页面的结果返回给用户. 其中<code>Wiley</code>是一个数据项, 它必须包含在单引号内, 与其它查询内容分开. </p>
+<p>现在思考一下, 如果用户搜索所有由O’Reilly出版的书籍会出现什么情况. 此时进行以下查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> author, title, <span class="keyword">year</span> <span class="keyword">from</span> books <span class="keyword">WHERE</span> publisher=<span class="string">'O'</span>Reilly<span class="string">' and published=1</span></div></pre></td></tr></table></figure>
+<p>解析过程中遇到的<code>Reilly&#39;</code>表达式, 这不是有效的SQL语法, 因此应用程序生成一条错误信息, 甚至返回客户端. 如果应用程序以这种方式进行, 那它就很容易受到SQL注入, 攻击者可以提交包含引号的任意查询. 例如输入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Wiley' OR 1=1<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>此时进行以下查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> author, title, <span class="keyword">year</span> <span class="keyword">from</span> books <span class="keyword">WHERE</span> publisher=<span class="string">'Wiley'</span> <span class="keyword">OR</span> <span class="number">1</span>=<span class="number">1</span><span class="comment">-- and published=1</span></div></pre></td></tr></table></figure>
+<p>获取到所有书籍表中的记录</p>
+<ul>
+<li>提示</li>
+</ul>
+<p>有时候不一定需要注释符号来处理字符串末尾的引号, 可以用一个包含字符串数据结束注入的输入, 例如:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Wiley' or 'a' = 'a</div></pre></td></tr></table></figure>
+<p>生成以下查询<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> author, title, <span class="keyword">year</span> <span class="keyword">from</span> books <span class="keyword">WHERE</span> publisher=<span class="string">'Wiley'</span> <span class="keyword">OR</span> <span class="string">'a'</span> = <span class="string">'a'</span> <span class="keyword">and</span> published=<span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>这是有效查询, 和1=1攻击相同的结果.</p>
+<p>前面的几个例子很明显不会造成严重的安全威胁, 因为用户本来就能通过合法的方式访问到所有的书籍信息, 但是利用这种SQL注入漏洞可以从各种表中提取任何数据, 并提升数据库和数据库服务器中的权限. 所以不管在哪个应用程序中, SQL注入漏洞都应该被视为极其严重的威胁.</p>
+<h3 id="注入不同语句类型">注入不同语句类型</h3><p>我们常常出现这样的印象, 即SQL注入漏洞只存在于SELECT语句中. 实际上任何SQL语句都可能存在缺陷.</p>
+<h4 id="SELECT语句">SELECT语句</h4><p>SELECT语句用户从数据库中获取信息, SQL注入的攻击点通常是查询中<code>WHERE</code>子句, 因为<code>WHERE</code>子句在SELECT语句的最后, 攻击者可以将查询截短到输入的结束位置, 而不会使整个查询失效.</p>
+<h4 id="INSERT语句">INSERT语句</h4><p>如果一个应用程序允许用户自主注册, 指定他们自己的用户名和密码, 就可以用下列语法将用户资料插入<code>users</code>表中:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> (username, <span class="keyword">password</span>, <span class="keyword">ID</span>, privs) <span class="keyword">VALUES</span> (<span class="string">'xana'</span>, <span class="string">'secret'</span>, <span class="number">2222</span>, <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>如果<code>username</code>或<code>passowrd</code>字段存在SQL注入漏洞, 那么攻击者就可以在表中插入任何数据. 然而要想这么做, 必须保证VALUES子句的其他部分正确执行, 特别是数据项的个数和类型. 如注入<code>username</code>字段时, 尝试提交以下输入:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo', 'bar', 9999, 0)<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>它将建立一个ID为9999, privs为0的账户. 如果privs决定账户权限, 那么攻击者就能利用它创建一个管理账户.</p>
+<ul>
+<li>提示</li>
+</ul>
+<p>当设法注入一个INSERT语句时, 如果无法知道需要提交多少个参数或者参数类型, 可以通过在VALUES子句中持续增加一个新的字段, 直到程序创建了期望的账户?</p>
+<p>比如注入<code>username</code>字段时, 可以提交以下输入:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Foo')<span class="comment">--</span></div><div class="line">Foo', 1)<span class="comment">--</span></div><div class="line">Foo', 1, 1)<span class="comment">--</span></div><div class="line">Foo', 1, 1, 1)<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>大多数数据库会隐式地把整数转化为字符串, 所以可以在每个位置都使用一个整数. 这里不管其他字段, 会生成一个用户名为<code>foo</code>,密码为<code>1</code>的账户.</p>
+<p>如果发现值1仍然遭到拒绝, 尝试使用值2000, 许多数据库也会隐式地将它转化基于数据的数据类型.</p>
+<h4 id="UPDATE语句">UPDATE语句</h4><p>UPDATE语句运行机制与INSERT语句类似, 例如修改密码时, 应用程序可能执行以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> <span class="keyword">password</span>=<span class="string">'newsecret'</span> <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'xana'</span> <span class="keyword">and</span> <span class="keyword">password</span> = <span class="string">'secret'</span></div></pre></td></tr></table></figure>
+<p>如果这项功能存在SQL注入漏洞, 就可以输入以下用户名更新管理员的密码:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin'<span class="comment">--</span></div></pre></td></tr></table></figure>
+<ul>
+<li>提示</li>
+</ul>
+<p>因为无法提前知道应用程序会对专门设计的输入执行什么操作, 因此远程探查SQL注入漏洞十分危险. 修改<code>WHERE</code>子句有可能会使整个数据库表发生彻底的改变!譬如上面的攻击者已经提交了以下用户名:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin' or 1=1<span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>那么应用程序可能会执行下列查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> <span class="keyword">password</span>=<span class="string">'newsecret'</span> <span class="keyword">WHERE</span> <span class="keyword">user</span> = <span class="string">'admin'</span> <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span></div></pre></td></tr></table></figure>
+<p>它会重设每一名用户的密码!</p>
+<p>因此渗透测试员在尝试攻击一些不会更新现有数据的模块(比如登录)时, 也应该要留意这种风险, 因为一些应用程序在用户提交的用户信息后会进行各种UPDATE查询, 这意味着针对<code>WHERE</code>子句的攻击会迁移到其他语句之中, 给用户资料带来严重破坏. 在尝试探查SQL注入漏洞前, 必须确保应用程序所有者能接受这些无法避免的风险; 同时, 强烈建议他们测试前先对数据库进行完整备份.</p>
+<h4 id="DELETE语句">DELETE语句</h4><p>与UPDATE语句相仿, DELETE语句也使用<code>WHERE</code>子句告诉库表更新那些行的数据. 在UPDATE语句里的警告同样适用这种攻击.</p>
+<h2 id="避开过滤">避开过滤</h2><p>有时候, 易收SQL注入攻击的应用程序可能会执行各种过滤防止攻击者无限制地利用其中存在的缺陷. 例如, 删除或者净化某些字符, 或者阻止SQL关键字. 这种过滤通常非常同意避开, 这时可尝试使用各种技巧.</p>
+<h3 id="避免使用被阻止的字符">避免使用被阻止的字符</h3><p>如果注入数字数据字段或者列名称, 不一定必须使用单引号. 可以通过各种字符串函数, 使用ASCII代码构建一个字符串. 如执行下列查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> ename, sal, <span class="keyword">from</span> emp <span class="keyword">where</span> ename=<span class="string">'xana'</span></div></pre></td></tr></table></figure>
+<p>Oracle<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> ename, sal <span class="keyword">FROM</span> emp <span class="keyword">where</span> ename=<span class="keyword">CHR</span>(<span class="number">120</span>)||<span class="keyword">CHR</span>(<span class="number">97</span>)||<span class="keyword">CHR</span>(<span class="number">110</span>)||<span class="keyword">CHR</span>(<span class="number">97</span>)</div></pre></td></tr></table></figure></p>
+<p>MS-SQL<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> ename, sal <span class="keyword">FROM</span> emp <span class="keyword">where</span> ename=<span class="keyword">CHR</span>(<span class="number">120</span>)+<span class="keyword">CHR</span>(<span class="number">97</span>)+<span class="keyword">CHR</span>(<span class="number">110</span>)+<span class="keyword">CHR</span>(<span class="number">97</span>)</div></pre></td></tr></table></figure></p>
+<p>如果注释符合被阻止, 设计注入数据, 使其不会破坏周围查询语法. 如</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">' or 'a'='a</div></pre></td></tr></table></figure>
+<p>代替</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">' or 1=1<span class="comment">--</span></div></pre></td></tr></table></figure>
+<h3 id="避免使用简单确认">避免使用简单确认</h3><p>如果SELECT关键字被阻止, 尝试以下输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SeLeCt</div><div class="line">%00SELECT</div><div class="line">SELSELECTECT</div><div class="line">%53%45%4c%45%43%54</div><div class="line">%2553%2545%254c%2545%2543%2554</div></pre></td></tr></table></figure>
+<h3 id="使用SQL注释">使用SQL注释</h3><p>和一些语言一样, SQL支持行内注释注释内容包含在<code>/*</code>与<code>*/</code>符合之间. 可以使用注释替换注入数据中的空白符. 例如</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span><span class="comment">/*SHIT*/</span>username,<span class="keyword">password</span><span class="comment">/*FUCK*/</span><span class="keyword">FROM</span><span class="comment">/*BITCH*/</span><span class="keyword">users</span></div></pre></td></tr></table></figure>
+<p><del>MySQL中注释还可以插入关键字中,然而我现在的版本试了一下貌似不可以-_-</del></p>
+<h2 id="二阶SQL注入">二阶SQL注入</h2><p>当数据首次插入数据库时,许多应用程序能够安全处理这些数据. 但是, 一旦数据存储在数据库中, 应用程序本身或其他后台进程可能以危险的的方式处理这些数据. </p>
+<p>在一些应用程序中, 用户使用单引号时以转义的方式来确认, 例如前例搜索<code>O&#39;Reilly</code>时,应用程序执行以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> author, title, <span class="keyword">year</span> <span class="keyword">FROM</span> books <span class="keyword">WHERE</span> publisher  <span class="string">'O''Reilly'</span></div></pre></td></tr></table></figure>
+<p>用户提交的单引号被转化为两个单引号, 从而传达给数据库的搜索项与用户输入的表达式具有相同的意义.</p>
+<p>回到之前用户自我注册INSERT存在SQL漏洞的应用程序, 假如开发者修复了单引号配对导致的错误, 注册用户名<code>foo&#39;</code>来建立一下查询, 它将不会在数据库中导致错误:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> (username, <span class="keyword">password</span>, <span class="keyword">ID</span>, privs) <span class="keyword">VALUES</span> (<span class="string">'foo'''</span>, secret, <span class="number">2248</span> , <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>到目前为止一切正常. 但是假设应用程序还执行密码修改功能, 它要求通过验证的用户能访问这项功能, 而且要求提交原始密码, 然后从数据库中提取密码进行比对. 要完成核对任务, 它首先要从数据库中提取用户的用户名, 然后建立以下查询:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">password</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> username = <span class="string">'foo''</span></div></pre></td></tr></table></figure>
+<p>因为保存在数据库中的用户名是字面量字符串<code>foo&#39;</code>, 但应用程序访问请求是, 数据库即返回这个值; 只有在字符串传送至数据库时才使用配对的转义序列. 因此当应用程序重复使用这个字符串并将它嵌入另一个查询中时, 就会造成一个SQL注入漏洞. 当用户尝试修改密码时, 应用程序返回以下信息, 暴露了上述缺陷:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unclosed quotation mark before the character string &apos;foo</div></pre></td></tr></table></figure>
+<p>要利用这种漏洞, 攻击者只要注册一个包含专门设计的输入用户名, 然后尝试修改密码, 例如注册以下用户名:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos; or 1 in (select password from users where username=&apos;admin&apos;)--</div></pre></td></tr></table></figure>
+<p>注册步骤会被应用程序安全处理. 如果有人尝试修改这个用户的密码, 他注入的查询就会执行, 返回一个类型错误的信息, 泄露管理员的密码.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Microsoft OLE DB Provider for ODBC Drivers 错误 &apos;80040e07&apos;</div><div class="line">[Microsoft][ODBC Microsoft Access 驱动程序] 标准表达式中数据类型不匹配</div><div class="line">the varchar value &apos;fme69&apos; to a column of data type int.</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;注入解释性语言&quot;&gt;注入解释性语言&lt;/h2&gt;&lt;p&gt;开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用
     
     </summary>
     
