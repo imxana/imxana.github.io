@@ -1,0 +1,618 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>这几天学到的Django项目总体架构思路 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="原标题: 这几天搬砖所得
+
+搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
+<meta property="og:type" content="article">
+<meta property="og:title" content="这几天学到的Django项目总体架构思路">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/这几天学到的Django项目总体架构思路/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="原标题: 这几天搬砖所得
+
+搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
+<meta property="og:updated_time" content="2017-04-03T12:49:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="这几天学到的Django项目总体架构思路">
+<meta name="twitter:description" content="原标题: 这几天搬砖所得
+
+搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/27/这几天学到的Django项目总体架构思路/" title="这几天学到的Django项目总体架构思路" itemprop="url">这几天学到的Django项目总体架构思路</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-27T10:09:45.000Z" itemprop="datePublished"> Published 2017-03-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#应用挂载"><span class="toc-number">1.</span> <span class="toc-text">应用挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板路径"><span class="toc-number">2.</span> <span class="toc-text">模板路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义用户"><span class="toc-number">3.</span> <span class="toc-text">自定义用户</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>原标题: 这几天搬砖所得</p>
+</blockquote>
+<p>搬了大概一周的砖头以后, 对<code>Django</code>这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写<code>Django</code>的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必须用IDE, 爬断点, 文件改名全局索引, debug热点表达式, 不然手动打log工作量就不是人能承受的了.当然, 如果你是个熟练工的话,用<code>Django</code>的工作量可能是最小的…</p>
+<h2 id="应用挂载">应用挂载</h2><p>Django是一个典型的<code>Restful</code>架构框架, 举个例子, 在<code>animal</code>应用下挂载一个猫应用, tree如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animal</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── cat</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── admin.py</div><div class="line">│   ├── models.py</div><div class="line">│   ├── tests.py</div><div class="line">│   └── views.py</div><div class="line">└── manage.py</div></pre></td></tr></table></figure>
+<p>如果在cat下继续挂应用, 比如挂喂养的子应用, 此时无法直接通过manage.py创建cat/feed应用, 需要手动构建, 具体做法如下(feed模块为手动构建):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animal</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── cat</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── admin.py</div><div class="line">│   ├── feed</div><div class="line">│   │   ├── __init__.py</div><div class="line">│   │   ├── models.py</div><div class="line">│   │   ├── templates</div><div class="line">│   │   │   └── feed</div><div class="line">│   │   │       └── home.html</div><div class="line">│   │   ├── urls.py</div><div class="line">│   │   └── views.py</div><div class="line">│   ├── models.py</div><div class="line">│   ├── tests.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── views.py</div><div class="line">└── manage.py</div></pre></td></tr></table></figure>
+<p>先在项目setting.py中注册下列模块:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&apos;cat&apos;</div><div class="line">&apos;cat.feed&apos;</div></pre></td></tr></table></figure>
+<p>项目url配置, animal/urls.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">	url(<span class="string">r'^admin/'</span>, include(admin.site.urls)),</div><div class="line">	url(<span class="string">r'^cat/'</span>, include(<span class="string">'cat.urls'</span>))</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>挂载app的url, 新建cat/urls.py, namespace可选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    url(<span class="string">r'^feed/'</span>, include(<span class="string">'cat.feed.urls'</span>, namespace=<span class="string">'cat_feed'</span>))</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>就可以通过配置 cat/feed/urls.py, 配置子项目的MVC了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">	url(<span class="string">r'^$'</span>,  <span class="string">'cat.feed.views.home'</span>,  name=<span class="string">'home'</span>),</div><div class="line">)</div></pre></td></tr></table></figure>
+<h2 id="模板路径">模板路径</h2><p>Django的模板路径优先级是先去搜索<code>setting.py</code>下<code>TEMPLATES</code>变量里的<code>DIRS</code>对象中的路径下遍历的<code>templates</code>文件夹, 同名的按照先搜索到的为准. 因此除了一些公用模板(例如<code>base.html</code>和<code>404.html</code>), 一般子应用的模板不应该随意用长变量名的方式放在应用挂载下, 应该放在<code>templates</code>内同名的文件夹中,例如feed应用应该在feed目录下的templates文件夹中新建一个feed文件夹,在这个文件夹中放feed应用的专用模板, 这样挂载在子应用下的子应用内的view层就能通过<code>应用名/模板名</code>的方式去引用模板, 一层一层的extend上一层应用的<code>base.html</code>, 这样就遵循了代码组件化的原则, 类似于React.<br>同时使用<code>namespace</code>可以使路由可读性变得更好.</p>
+<h2 id="自定义用户">自定义用户</h2><p>这里涉及到Django庞大的第三方库的使用, 一般第三方库都不会去重写User类, 倾向于到Django中<code>django.contrib.auth.model</code>去重写/继承/封装,例如要在User中添加字段的技巧</p>
+<p>————————— 以下引用 —————————</p>
+<p>本篇主要讨论一下User Model的使用技巧. 注意, 由于Django 1.5之后user model带来了很大的变化, 本篇内容只针对django 1.5之后的版本.</p>
+<ol>
+<li>确定 User Model</li>
+</ol>
+<p>我们推荐一下方式来确定某一django项目使用的user model:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用默认User model时</span></div><div class="line">&gt;&gt;&gt; from django.contrib.auth import get_user_model</div><div class="line">&gt;&gt;&gt; get_user_model()</div><div class="line">&lt;class <span class="string">'django.contrib.auth.models.User'</span>&gt;</div><div class="line"></div><div class="line"><span class="comment"># 使用自定义User model时</span></div><div class="line">&gt;&gt;&gt; from django.contrib.auth import get_user_model</div><div class="line">&gt;&gt;&gt; get_user_model()</div><div class="line">&lt;class <span class="string">'xxx.models.UserProfile'</span>&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用settings.AUTH_USER_MODEL</li>
+</ol>
+<p>自从django 1.5之后, 用户可以自定义User model了, 如果需要外键使用user model, 官方推荐的方法如下:</p>
+<p>在settings中设置AUTH_USER_MODEL:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># settings.py</span></div><div class="line"><span class="comment"># 格式为 "&lt;django_app名&gt;.&lt;model名&gt;"</span></div><div class="line">AUTH_USER_MODEL = <span class="string">"myapp.NewUser"</span></div></pre></td></tr></table></figure>
+<p>在models.py中使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># models.py</span></div><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span><span class="params">(models.Model)</span>:</span></div><div class="line">    author = models.ForeignKey(settings.AUTH_USER_MODEL)</div><div class="line">    title = models.CharField(max_length=<span class="number">255</span>)</div></pre></td></tr></table></figure>
+<p>还有需要注意的是, 不要在外键中使用get_user_model().</p>
+<ol>
+<li>自定义 User Model</li>
+</ol>
+<p>方法1: 扩展 AbstractUser类</p>
+<p>如果你对django自带的User model刚到满意, 又希望额外的field的话, 你可以扩展AbstractUser类:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># myapp/models.py</span></div><div class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> AbstractUser</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewUser</span><span class="params">(AbstractUser)</span>:</span></div><div class="line">    new_field = models.CharField(max_length=<span class="number">100</span>)</div></pre></td></tr></table></figure>
+<p>不要忘了在settings.py中设置:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AUTH_USER_MODEL = <span class="string">"myapp.NewUser"</span></div></pre></td></tr></table></figure>
+<p>方法2: 扩展 AbstractBaseUser类</p>
+<p>AbstractBaseUser中只含有3个field: password, last_login和is_active. 如果你对django user model默认的first_name, last_name不满意, 或者只想保留默认的密码储存方式, 则可以选择这一方式.</p>
+<p>参考官方文档:<br><a href="https://docs.djangoproject.com/en/1.7/topics/auth/customizing/" target="_blank" rel="external">https://docs.djangoproject.com/en/1.7/topics/auth/customizing/</a></p>
+<p>方法3: 使用OneToOneField</p>
+<p>如果你想建立一个第三方模块发布在PyPi上, 这一模块需要根据用户储存每个用户的额外信息. 或者我们的django项目中希望不同的用户拥有不同的field, 有些用户则需要不同field的组合, 且我们使用了方法1或方法2:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># profiles/models.py</span></div><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="keyword">from</span> flavors.models <span class="keyword">import</span> Flavor</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EasterProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    favorite_ice_cream = models.ForeignKey(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScooperProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    scoops_scooped = models.IntergerField(default=<span class="number">0</span>)</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">InventorProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    flavors_invented = models.ManyToManyField(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p>使用以上方法, 我们可以使用user.easterprofile.favorite_ice_cream获取相应的profile.</p>
+<p>使用这一方法的坏处可能就是增加了代码的复杂性.</p>
+<p>原文链接: <a href="http://www.weiguda.com/blog/28/" target="_blank" rel="external">http://www.weiguda.com/blog/28/</a></p>
+<p>————————— 引用完毕 —————————</p>
+<p>目前我用方法3的方式, 就是使用<code>OneToOneField</code>的方式, 因为这样做的显著降低代码耦合性, 使应用结构更加松散.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a><a href="/tags/Django/">Django</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/03/27/这几天学到的Django项目总体架构思路/" data-title="这几天学到的Django项目总体架构思路 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/04/03/关于价值观的闲聊(二)/" title="关于价值观的闲聊(二)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  关于价值观的闲聊(二)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/23/svn快速入门/"  title="svn快速入门">
+ <strong>下一篇：</strong><br/> 
+ <span>svn快速入门
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#应用挂载"><span class="toc-number">1.</span> <span class="toc-text">应用挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板路径"><span class="toc-number">2.</span> <span class="toc-text">模板路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义用户"><span class="toc-number">3.</span> <span class="toc-text">自定义用户</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="MephistoPheies">MephistoPheies</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="SinoReimu">SinoReimu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果">果果</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪">我豪</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

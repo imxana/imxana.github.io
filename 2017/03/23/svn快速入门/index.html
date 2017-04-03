@@ -11,20 +11,29 @@
     
 
     
-    <meta name="description" content="Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。
-svn checkouts是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此">
+    <meta name="description" content="寄人篱下, 生活所迫
+
+Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
+Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="svn快速入门">
 <meta property="og:url" content="http://yoursite.com/2017/03/23/svn快速入门/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。
-svn checkouts是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此">
+<meta property="og:description" content="寄人篱下, 生活所迫
+
+Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
+Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
 <meta property="og:image" content="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png">
-<meta property="og:updated_time" content="2017-03-24T02:41:38.000Z">
+<meta property="og:updated_time" content="2017-04-03T12:54:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn快速入门">
-<meta name="twitter:description" content="Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。
-svn checkouts是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此">
+<meta name="twitter:description" content="寄人篱下, 生活所迫
+
+Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
+Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
 <meta name="twitter:image" content="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png">
 <meta name="twitter:creator" content="@hdu_xana">
 
@@ -97,11 +106,16 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">1.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">2.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">3.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">4.</span> <span class="toc-text">切换分支</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。</p>
+		<blockquote>
+<p>寄人篱下, 生活所迫</p>
+</blockquote>
+<h2 id="Foward">Foward</h2><p>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</p>
+<p>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</p>
+<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。</p>
 <p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此您应该从部分checkout开始。</p>
 <p>1.在GitHub上找到repository的导航主页.</p>
 <p>2.在repository名称的下面, 点击<code>Clone or download</code>.</p>
@@ -160,6 +174,14 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/03/27/这几天学到的Django项目总体架构思路/" title="这几天学到的Django项目总体架构思路">
+  <strong>上一篇：</strong><br/>
+  <span>
+  这几天学到的Django项目总体架构思路</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/03/22/常见的sql攻击/"  title="数据储存区常见攻击(一)">
@@ -179,7 +201,7 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">1.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">2.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">3.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">4.</span> <span class="toc-text">切换分支</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li></ol>
  
   </div>
 
@@ -258,11 +280,11 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
@@ -270,7 +292,7 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
 			
 		
 			
@@ -278,27 +300,27 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 			
 		
 			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -310,11 +332,11 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -327,13 +349,25 @@ svn checkouts是不同的：它们将工作目录中的存储库数据混合在�
         
           <li>
             
-            	<a href="http://mephis.me" target="_blank" title="MephistoPheies的博客">MephistoPheies的博客</a>
+            	<a href="http://mephis.me" target="_blank" title="MephistoPheies">MephistoPheies</a>
             
           </li>
         
           <li>
             
-            	<a href="https://tecotaku.cn" target="_blank" title="SinoReimu的博客">SinoReimu的博客</a>
+            	<a href="https://tecotaku.cn" target="_blank" title="SinoReimu">SinoReimu</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果">果果</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪">我豪</a>
             
           </li>
         
