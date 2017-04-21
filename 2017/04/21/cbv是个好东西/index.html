@@ -1,0 +1,820 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>cbv是个好东西 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+1.CBVs的使用原则代码越少越好
+永远不要重复代码
+View应当只包含呈现逻辑, 不应包括业务逻辑
+保持view逻辑清晰简单
+不要将CBVs用作403, 404, 500的错误处理程序
+保持mixi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cbv是个好东西">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/cbv是个好东西/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+1.CBVs的使用原则代码越少越好
+永远不要重复代码
+View应当只包含呈现逻辑, 不应包括业务逻辑
+保持view逻辑清晰简单
+不要将CBVs用作403, 404, 500的错误处理程序
+保持mixi">
+<meta property="og:updated_time" content="2017-04-21T07:51:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cbv是个好东西">
+<meta name="twitter:description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+1.CBVs的使用原则代码越少越好
+永远不要重复代码
+View应当只包含呈现逻辑, 不应包括业务逻辑
+保持view逻辑清晰简单
+不要将CBVs用作403, 404, 500的错误处理程序
+保持mixi">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/21/cbv是个好东西/" title="cbv是个好东西" itemprop="url">cbv是个好东西</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-21T05:17:49.000Z" itemprop="datePublished"> Published 2017-04-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CBVs的使用原则"><span class="toc-number">1.</span> <span class="toc-text">1.CBVs的使用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何使用mixin"><span class="toc-number">2.</span> <span class="toc-text">2.如何使用mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-减少重复砌砖头?来看看通用视图"><span class="toc-number">3.</span> <span class="toc-text">3.减少重复砌砖头?来看看通用视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#base-py"><span class="toc-number">3.1.</span> <span class="toc-text">base.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detail-py"><span class="toc-number">3.2.</span> <span class="toc-text">detail.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-py"><span class="toc-number">3.3.</span> <span class="toc-text">list.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edit-py"><span class="toc-number">3.4.</span> <span class="toc-text">edit.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dates-py"><span class="toc-number">3.5.</span> <span class="toc-text">dates.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假装参考"><span class="toc-number">4.</span> <span class="toc-text">假装参考</span></a></li></ol>
+		
+		</div>
+		
+		<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
+<h2 id="1-CBVs的使用原则">1.CBVs的使用原则</h2><p>代码越少越好</p>
+<p>永远不要重复代码</p>
+<p>View应当只包含呈现逻辑, 不应包括业务逻辑</p>
+<p>保持view逻辑清晰简单</p>
+<p>不要将CBVs用作403, 404, 500的错误处理程序</p>
+<p>保持mixin简单明了</p>
+<h2 id="2-如何使用mixin">2.如何使用mixin</h2><p>在编程中mixin是指为继承它的class提供额外的功能, 但它自身却不能单独使用的类. 在具有多继承能力的编程语言中, mixin可以为类增加额外功能或方法. 在Django中, 我们可以使用mixin为CBVs提供更多的扩展性, 当然在类继承过程中, 我们推荐以下原则:</p>
+<p>Django自身提供的View永远在最右边</p>
+<p>mixin依次在以上view的左边</p>
+<p>mixin永远继承自Python的object类型</p>
+<h2 id="3-减少重复砌砖头?来看看通用视图">3.减少重复砌砖头?来看看通用视图</h2><p>为了深入了解Django的通用view, 到了痛苦地读源码(文末附)的时候了. 当然如果你不写Django也不妨看看, 读一读或许对模板系统的理解有所启发</p>
+<p>来来来我们进入Django.views.generic (anyway), 从简到繁</p>
+<h3 id="base-py">base.py</h3><p>颜料盒<code>base.py</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ContextMixin</td>
+<td>object</td>
+<td>A default context mixin that passes the keyword arguments received by get_context_data as the template context.</td>
+</tr>
+<tr>
+<td>View</td>
+<td>object</td>
+<td>Intentionally simple parent class for all views. Only implements dispatch-by-method and simple sanity checking.</td>
+</tr>
+<tr>
+<td>TemplateResponseMixin</td>
+<td>object</td>
+<td>A mixin that can be used to render a template.</td>
+</tr>
+<tr>
+<td>TemplateView</td>
+<td>ContextMixin, TemplateResponseMixin, View</td>
+<td>A view that renders a template.  This view will also pass into the context any keyword arguments passed by the URLconf.</td>
+</tr>
+<tr>
+<td>RedirectView</td>
+<td>View</td>
+<td>A view that provides a redirect on any GET request.</td>
+</tr>
+</tbody>
+</table>
+<p>三个继承<code>Object</code>的初始class, 这就好比绘图使用的三原色, 后面大部分的Mixin和View都是由它们变化而来. 其中:</p>
+<p><code>ContextMixin</code>包含一个<code>get_context_data</code>方法, 用于渲染模板数据</p>
+<p><code>View</code>是通用View,包含一个<code>as_view</code>的req到res响应方法, 提供http方法及其允许列表, 进行一些简单的检查</p>
+<p><code>TemplateResponseMixin</code>是用于渲染模板的方法, 包括指定模板路径和渲染引擎</p>
+<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面, 无法动态加载数据</p>
+<p><code>RedirectView</code>重定向View, 重写了<code>get</code>, 只需要处理GET请求的view, 使用<code>url</code>参数指定重定向页面</p>
+<h3 id="detail-py">detail.py</h3><p>detail.py里定义了一系列对象信息展示的view, 核心View是最后的<code>DetailView</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SingleObjectMixin</td>
+<td>ContextMixin</td>
+<td>Provides the ability to retrieve a single object for further manipulation.</td>
+</tr>
+<tr>
+<td>BaseDetailView</td>
+<td>SingleObjectMixin, View</td>
+<td>A base view for displaying a single object</td>
+</tr>
+<tr>
+<td>SingleObjectTemplateResponseMixin</td>
+<td>TemplateResponseMixin</td>
+<td>-</td>
+</tr>
+<tr>
+<td>DetailView</td>
+<td>SingleObjectTemplateResponseMixin, BaseDetailView</td>
+<td>Render a “detail” view of an object. By default this is a model instance looked up from <code>self.queryset</code>, but the view will support display of <em>any</em> object by overriding <code>self.get_object()</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><code>SingleObjectMixin</code>扩展了<code>ContextMixin</code>, 使其能够使用model,query等获取对象, 然后通过设置定义的<code>context_object_name</code>去渲染模板内定义的字段</p>
+<p><code>BaseDetailView</code>在<code>view</code>上使用了<code>SingleObjectMixin</code>, 给<code>get</code>方法添加了将对象转化为<code>context</code>(上下文)的操作, 使其成为一个能够请求处理对象的基础view, 但是还没有渲染方法, 不设置的原因是还能够绑定删除mixin成为<code>BaseDeleteView</code></p>
+<p><code>SingleObjectTemplateResponseMixin</code>无说明, 但是从代码上看是除了渲染方法以外,额外定义默认对象渲染模板名称 默认页面后缀<code>_detail</code> 这个方法多次复用于base类view, 给基础对象处理类view提供渲染方法</p>
+<p><code>DetailView</code>详情View, 单纯地继承<code>BaseDetailView</code>和<code>SingleObjectTemplateResponseMixin</code></p>
+<h3 id="list-py">list.py</h3><p>list.py用于展示列表, 写法与<code>detail.py</code>类似, 核心View是<code>ListView</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultipleObjectMixin</td>
+<td>Context</td>
+<td>A mixin for views manipulating multiple objects.</td>
+</tr>
+<tr>
+<td>BaseListView</td>
+<td>MultipleObjectMixin, View</td>
+<td>A base view for displaying a list of objects.</td>
+<td></td>
+</tr>
+<tr>
+<td>MultipleObjectTemplateResponseMixin</td>
+<td>TemplateResponseMixin</td>
+<td>Mixin for responding with a template and list of objects.</td>
+</tr>
+<tr>
+<td>ListView</td>
+<td>MultipleObjectTemplateResponseMixin, BaseListView</td>
+<td>Render some list of objects, set by <code>self.model</code> or <code>self.queryset</code>. <code>self.queryset</code> can actually be any iterable of items, not just a queryset.</td>
+</tr>
+</tbody>
+</table>
+<p><code>MultipleObjectMixin</code>与<code>SingleObjectMixin</code>不同的方式扩展了<code>ContextMixin</code>, 使其能够使用model等获取queryset之外, 额外提供了页面分页功能及其参数和方法</p>
+<p><code>BaseListView</code>是一个能够请求处理对象列表的基础view, 但是还没有渲染方法</p>
+<p><code>MultipleObjectTemplateResponseMixin</code>功能都差不多..</p>
+<p><code>ListView</code>单纯继承上面两个</p>
+<h3 id="edit-py">edit.py</h3><p>edit.p涉及了CRUD, 所以引入了<code>form</code>的概念, 核心View为<code>CreateView</code>,<code>UpdateView</code>,<code>DeleteView</code>,这里的View比较耳熟吧</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FormMixinBase</td>
+<td>type</td>
+<td>-</td>
+</tr>
+<tr>
+<td>FormMixin</td>
+<td>six.with_metaclass(FormMixinBase, ContextMixin)</td>
+<td>A mixin that provides a way to show and handle a form in a request.</td>
+</tr>
+<tr>
+<td>ModelFormMixin</td>
+<td>FormMixin, SingleObjectMixin</td>
+<td>A mixin that provides a way to show and handle a modelform in a request.</td>
+</tr>
+<tr>
+<td>ProcessFormView</td>
+<td>View</td>
+<td>A mixin that renders a form on GET and processes it on POST.</td>
+</tr>
+<tr>
+<td>BaseFormView</td>
+<td>FormMixin, ProcessFormView</td>
+<td>A base view for displaying a form</td>
+</tr>
+<tr>
+<td>FormView</td>
+<td>TemplateResponseMixin, BaseFormView</td>
+<td>A view for displaying a form, and rendering a template response.</td>
+</tr>
+<tr>
+<td>BaseCreateView</td>
+<td>ModelFormMixin, ProcessFormView</td>
+<td>Base view for creating an new object instance. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>CreateView</td>
+<td>SingleObjectTemplateResponseMixin, BaseCreateView</td>
+<td>View for creating a new object instance, with a response rendered by template.</td>
+</tr>
+<tr>
+<td>BaseUpdateView</td>
+<td>ModelFormMixin, ProcessFormView</td>
+<td>Base view for updating an existing object. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>UpdateView</td>
+<td>SingleObjectTemplateResponseMixin, BaseUpdateView</td>
+<td>View for updating an object, with a response rendered by template.</td>
+</tr>
+<tr>
+<td>DeletionMixin</td>
+<td>object</td>
+<td>A mixin providing the ability to delete objects</td>
+</tr>
+<tr>
+<td>BaseDeleteView</td>
+<td>DeletionMixin, BaseDetailView</td>
+<td>Base view for deleting an object. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>DeleteView</td>
+<td>SingleObjectTemplateResponseMixin, BaseDeleteView</td>
+<td>View for deleting an object retrieved with <code>self.get_object()</code>, with a response rendered by template.</td>
+</tr>
+</tbody>
+</table>
+<p>注: six是一个python2和python3兼容库.</p>
+<p><code>FormMixinBase</code>继承type定义了一个类型, 重写了<code>__new__</code>, 内容暂时看不懂:)</p>
+<p><code>FormMixin</code>表单逻辑, 这里就定义了几个重要的属性和方法, 用户使用form<code>form_class</code>, 成功回调url<code>success_url</code> 表单合法<code>form_valid</code> 表单不合法<code>form_invalid</code>等</p>
+<p><code>ModelFormMixin</code>进一步扩展<code>FormMixin</code>, 提供<code>fields</code>字段使用户能够处理<code>ModelForm</code>, <code>form_valid</code>中添加了保存操作</p>
+<p><code>ProcessFormView</code>功能View, 重写了<code>View</code>的get和post方法(put直接return post方法) 使View能够在get的时候 渲染form内容, post的时候能提交form内容</p>
+<p><code>BaseFormView</code> 相当于给<code>ProcessFormView</code>提供了表单处理逻辑, 相当于能处理一些简单的请求了</p>
+<p><code>FormView</code> 继续给<code>BaseFormView</code>加上模板渲染引擎, 处理结果能从前台渲染出来了</p>
+<p><code>BaseCreateView</code> 和<code>BaseFormView</code>类似, 不过其使用的是modelForm, <code>form_valid</code>会调用<code>form.save()</code>方法, <code>get</code>和<code>post</code>中执行了一句<code>self.object = None</code> 其作用于<code>SingleObjectMixin</code>的<code>get_context_data</code>方法中 (detail.py 103-107行,判断self.object不为空时执行取址操作 v1.9.5)</p>
+<p><code>CreateView</code> 单纯基础<code>BaseCreateView</code>和<code>SingleObjectTemplateResponseMixin</code>,别忘了后者只是是一个轻度继承的渲染工具 默认页面后缀<code>_form</code></p>
+<p><code>BaseUpdateView</code> 和<code>BaseCreateView</code>代码几乎相同, 除了<code>self.object = None</code>改为<code>self.object = self.get_object()</code> 作用于相同位置, 进行字典更新操作</p>
+<p><code>UpdateView</code> 单纯基础<code>BaseUpdateView</code>和<code>SingleObjectTemplateResponseMixin</code> 默认页面后缀<code>_form</code></p>
+<p><code>DeletionMixin</code> 新的颜料,因为功能使用不频繁所以单独放在这里, 提供了<code>delete</code>方法和<code>success_url</code>属性, <code>delete</code>执行<code>self.object.delete()</code>后会自动执行页面回调. 特别注意的是, 这里只有<code>post</code>方法return了<code>delete</code>方法, 其他方法暂不支持</p>
+<p><code>BaseDeleteView</code> 给<code>BaseDetailView</code>绑定删除功能, 仅简单继承, 无页面渲染 简单的删除后跳转</p>
+<p><code>DeleteView</code> 单纯继承<code>BaseDeleteView</code>和<code>SingleObjectTemplateResponseMixin</code>,  默认页面后缀<code>_confirm_delete</code>, 给一个删除页面, get即渲染一个页面, 给个表格, post到这个页面后将删除对象</p>
+<h3 id="dates-py">dates.py</h3><p>这是一个基于时间的页面通用view模板, 但是除了博客之类的基本上用不着, 不阐述.</p>
+<h2 id="假装参考">假装参考</h2><p><a href="http://www.weiguda.com/blog/11/" target="_blank" rel="external">weiguda的博客</a></p>
+<p>(这篇博文原意是好的, 但是读着感觉变成<code>django-braces</code>文档了, 那我为啥不去看源文档呢呢)</p>
+<p><a href="https://docs.djangoproject.com/en/1.9/topics/class-based-views/intro/" target="_blank" rel="external">django官方文档</a></p>
+<p>这些通用view的具体简单实例.</p>
+<p><a href="https://github.com/django/django/tree/master/django/views/generic" target="_blank" rel="external">django.views.generic源码</a></p>
+<p>本文源码 顺带一提 Django中admin还是保持fbv风格(逃</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/django/">django</a><a href="/tags/python/">python</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/04/21/cbv是个好东西/" data-title="cbv是个好东西 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/03/扯淡三/"  title="扯淡(三)">
+ <strong>下一篇：</strong><br/> 
+ <span>扯淡(三)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CBVs的使用原则"><span class="toc-number">1.</span> <span class="toc-text">1.CBVs的使用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何使用mixin"><span class="toc-number">2.</span> <span class="toc-text">2.如何使用mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-减少重复砌砖头?来看看通用视图"><span class="toc-number">3.</span> <span class="toc-text">3.减少重复砌砖头?来看看通用视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#base-py"><span class="toc-number">3.1.</span> <span class="toc-text">base.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detail-py"><span class="toc-number">3.2.</span> <span class="toc-text">detail.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-py"><span class="toc-number">3.3.</span> <span class="toc-text">list.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edit-py"><span class="toc-number">3.4.</span> <span class="toc-text">edit.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dates-py"><span class="toc-number">3.5.</span> <span class="toc-text">dates.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假装参考"><span class="toc-number">4.</span> <span class="toc-text">假装参考</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -13,27 +13,39 @@
     
     <meta name="description" content="寄人篱下, 生活所迫
 
-Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+Foward
+此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员
+本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
 既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
-Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
+本文远程仓库使用GitHub, 实际结合个人需要使用
+
+Checkout首先你要做的事情是Subversion(以下简称svn) ch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="svn快速入门">
 <meta property="og:url" content="http://yoursite.com/2017/03/23/svn快速入门/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="寄人篱下, 生活所迫
 
-Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+Foward
+此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员
+本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
 既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
-Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
+本文远程仓库使用GitHub, 实际结合个人需要使用
+
+Checkout首先你要做的事情是Subversion(以下简称svn) ch">
 <meta property="og:image" content="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png">
-<meta property="og:updated_time" content="2017-04-03T12:54:34.000Z">
+<meta property="og:updated_time" content="2017-04-21T07:58:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn快速入门">
 <meta name="twitter:description" content="寄人篱下, 生活所迫
 
-Foward此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
+Foward
+此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员
+本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.
 既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有
-Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于Git clones将工作目录（你编辑">
+本文远程仓库使用GitHub, 实际结合个人需要使用
+
+Checkout首先你要做的事情是Subversion(以下简称svn) ch">
 <meta name="twitter:image" content="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png">
 <meta name="twitter:creator" content="@hdu_xana">
 
@@ -106,17 +118,21 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个有趣的网站"><span class="toc-number">6.</span> <span class="toc-text">一个有趣的网站</span></a></li></ol>
 		
 		</div>
 		
 		<blockquote>
 <p>寄人篱下, 生活所迫</p>
 </blockquote>
-<h2 id="Foward">Foward</h2><p>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</p>
-<p>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</p>
-<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。</p>
-<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此您应该从部分checkout开始。</p>
+<h2 id="Foward">Foward</h2><ol>
+<li>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员</li>
+<li>本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</li>
+<li>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</li>
+<li>本文远程仓库使用GitHub, 实际结合个人需要使用</li>
+</ol>
+<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据(.git)分开，因此在工作目录中一次只能有一个分支。</p>
+<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此你应该从部分checkout开始。</p>
 <p>1.在GitHub上找到repository的导航主页.</p>
 <p>2.在repository名称的下面, 点击<code>Clone or download</code>.</p>
 <p>3.选择<code>Clone with HTTPS</code>, 复制其中的链接.</p>
@@ -131,20 +147,19 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
 <h2 id="创建分支">创建分支</h2><p>你也可以使用Subversion桥接到GitHub创建分支。</p>
 <p>从svn客户端，通过更新确保<code>master</code>是最新的trunk：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">At revision 1.</div></pre></td></tr></table></figure>
-<p>接下来，您可以使用<code>svn copy</code>创建新分支:</p>
+<p>接下来，你可以使用<code>svn copy</code>创建新分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ svn copy trunk branches/more_awesome</div><div class="line">A    branches/more_awesome</div><div class="line">$ svn commit -m <span class="string">'Added more_awesome topic branch'</span></div><div class="line">Adding    branches/more_awesome</div><div class="line"></div><div class="line">Committed revision 2.</div></pre></td></tr></table></figure>
-<p>You can confirm that the new branch exists in the repository’s branch dropdown in Github.</p>
+<p>现在你能确认新分支能在github的branch下拉栏里看到:</p>
 <p><img src="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png" alt=""></p>
-<p>您可以确认新分支存在于存储库的分支下拉列表中：</p>
+<p>你可以确认新分支存在于存储库的分支下拉列表中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git fetch</div><div class="line">From https://github.com/user/repo/</div><div class="line">* [new branch]    more_awesome -&gt; origin/more_awesome</div></pre></td></tr></table></figure>
 <h2 id="提交修改">提交修改</h2><p>在添加了一些功能并修复了一些错误之后，你需要将这些更改提交给GitHub。这就和你平时使用svn一样。编辑文件，并使用<code>svn commit</code>记录你的更改：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ svn status</div><div class="line">M    gizmo.rb</div><div class="line">$ svn commit -m <span class="string">'Guard against known problems'</span></div><div class="line">Sending    more_awesome/gizmo.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 3.</div><div class="line">$ svn status</div><div class="line">?    <span class="built_in">test</span></div><div class="line">$ svn add <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span>/gizmo_test.rb</div><div class="line">$ svn commit -m <span class="string">'Test coverage for problems'</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span>/gizmo_test.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 4.</div></pre></td></tr></table></figure>
-<h2 id="切换分支">切换分支</h2><p>要在分支机构之间切换，您可能需要首先检查<code>trunk</code>的内容：</p>
+<h2 id="切换分支">切换分支</h2><p>要在分支机构之间切换，你可能需要首先检查<code>trunk</code>的内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo/trunk</div></pre></td></tr></table></figure>
-<p>然后，您可以切换到另一个分支：</p>
+<p>然后，你可以切换到另一个分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn switch https://github.com/user/repo/branches/more_awesome</div></pre></td></tr></table></figure>
-<p><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del> </p>
-  
+<h2 id="一个有趣的网站"><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del></h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -201,7 +216,7 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward"><span class="toc-number">1.</span> <span class="toc-text">Foward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Checkout"><span class="toc-number">2.</span> <span class="toc-text">Checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分支"><span class="toc-number">3.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交修改"><span class="toc-number">4.</span> <span class="toc-text">提交修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个有趣的网站"><span class="toc-number">6.</span> <span class="toc-text">一个有趣的网站</span></a></li></ol>
  
   </div>
 
@@ -280,11 +295,15 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
 			
 		
 			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>3</sup></a></li>
 			
 		
 			
@@ -296,15 +315,15 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
@@ -328,15 +347,11 @@ Checkout首先你要做的事情是Subversion(以下简称svn) checkout。由于
 			
 		
 			
-				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
+				<li><a href="/tags/django/" title="django">django<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
 			
 		
 		</ul>

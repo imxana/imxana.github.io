@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-03T15:51:32.000Z</updated>
+  <updated>2017-04-21T07:51:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,263 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于价值观的闲聊(二)</title>
-    <link href="http://yoursite.com/2017/04/03/%E5%85%B3%E4%BA%8E%E4%BB%B7%E5%80%BC%E8%A7%82%E7%9A%84%E9%97%B2%E8%81%8A(%E4%BA%8C)/"/>
-    <id>http://yoursite.com/2017/04/03/关于价值观的闲聊(二)/</id>
-    <published>2017-04-03T13:05:03.000Z</published>
-    <updated>2017-04-03T15:51:32.000Z</updated>
+    <title>cbv是个好东西</title>
+    <link href="http://yoursite.com/2017/04/21/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF/"/>
+    <id>http://yoursite.com/2017/04/21/cbv是个好东西/</id>
+    <published>2017-04-21T05:17:49.000Z</published>
+    <updated>2017-04-21T07:51:19.000Z</updated>
     
-    <content type="html"><![CDATA[<p>附之前的<a href="http://mikumiku.com.cn/2015/12/30/关于价值观的闲聊/" target="_blank" rel="external">闲聊</a></p>
+    <content type="html"><![CDATA[<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
+<h2 id="1-CBVs的使用原则">1.CBVs的使用原则</h2><p>代码越少越好</p>
+<p>永远不要重复代码</p>
+<p>View应当只包含呈现逻辑, 不应包括业务逻辑</p>
+<p>保持view逻辑清晰简单</p>
+<p>不要将CBVs用作403, 404, 500的错误处理程序</p>
+<p>保持mixin简单明了</p>
+<h2 id="2-如何使用mixin">2.如何使用mixin</h2><p>在编程中mixin是指为继承它的class提供额外的功能, 但它自身却不能单独使用的类. 在具有多继承能力的编程语言中, mixin可以为类增加额外功能或方法. 在Django中, 我们可以使用mixin为CBVs提供更多的扩展性, 当然在类继承过程中, 我们推荐以下原则:</p>
+<p>Django自身提供的View永远在最右边</p>
+<p>mixin依次在以上view的左边</p>
+<p>mixin永远继承自Python的object类型</p>
+<h2 id="3-减少重复砌砖头?来看看通用视图">3.减少重复砌砖头?来看看通用视图</h2><p>为了深入了解Django的通用view, 到了痛苦地读源码(文末附)的时候了. 当然如果你不写Django也不妨看看, 读一读或许对模板系统的理解有所启发</p>
+<p>来来来我们进入Django.views.generic (anyway), 从简到繁</p>
+<h3 id="base-py">base.py</h3><p>颜料盒<code>base.py</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ContextMixin</td>
+<td>object</td>
+<td>A default context mixin that passes the keyword arguments received by get_context_data as the template context.</td>
+</tr>
+<tr>
+<td>View</td>
+<td>object</td>
+<td>Intentionally simple parent class for all views. Only implements dispatch-by-method and simple sanity checking.</td>
+</tr>
+<tr>
+<td>TemplateResponseMixin</td>
+<td>object</td>
+<td>A mixin that can be used to render a template.</td>
+</tr>
+<tr>
+<td>TemplateView</td>
+<td>ContextMixin, TemplateResponseMixin, View</td>
+<td>A view that renders a template.  This view will also pass into the context any keyword arguments passed by the URLconf.</td>
+</tr>
+<tr>
+<td>RedirectView</td>
+<td>View</td>
+<td>A view that provides a redirect on any GET request.</td>
+</tr>
+</tbody>
+</table>
+<p>三个继承<code>Object</code>的初始class, 这就好比绘图使用的三原色, 后面大部分的Mixin和View都是由它们变化而来. 其中:</p>
+<p><code>ContextMixin</code>包含一个<code>get_context_data</code>方法, 用于渲染模板数据</p>
+<p><code>View</code>是通用View,包含一个<code>as_view</code>的req到res响应方法, 提供http方法及其允许列表, 进行一些简单的检查</p>
+<p><code>TemplateResponseMixin</code>是用于渲染模板的方法, 包括指定模板路径和渲染引擎</p>
+<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面, 无法动态加载数据</p>
+<p><code>RedirectView</code>重定向View, 重写了<code>get</code>, 只需要处理GET请求的view, 使用<code>url</code>参数指定重定向页面</p>
+<h3 id="detail-py">detail.py</h3><p>detail.py里定义了一系列对象信息展示的view, 核心View是最后的<code>DetailView</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SingleObjectMixin</td>
+<td>ContextMixin</td>
+<td>Provides the ability to retrieve a single object for further manipulation.</td>
+</tr>
+<tr>
+<td>BaseDetailView</td>
+<td>SingleObjectMixin, View</td>
+<td>A base view for displaying a single object</td>
+</tr>
+<tr>
+<td>SingleObjectTemplateResponseMixin</td>
+<td>TemplateResponseMixin</td>
+<td>-</td>
+</tr>
+<tr>
+<td>DetailView</td>
+<td>SingleObjectTemplateResponseMixin, BaseDetailView</td>
+<td>Render a “detail” view of an object. By default this is a model instance looked up from <code>self.queryset</code>, but the view will support display of <em>any</em> object by overriding <code>self.get_object()</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><code>SingleObjectMixin</code>扩展了<code>ContextMixin</code>, 使其能够使用model,query等获取对象, 然后通过设置定义的<code>context_object_name</code>去渲染模板内定义的字段</p>
+<p><code>BaseDetailView</code>在<code>view</code>上使用了<code>SingleObjectMixin</code>, 给<code>get</code>方法添加了将对象转化为<code>context</code>(上下文)的操作, 使其成为一个能够请求处理对象的基础view, 但是还没有渲染方法, 不设置的原因是还能够绑定删除mixin成为<code>BaseDeleteView</code></p>
+<p><code>SingleObjectTemplateResponseMixin</code>无说明, 但是从代码上看是除了渲染方法以外,额外定义默认对象渲染模板名称 默认页面后缀<code>_detail</code> 这个方法多次复用于base类view, 给基础对象处理类view提供渲染方法</p>
+<p><code>DetailView</code>详情View, 单纯地继承<code>BaseDetailView</code>和<code>SingleObjectTemplateResponseMixin</code></p>
+<h3 id="list-py">list.py</h3><p>list.py用于展示列表, 写法与<code>detail.py</code>类似, 核心View是<code>ListView</code></p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultipleObjectMixin</td>
+<td>Context</td>
+<td>A mixin for views manipulating multiple objects.</td>
+</tr>
+<tr>
+<td>BaseListView</td>
+<td>MultipleObjectMixin, View</td>
+<td>A base view for displaying a list of objects.</td>
+<td></td>
+</tr>
+<tr>
+<td>MultipleObjectTemplateResponseMixin</td>
+<td>TemplateResponseMixin</td>
+<td>Mixin for responding with a template and list of objects.</td>
+</tr>
+<tr>
+<td>ListView</td>
+<td>MultipleObjectTemplateResponseMixin, BaseListView</td>
+<td>Render some list of objects, set by <code>self.model</code> or <code>self.queryset</code>. <code>self.queryset</code> can actually be any iterable of items, not just a queryset.</td>
+</tr>
+</tbody>
+</table>
+<p><code>MultipleObjectMixin</code>与<code>SingleObjectMixin</code>不同的方式扩展了<code>ContextMixin</code>, 使其能够使用model等获取queryset之外, 额外提供了页面分页功能及其参数和方法</p>
+<p><code>BaseListView</code>是一个能够请求处理对象列表的基础view, 但是还没有渲染方法</p>
+<p><code>MultipleObjectTemplateResponseMixin</code>功能都差不多..</p>
+<p><code>ListView</code>单纯继承上面两个</p>
+<h3 id="edit-py">edit.py</h3><p>edit.p涉及了CRUD, 所以引入了<code>form</code>的概念, 核心View为<code>CreateView</code>,<code>UpdateView</code>,<code>DeleteView</code>,这里的View比较耳熟吧</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>Super</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FormMixinBase</td>
+<td>type</td>
+<td>-</td>
+</tr>
+<tr>
+<td>FormMixin</td>
+<td>six.with_metaclass(FormMixinBase, ContextMixin)</td>
+<td>A mixin that provides a way to show and handle a form in a request.</td>
+</tr>
+<tr>
+<td>ModelFormMixin</td>
+<td>FormMixin, SingleObjectMixin</td>
+<td>A mixin that provides a way to show and handle a modelform in a request.</td>
+</tr>
+<tr>
+<td>ProcessFormView</td>
+<td>View</td>
+<td>A mixin that renders a form on GET and processes it on POST.</td>
+</tr>
+<tr>
+<td>BaseFormView</td>
+<td>FormMixin, ProcessFormView</td>
+<td>A base view for displaying a form</td>
+</tr>
+<tr>
+<td>FormView</td>
+<td>TemplateResponseMixin, BaseFormView</td>
+<td>A view for displaying a form, and rendering a template response.</td>
+</tr>
+<tr>
+<td>BaseCreateView</td>
+<td>ModelFormMixin, ProcessFormView</td>
+<td>Base view for creating an new object instance. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>CreateView</td>
+<td>SingleObjectTemplateResponseMixin, BaseCreateView</td>
+<td>View for creating a new object instance, with a response rendered by template.</td>
+</tr>
+<tr>
+<td>BaseUpdateView</td>
+<td>ModelFormMixin, ProcessFormView</td>
+<td>Base view for updating an existing object. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>UpdateView</td>
+<td>SingleObjectTemplateResponseMixin, BaseUpdateView</td>
+<td>View for updating an object, with a response rendered by template.</td>
+</tr>
+<tr>
+<td>DeletionMixin</td>
+<td>object</td>
+<td>A mixin providing the ability to delete objects</td>
+</tr>
+<tr>
+<td>BaseDeleteView</td>
+<td>DeletionMixin, BaseDetailView</td>
+<td>Base view for deleting an object. Using this base class requires subclassing to provide a response mixin.</td>
+</tr>
+<tr>
+<td>DeleteView</td>
+<td>SingleObjectTemplateResponseMixin, BaseDeleteView</td>
+<td>View for deleting an object retrieved with <code>self.get_object()</code>, with a response rendered by template.</td>
+</tr>
+</tbody>
+</table>
+<p>注: six是一个python2和python3兼容库.</p>
+<p><code>FormMixinBase</code>继承type定义了一个类型, 重写了<code>__new__</code>, 内容暂时看不懂:)</p>
+<p><code>FormMixin</code>表单逻辑, 这里就定义了几个重要的属性和方法, 用户使用form<code>form_class</code>, 成功回调url<code>success_url</code> 表单合法<code>form_valid</code> 表单不合法<code>form_invalid</code>等</p>
+<p><code>ModelFormMixin</code>进一步扩展<code>FormMixin</code>, 提供<code>fields</code>字段使用户能够处理<code>ModelForm</code>, <code>form_valid</code>中添加了保存操作</p>
+<p><code>ProcessFormView</code>功能View, 重写了<code>View</code>的get和post方法(put直接return post方法) 使View能够在get的时候 渲染form内容, post的时候能提交form内容</p>
+<p><code>BaseFormView</code> 相当于给<code>ProcessFormView</code>提供了表单处理逻辑, 相当于能处理一些简单的请求了</p>
+<p><code>FormView</code> 继续给<code>BaseFormView</code>加上模板渲染引擎, 处理结果能从前台渲染出来了</p>
+<p><code>BaseCreateView</code> 和<code>BaseFormView</code>类似, 不过其使用的是modelForm, <code>form_valid</code>会调用<code>form.save()</code>方法, <code>get</code>和<code>post</code>中执行了一句<code>self.object = None</code> 其作用于<code>SingleObjectMixin</code>的<code>get_context_data</code>方法中 (detail.py 103-107行,判断self.object不为空时执行取址操作 v1.9.5)</p>
+<p><code>CreateView</code> 单纯基础<code>BaseCreateView</code>和<code>SingleObjectTemplateResponseMixin</code>,别忘了后者只是是一个轻度继承的渲染工具 默认页面后缀<code>_form</code></p>
+<p><code>BaseUpdateView</code> 和<code>BaseCreateView</code>代码几乎相同, 除了<code>self.object = None</code>改为<code>self.object = self.get_object()</code> 作用于相同位置, 进行字典更新操作</p>
+<p><code>UpdateView</code> 单纯基础<code>BaseUpdateView</code>和<code>SingleObjectTemplateResponseMixin</code> 默认页面后缀<code>_form</code></p>
+<p><code>DeletionMixin</code> 新的颜料,因为功能使用不频繁所以单独放在这里, 提供了<code>delete</code>方法和<code>success_url</code>属性, <code>delete</code>执行<code>self.object.delete()</code>后会自动执行页面回调. 特别注意的是, 这里只有<code>post</code>方法return了<code>delete</code>方法, 其他方法暂不支持</p>
+<p><code>BaseDeleteView</code> 给<code>BaseDetailView</code>绑定删除功能, 仅简单继承, 无页面渲染 简单的删除后跳转</p>
+<p><code>DeleteView</code> 单纯继承<code>BaseDeleteView</code>和<code>SingleObjectTemplateResponseMixin</code>,  默认页面后缀<code>_confirm_delete</code>, 给一个删除页面, get即渲染一个页面, 给个表格, post到这个页面后将删除对象</p>
+<h3 id="dates-py">dates.py</h3><p>这是一个基于时间的页面通用view模板, 但是除了博客之类的基本上用不着, 不阐述.</p>
+<h2 id="假装参考">假装参考</h2><p><a href="http://www.weiguda.com/blog/11/" target="_blank" rel="external">weiguda的博客</a></p>
+<p>(这篇博文原意是好的, 但是读着感觉变成<code>django-braces</code>文档了, 那我为啥不去看源文档呢呢)</p>
+<p><a href="https://docs.djangoproject.com/en/1.9/topics/class-based-views/intro/" target="_blank" rel="external">django官方文档</a></p>
+<p>这些通用view的具体简单实例.</p>
+<p><a href="https://github.com/django/django/tree/master/django/views/generic" target="_blank" rel="external">django.views.generic源码</a></p>
+<p>本文源码 顺带一提 Django中admin还是保持fbv风格(逃</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了&lt;/p&gt;
+&lt;h2 id=&quot;1-CBVs的使用原则&quot;&gt;1.CBVs的使用原则&lt;
+    
+    </summary>
+    
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>扯淡(三)</title>
+    <link href="http://yoursite.com/2017/04/03/%E6%89%AF%E6%B7%A1%E4%B8%89/"/>
+    <id>http://yoursite.com/2017/04/03/扯淡三/</id>
+    <published>2017-04-03T13:05:03.000Z</published>
+    <updated>2017-04-21T05:13:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>附<a href="http://mikumiku.com.cn/2015/12/30/扯淡二/" target="_blank" rel="external">上一篇</a></p>
 <h2 id="关于他人">关于他人</h2><p>到目前为止, 我的很多想法又和大学的前半段时期又有所不同, 比如我常常挂在嘴边的</p>
 <blockquote>
 <p>人不能救人, 人只能自救</p>
@@ -83,8 +333,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;附之前的&lt;a href=&quot;http://mikumiku.com.cn/2015/12/30/关于价值观的闲聊/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;闲聊&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;关于他人&quot;&gt;关于他人&lt;/h2&gt;&lt;p&gt;到目前为止, 我的很多
+      &lt;p&gt;附&lt;a href=&quot;http://mikumiku.com.cn/2015/12/30/扯淡二/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上一篇&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;关于他人&quot;&gt;关于他人&lt;/h2&gt;&lt;p&gt;到目前为止, 我的很多想法又和大学的
     
     </summary>
     
@@ -168,15 +418,19 @@
     <link href="http://yoursite.com/2017/03/23/svn%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2017/03/23/svn快速入门/</id>
     <published>2017-03-23T01:40:47.000Z</published>
-    <updated>2017-04-03T12:54:34.000Z</updated>
+    <updated>2017-04-21T07:58:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>寄人篱下, 生活所迫</p>
 </blockquote>
-<h2 id="Foward">Foward</h2><p>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</p>
-<p>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</p>
-<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据分开，因此在工作目录中一次只能有一个分支。</p>
-<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此您应该从部分checkout开始。</p>
+<h2 id="Foward">Foward</h2><ol>
+<li>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员</li>
+<li>本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</li>
+<li>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</li>
+<li>本文远程仓库使用GitHub, 实际结合个人需要使用</li>
+</ol>
+<h2 id="Checkout">Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据(.git)分开，因此在工作目录中一次只能有一个分支。</p>
+<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此你应该从部分checkout开始。</p>
 <p>1.在GitHub上找到repository的导航主页.</p>
 <p>2.在repository名称的下面, 点击<code>Clone or download</code>.</p>
 <p>3.选择<code>Clone with HTTPS</code>, 复制其中的链接.</p>
@@ -191,27 +445,28 @@
 <h2 id="创建分支">创建分支</h2><p>你也可以使用Subversion桥接到GitHub创建分支。</p>
 <p>从svn客户端，通过更新确保<code>master</code>是最新的trunk：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">At revision 1.</div></pre></td></tr></table></figure>
-<p>接下来，您可以使用<code>svn copy</code>创建新分支:</p>
+<p>接下来，你可以使用<code>svn copy</code>创建新分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ svn copy trunk branches/more_awesome</div><div class="line">A    branches/more_awesome</div><div class="line">$ svn commit -m <span class="string">'Added more_awesome topic branch'</span></div><div class="line">Adding    branches/more_awesome</div><div class="line"></div><div class="line">Committed revision 2.</div></pre></td></tr></table></figure>
-<p>You can confirm that the new branch exists in the repository’s branch dropdown in Github.</p>
+<p>现在你能确认新分支能在github的branch下拉栏里看到:</p>
 <p><img src="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png" alt=""></p>
-<p>您可以确认新分支存在于存储库的分支下拉列表中：</p>
+<p>你可以确认新分支存在于存储库的分支下拉列表中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git fetch</div><div class="line">From https://github.com/user/repo/</div><div class="line">* [new branch]    more_awesome -&gt; origin/more_awesome</div></pre></td></tr></table></figure>
 <h2 id="提交修改">提交修改</h2><p>在添加了一些功能并修复了一些错误之后，你需要将这些更改提交给GitHub。这就和你平时使用svn一样。编辑文件，并使用<code>svn commit</code>记录你的更改：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ svn status</div><div class="line">M    gizmo.rb</div><div class="line">$ svn commit -m <span class="string">'Guard against known problems'</span></div><div class="line">Sending    more_awesome/gizmo.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 3.</div><div class="line">$ svn status</div><div class="line">?    <span class="built_in">test</span></div><div class="line">$ svn add <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span>/gizmo_test.rb</div><div class="line">$ svn commit -m <span class="string">'Test coverage for problems'</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span>/gizmo_test.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 4.</div></pre></td></tr></table></figure>
-<h2 id="切换分支">切换分支</h2><p>要在分支机构之间切换，您可能需要首先检查<code>trunk</code>的内容：</p>
+<h2 id="切换分支">切换分支</h2><p>要在分支机构之间切换，你可能需要首先检查<code>trunk</code>的内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo/trunk</div></pre></td></tr></table></figure>
-<p>然后，您可以切换到另一个分支：</p>
+<p>然后，你可以切换到另一个分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn switch https://github.com/user/repo/branches/more_awesome</div></pre></td></tr></table></figure>
-<p><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del> </p>
-]]></content>
+<h2 id="一个有趣的网站"><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del></h2>]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;寄人篱下, 生活所迫&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;Foward&quot;&gt;Foward&lt;/h2&gt;&lt;p&gt;此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员, 本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相
+&lt;h2 id=&quot;Foward&quot;&gt;Foward&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员&lt;/li&gt;
+&lt;li&gt;本文默认你已经能够掌握git协议相
     
     </summary>
     
@@ -227,7 +482,7 @@
     <link href="http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/"/>
     <id>http://yoursite.com/2017/03/22/常见的sql攻击/</id>
     <published>2017-03-22T10:12:34.000Z</published>
-    <updated>2017-03-26T15:00:22.000Z</updated>
+    <updated>2017-04-21T05:18:04.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="注入解释性语言">注入解释性语言</h2><p>开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.</p>
 <h3 id="避开登录">避开登录</h3><p>不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对数据库储存区实施自主访问控制, 基于用户账户和类型构造语句查询来增删改查. 修改查询的成功注入攻击可以避开程序的自主访问控制并获取未授权访问.</p>
@@ -1038,7 +1293,7 @@
 <p>部分练习 ( 0~13, 21, 22 )</p>
 <h1 id="Linux">Linux</h1><p><a href="https://github.com/imxana/shell_test" target="_blank" rel="external">imxana/shell_test</a></p>
 <p>《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生</p>
-<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x78;&#x61;&#110;&#x61;&#x2e;&#x61;&#119;&#x61;&#x6b;&#x65;&#110;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x78;&#x61;&#110;&#x61;&#x2e;&#x61;&#119;&#x61;&#x6b;&#x65;&#110;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a></p>
+<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#120;&#97;&#110;&#97;&#46;&#x61;&#x77;&#97;&#x6b;&#x65;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#120;&#97;&#110;&#97;&#46;&#x61;&#x77;&#97;&#x6b;&#x65;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a></p>
 <p>部分迁移情况</p>
 <table>
 <thead>
@@ -1215,62 +1470,6 @@
     
     
       <category term="others" scheme="http://yoursite.com/tags/others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>react-native不完全避坑指南(Android版)</title>
-    <link href="http://yoursite.com/2016/07/23/react-native-avoid-mistake-android/"/>
-    <id>http://yoursite.com/2016/07/23/react-native-avoid-mistake-android/</id>
-    <published>2016-07-23T02:57:56.000Z</published>
-    <updated>2016-07-24T07:47:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Pre">Pre</h1><p>Android Studio在windows上的安装部署让我在大一的时候放弃了安卓，在mac上as的表现尚可，部署工程也变得不是那么坑了。</p>
-<p>我们继续研究bitch项目</p>
-<p>首先用AS(version 2.1)打开bitch下的的android文件夹，然后等上一段时间更新。。。具体问题可能会发生例如某些模块需要科学下载，但是OSX上基本不会有环境配置等诸多问题。</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/1.png" alt=""></p>
-<h1 id="坑">坑</h1><h2 id="工程路径">工程路径</h2><p>记得打开的是<code>android</code>文件夹，而不是<code>bitch</code>文件夹，否则识别不出安卓工程，虽然部分功能可用。</p>
-<p>遇到错误</p>
-<p><code>Error running app: Instant Run requires &#39;Tools | Android | Enable ADB integration&#39; to be enabled.</code></p>
-<p>时记得勾选 Tools -&gt; Android -&gt; Enable ADB integration</p>
-<h2 id="AS里的Android版本">AS里的Android版本</h2><p>我使用的版本是N，开始我认为为了适配国内手机尽量选低版本，于是装了N、23和19，但是最后发现只有N版本才能成功在AS上跑，现在发现23版本也能运行。</p>
-<p><strong>Nexus 5X API N</strong></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/2.png" alt=""></p>
-<p><strong>Nexus 5X API 23</strong></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/3.png" alt=""></p>
-<p><strong>Galaxy Nexus API 19还是跑不了（无限编译至timeout）</strong></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/4.png" alt=""></p>
-<p>原因其实我并不是很了解，可能与版本有关，可能与机型有关。但是react-native理论上适配所有机型，也避免了魅族坑:)</p>
-<p>但是如果只能高版本模拟器进行测试的话，估计低版本真机测试的时候又会出现这样那样的问题。</p>
-<p>真机调试待更。。</p>
-<h2 id="模拟器">模拟器</h2><p>Mac上可以直接在<code>Application/Xcode.app/Contents/Developer/Application/</code>中或者Alfred、spotlight中搜索simulator来打开Simulator.app，每个尺寸的simulator都是一个独立的device，会保存之前使用过的应用、本地数据，都会保存在对应device中。这就让后续开发绕过了Xcode，以延长电脑寿命（雾</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/18.png" alt="启动模拟器"></p>
-<p>Android Studio通过启动AVD manager来启动各种型号的安卓模拟器</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/11.png" alt="就是这个东西"></p>
-<p>要去绕过AS启动它<del>以延长Mac寿命</del>，首先找到AS的sdk下的tools</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/12.png" alt=""></p>
-<p>然后注意到emulator这个可执行文件。。执行它发现似乎需要参数</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/13.png" alt=""></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/14.png" alt=""></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/15.png" alt=""></p>
-<p>提示我到<code>$HOME/.android/avd</code>下去寻找模拟器</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/16.png" alt=""></p>
-<p>把需要的模拟器复制过来</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/16.7.23/17.png" alt=""></p>
-<p>模拟器就开始运行了，撒花（雾）。我这里提示该升级了</p>
-<h1 id="总结">总结</h1><p>为了同时适配谷歌和苹果，尽量使用react-native标准模块，而不是原生模块，虽然是<br><code>Learn once, write everywhere</code>，我觉得更像是<code>install once, write everywhere</code>，所有的坑，在APP成功安装运行一次后，就把重心完全放到了js上。<del>好吧不仅限于上个月iPhone版本更新以后APP找不到DiskImage直接闪退，手机上20多个demo全部GG</del></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Pre&quot;&gt;Pre&lt;/h1&gt;&lt;p&gt;Android Studio在windows上的安装部署让我在大一的时候放弃了安卓，在mac上as的表现尚可，部署工程也变得不是那么坑了。&lt;/p&gt;
-&lt;p&gt;我们继续研究bitch项目&lt;/p&gt;
-&lt;p&gt;首先用AS(version 2.1)
-    
-    </summary>
-    
-    
-      <category term="reactnative" scheme="http://yoursite.com/tags/reactnative/"/>
     
   </entry>
   
