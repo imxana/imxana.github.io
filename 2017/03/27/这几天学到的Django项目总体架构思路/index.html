@@ -21,7 +21,7 @@
 <meta property="og:description" content="原标题: 这几天搬砖所得
 
 搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
-<meta property="og:updated_time" content="2017-04-03T12:49:25.000Z">
+<meta property="og:updated_time" content="2017-04-20T10:40:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这几天学到的Django项目总体架构思路">
 <meta name="twitter:description" content="原标题: 这几天搬砖所得
@@ -122,23 +122,17 @@
 <h2 id="自定义用户">自定义用户</h2><p>这里涉及到Django庞大的第三方库的使用, 一般第三方库都不会去重写User类, 倾向于到Django中<code>django.contrib.auth.model</code>去重写/继承/封装,例如要在User中添加字段的技巧</p>
 <p>————————— 以下引用 —————————</p>
 <p>本篇主要讨论一下User Model的使用技巧. 注意, 由于Django 1.5之后user model带来了很大的变化, 本篇内容只针对django 1.5之后的版本.</p>
-<ol>
-<li>确定 User Model</li>
-</ol>
+<p><em>1.确定 User Model</em></p>
 <p>我们推荐一下方式来确定某一django项目使用的user model:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用默认User model时</span></div><div class="line">&gt;&gt;&gt; from django.contrib.auth import get_user_model</div><div class="line">&gt;&gt;&gt; get_user_model()</div><div class="line">&lt;class <span class="string">'django.contrib.auth.models.User'</span>&gt;</div><div class="line"></div><div class="line"><span class="comment"># 使用自定义User model时</span></div><div class="line">&gt;&gt;&gt; from django.contrib.auth import get_user_model</div><div class="line">&gt;&gt;&gt; get_user_model()</div><div class="line">&lt;class <span class="string">'xxx.models.UserProfile'</span>&gt;</div></pre></td></tr></table></figure>
-<ol>
-<li>使用settings.AUTH_USER_MODEL</li>
-</ol>
+<p><em>2.使用settings.AUTH_USER_MODEL</em></p>
 <p>自从django 1.5之后, 用户可以自定义User model了, 如果需要外键使用user model, 官方推荐的方法如下:</p>
 <p>在settings中设置AUTH_USER_MODEL:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># settings.py</span></div><div class="line"><span class="comment"># 格式为 "&lt;django_app名&gt;.&lt;model名&gt;"</span></div><div class="line">AUTH_USER_MODEL = <span class="string">"myapp.NewUser"</span></div></pre></td></tr></table></figure>
 <p>在models.py中使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># models.py</span></div><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span><span class="params">(models.Model)</span>:</span></div><div class="line">    author = models.ForeignKey(settings.AUTH_USER_MODEL)</div><div class="line">    title = models.CharField(max_length=<span class="number">255</span>)</div></pre></td></tr></table></figure>
 <p>还有需要注意的是, 不要在外键中使用get_user_model().</p>
-<ol>
-<li>自定义 User Model</li>
-</ol>
+<p><em>3.自定义 User Model</em></p>
 <p>方法1: 扩展 AbstractUser类</p>
 <p>如果你对django自带的User model刚到满意, 又希望额外的field的话, 你可以扩展AbstractUser类:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># myapp/models.py</span></div><div class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> AbstractUser</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewUser</span><span class="params">(AbstractUser)</span>:</span></div><div class="line">    new_field = models.CharField(max_length=<span class="number">100</span>)</div></pre></td></tr></table></figure>
@@ -291,11 +285,11 @@
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
@@ -303,11 +297,11 @@
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
 			
 		
 			
@@ -319,7 +313,7 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -331,7 +325,7 @@
 			
 		
 			
-				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
 			
 		
 			
@@ -343,7 +337,7 @@
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
@@ -360,25 +354,49 @@
         
           <li>
             
-            	<a href="http://mephis.me" target="_blank" title="MephistoPheies">MephistoPheies</a>
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
             
           </li>
         
           <li>
             
-            	<a href="https://tecotaku.cn" target="_blank" title="SinoReimu">SinoReimu</a>
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
             
           </li>
         
           <li>
             
-            	<a href="https://b0lv42.github.io" target="_blank" title="果果">果果</a>
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
             
           </li>
         
           <li>
             
-            	<a href="http://puppetkant.cn" target="_blank" title="我豪">我豪</a>
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
             
           </li>
         
