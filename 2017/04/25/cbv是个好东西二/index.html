@@ -4,44 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>扯淡(一) | XANA&#39;s Blog</title>
+    <title>cbv是个好东西二 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="闲价值观是一个很大很广泛的话题，我们每个人都遵循着自己的价值观来做出自己的判断与决策。
-然而每个人的价值观又有所不同，也完全没有『正确』的一种。
-脑子一热，就有了这篇东西，以后随时可能删掉。
-主观观点，不望细究。
-看过我中二样子的人都死了。
-终极欲望按照自然规律，人类的终极欲望是sex，人类所作所为，直接或者间接都是为了找到一个好的伴侣。
-这是他们的本能所趋，就好像迷宫的终点，黑洞的中心。
-嘴拒身">
+    <meta name="description" content="谈一下一些解决方案
+
+权限控制思路
+fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，django.contrib.auth.mixins里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上@login_required的fbv只要在c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="扯淡(一)">
-<meta property="og:url" content="http://yoursite.com/2015/12/30/扯淡一/index.html">
+<meta property="og:title" content="cbv是个好东西二">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/cbv是个好东西二/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="闲价值观是一个很大很广泛的话题，我们每个人都遵循着自己的价值观来做出自己的判断与决策。
-然而每个人的价值观又有所不同，也完全没有『正确』的一种。
-脑子一热，就有了这篇东西，以后随时可能删掉。
-主观观点，不望细究。
-看过我中二样子的人都死了。
-终极欲望按照自然规律，人类的终极欲望是sex，人类所作所为，直接或者间接都是为了找到一个好的伴侣。
-这是他们的本能所趋，就好像迷宫的终点，黑洞的中心。
-嘴拒身">
-<meta property="og:updated_time" content="2017-04-21T05:15:48.000Z">
+<meta property="og:description" content="谈一下一些解决方案
+
+权限控制思路
+fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，django.contrib.auth.mixins里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上@login_required的fbv只要在c">
+<meta property="og:updated_time" content="2017-04-25T10:56:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="扯淡(一)">
-<meta name="twitter:description" content="闲价值观是一个很大很广泛的话题，我们每个人都遵循着自己的价值观来做出自己的判断与决策。
-然而每个人的价值观又有所不同，也完全没有『正确』的一种。
-脑子一热，就有了这篇东西，以后随时可能删掉。
-主观观点，不望细究。
-看过我中二样子的人都死了。
-终极欲望按照自然规律，人类的终极欲望是sex，人类所作所为，直接或者间接都是为了找到一个好的伴侣。
-这是他们的本能所趋，就好像迷宫的终点，黑洞的中心。
-嘴拒身">
+<meta name="twitter:title" content="cbv是个好东西二">
+<meta name="twitter:description" content="谈一下一些解决方案
+
+权限控制思路
+fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，django.contrib.auth.mixins里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上@login_required的fbv只要在c">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -97,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/30/扯淡一/" title="扯淡(一)" itemprop="url">扯淡(一)</a>
+      <a href="/2017/04/25/cbv是个好东西二/" title="cbv是个好东西二" itemprop="url">cbv是个好东西二</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-30T06:03:45.000Z" itemprop="datePublished"> 發表於 2015-12-30</time>
+    <time datetime="2017-04-25T09:56:01.000Z" itemprop="datePublished"> 發表於 2017-04-25</time>
     
   </p>
 </header>
@@ -113,96 +101,43 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闲"><span class="toc-number">1.</span> <span class="toc-text">闲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终极欲望"><span class="toc-number">2.</span> <span class="toc-text">终极欲望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与自己的斗争"><span class="toc-number">3.</span> <span class="toc-text">与自己的斗争</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#他人的价值观"><span class="toc-number">4.</span> <span class="toc-text">他人的价值观</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抉择"><span class="toc-number">5.</span> <span class="toc-text">抉择</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-number">1.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类页面"><span class="toc-number">2.</span> <span class="toc-text">复合类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fbvs和cbvs源代码转换"><span class="toc-number">3.</span> <span class="toc-text">fbvs和cbvs源代码转换</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="闲">闲</h2><p>价值观是一个很大很广泛的话题，我们每个人都遵循着自己的价值观来做出自己的判断与决策。</p>
-<p>然而每个人的价值观又有所不同，也完全没有『正确』的一种。</p>
-<p>脑子一热，就有了这篇东西，以后随时可能删掉。</p>
-<p>主观观点，不望细究。</p>
-<p>看过我中二样子的人都死了。</p>
-<h2 id="终极欲望">终极欲望</h2><p>按照自然规律，人类的终极欲望是sex，人类所作所为，直接或者间接都是为了找到一个好的伴侣。</p>
-<p>这是他们的本能所趋，就好像迷宫的终点，黑洞的中心。</p>
-<p>嘴拒身实，欲拒还迎。</p>
-<p>就算是终极的单身主义者，其本身的定义也是围绕着这个话题展开的。</p>
-<p>然后我们聊聊毒品。</p>
-<p>有人认为吸毒和吸烟差不多，有人认为吸毒很可怕，谈毒色变。然而终究到底不过纸上谈兵，过把嘴瘾，不知所以然。</p>
-<p>按照实现的快感来说，吸毒是自X的大约几百倍。『一般人戒不了自X，能戒得了吸毒？』</p>
-<p>这也是狂妄。</p>
-<blockquote>
-<p>我没吸过毒，但是我了解吸毒的感受。</p>
+		<blockquote>
+<p>谈一下一些解决方案</p>
 </blockquote>
-<p>活20余载，世上最爽的事情，莫过于约X，其次自X。</p>
-<p>在某一天，你试了一次毒。</p>
-<p>你的价值观完全被摧毁了。</p>
-<p>世界上还有比sex更爽的事？</p>
-<blockquote>
-<p>你的终极欲望被改变了</p>
-</blockquote>
-<p>20多年白活了，你原来追求的东西是问了什么？约X的意义是什么？组建家庭的意义呢？</p>
-<p>你不顾一切的去追求它，不惜一切代价，之前的努力反正都不是我想要的，有谁要就拿去吧。</p>
-<p>你『追求理想』的过程被打断了，他们把你抓了起来。</p>
-<p>你不觉得自己做错了，他们非要说你错。追求本能有错吗？</p>
-<p>与毒隔绝的日子，煎熬。</p>
-<p>精神恍惚，煎熬。</p>
-<p>煎熬。</p>
-<p>他们让你出来了。</p>
-<p>他们很开心，你陪着开心，说你终于戒毒了。</p>
-<p>然而你知道他们一件不知道的事情。</p>
-<p>你复吸了，因为你活着就是为了追求它，就像他们活着就是为了追求sex一样。</p>
-<p>然而他们还是不知道。他们又来了。</p>
-<p>你想告诉他们，但是他们比起严肃来说，更多的是害怕。</p>
-<p>明明这里是天堂。</p>
-<p>那么你觉得，他们的价值观错了吗？</p>
-<p>那错误的价值观，到底是什么呢？</p>
-<h2 id="与自己的斗争">与自己的斗争</h2><p>人应该服从自己的欲望吗？</p>
-<p>这是个伪问题，因为人都屈服了。</p>
-<p>克制的意义是什么？是为了更多，还是为了欲望。</p>
-<p>这里的欲望，不是终极欲望，是它之前派出的杂修。</p>
-<p>过去的我完全屈服于自己的欲望。</p>
-<p>但是我并不快乐。</p>
-<p>现在我有意的折磨自己，刻意背离欲望。</p>
-<p>还是不快乐，我面露愁容。</p>
-<p>虽然不快乐，但是我从未尝过真正意义上的痛苦。</p>
-<p>所有做错事情的人都不觉得但是是错的，因为是当前情况下做出的最好决策。</p>
-<p>这么一想的话，世界上没有什么事情，是不能容忍的了。</p>
-<p>放纵是合理的，只要不惹怒他人。</p>
-<h2 id="他人的价值观">他人的价值观</h2><p>我的价值观改变过很多次，一般是有意无意的向心目中理想的未来自己靠近，比如让孩子及早进行成人教育。</p>
-<p>『我要是我的父亲，我现在绝对不是这个样子。』</p>
-<p>然而我的父亲并不傻，他也考虑过这个问题。</p>
-<p>每个人即时拿着相同的一套牌，但是也打不出一样的效果。对于有的人来说是天胡，一路顺风顺水，对于有的人来说是灾难，一路被人卡手。</p>
-<p>人都不一样，但是都惊人地相似。</p>
-<blockquote>
-<p>让我猜猜现在的你</p>
-</blockquote>
-<p>你穿着随便的走在路上，完全不知道上午做了什么。</p>
-<p>后脑核仁有些疼，头脑有点恍惚，甚至走着走着小绊了一脚，路人别过头去当做没看见。</p>
-<p>你想去某个食堂吃饭，顺便拿一个星期前到的快递，决定了好久就去了人最少的那个地方。虽然饭菜不怎么好吃。</p>
-<p>吃饭的时候一个人占4人座，或是和陌生人一起坐已经不再尴尬。为了不单单吃饭，你还尝试想一些简单的问题。</p>
-<p>你甚至还想出了答案。</p>
-<p>回去的时候脚步明显快了很多，甚至还能有心思刷刷微博。</p>
-<p>回到寝室以后，发现没有人，或者那个平时不怎么交际的人还在玩游戏。</p>
-<p>快递忘拿了。</p>
-<p>好像洗衣桶也忘记带下去了。</p>
-<blockquote>
-<p>这种人就是我说的失去方向的人。</p>
-</blockquote>
-<h2 id="抉择">抉择</h2><p>一个人闲的无聊，就会做特别有意思的事情。</p>
-<p>以前我喜欢和别人争论，现在别人都懒得和我说话。</p>
-<p>『说服』这种东西，只会让人没朋友就是了。</p>
-<p>于是我经常自己和自己说话。</p>
-<p>有的人会说，那你不和自己说话和谁去说啊。</p>
-<p>那我有什么办法。</p>
-<p>又有的人会说，那你不会自黑吗？</p>
-<p>我是在自黑啊，一直在自黑，就像这段和上面那段一样。</p>
-<p>但是自黑的目的呢，我是为了黑自己。</p>
-<p>别自黑得让别人接不了话。</p>
+<h2 id="权限控制">权限控制</h2><p>思路</p>
+<p>fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，<code>django.contrib.auth.mixins</code>里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上<code>@login_required</code>的fbv只要在cbv中继承<code>LoginRequiredMixin</code>即可。</p>
+<p><code>django.contrib.auth.mixins</code>里除去一个抽象类，总共有3个mixin，用于判断<code>request.user.is_authenticated</code>是否为True的<code>LoginRequiredMixin</code>，用于自定义权限的 <code>PermissionRequiredMixin</code>，和自己设置一个考验方法<code>test_func</code>，返回False就拒绝request的<code>UserPassesTestMixin</code>。注意抽象类<code>AccessMixin</code>里的<code>get_login_url</code>会自动调用全局变量<code>settings.LOGIN_URL</code>，不想这么做的话设置它的属性<code>login_url</code>即可（如果登录入口不止一个的话）</p>
+<h2 id="复合类页面">复合类页面</h2><p>思路</p>
+<p>之前用的<code>Django-oscar</code>框架的沙盒里，注册和登录界面是一起的，当然这种界面并不少见，很多网站都是用这种写法。但是Django没有这种view，这个时候不能直接同时继承<code>TemplateView</code>和<code>CreateView</code>。因为我们知道，『在同一个上下文中，同名函数或属性将会覆盖』，这样，我们就无法预知这个得到的视图会做出怎样的行为。为了减少代码耦合，并做到简单继承，我们就需要去看这两个视图的关系：</p>
+<p>CreateView-&gt;(SingleObjectTemplateResponseMixin, BaseCreateView)</p>
+<p>TemplateView-&gt;(ContextMixin, TemplateResponseMixin, View)</p>
+<p>因此我们通过(<code>获取数据(Context)</code>,<code>渲染方法(TemplateResponse)</code>,<code>请求处理(View)</code>)的思路得到相应view</p>
+<p>LoginRegisterView-&gt;(BaseCreateView)</p>
+<p>类似的，比如更新和删除页面：</p>
+<p>UpdateView-&gt;(SingleObjectTemplateResponseMixin, BaseUpdateView)</p>
+<p>DeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseDeleteView)</p>
+<p>得到</p>
+<p>UpdateDeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseUpdateView, BaseDeleteView)</p>
+<h2 id="fbvs和cbvs源代码转换">fbvs和cbvs源代码转换</h2><p>举例(TemplateView)</p>
+<p>拿公司的代码举例, 原主页是一个后台管理界面的主界面，页面功能看上去很复杂，但是从源代码上看只是渲染了几个传入的变量而已。 传入变量的方法为<code>get_context_data</code>，这个方法的根方法在<code>ContextMixin</code>中，加上一个渲染引擎和基本view，之后发现<code>TemplateView</code>刚好够满足需要(真的是刚好)，就直接用这个View即可，当然自己写view也可以。然后<code>LoginRequiredMixin</code>对应<code>@login_required</code>方法，直接继承即可，cbv的权限控制有一个专门的Mixin类。</p>
+<p>原代码(fbv)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@login_required</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index_view</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="string">"""后台主页</span></div><div class="line">    """</div><div class="line">    staff = request.user.myuser</div><div class="line">    announcement_list = []</div><div class="line">    menu = <span class="number">0</span></div><div class="line">    <span class="comment"># announcement_list = Announcement.objects.filter(del_status=0).order_by("-create_time")  ##获取公告信息</span></div><div class="line">    <span class="comment"># vacate_count,hr_vacate_count = load_message(staff)</span></div><div class="line">    <span class="keyword">return</span> render_to_response(<span class="string">'dashboard/index.html'</span>, locals(), context_instance=RequestContext(request))</div></pre></td></tr></table></figure>
+<p>cbv代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IndexView</span><span class="params">(LoginRequiredMixin, generic.TemplateView)</span>:</span></div><div class="line">    template_name = <span class="string">'dashboard/index.html'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_data</span><span class="params">(self, **kwargs)</span>:</span></div><div class="line">        context = super(IndexView, self).get_context_data(**kwargs)</div><div class="line">        context[<span class="string">'staff'</span>] = self.request.user.myuser</div><div class="line">        context[<span class="string">'announcement_list'</span>] = []</div><div class="line">        context[<span class="string">'menu'</span>] = <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> context</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/django/">django</a><a href="/tags/python/">python</a>
+  </div>
 
 </div>
 
@@ -210,7 +145,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/12/30/扯淡一/" data-title="扯淡(一) | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/04/25/cbv是个好东西二/" data-title="cbv是个好东西二 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -223,19 +158,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/01/12/worst_code_of_year/" title="这是我今年写过最烂的代码">
-  <strong>上一篇：</strong><br/>
-  <span>
-  这是我今年写过最烂的代码</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/29/2015/"  title="2015总结">
+<a href="/2017/04/21/cbv是个好东西/"  title="cbv是个好东西">
  <strong>下一篇：</strong><br/> 
- <span>2015总结
+ <span>cbv是个好东西
 </span>
 </a>
 </div>
@@ -250,7 +177,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闲"><span class="toc-number">1.</span> <span class="toc-text">闲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终极欲望"><span class="toc-number">2.</span> <span class="toc-text">终极欲望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与自己的斗争"><span class="toc-number">3.</span> <span class="toc-text">与自己的斗争</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#他人的价值观"><span class="toc-number">4.</span> <span class="toc-text">他人的价值观</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抉择"><span class="toc-number">5.</span> <span class="toc-text">抉择</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-number">1.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类页面"><span class="toc-number">2.</span> <span class="toc-text">复合类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fbvs和cbvs源代码转换"><span class="toc-number">3.</span> <span class="toc-text">fbvs和cbvs源代码转换</span></a></li></ol>
  
   </div>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-21T07:51:19.000Z</updated>
+  <updated>2017-04-25T10:56:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>cbv是个好东西二</title>
+    <link href="http://yoursite.com/2017/04/25/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF%E4%BA%8C/"/>
+    <id>http://yoursite.com/2017/04/25/cbv是个好东西二/</id>
+    <published>2017-04-25T09:56:01.000Z</published>
+    <updated>2017-04-25T10:56:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>谈一下一些解决方案</p>
+</blockquote>
+<h2 id="权限控制">权限控制</h2><p>思路</p>
+<p>fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，<code>django.contrib.auth.mixins</code>里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上<code>@login_required</code>的fbv只要在cbv中继承<code>LoginRequiredMixin</code>即可。</p>
+<p><code>django.contrib.auth.mixins</code>里除去一个抽象类，总共有3个mixin，用于判断<code>request.user.is_authenticated</code>是否为True的<code>LoginRequiredMixin</code>，用于自定义权限的 <code>PermissionRequiredMixin</code>，和自己设置一个考验方法<code>test_func</code>，返回False就拒绝request的<code>UserPassesTestMixin</code>。注意抽象类<code>AccessMixin</code>里的<code>get_login_url</code>会自动调用全局变量<code>settings.LOGIN_URL</code>，不想这么做的话设置它的属性<code>login_url</code>即可（如果登录入口不止一个的话）</p>
+<h2 id="复合类页面">复合类页面</h2><p>思路</p>
+<p>之前用的<code>Django-oscar</code>框架的沙盒里，注册和登录界面是一起的，当然这种界面并不少见，很多网站都是用这种写法。但是Django没有这种view，这个时候不能直接同时继承<code>TemplateView</code>和<code>CreateView</code>。因为我们知道，『在同一个上下文中，同名函数或属性将会覆盖』，这样，我们就无法预知这个得到的视图会做出怎样的行为。为了减少代码耦合，并做到简单继承，我们就需要去看这两个视图的关系：</p>
+<p>CreateView-&gt;(SingleObjectTemplateResponseMixin, BaseCreateView)</p>
+<p>TemplateView-&gt;(ContextMixin, TemplateResponseMixin, View)</p>
+<p>因此我们通过(<code>获取数据(Context)</code>,<code>渲染方法(TemplateResponse)</code>,<code>请求处理(View)</code>)的思路得到相应view</p>
+<p>LoginRegisterView-&gt;(BaseCreateView)</p>
+<p>类似的，比如更新和删除页面：</p>
+<p>UpdateView-&gt;(SingleObjectTemplateResponseMixin, BaseUpdateView)</p>
+<p>DeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseDeleteView)</p>
+<p>得到</p>
+<p>UpdateDeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseUpdateView, BaseDeleteView)</p>
+<h2 id="fbvs和cbvs源代码转换">fbvs和cbvs源代码转换</h2><p>举例(TemplateView)</p>
+<p>拿公司的代码举例, 原主页是一个后台管理界面的主界面，页面功能看上去很复杂，但是从源代码上看只是渲染了几个传入的变量而已。 传入变量的方法为<code>get_context_data</code>，这个方法的根方法在<code>ContextMixin</code>中，加上一个渲染引擎和基本view，之后发现<code>TemplateView</code>刚好够满足需要(真的是刚好)，就直接用这个View即可，当然自己写view也可以。然后<code>LoginRequiredMixin</code>对应<code>@login_required</code>方法，直接继承即可，cbv的权限控制有一个专门的Mixin类。</p>
+<p>原代码(fbv)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@login_required</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index_view</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="string">"""后台主页</span></div><div class="line">    """</div><div class="line">    staff = request.user.myuser</div><div class="line">    announcement_list = []</div><div class="line">    menu = <span class="number">0</span></div><div class="line">    <span class="comment"># announcement_list = Announcement.objects.filter(del_status=0).order_by("-create_time")  ##获取公告信息</span></div><div class="line">    <span class="comment"># vacate_count,hr_vacate_count = load_message(staff)</span></div><div class="line">    <span class="keyword">return</span> render_to_response(<span class="string">'dashboard/index.html'</span>, locals(), context_instance=RequestContext(request))</div></pre></td></tr></table></figure>
+<p>cbv代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IndexView</span><span class="params">(LoginRequiredMixin, generic.TemplateView)</span>:</span></div><div class="line">    template_name = <span class="string">'dashboard/index.html'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_data</span><span class="params">(self, **kwargs)</span>:</span></div><div class="line">        context = super(IndexView, self).get_context_data(**kwargs)</div><div class="line">        context[<span class="string">'staff'</span>] = self.request.user.myuser</div><div class="line">        context[<span class="string">'announcement_list'</span>] = []</div><div class="line">        context[<span class="string">'menu'</span>] = <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> context</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;谈一下一些解决方案&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;权限控制&quot;&gt;权限控制&lt;/h2&gt;&lt;p&gt;思路&lt;/p&gt;
+&lt;p&gt;fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，&lt;code&gt;d
+    
+    </summary>
+    
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>cbv是个好东西</title>
     <link href="http://yoursite.com/2017/04/21/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF/"/>
     <id>http://yoursite.com/2017/04/21/cbv是个好东西/</id>
     <published>2017-04-21T05:17:49.000Z</published>
-    <updated>2017-04-21T07:51:19.000Z</updated>
+    <updated>2017-04-25T10:00:59.000Z</updated>
     
-    <content type="html"><![CDATA[<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>原标题: 这两天摸鱼所得</p>
+</blockquote>
+<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
 <h2 id="1-CBVs的使用原则">1.CBVs的使用原则</h2><p>代码越少越好</p>
 <p>永远不要重复代码</p>
 <p>View应当只包含呈现逻辑, 不应包括业务逻辑</p>
@@ -76,7 +128,7 @@
 <p><code>ContextMixin</code>包含一个<code>get_context_data</code>方法, 用于渲染模板数据</p>
 <p><code>View</code>是通用View,包含一个<code>as_view</code>的req到res响应方法, 提供http方法及其允许列表, 进行一些简单的检查</p>
 <p><code>TemplateResponseMixin</code>是用于渲染模板的方法, 包括指定模板路径和渲染引擎</p>
-<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面, 无法动态加载数据</p>
+<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面 (从fbv转过来的童鞋用这个View并且重写get_context_data方法就能完成简单的fbv-&gt;cbv的转换了)</p>
 <p><code>RedirectView</code>重定向View, 重写了<code>get</code>, 只需要处理GET请求的view, 使用<code>url</code>参数指定重定向页面</p>
 <h3 id="detail-py">detail.py</h3><p>detail.py里定义了一系列对象信息展示的view, 核心View是最后的<code>DetailView</code></p>
 <table>
@@ -253,8 +305,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了&lt;/p&gt;
-&lt;h2 id=&quot;1-CBVs的使用原则&quot;&gt;1.CBVs的使用原则&lt;
+      &lt;blockquote&gt;
+&lt;p&gt;原标题: 这两天摸鱼所得&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有
     
     </summary>
     
@@ -270,9 +324,15 @@
     <link href="http://yoursite.com/2017/04/03/%E6%89%AF%E6%B7%A1%E4%B8%89/"/>
     <id>http://yoursite.com/2017/04/03/扯淡三/</id>
     <published>2017-04-03T13:05:03.000Z</published>
-    <updated>2017-04-21T08:01:29.000Z</updated>
+    <updated>2017-04-21T10:07:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>附<a href="http://mikumiku.com.cn/2016/04/27/扯淡二/" target="_blank" rel="external">上一篇</a></p>
+<h2 id="关于博文">关于博文</h2><p>以前读别人的技术文章, 就感觉说什么都是对的,看不懂就是自己理解不够深,是自己彩笔 </p>
+<p>到后来自己也写一点文章以后,感觉其实每个人的视野其实也没有那么大,手里的工具决定了你的开发上限</p>
+<p>有的时候一个观点是非常片面而孤立的. 一篇总结类文章只能代表程序员在当时那个发展阶段对某个问题的具体个人理解</p>
+<p>文章看不懂不一定是读者水平不够, 可能是作者对问题理解本身就不够深, 自己都勉强读懂, 出于刚入门的状态</p>
+<p>什么是理解深呢?就是你能够把问题解释给哪怕是圈外的人听, 让他们也能理解是这么一回事情 </p>
+<p>现在个人比较偏好湿货类文章,没有什么具体科普,就是用star法则(耳熟否?)写解决一个及其偏门而别人遇不到的问题,这种文章读起来特别有意思,所谓某某精神就是瞎折腾,浪费时间也是一种情怀</p>
 <h2 id="关于他人">关于他人</h2><p>到目前为止, 我的很多想法又和大学的前半段时期又有所不同, 比如我常常挂在嘴边的</p>
 <blockquote>
 <p>人不能救人, 人只能自救</p>
@@ -286,11 +346,23 @@
 <p>因为人都不缺孤独的时候</p>
 </blockquote>
 <p>现在的人太容易感动, 以至于陌生人搭个伞能温暖很久, 是这世间过于冷漠了么?</p>
+<h2 id="作为即上">作为即上</h2><p>事情有对错之分, 不过那是出于人观测角度. 从物质角度上观测只有变化与不变化. 因此只要保持作为, 人总是在发展的, 做好事和做坏事我都是鼓励的, 最可恶的人就是沉默不作为的人, 他们消耗着不属于他们的物质, 对集体甚至他自己毫无贡献. 内耗也属于一种0作为行为</p>
+<p>观点不同是很正常的, 但是最不可思议的事情是两个没有实践的人之间的矛盾, 而且这种事情常常发生. </p>
+<p>有的人说话说得天花乱坠, 说一个朋友如何如何. 核心思想就是一个人很厉害, 我认识他, 所以我也很厉害. 每次遇到这种情况我总是草草结束话题, 因为你不能和他深究, 否则弄得两边都很尴尬.</p>
+<p>玩游戏分两种目的,  当我意识到我玩游戏时得不到任何乐趣, 仅仅是为了排遣时间时, 我感到非常的沮丧, 因为我花了几年的时间, 仅仅是为了和其他人有共同的话题和度过艰难的义务教育时间. </p>
+<p>校园生活有一个叫做无聊的致命缺陷, 如何对抗无聊, 成为校园生活的主要课题, 一部分人, 包括我, 选择了排遣时间这种最简单直接的方式, 还有一部分, 在犹豫中纠结, 最后的结果一样在排遣</p>
+<p>或许, 主动脱离舒适区, 去寻求一些边缘经验是不错的选择</p>
+<p>只有自己挣取的, 才有好东西. 送上门来的, 肯定是别人不要的</p>
+<h2 id="关于独立">关于独立</h2><p>非常遗憾的事情是, 我在22岁的时候才终于在杭州能够养活自己, 我最初目标是成年之前</p>
+<p>独立很重要, 关乎你在家里的地位. 这里的独立不单单指经济独立</p>
+<p>独立标志着你真正的成年, 不然别怪父母把你当小孩子</p>
+<p>我希望我的朋友也都是独立的人, 我认识的人也能早日找到自己的兴趣所在</p>
 <h2 id="关于塑身">关于塑身</h2><blockquote>
 <p>体型不取决你每天的摄入的正反馈, 而在于每天的消耗的负反馈</p>
 </blockquote>
 <p>很多年才明白的一个道理…</p>
-<h2 id="关于疾病">关于疾病</h2><p>看病这个问题我有自己非常个人化的一套价值观, 不能适用于大多数人</p>
+<h2 id="关于疾病">关于疾病</h2><p><del>负能量向</del></p>
+<p>看病这个问题我有自己非常个人化的一套价值观, 不能适用于大多数人</p>
 <p>很多疾病对身体的伤害是不可逆的, 我们能做的只能减少其对身体副作用而已, 但是很多人花了太多时间太多精力, 想一次根治一劳永逸, 简直是异想天开. 然而很多人不明白或者不愿意明白这个事实</p>
 <p>身体康复不是因为打针吃药, 身体康复永远只能通过自愈</p>
 <blockquote>
@@ -318,23 +390,12 @@
 <p>然后开始用各种姿势锻炼腰肌, 动作不讲究标准, 只要腰肌变硬就是实质有效锻炼. 锻炼一段时间之后休息起来能保持坐立姿势的时间延长了许多, 到后来(包括现在)基本只要不去做一些动作已经感觉不到任何异样了</p>
 <p>我突然想起去医院拍核共振查出腰突都是我强行拉家里人带我去的查的, 之前他们都完全不当一回事</p>
 <p>所以我开始倾向自己做决定, 解决问题时倾向于探求问题本质</p>
-<h2 id="作为即上">作为即上</h2><p>事情有对错之分, 不过那是出于人观测角度. 从物质角度上观测只有建设与不建设. 因此只要保持作为, 人总是在发展的, 做好事和做坏事我都是鼓励的, 最可恶的人就是沉默不作为的人, 他们消耗着不属于他们的物质, 对集体甚至他自己毫无贡献. </p>
-<p>观点不同是很正常的, 但是最不可思议的事情是两个没有实践的人之间的矛盾, 而且这种事情常常发生. </p>
-<p>有的人说话说得天花乱坠, 说一个朋友如何如何. 核心思想就是一个人很厉害, 我认识他, 所以我也很厉害. 每次遇到这种情况我总是草草结束话题, 因为你不能和他深究, 否则弄得两边都很尴尬.</p>
-<p>玩游戏分两种目的,  当我意识到我玩游戏时得不到任何乐趣, 仅仅是为了排遣时间时, 我感到非常的沮丧, 因为我花了几年的时间, 仅仅是为了和其他人有共同的话题和度过艰难的义务教育时间. </p>
-<p>校园生活有一个叫做无聊的致命缺陷, 如何对抗无聊, 成为校园生活的主要课题, 一部分人, 包括我, 选择了排遣时间这种最简单直接的方式, 还有一部分, 在犹豫中纠结, 最后的结果一样在排遣</p>
-<p>或许, 主动脱离舒适区, 去寻求一些边缘经验是不错的选择</p>
-<p>只有自己挣取的, 才有好东西. 送上门来的, 肯定是别人不要的</p>
-<h2 id="关于独立">关于独立</h2><p>非常遗憾的事情是, 我在22岁的时候才终于在杭州能够养活自己, 我最初目标是成年之前</p>
-<p>独立很重要, 关乎你在家里的地位. 这里的独立不单单指经济独立</p>
-<p>独立标志着你真正的成年, 不然别怪父母把你当小孩子</p>
-<p>我希望我的朋友也都是独立的人, 我认识的人也能早日找到自己的兴趣所在</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;附&lt;a href=&quot;http://mikumiku.com.cn/2016/04/27/扯淡二/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上一篇&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;关于他人&quot;&gt;关于他人&lt;/h2&gt;&lt;p&gt;到目前为止, 我的很多想法又和大学的
+&lt;h2 id=&quot;关于博文&quot;&gt;关于博文&lt;/h2&gt;&lt;p&gt;以前读别人的技术文章, 就感觉说什么
     
     </summary>
     
@@ -1293,7 +1354,7 @@
 <p>部分练习 ( 0~13, 21, 22 )</p>
 <h1 id="Linux">Linux</h1><p><a href="https://github.com/imxana/shell_test" target="_blank" rel="external">imxana/shell_test</a></p>
 <p>《Linux Shell脚本攻略》学习代码（更新中），顺便一提作者是一个20岁的印度大学生</p>
-<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#120;&#97;&#110;&#97;&#46;&#x61;&#x77;&#97;&#x6b;&#x65;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#120;&#97;&#110;&#97;&#46;&#x61;&#x77;&#97;&#x6b;&#x65;&#x6e;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a></p>
+<h1 id="邮箱迁移">邮箱迁移</h1><p>New_email: <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#120;&#97;&#110;&#x61;&#x2e;&#97;&#119;&#97;&#107;&#x65;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#120;&#97;&#110;&#x61;&#x2e;&#97;&#119;&#97;&#107;&#x65;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#109;</a></p>
 <p>部分迁移情况</p>
 <table>
 <thead>
@@ -1370,101 +1431,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Python3&quot;&gt;Python3&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/imxana/show-me-the-code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;imxana/show-me-the-code&lt;
-    
-    </summary>
-    
-    
-      <category term="others" scheme="http://yoursite.com/tags/others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>月亮忘记了</title>
-    <link href="http://yoursite.com/2016/08/19/moon/"/>
-    <id>http://yoursite.com/2016/08/19/moon/</id>
-    <published>2016-08-19T12:18:48.000Z</published>
-    <updated>2016-08-19T15:33:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>看见的，看不见了。<br>夏风轻轻吹过，在瞬间消失无踪，<br>记住的，遗忘了。<br>只留下一地微微晃动的迷离树影……</p>
-<p>看不见的，是不是就等于不存在？<br>也许只是被浓云遮住，<br>也许刚巧风砂飞入眼帘，<br>我看不见你，<br>却依然感到温暖。</p>
-</blockquote>
-<p>每一个黄昏过后，大家焦虑地等待，却再也没有等到月亮升起。</p>
-<p>潮水慢慢平静下来，海洋凝固成一面漆黑的水镜，没有月亮的夜晚，世界变的清冷幽寂。</p>
-<p>正要登陆月球的太空船，在星海中迷航，没有人知道他们在哪里。</p>
-<p>科学家沮丧得发狂，国王像孩子般无助地望着天空发呆。没有人知道该怎么办。</p>
-<p>电视不断重复播报月亮失踪的消息，世界末日的恐慌瞬间弥漫全球。</p>
-<p>还好，月亮出来了。</p>
-<p>一车车微笑的月亮，运往每个哀伤的黑暗城市。</p>
-<p>莹润可爱的月亮，发出温柔的光芒，焦虑的人们，暂时忘记了害怕。</p>
-<p>它们永远不会忧伤，它们永远带着甜蜜笑容。</p>
-<p>从窗口望出去，又可以看到皎洁的明月，世界又恢复一片欢乐。</p>
-<blockquote>
-<p>他们在无意间相遇，<br>却为幽暗的生命带来温柔美好的光亮。</p>
-</blockquote>
-<p>男孩为他包上柔软的毛巾。点上一盏小灯为他取暖。<br>将他抱在怀中，轻轻摇晃。温柔地为他唱歌，对他说话。月亮慢慢地睁开眼睛，发出一点幽微的光亮。</p>
-<p>一开始，他像个婴儿般地只会左右晃动，光芒忽明忽灭<br>。</p>
-<p>慢慢地，他学会滚动，顽皮地在屋里四处走动。</p>
-<p>午夜时分，他偶尔会不由自主地飘了起来，但他有些怕高。</p>
-<p>他的光芒，每天都有小小的变化。</p>
-<p>他安安静静、慢慢地长大了。</p>
-<p>太阳出来时，他总是晦暗地沉睡不醒。</p>
-<p>太阳下山后，却精神抖擞地清亮起来。</p>
-<p>他们躲进妈妈的衣柜，想象掉落神秘无底的黑洞。<br>妈妈一直都找不到他。</p>
-<p>他们在海上漂流了三天三夜，还遇到海啸与恐怖的鲨鱼。<br>妈妈忙得没空来救他。</p>
-<p>他们脸上涂满颜色，做出可怕的表情，还大声尖叫。<br>妈妈却一点也没有被吓着。</p>
-<p>月亮学会空中旋转的那个晚上，他们在窗前整夜跳舞。<br>妈妈早就累得睡着了。</p>
-<p>世界停电的夜晚，他们爬到屋顶。静静欣赏黑暗世界的惊喜。<br>没有人与他们分享这神秘安静的时刻。</p>
-<p>渐渐地，男孩上学总是迟到，<br>上课总是沉沉睡去。</p>
-<p>渐渐地，他的朋友愈来愈少。</p>
-<p>他跟月亮也愈来愈孤单。</p>
-<p>“你是天上掉下来的月亮吗？”<br>“你记得你的家在哪里吗？”<br>“你害怕一个人回到天空吗？”<br>白云缓缓飘过，小鸟在林中唱着忧伤的歌曲，天色渐渐暗了下来。</p>
-<p>他们发现池塘的小鱼，在月亮靠近时，会微笑着朝他游过来。</p>
-<p>草丛里飞舞的萤火虫，就好像在人间起舞的点点繁星。</p>
-<p>他们喜欢在雨中散步，聆听雨水滴滴答答落在伞面的清脆声音。</p>
-<p>秘密基地里的玫瑰花，在夜晚幽幽绽放迷人的花香。</p>
-<p>男孩打电话给在远方的爸爸，兴奋地诉说：“我有一个真正的月亮喔，当我快乐或难过的时候，他都会陪着我，我要永远和他在一起……”<br>爸爸只是回答：“要乖乖地听妈妈的话。”</p>
-<p>日子一切如常，路灯不断增加。<br>科学家有着更多解不开的困惑，<br>太空人依旧在星际里迷航……</p>
-<p>公园里的大树毫无来由地突然枯萎，叶子在瞬间落尽，暗淡无光地月亮垂挂在树上，萧瑟地迎风摇晃。</p>
-<p>河水不再流动，宛如一滩死水。<br>天气变得十分怪异，在热天午后，竟飘起了漫天大雪。</p>
-<p>街边角落堆满了丢弃的月亮。城市里似乎隐匿着各式各样的怪兽，处处充满着危机，每个人的情绪似乎都变得异常暴烈。</p>
-<blockquote>
-<p>记住的是不是永远不会消失？<br>我守护如泡沫般脆弱的梦境，<br>快乐才刚开始，悲伤却早已潜伏而来。</p>
-</blockquote>
-<p>早上，校长演讲时说：“世界上本来就不需要月亮，小朋友不要……”<br>讲到这里，他忽然口吐白沫，倒地不起。可怕的是，没有人想要去救他。</p>
-<p>放学时，老师生气地对男孩说：“明天请妈妈到学校来一趟。”<br>并要求他不要再带着月亮到学校来了。</p>
-<p>傍晚，爸爸打电话来，他和妈妈讲了好久，妈妈却始终一言不发。<br>晚上，房间里传来低声的啜泣，屋里的气氛安静得令人感到窒息。</p>
-<p>世界好像被宇宙遗弃了。</p>
-<blockquote>
-<p>但是，最深的黑夜即将过去，<br>你看，月亮出来了。</p>
-</blockquote>
-<p>一夜之间，月亮记起许多往事，飘到高空时也不再感到害怕。</p>
-<p>但他却再也无法回到男孩的家。</p>
-<p>他飘到窗外，看着熟悉的景物，着急的发出低沉的呜咽。<br>男孩更是难过得俯在墙角大声哭泣。</p>
-<p>暴风雨来了，<br>男孩忧伤地问：“你还想听听伞下的雨声吗？”<br>月亮点点头。<br>他替月亮撑起一把伞。<br>雨，滴滴答答地敲出轻快的旋律。</p>
-<p>黄昏的时候，一阵突来的狂风，将他们吹得好高好远，他紧紧抱住他的月亮。</p>
-<p>风在耳边尖锐地呼啸，雨不断地迎面打来。</p>
-<p>他们奋力穿过一层层浓密的乌云，不知过了多久，世界突然安静下来。</p>
-<p>所有的喧闹在瞬间退至远方，<br>所有的烦恼消失无踪，<br>点点星光在四周缓缓流动，<br>他们感到非常欢乐。</p>
-<p>月亮轻轻地转动，男孩慢慢地睡着，<br>梦里依稀闻到一股淡淡的百合花香。</p>
-<blockquote>
-<p>看不见的，看见了。<br>夏风轻轻吹过，草丛树叶翻舞飞扬。<br>遗忘的，记住了。<br>乌云渐渐散去，一道柔和的月光洒落在窗前……</p>
-</blockquote>
-<p>(完)</p>
-<blockquote>
-<p>梗概：</p>
-<p>看不见的，是不是就等于不存在？<br>记住的，是不是永远不会消失？</p>
-<p>每一个黄昏过后，大家焦虑地等待，却再也没有等到月亮升起。<br>潮水慢慢平静下来，海洋凝固成一面漆黑的水镜，没有月亮的夜晚，世界变得凄冷幽寂。</p>
-<p>但是，最深的黑夜即将过去，月亮出来了……</p>
-</blockquote>
-<p>— 1999年几米画本《月亮忘记了》</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;看见的，看不见了。&lt;br&gt;夏风轻轻吹过，在瞬间消失无踪，&lt;br&gt;记住的，遗忘了。&lt;br&gt;只留下一地微微晃动的迷离树影……&lt;/p&gt;
-&lt;p&gt;看不见的，是不是就等于不存在？&lt;br&gt;也许只是被浓云遮住，&lt;br&gt;也许刚巧风砂飞入眼帘，&lt;br&gt;我看不见你，&lt;b
     
     </summary>
     

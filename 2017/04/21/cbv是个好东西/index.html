@@ -11,34 +11,37 @@
     
 
     
-    <meta name="description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+    <meta name="description" content="原标题: 这两天摸鱼所得
+
+将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
 1.CBVs的使用原则代码越少越好
 永远不要重复代码
 View应当只包含呈现逻辑, 不应包括业务逻辑
 保持view逻辑清晰简单
-不要将CBVs用作403, 404, 500的错误处理程序
-保持mixi">
+不要将CBVs用作403, 404, 50">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cbv是个好东西">
 <meta property="og:url" content="http://yoursite.com/2017/04/21/cbv是个好东西/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+<meta property="og:description" content="原标题: 这两天摸鱼所得
+
+将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
 1.CBVs的使用原则代码越少越好
 永远不要重复代码
 View应当只包含呈现逻辑, 不应包括业务逻辑
 保持view逻辑清晰简单
-不要将CBVs用作403, 404, 500的错误处理程序
-保持mixi">
-<meta property="og:updated_time" content="2017-04-21T07:51:19.000Z">
+不要将CBVs用作403, 404, 50">
+<meta property="og:updated_time" content="2017-04-25T10:00:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cbv是个好东西">
-<meta name="twitter:description" content="将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
+<meta name="twitter:description" content="原标题: 这两天摸鱼所得
+
+将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了
 1.CBVs的使用原则代码越少越好
 永远不要重复代码
 View应当只包含呈现逻辑, 不应包括业务逻辑
 保持view逻辑清晰简单
-不要将CBVs用作403, 404, 500的错误处理程序
-保持mixi">
+不要将CBVs用作403, 404, 50">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -114,7 +117,10 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 		
 		</div>
 		
-		<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
+		<blockquote>
+<p>原标题: 这两天摸鱼所得</p>
+</blockquote>
+<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
 <h2 id="1-CBVs的使用原则">1.CBVs的使用原则</h2><p>代码越少越好</p>
 <p>永远不要重复代码</p>
 <p>View应当只包含呈现逻辑, 不应包括业务逻辑</p>
@@ -168,7 +174,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 <p><code>ContextMixin</code>包含一个<code>get_context_data</code>方法, 用于渲染模板数据</p>
 <p><code>View</code>是通用View,包含一个<code>as_view</code>的req到res响应方法, 提供http方法及其允许列表, 进行一些简单的检查</p>
 <p><code>TemplateResponseMixin</code>是用于渲染模板的方法, 包括指定模板路径和渲染引擎</p>
-<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面, 无法动态加载数据</p>
+<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面 (从fbv转过来的童鞋用这个View并且重写get_context_data方法就能完成简单的fbv-&gt;cbv的转换了)</p>
 <p><code>RedirectView</code>重定向View, 重写了<code>get</code>, 只需要处理GET请求的view, 使用<code>url</code>参数指定重定向页面</p>
 <h3 id="detail-py">detail.py</h3><p>detail.py里定义了一系列对象信息展示的view, 核心View是最后的<code>DetailView</code></p>
 <table>
@@ -371,6 +377,14 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/04/25/cbv是个好东西二/" title="cbv是个好东西二">
+  <strong>上一篇：</strong><br/>
+  <span>
+  cbv是个好东西二</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/04/03/扯淡三/"  title="扯淡(三)">
@@ -477,7 +491,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>3</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>4</sup></a></li>
 			
 		
 			
@@ -489,15 +503,15 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
+				<li><a href="/tags/django/" title="django">django<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
@@ -513,7 +527,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 			
@@ -521,7 +535,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/django/" title="django">django<sup>1</sup></a></li>
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
 			
 		
 			
@@ -538,13 +552,31 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
         
           <li>
             
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
             	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
             
           </li>
         
           <li>
             
-            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
             
           </li>
         
@@ -568,6 +600,12 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
         
           <li>
             
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
             	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
             
           </li>
@@ -580,7 +618,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
         
           <li>
             
-            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
             
           </li>
         
