@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-27T05:16:14.000Z</updated>
+  <updated>2017-06-13T02:54:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,9 @@
     <link href="http://yoursite.com/2017/05/27/creative-desire/"/>
     <id>http://yoursite.com/2017/05/27/creative-desire/</id>
     <published>2017-05-27T01:17:07.000Z</published>
-    <updated>2017-05-27T05:16:14.000Z</updated>
+    <updated>2017-06-13T02:54:44.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
-<p>我的一个画师朋友最近苦于剧本脑洞无法自拔，出于爱莫能助的愧疚心理，我写了这篇文章来鼓(da)励(ji)她，希望哲学能拯救你 ♂（逃</p>
-</blockquote>
-<h2 id="解释">解释</h2><p>创作：创作，指创造文学艺术作品，也可作文艺作品。创作是我们造型综合能力与艺术创造能力的集中体现。在学习创作的过程中，能够同时满足我们对于求知和创造的快感需求。</p>
+    <content type="html"><![CDATA[<h2 id="解释">解释</h2><p>创作：创作，指创造文学艺术作品，也可作文艺作品。创作是我们造型综合能力与艺术创造能力的集中体现。在学习创作的过程中，能够同时满足我们对于求知和创造的快感需求。</p>
 <p>一次创作：原创</p>
 <p>二次创作：二次创作（re-creation，又称再创作）是指使用了已存在著作物的文字、图像、影片、音乐或其他艺术作品。而这些作品则称为“二次创作物 (Derivative work)”。</p>
 <p>表达能力：表达能力又叫做表现能力或显示能力，是指一个人把自己的思想、情感、想法和意图等，用语言、文字、图形、表情和动作等清晰明确地表达出来，并善于让他人理解、体会和掌握。</p>
@@ -61,10 +58,9 @@
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;我的一个画师朋友最近苦于剧本脑洞无法自拔，出于爱莫能助的愧疚心理，我写了这篇文章来鼓(da)励(ji)她，希望哲学能拯救你 ♂（逃&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;解释&quot;&gt;解释&lt;/h2&gt;&lt;p&gt;创作：创作，指创造文学艺术作品，也可
+      &lt;h2 id=&quot;解释&quot;&gt;解释&lt;/h2&gt;&lt;p&gt;创作：创作，指创造文学艺术作品，也可作文艺作品。创作是我们造型综合能力与艺术创造能力的集中体现。在学习创作的过程中，能够同时满足我们对于求知和创造的快感需求。&lt;/p&gt;
+&lt;p&gt;一次创作：原创&lt;/p&gt;
+&lt;p&gt;二次创作：二次创作（re-cre
     
     </summary>
     
