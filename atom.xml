@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-17T02:58:29.000Z</updated>
+  <updated>2017-09-18T19:53:31.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,140 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我是个组装机白痴</title>
+    <link href="http://yoursite.com/2017/09/19/comidiot/"/>
+    <id>http://yoursite.com/2017/09/19/comidiot/</id>
+    <published>2017-09-18T18:54:24.000Z</published>
+    <updated>2017-09-18T19:53:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已</p>
+</blockquote>
+<h1 id="Foward">Foward</h1><p>事情是这样的，我在淘宝逛到这台主机：</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/832641540/TB2BjNqXBoHL1JjSZFAXXc1rXXa_!!832641540.jpg" alt="第一感觉，就是它了"></p>
+<p>马上我就去看看它的配置，在详情页下看到了它是根据不同配置分成五个价位，这里放出前三个：</p>
+<p><img src="https://img.alicdn.com/imgextra/i3/832641540/TB2vuFxXgoQMeJjy0FoXXcShVXa_!!832641540.jpg" alt="¥6699.00"></p>
+<p><img src="https://img.alicdn.com/imgextra/i1/832641540/TB2g0plXEAKL1JjSZFkXXa8cFXa_!!832641540.jpg" alt="¥8699.00"></p>
+<p><img src="https://img.alicdn.com/imgextra/i4/832641540/TB2RaxvXgsSMeJjSspdXXXZ4pXa_!!832641540.jpg" alt="¥10999.00"></p>
+<p>恩，这个价格我是可以接受的。我拿着图1去问gay哈，gay哈表示赞同，表示没被坑</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c0.png" alt=""></p>
+<p>我又拿着这个图去问桐哥，桐哥表示这明显价格不对，并发给我他的配置</p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c1.png" alt=""></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c2.png" alt=""></p>
+<p>桐哥还说前一段时间优惠大约只需要4k多。我打开一看，顿时开始怀疑人生 <a href="http://item.jd.com/1555771170.html" target="_blank" rel="external">武极 i7 7700/8G/华硕GTX1060 游戏台式电脑主机/DIY组装机</a></p>
+<p><img src="http://img14.360buyimg.com/n0/jfs/t4957/89/73465466/141719/2e72323d/58da27a5N6a74cd4c.jpg" alt="握草，这配置，这价格"></p>
+<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c3.png" alt="gay哈和我都很困惑"></p>
+<p>于是乎我开始准备上知乎求助，但是发现知乎好像除了我一个人全部都用的组装机，整机党是异端。</p>
+<p>『自己组装很爽』『整机有猫腻』『不要用新手做借口，谁不是新手过来的？』</p>
+<p>我感到很惶恐，经过几分钟的软文洗脑以后，我简单看了几个装机视频，在自己组装之前，我想看看这个机子买整机的话到底会坑我多少钱。</p>
+<h1 id="配置查询">配置查询</h1><p>（以下配置信息均来源于我手搜，有多个近似商品时，以型号近似为准；有多个相同商品时，以官方旗舰店为准。</p>
+<h2 id="CPU">CPU</h2><table>
+<thead>
+<tr>
+<th>i5-7500</th>
+<th>i7-7700</th>
+<th>i7-7700k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>￥1399</td>
+<td>￥2199</td>
+<td>￥2499</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://item.jd.com/4132882.html##none" target="_blank" rel="external">https://item.jd.com/4132882.html##none</a></p>
+<p> （英特尔旗舰店）</p>
+<h2 id="显卡">显卡</h2><p>大致参考：</p>
+<table>
+<thead>
+<tr>
+<th>GTX1050TI</th>
+<th>GTX1060TI</th>
+<th>GTX1080TI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1000~1200</td>
+<td>1800~2200</td>
+<td>4000+</td>
+</tr>
+</tbody>
+</table>
+<p>华硕 STRIX （猛禽）</p>
+<table>
+<thead>
+<tr>
+<th>GTX1050TI</th>
+<th>GTX1060</th>
+<th>GTX1070</th>
+<th>GTX1080TI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>￥1399</td>
+<td>￥2799</td>
+<td>￥3799</td>
+<td>￥7399</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://item.jd.com/3640705.html" target="_blank" rel="external">https://item.jd.com/3640705.html</a></p>
+<p>（华硕旗舰店）</p>
+<h2 id="主板">主板</h2><p>华硕 STRIX B250I GAMING</p>
+<p>   ￥1099</p>
+<p><a href="https://item.jd.com/4311113.html##crumb-wrap" target="_blank" rel="external">https://item.jd.com/4311113.html##crumb-wrap</a></p>
+<h2 id="电源">电源</h2><p>ANDYSON H6 SERIES 600W金牌半模组</p>
+<p>   ￥300</p>
+<p>(未查到，大致300左右)</p>
+<h2 id="内存">内存</h2><p>G.Skill Ripjaws DDR4 2400 8G  (*2)</p>
+<p>   ￥579  ( *2= ￥1158 )</p>
+<p><a href="https://item.taobao.com/item.htm?spm=a230r.1.14.13.76bf523x4s3AE&amp;id=549060502110&amp;ns=1&amp;abbucket=2##detail" target="_blank" rel="external">https://item.taobao.com/item.htm?spm=a230r.1.14.13.76bf523x4s3AE&amp;id=549060502110&amp;ns=1&amp;abbucket=2##detail</a></p>
+<p>   ￥1199</p>
+<p><a href="https://item.jd.com/2066808.html##none" target="_blank" rel="external">https://item.jd.com/2066808.html##none</a></p>
+<h2 id="固态硬盘_HDD">固态硬盘 HDD</h2><p>APACER AS340 120G</p>
+<p>  ￥369.00</p>
+<p><a href="https://item.jd.com/10687235944.html" target="_blank" rel="external">https://item.jd.com/10687235944.html</a></p>
+<h2 id="机械硬盘_SSD">机械硬盘 SSD</h2><p>希捷(SEAGATE)酷鱼系列 1TB 7200转64Mv </p>
+<p>   ￥329</p>
+<p><a href="https://item.jd.com/3843702.html##crumb-wrap" target="_blank" rel="external">https://item.jd.com/3843702.html##crumb-wrap</a></p>
+<h2 id="机箱">机箱</h2><p>CORSAIR 380T 白色</p>
+<p>  ￥999</p>
+<p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.4c637810SOnu4i&amp;id=42859563387&amp;skuId=90458760832" target="_blank" rel="external">https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.4c637810SOnu4i&amp;id=42859563387&amp;skuId=90458760832</a></p>
+<h2 id="风扇">风扇</h2><p>Eclipse 光轮12cm</p>
+<p>  ￥59 * 5 = ￥295</p>
+<p><a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.1.76bf523zOCf2G&amp;id=558284350071&amp;cm_id=140105335569ed55e27b&amp;abbucket=2" target="_blank" rel="external">https://detail.tmall.com/item.htm?spm=a230r.1.14.1.76bf523zOCf2G&amp;id=558284350071&amp;cm_id=140105335569ed55e27b&amp;abbucket=2</a></p>
+<h2 id="水冷">水冷</h2><p>VTG寒霜之龙240</p>
+<p>  ￥259</p>
+<p><a href="https://item.jd.com/4918108.html" target="_blank" rel="external">https://item.jd.com/4918108.html</a></p>
+<h1 id="计算价格">计算价格</h1><p>为了直观，计算过程放到脚本中：</p>
+<h2 id="简单计算">简单计算</h2><p>fuck.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">cpu = [<span class="number">1399</span>, <span class="number">2199</span>, <span class="number">2499</span>]</div><div class="line"></div><div class="line">g_card = [<span class="number">1399</span>, <span class="number">2799</span>, <span class="number">3799</span>, <span class="number">7399</span>]</div><div class="line"></div><div class="line">mainboard = <span class="number">1099</span></div><div class="line"></div><div class="line">power = <span class="number">300</span></div><div class="line"></div><div class="line">ram = [<span class="number">579</span>, <span class="number">1158</span>]</div><div class="line"></div><div class="line">ssd = <span class="number">369</span></div><div class="line"></div><div class="line">hdd = <span class="number">329</span></div><div class="line"></div><div class="line">box = <span class="number">999</span></div><div class="line"></div><div class="line">fan = <span class="number">59</span> * <span class="number">5</span></div><div class="line"></div><div class="line">watercooler = <span class="number">259</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></div><div class="line">    cons = mainboard + power + ssd + box + fan + watercooler</div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        cpu_p = cpu[<span class="number">0</span>]</div><div class="line">        g_card_p = g_card[<span class="number">0</span>]</div><div class="line">        ram_p = ram[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</div><div class="line">        cpu_p = cpu[<span class="number">1</span>]</div><div class="line">        g_card_p = g_card[<span class="number">1</span>]</div><div class="line">        ram_p = ram[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> n == <span class="number">3</span>:</div><div class="line">        cpu_p = cpu[<span class="number">2</span>]</div><div class="line">        g_card_p = g_card[<span class="number">2</span>]</div><div class="line">        ram_p = ram[<span class="number">1</span>]</div><div class="line">        cons += hdd</div><div class="line">    var = cpu_p + g_card_p + ram_p</div><div class="line">    <span class="keyword">return</span> cons + var</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</div><div class="line">        print(<span class="string">'plan %s: %s'</span>%(i, cal(i)))</div></pre></td></tr></table></figure>
+<h2 id="输出">输出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plan 1: 6698</div><div class="line">plan 2: 8898</div><div class="line">plan 3: 11106</div></pre></td></tr></table></figure>
+<p>纳尼。。。</p>
+<h1 id="结果">结果</h1><p>对海盗船的整机鉴定让我感到意外，套餐售价和成本相差无几……对前三个套餐的计算结果表面：『如果整机没有任何的问题，组装人是从网上购置零件的话，那这个贩卖是不赚，甚至亏钱的。』</p>
+<p>那问题来了，京东的组装机。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Foward&quot;&gt;Foward&lt;/h1&gt;&lt;p&gt;事情是这样的，我在淘宝逛到这台主机：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https:
+    
+    </summary>
+    
+    
+      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
+    
+  </entry>
   
   <entry>
     <title>大三结束了</title>
@@ -1297,44 +1431,6 @@
     
     
       <category term="others" scheme="http://yoursite.com/tags/others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【实验班】单元测试</title>
-    <link href="http://yoursite.com/2016/09/22/unittest/"/>
-    <id>http://yoursite.com/2016/09/22/unittest/</id>
-    <published>2016-09-22T14:11:50.000Z</published>
-    <updated>2016-11-08T03:54:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><del>科普向</del></p>
-<h2 id="forward">forward</h2><p>单元测试的好处与必要性我就不多说了，以现在做的<code>ec_forum</code>项目为例，说说现在我所做的。</p>
-<h2 id="unittest">unittest</h2><h3 id="测试原理">测试原理</h3><p>我使用的单元测试模块是python原生的<code>unittest</code>，其实用什么的模块并不重要，<del>反正都是无尽的assert</del>，它的结构如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> unittest</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ECTestCase</span><span class="params">(unittest.TestCase)</span>:</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></div><div class="line">		print(<span class="number">1</span>)</div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></div><div class="line">		print(<span class="number">2</span>)</div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_name1</span><span class="params">(self)</span>:</span></div><div class="line">		print(<span class="number">3</span>)</div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_name2</span><span class="params">(self)</span>:</span></div><div class="line">		print(<span class="number">4</span>)</div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">name3_test</span><span class="params">(self)</span>:</span></div><div class="line">		print(<span class="number">5</span>)</div><div class="line">		</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    unittest.main()</div></pre></td></tr></table></figure>
-<p>然后我们看输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">3</div><div class="line">2</div><div class="line">.1</div><div class="line">4</div><div class="line">2</div><div class="line">.</div><div class="line">----------------------------------------------------------------------</div><div class="line">Ran 2 tests <span class="keyword">in</span> 0.000s</div><div class="line"></div><div class="line">OK</div></pre></td></tr></table></figure></p>
-<p>可以看出，在进行每一项测试时，<code>ECTestCase</code>类会找到<code>test</code>开头的方法，在执行时会执行一次<code>setUp</code>，执行结束时执行一次<code>tearDown</code>，执行完成后输出一个<code>.</code>，执行完所有方法为止。如果中途报错即立刻停止测试。<del>别忘记到数据库里去删测试账号。</del></p>
-<p>一般<code>setUp</code>和<code>tearDown</code>方法里，我一般是注册与销毁n个随机信息的账号，发表和删除同一篇文章，并用这些账号测试。这里的测试是单线程的，所以不用担心<code>self</code>属性被多线篡改的问题。这两个方法里尽量少放东西，这样后期测试多了以后速度影响会比较大，我只是把生成两篇文章改成了把其中一篇不太用的文章移到了其中一个测试里，测试速度就从1.7s提升到了0.9s。</p>
-<h3 id="关于覆盖率">关于覆盖率</h3><p>能够触及到代码的每一个角落当然是最吼的（100%），不过这样改起来的东西也多，因此我们在assert的时候尽量用巧妙的方法。比如code_information修改频繁的话，那就去比对状态码，如果状态码修改频繁的话，就去比对message，甚至是返回值的数据类型，数组、字符串长度范围等。测试覆盖率越高，后期可见或不可见的坑就越少。</p>
-<p>记得在提交版本的时候，先做一次<code>make test</code>，从而尽量避免提交bug版本。</p>
-<h3 id="先功能，还是先测试？">先功能，还是先测试？</h3><p>如果需求炒鸡明确的话，建议测试先行，一定程度上先测试能起到规范功能的作用，某种意义上比文档作用更大。</p>
-<p>如果需求是在变化的话，走一步看一步的那种，实际上单元测试也不是必要的，或者想我这种只有一个人的话，那就随意。脚本测试也够用了（比如注册机）</p>
-<h2 id="others">others</h2><p>不为测试而写测试，我最初更向是一种『哦？！这就是单元测试啊！』的感觉，在开发路程中实际感觉到需要这么一种东西来确保我的<code>真实</code>进度，然后从简单的脚本测试到单元测试，感觉很自然的就过度过去了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;del&gt;科普向&lt;/del&gt;&lt;/p&gt;
-&lt;h2 id=&quot;forward&quot;&gt;forward&lt;/h2&gt;&lt;p&gt;单元测试的好处与必要性我就不多说了，以现在做的&lt;code&gt;ec_forum&lt;/code&gt;项目为例，说说现在我所做的。&lt;/p&gt;
-&lt;h2 id=&quot;unittest&quot;&gt;unitt
-    
-    </summary>
-    
-      <category term="python3" scheme="http://yoursite.com/categories/python3/"/>
-    
-    
-      <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/tags/python3/"/>
     
   </entry>
   
