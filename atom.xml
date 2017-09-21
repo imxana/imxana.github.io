@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-18T19:53:31.000Z</updated>
+  <updated>2017-09-21T07:29:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/19/comidiot/"/>
     <id>http://yoursite.com/2017/09/19/comidiot/</id>
     <published>2017-09-18T18:54:24.000Z</published>
-    <updated>2017-09-18T19:53:31.000Z</updated>
+    <updated>2017-09-21T07:29:05.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已</p>
@@ -132,6 +132,63 @@
 <p>纳尼。。。</p>
 <h1 id="结果">结果</h1><p>对海盗船的整机鉴定让我感到意外，套餐售价和成本相差无几……对前三个套餐的计算结果表面：『如果整机没有任何的问题，组装人是从网上购置零件的话，那这个贩卖是不赚，甚至亏钱的。』</p>
 <p>那问题来了，京东的组装机。。。</p>
+<p>—————————9.21更新—————————</p>
+<p>京东的配置我也去查了一哈：</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Brand</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>i7 7700</td>
+<td>￥2199</td>
+</tr>
+<tr>
+<td>主板</td>
+<td>华硕 B250 M-ATX（紧凑型）</td>
+<td>￥699</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>英睿达 DDR4 2400 8GB</td>
+<td>￥589</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>华硕 独立显卡 GTX1060 3GB</td>
+<td>￥1899</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>三星 固态硬盘 M.2接口 128GB</td>
+<td>￥469</td>
+</tr>
+<tr>
+<td>机箱</td>
+<td>游戏悍将 中塔式机箱</td>
+<td>￥209</td>
+</tr>
+<tr>
+<td>电源</td>
+<td>长城 301W-400W</td>
+<td>￥329</td>
+</tr>
+<tr>
+<td>散热器</td>
+<td>九州风神 风冷</td>
+<td>￥129</td>
+</tr>
+</tbody>
+</table>
+<p>（因为上面的配置都没有标注具体型号，所以价格选取时存在多个，按照最低的来算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">cpu = <span class="number">2199</span></div><div class="line">mb = <span class="number">699</span></div><div class="line">ram = <span class="number">589</span></div><div class="line">gc = <span class="number">1899</span></div><div class="line">ssd = <span class="number">469</span></div><div class="line">box = <span class="number">209</span></div><div class="line">power = <span class="number">329</span></div><div class="line">fan = <span class="number">129</span></div><div class="line"></div><div class="line">shit.py</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(cpu+mb+ram+gc+ssd+box+power+fan)</div></pre></td></tr></table></figure>
+<p>ouput:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6522</div></pre></td></tr></table></figure></p>
+<p>即使东西都按照最低价格算，计算价格仍高出配置价格1500多。。大概自营店批发的成本要低很多，难道说暴利的地方不在于组装费，而在于零件中间的利润？当然卖整机本来就没多少利润。</p>
 ]]></content>
     
     <summary type="html">

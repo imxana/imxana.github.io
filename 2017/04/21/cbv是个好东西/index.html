@@ -66,7 +66,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -82,7 +82,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
 					</form>
 					
 					</li>
@@ -104,14 +104,14 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-21T05:17:49.000Z" itemprop="datePublished"> 發表於 2017-04-21</time>
+    <time datetime="2017-04-21T05:17:49.000Z" itemprop="datePublished"> Published 2017-04-21</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CBVs的使用原则"><span class="toc-number">1.</span> <span class="toc-text">1.CBVs的使用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何使用mixin"><span class="toc-number">2.</span> <span class="toc-text">2.如何使用mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-减少重复砌砖头?来看看通用视图"><span class="toc-number">3.</span> <span class="toc-text">3.减少重复砌砖头?来看看通用视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#base-py"><span class="toc-number">3.1.</span> <span class="toc-text">base.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detail-py"><span class="toc-number">3.2.</span> <span class="toc-text">detail.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-py"><span class="toc-number">3.3.</span> <span class="toc-text">list.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edit-py"><span class="toc-number">3.4.</span> <span class="toc-text">edit.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dates-py"><span class="toc-number">3.5.</span> <span class="toc-text">dates.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假装参考"><span class="toc-number">4.</span> <span class="toc-text">假装参考</span></a></li></ol>
 		
@@ -399,22 +399,22 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CBVs的使用原则"><span class="toc-number">1.</span> <span class="toc-text">1.CBVs的使用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何使用mixin"><span class="toc-number">2.</span> <span class="toc-text">2.如何使用mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-减少重复砌砖头?来看看通用视图"><span class="toc-number">3.</span> <span class="toc-text">3.减少重复砌砖头?来看看通用视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#base-py"><span class="toc-number">3.1.</span> <span class="toc-text">base.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detail-py"><span class="toc-number">3.2.</span> <span class="toc-text">detail.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-py"><span class="toc-number">3.3.</span> <span class="toc-text">list.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edit-py"><span class="toc-number">3.4.</span> <span class="toc-text">edit.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dates-py"><span class="toc-number">3.5.</span> <span class="toc-text">dates.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假装参考"><span class="toc-number">4.</span> <span class="toc-text">假装参考</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -459,7 +459,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -499,11 +499,11 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/django/" title="django">django<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/django/" title="django">django<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
 			
@@ -515,11 +515,11 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
@@ -527,7 +527,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
 			
 		
 			
@@ -535,7 +535,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
@@ -547,7 +547,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -629,7 +629,7 @@ View应当只包含呈现逻辑, 不应包括业务逻辑
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -838,7 +838,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/miku.gif"/></a>
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
