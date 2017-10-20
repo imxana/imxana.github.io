@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-21T07:32:28.000Z</updated>
+  <updated>2017-10-20T14:33:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读《游戏编程模式》</title>
+    <link href="http://yoursite.com/2017/10/20/game_programming_patterns/"/>
+    <id>http://yoursite.com/2017/10/20/game_programming_patterns/</id>
+    <published>2017-10-20T14:16:24.000Z</published>
+    <updated>2017-10-20T14:33:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>写一点更一点；最后更新事件： 2017-10-20</p>
+<h1 id="概述">概述</h1><blockquote>
+<p>我读书有个习惯：先看作者面相。</p>
+</blockquote>
+<p>《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素（你懂得）的限制。</p>
+<p>我需要要寻找的，就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。</p>
+<h1 id="设计模式">设计模式</h1><h2 id="命令模式">命令模式</h2><h2 id="享元模式">享元模式</h2><h2 id="观察者模式">观察者模式</h2><h2 id="原型模式">原型模式</h2><h2 id="单例模式">单例模式</h2><h2 id="状态模式">状态模式</h2><h1 id="序列型模式">序列型模式</h1><h2 id="双缓冲">双缓冲</h2><h2 id="游戏循环">游戏循环</h2><h2 id="更新方法">更新方法</h2><h1 id="行为型模式">行为型模式</h1><h2 id="字节码">字节码</h2><h2 id="子类沙盒">子类沙盒</h2><h2 id="类型对象">类型对象</h2><h2 id="组件模式">组件模式</h2><h2 id="事件队列">事件队列</h2><h2 id="服务定位器">服务定位器</h2><h1 id="优化型模式">优化型模式</h1><h2 id="数据局部性">数据局部性</h2><h2 id="脏标记模式">脏标记模式</h2><h2 id="对象池">对象池</h2><h2 id="空间分区">空间分区</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写一点更一点；最后更新事件： 2017-10-20&lt;/p&gt;
+&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;我读书有个习惯：先看作者面相。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一
+    
+    </summary>
+    
+    
+      <category term="game" scheme="http://yoursite.com/tags/game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D Beginner</title>
+    <link href="http://yoursite.com/2017/10/13/roll_a_ball/"/>
+    <id>http://yoursite.com/2017/10/13/roll_a_ball/</id>
+    <published>2017-10-12T18:54:24.000Z</published>
+    <updated>2017-10-20T14:14:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>手撸了官方两个例子后稍微回忆一下</p>
+</blockquote>
+<h2 id="Roll_a_ball">Roll a ball</h2><p>U3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。</p>
+<p>物体碰撞模块那时候看的似懂非懂（物理引擎我还停留在box2d.js的阶段），到下一课明白基本Trigger的概念，简单来说，就是你希望Rigidbody（刚体）发生碰撞并由此发生相应的后续运动时，那就取消双方的trigger选项；如果你不希望某个物体因接触而运动时，仅仅是作为一个事件的触发器，那就将其设为Trigger。Trigger可以不受物理效果影响，一些可穿透区域的碰撞检测，可以使用Trigger来进行碰撞检测，包括进入和离开。</p>
+<p>Is Kinematic 是否参与物理系统，有用的属性，相当于不受力的『恒星』，因为毕竟也是rigidbody，会有质量等参数。</p>
+<p>整个游戏没有流程控制，得分事件绑定随意，最后作为PC/Mac/Linux端导出</p>
+<h2 id="Space_Shooter">Space Shooter</h2><p>U3D入门第二课，教你做一个基本上完整的Web独立游戏（实际上和PC端相同）。最后补充了把此游戏构建于iOS上的补充步骤，包括控制判断和重启判断。</p>
+<p>移动端和PC端的操控方式虽然不同，但是逻辑相同，所以这个部分的个人见解是需要把这个部分分离出来（当然这个时候 Oct.20 我已经知道这个实际上是一种游戏中常见的叫做『命令模式』的设计模式。例子中因为逻辑简单，比较简陋，但是如果你需要例如『改键』操作的话，是必须使用的）。</p>
+<p>游戏重点包括光源（主光源，辅光源，还有补光），几种不同的碰撞器（简单的说按照游戏要求碰撞几何越简单越好）</p>
+<p>任何游戏逻辑都要绑在一个gameobject上，比如总逻辑要绑在一个空的全局游戏对象上，然后任何全局设定相关的游戏参数可以一同绑在它上面，例如游戏总背景音乐。</p>
+<p>所有的Controller都是Mono-Class。在Project里的都是类（当然包括Prefabs，当然），而在Hierachey里的物体都是实例化对象（如果你写过Android或者iOS原生应用就会知道这个概念），所以你把Project里的东西拖动至具体指定对象的时候<br>（非构造器），会发现拖不进去，这是当然的。这个时候我们要必须给实例化的对象加上tag，然后在Start()中用FindGameObject(s)WithTag（or CompareTag）来找到实例化的一个（类）对象。</p>
+<p>PascalCase is better than camelCase for naming methods</p>
+<p>U5和U4的方法大相径庭，以新的版本为准。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;手撸了官方两个例子后稍微回忆一下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Roll_a_ball&quot;&gt;Roll a ball&lt;/h2&gt;&lt;p&gt;U3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefa
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="djagno" scheme="http://yoursite.com/tags/djagno/"/>
+    
+  </entry>
   
   <entry>
     <title>我是个组装机白痴</title>
@@ -316,7 +385,7 @@
     <link href="http://yoursite.com/2017/05/04/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF%E4%B8%89/"/>
     <id>http://yoursite.com/2017/05/04/cbv是个好东西三/</id>
     <published>2017-05-04T03:19:45.000Z</published>
-    <updated>2017-05-27T01:21:46.000Z</updated>
+    <updated>2017-10-20T14:11:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实到现在，我已经有点后悔放弃Oscar了，Oscar现在在我看来是一个非常好的框架，它用了非常棒的第三方支持，例如一些tableMixin</p>
 <p>以下是一些构建Django-b2b网站的解决方案，做过web的同学都懂</p>
@@ -341,6 +410,10 @@
     
     </summary>
     
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="djagno" scheme="http://yoursite.com/tags/djagno/"/>
     
   </entry>
   
@@ -868,11 +941,11 @@
   </entry>
   
   <entry>
-    <title>数据储存区常见攻击(一)</title>
+    <title>《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分）</title>
     <link href="http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/"/>
     <id>http://yoursite.com/2017/03/22/常见的sql攻击/</id>
     <published>2017-03-22T10:12:34.000Z</published>
-    <updated>2017-04-21T05:18:04.000Z</updated>
+    <updated>2017-10-20T14:10:53.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="注入解释性语言">注入解释性语言</h2><p>开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.</p>
 <h3 id="避开登录">避开登录</h3><p>不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对数据库储存区实施自主访问控制, 基于用户账户和类型构造语句查询来增删改查. 修改查询的成功注入攻击可以避开程序的自主访问控制并获取未授权访问.</p>
@@ -1403,92 +1476,6 @@
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
       <category term="python3" scheme="http://yoursite.com/tags/python3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【实验班】数据库连接池</title>
-    <link href="http://yoursite.com/2016/10/03/socket_pool/"/>
-    <id>http://yoursite.com/2016/10/03/socket_pool/</id>
-    <published>2016-10-03T08:11:27.000Z</published>
-    <updated>2016-12-29T11:26:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><del>科普向</del></p>
-<h2 id="forward">forward</h2><p>在后端连接数据库的时候，测试时我们一般初始化一个连接对象，把所有的操作都引入这个对象，然后进行数据库的操作。在实际生产时这样有一个问题，如果这个连接对象崩掉了，那么服务器就肯定挂掉。或者同时有大量访问请求的时候，可能访问会变慢。而每次访问去生成一个连接对象，处理完之后就close肯定是不现实的，因为会吃服务器资源。所以我们需要一个连接池，用于处理比较复杂的实际情况。这就是我对连接池的初步理解。</p>
-<h2 id="socket_pool">socket_pool</h2><p>以实际代码为例：</p>
-<p>一开始先创建10个连接对象，放入一个连接池中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_conn</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> pymysql.Connect(host=<span class="string">'127.0.0.1'</span>,user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>)</div><div class="line"></div><div class="line"><span class="string">'''pymysql socket pool'''</span></div><div class="line">socket_limit = <span class="number">10</span></div><div class="line">socket_pool = []</div><div class="line">socket_update = socket_limit</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(socket_limit):</div><div class="line">    socket_pool.append(get_conn())</div></pre></td></tr></table></figure>
-<p>以ID筛选方法为例</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">id_select</span><span class="params">(self, ec_id, table=<span class="string">'ec_user'</span>)</span>:</span></div><div class="line">    <span class="string">'''select ec_event just by t_id, and extension'''</span></div><div class="line">    conn = socket_pool.pop() <span class="comment"># 从连接池pop出一个连接对象</span></div><div class="line">    cursor = conn.cursor()</div><div class="line">    err,res = <span class="keyword">True</span>,()</div><div class="line">    query_name = self.get_query_name(table)</div><div class="line">    sql = <span class="string">"select * from %s where %s=%r;"</span> % (table,query_name,ec_id)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="keyword">if</span> cursor.execute(sql) == <span class="number">1</span>:</div><div class="line">            rs = cursor.fetchone()</div><div class="line">            <span class="keyword">if</span> bool(rs):</div><div class="line">                err,res = <span class="keyword">False</span>,rs</div><div class="line">    <span class="keyword">except</span> BrokenPipeError <span class="keyword">as</span> e:</div><div class="line">        conn = get_conn() <span class="comment"># 连接对象已失效，重新生成</span></div><div class="line">        <span class="keyword">raise</span> e</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        conn.rollback() <span class="comment"># 这里错误类型分开写，以处理不同异常下conn</span></div><div class="line">        <span class="keyword">raise</span> e</div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        cursor.close()</div><div class="line">        socket_pool.append(conn) <span class="comment"># 总之把连接对象放回连接池</span></div><div class="line">    <span class="keyword">return</span> err,res</div></pre></td></tr></table></figure>
-<p>从连接池中pop和push连接对象，这样能处理多个用户同时处理的线程问题。当然最好要做个同步锁，我这里没做，因为两个用户如果不小心用到了一个连接对象，也不会造成什么问题。</p>
-<p>最后定期更新池中对象的有效性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_conn</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> socket_update</div><div class="line">    socket_update+=<span class="number">1</span></div><div class="line">    <span class="keyword">if</span> socket_update &gt;= socket_limit:</div><div class="line">        socket_update = <span class="number">0</span></div><div class="line">    print(<span class="string">"[update pymysql connection.. Pipe %s]"</span>%socket_update)</div><div class="line">    socket_pool[socket_update] = get_conn()</div><div class="line">    <span class="keyword">global</span> t    <span class="comment">#Notice: use global variable!</span></div><div class="line">    t = threading.Timer(<span class="number">7200.0</span>, update_conn)</div><div class="line">    t.start()</div><div class="line"></div><div class="line">t = threading.Timer(<span class="number">7200.0</span>, update_conn)</div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> MyConfig.TESTING:</div><div class="line">    t.start()</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;del&gt;科普向&lt;/del&gt;&lt;/p&gt;
-&lt;h2 id=&quot;forward&quot;&gt;forward&lt;/h2&gt;&lt;p&gt;在后端连接数据库的时候，测试时我们一般初始化一个连接对象，把所有的操作都引入这个对象，然后进行数据库的操作。在实际生产时这样有一个问题，如果这个连接对象崩掉了，那么服务器就
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
-    
-    
-      <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
-    
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/tags/python3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新学期扯淡</title>
-    <link href="http://yoursite.com/2016/09/28/wc-new/"/>
-    <id>http://yoursite.com/2016/09/28/wc-new/</id>
-    <published>2016-09-28T15:51:48.000Z</published>
-    <updated>2016-09-28T17:49:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>最近非常闲，闲的我都在玩腻游戏之后开始写东西来排遣剩下的时间。</p>
-</blockquote>
-<h1 id="先对最近的小朋友的问题做一个统一的回复：">先对最近的小朋友的问题做一个统一的回复：</h1><h2 id="大神抱大腿~">大神抱大腿~</h2><p>1 我不是大神，你看我后面的回答就知道了<br>2 请阅读<a href="http://mikumiku.com.cn/2016/07/23/sorry/" target="_blank" rel="external">这篇文章</a></p>
-<h2 id="学长你在做啥">学长你在做啥</h2><p>我的项目基本开源，自己去看，欢迎fork和star</p>
-<h2 id="在哪，在Github？能给个链接么">在哪，在Github？能给个链接么</h2><p>我叫这个 <code>imxana</code></p>
-<h2 id="我计算机零基础，学什么入门好？">我计算机零基础，学什么入门好？</h2><p>建议从C语言开始学起，教材请不要使用任何视频网站或者各种《C语言xx》,请使用《数据结构》。或者，学一点JS（逃</p>
-<h2 id="JS是啥？">JS是啥？</h2><p>JavaScript，灵活的语法，能写网页应用，iOS和Android应用软件，电脑上的软件，还能部署服务器，厉害吧（雾</p>
-<h2 id="有什么推荐的书吗？">有什么推荐的书吗？</h2><p>JS的话是红宝书，当年我把整本书的例子都打了一遍以上，受益匪浅。书名是这个《JavaScript高级程序设计》</p>
-<h2 id="我想做一个黑客，但是没有基础，要学哪些东西">我想做一个黑客，但是没有基础，要学哪些东西</h2><p>孩子你这样问问题会被打的</p>
-<h2 id="作为一个纯菜鸟，要注意些什么">作为一个纯菜鸟，要注意些什么</h2><p>这是个非常好的问题。</p>
-<p>首先，日常环境下尽量脱离windows，强迫自己熟悉unix-like系统，趁时间多多折腾。</p>
-<p><strong>在掌握基本的Debug能力以后</strong>，生产环境尽量脱离IDE，尽量避免由生产环境不同而导致运行结果的差异。</p>
-<p><del>不要加入由老师主导的社团。</del></p>
-<p>你必须掌握基本的开发、协作工具，了解一些最基本的知识，才能和前辈们平等的交流，不然怪不得别人不愿意和你说话。遇到耐心的前辈，要珍惜，要问问题时，请反复检查自己的语言组织。</p>
-<h2 id="我应该从什么语言入门？/Python（或其他）难吗，有什么书推荐？怎么学？">我应该从什么语言入门？/Python（或其他）难吗，有什么书推荐？怎么学？</h2><p>No Silver Bullet.</p>
-<p>语言是工具，任何语言的语法，看半小时官方文档足以记住基本使用。具体的语言要看具体需求，不同的语言在不同的场景下有优劣之分，所以不要把学语言看成一种目的，学语言是为了服从某种另外的目的。<del>当然你要写解释器当我没说</del></p>
-<h2 id="但是我不知道你在说什么啊？">但是我不知道你在说什么啊？</h2><p>好吧你要这么想也行，就看官方文档吧，带好词典</p>
-<h2 id="我想做iOS开发，但是我没有iPhone">我想做iOS开发，但是我没有iPhone</h2><p>Mac上的Xcode自带所有iOS设备模拟器，只要版本一样，和实际硬件完全相同。</p>
-<h2 id="我也没有Mac呀">我也没有Mac呀</h2><p>。。。还是有解决方案的，比如黑苹果什么的，但是不推荐。</p>
-<h2 id="求推荐Mac型号">求推荐Mac型号</h2><p>那你想要的是哪一款？这款？好就这款吧，挺不错的</p>
-<h2 id="如何成为一个优秀的程序员？">如何成为一个优秀的程序员？</h2><p>《21天精通C++》</p>
-<h2 id="我最近很迷茫">我最近很迷茫</h2><p>我们玩网游的时候，一般会建两个号，一个大号，一个小号。一般大号用来踩坑，做过一些难以回首的事情，浪费了很多资源在一些弯路上，最后我们不再用它；小号用来享乐，外形各种好看，属性各种强大，升级过程各种捷径，各种开心，最后这个小号变成了我们的大号。我们的人生也是一个网游，只不过，我们都只能是第一个号。</p>
-<h2 id="我最近学的很累/某个很简单的问题很久未解决">我最近学的很累/某个很简单的问题很久未解决</h2><p>一般这种情况是书看的多，代码打的欠少。简称欠打</p>
-<h2 id="你能带带我吗？">你能带带我吗？</h2><p>看情况</p>
-<h2 id="抱一个粗壮的大腿很重要吗">抱一个粗壮的大腿很重要吗</h2><p>现在的人能拉下脸坚持问一个人问题的人还真不多，大多数都三分钟热度做别的事情去了。所以我的态度是，很重要，但看你能抱多久。</p>
-<p>我作为一个资深社区吸血鬼，平时基本对所在社团没有贡献，一直在索取，感觉很棒（逃</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近非常闲，闲的我都在玩腻游戏之后开始写东西来排遣剩下的时间。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;先对最近的小朋友的问题做一个统一的回复：&quot;&gt;先对最近的小朋友的问题做一个统一的回复：&lt;/h1&gt;&lt;h2 id=&quot;大神抱大腿~&quot;&gt;大神抱
-    
-    </summary>
-    
-    
-      <category term="others" scheme="http://yoursite.com/tags/others/"/>
     
   </entry>
   

@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/10/20/game_programming_patterns/</loc>
+    
+    <lastmod>2017-10-20T14:33:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/13/roll_a_ball/</loc>
+    
+    <lastmod>2017-10-20T14:14:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/04/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF%E4%B8%89/</loc>
+    
+    <lastmod>2017-10-20T14:11:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/</loc>
+    
+    <lastmod>2017-10-20T14:10:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/09/19/comidiot/</loc>
     
     <lastmod>2017-09-21T07:32:28.000Z</lastmod>
@@ -26,13 +54,6 @@
     <loc>http://yoursite.com/2017/05/27/creative-desire/</loc>
     
     <lastmod>2017-06-13T02:54:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/04/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF%E4%B8%89/</loc>
-    
-    <lastmod>2017-05-27T01:21:46.000Z</lastmod>
     
   </url>
   
@@ -68,13 +89,6 @@
     <loc>http://yoursite.com/2017/03/23/svn%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2017-04-21T07:58:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/03/22/%E5%B8%B8%E8%A7%81%E7%9A%84sql%E6%94%BB%E5%87%BB/</loc>
-    
-    <lastmod>2017-04-21T05:18:04.000Z</lastmod>
     
   </url>
   

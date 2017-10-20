@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>数据储存区常见攻击(一) | XANA&#39;s Blog</title>
+    <title>《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分） | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -14,14 +14,14 @@
     <meta name="description" content="注入解释性语言开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.
 避开登录不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据储存区常见攻击(一)">
+<meta property="og:title" content="《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分）">
 <meta property="og:url" content="http://yoursite.com/2017/03/22/常见的sql攻击/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="注入解释性语言开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.
 避开登录不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对">
-<meta property="og:updated_time" content="2017-04-21T05:18:04.000Z">
+<meta property="og:updated_time" content="2017-10-20T14:10:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据储存区常见攻击(一)">
+<meta name="twitter:title" content="《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分）">
 <meta name="twitter:description" content="注入解释性语言开发Web应用程序许多的核心语言使用解释器执行, 包括SQL, Perl, PHP, 基于解释性语言的执行方式, 产生了一系列代码注入的漏洞.有的时候攻击者会提交一些专门设计的输入, 通常是有特殊意义的语法, 向应用程序实施攻击, 如果这种攻击获得成功, 它就完全攻破了目标应用程序的组件.
 避开登录不管访问操作是普通用户或者管理员, 应用程序访问数据库方式大致相同. Web应用程序对">
 <meta name="twitter:creator" content="@hdu_xana">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
 					</form>
 					
 					</li>
@@ -79,21 +79,21 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/22/常见的sql攻击/" title="数据储存区常见攻击(一)" itemprop="url">数据储存区常见攻击(一)</a>
+      <a href="/2017/03/22/常见的sql攻击/" title="《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分）" itemprop="url">《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-22T10:12:34.000Z" itemprop="datePublished"> 发表于 2017-03-22</time>
+    <time datetime="2017-03-22T10:12:34.000Z" itemprop="datePublished"> Published 2017-03-22</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注入解释性语言"><span class="toc-number">1.</span> <span class="toc-text">注入解释性语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#避开登录"><span class="toc-number">1.1.</span> <span class="toc-text">避开登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL注入"><span class="toc-number">2.</span> <span class="toc-text">SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用基本漏洞"><span class="toc-number">2.1.</span> <span class="toc-text">利用基本漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入不同语句类型"><span class="toc-number">2.2.</span> <span class="toc-text">注入不同语句类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SELECT语句"><span class="toc-number">2.2.1.</span> <span class="toc-text">SELECT语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INSERT语句"><span class="toc-number">2.2.2.</span> <span class="toc-text">INSERT语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UPDATE语句"><span class="toc-number">2.2.3.</span> <span class="toc-text">UPDATE语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DELETE语句"><span class="toc-number">2.2.4.</span> <span class="toc-text">DELETE语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避开过滤"><span class="toc-number">3.</span> <span class="toc-text">避开过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#避免使用被阻止的字符"><span class="toc-number">3.1.</span> <span class="toc-text">避免使用被阻止的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免使用简单确认"><span class="toc-number">3.2.</span> <span class="toc-text">避免使用简单确认</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用SQL注释"><span class="toc-number">3.3.</span> <span class="toc-text">使用SQL注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二阶SQL注入"><span class="toc-number">4.</span> <span class="toc-text">二阶SQL注入</span></a></li></ol>
 		
@@ -213,7 +213,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/03/22/常见的sql攻击/" data-title="数据储存区常见攻击(一) | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/22/常见的sql攻击/" data-title="《黑客攻防技术宝典 Web实战篇（第2版）》读后总结（第1部分） | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -248,22 +248,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注入解释性语言"><span class="toc-number">1.</span> <span class="toc-text">注入解释性语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#避开登录"><span class="toc-number">1.1.</span> <span class="toc-text">避开登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL注入"><span class="toc-number">2.</span> <span class="toc-text">SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用基本漏洞"><span class="toc-number">2.1.</span> <span class="toc-text">利用基本漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入不同语句类型"><span class="toc-number">2.2.</span> <span class="toc-text">注入不同语句类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SELECT语句"><span class="toc-number">2.2.1.</span> <span class="toc-text">SELECT语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INSERT语句"><span class="toc-number">2.2.2.</span> <span class="toc-text">INSERT语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UPDATE语句"><span class="toc-number">2.2.3.</span> <span class="toc-text">UPDATE语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DELETE语句"><span class="toc-number">2.2.4.</span> <span class="toc-text">DELETE语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#避开过滤"><span class="toc-number">3.</span> <span class="toc-text">避开过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#避免使用被阻止的字符"><span class="toc-number">3.1.</span> <span class="toc-text">避免使用被阻止的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免使用简单确认"><span class="toc-number">3.2.</span> <span class="toc-text">避免使用简单确认</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用SQL注释"><span class="toc-number">3.3.</span> <span class="toc-text">使用SQL注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二阶SQL注入"><span class="toc-number">4.</span> <span class="toc-text">二阶SQL注入</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -308,7 +308,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -332,7 +332,7 @@
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/python/" title="python">python<sup>6</sup></a></li>
 			
 		
 			
@@ -340,7 +340,7 @@
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>4</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
@@ -348,7 +348,7 @@
 			
 		
 			
-				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+				<li><a href="/tags/djagno/" title="djagno">djagno<sup>2</sup></a></li>
 			
 		
 			
@@ -356,11 +356,15 @@
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -368,7 +372,7 @@
 			
 		
 			
-				<li><a href="/tags/job/" title="job">job<sup>1</sup></a></li>
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
 			
 		
 			
@@ -376,15 +380,11 @@
 			
 		
 			
-				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
 			
 		
 			
@@ -396,7 +396,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -478,7 +478,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -687,7 +687,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/miku.gif"/></a>
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
