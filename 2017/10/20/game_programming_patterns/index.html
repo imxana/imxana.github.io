@@ -18,8 +18,7 @@
 
 《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
 我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
-设计模式命令模式模式说明：略
-我的理解：将命令抽象化，虚拟命令内容和执行方法，具">
+设计模式命令模式模式说明：命令模式将“请求”封装成对象，以便使用不同的请求、队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读《游戏编程模式》">
 <meta property="og:url" content="http://yoursite.com/2017/10/20/game_programming_patterns/index.html">
@@ -31,9 +30,8 @@
 
 《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
 我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
-设计模式命令模式模式说明：略
-我的理解：将命令抽象化，虚拟命令内容和执行方法，具">
-<meta property="og:updated_time" content="2017-10-22T14:38:12.000Z">
+设计模式命令模式模式说明：命令模式将“请求”封装成对象，以便使用不同的请求、队列">
+<meta property="og:updated_time" content="2017-10-24T15:14:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《游戏编程模式》">
 <meta name="twitter:description" content="写一点更一点 更新时间不定
@@ -43,8 +41,7 @@
 
 《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
 我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
-设计模式命令模式模式说明：略
-我的理解：将命令抽象化，虚拟命令内容和执行方法，具">
+设计模式命令模式模式说明：命令模式将“请求”封装成对象，以便使用不同的请求、队列">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -69,7 +66,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -107,14 +104,14 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T14:16:24.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
+    <time datetime="2017-10-20T14:16:24.000Z" itemprop="datePublished"> 發表於 2017-10-20</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">4.4.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">4.5.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">4.6.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">5.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">5.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">5.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">5.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">5.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">6.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
 		
@@ -128,23 +125,45 @@
 </blockquote>
 <p>《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。</p>
 <p>我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。</p>
-<h1 id="设计模式">设计模式</h1><h2 id="命令模式">命令模式</h2><p>模式说明：略</p>
+<h1 id="设计模式">设计模式</h1><h2 id="命令模式">命令模式</h2><p>模式说明：命令模式将“请求”封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象，同时支持可撤消的操作。</p>
 <p>我的理解：将命令抽象化，虚拟命令内容和执行方法，具体命令实现执行方法，之后将按键指针指向它；相当于增加一个间接调用层。如果将具体命令设计为需要传入角色参数（原来相当于默认主角），那么可以同时作为AI引擎与角色之间的接口，AI代码仅提供Commands以驱动，解除紧耦合。/每次命令时仅记录行为而非状态（游戏录像文件不大的原因），支持多次撤销的话，把记录类型改为队列即可。</p>
 <p>举例说明：游戏按键绑定修改/策略游戏的撤销操作</p>
-<h2 id="享元模式">享元模式</h2><p>模式说明：略</p>
-<p>我的理解：将对象分割成两个独立的类，一个通用类（model），一个实例类（保存指向通用类的一个指针），将数据存于内存中是个好办法，但对于渲染毫无助益。无论是Direct3D和OpenGL都能实现实例绘制，这两种API中都需要提供两种数据（通用数据&amp;实例列表）。/将地形相关的方法写在地形类中，而不是在世界对象的地形列表中取出枚举数据再判断逻辑而决定方法，因为这样符合OO思想，而且世界对象中不使用枚举，而使用指针，因为内存开销要小得多。</p>
+<h2 id="享元模式">享元模式</h2><p>模式说明：享元模式，以共享的方式高效地支持大量的细粒度的对象。通过复用内存中已存在的对象，降低系统创建对象实例的性能消耗。</p>
+<p>我的理解：将对象分割成两个独立的类，一个通用类（model）记录不变部分，一个实例类（保存指向通用类的一个指针）记录可变部分。将数据存于内存中是个好办法，但对于渲染毫无助益。无论是Direct3D和OpenGL都能实现实例绘制，这两种API中都需要提供两种数据（通用数据&amp;实例列表）。/将地形相关的方法写在地形类中，而不是在世界对象的地形列表中取出枚举数据再判断逻辑而决定方法，因为这样符合OO思想，而且世界对象中不使用枚举，而使用指针，因为内存开销要小得多。</p>
 <p>模式举例：渲染森林树木/瓦片地形技术</p>
-<h2 id="观察者模式">观察者模式</h2><p>模式说明：略</p>
+<h2 id="观察者模式">观察者模式</h2><p>模式说明：观察者模式定义了对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</p>
 <p>我的理解：被观察者对象（Subject）有两个职责，它拥有一个观察者（Observer）列表，以及暴露用来修改观察者列表的共有API，这样允许外部代码来控制谁可以接受通知；另一个职责就是发送通知。程序员潜意识里认为，『通知』太慢了，其实只要不是性能瓶颈的地方，它只是同步方法的间接实现，并没有什么开销。为了避免僵尸UI，最后学到的经验就是及时删除观察者。另外，程序员关心内存碎片回收胜于内存分配（如果你希望你的游戏能够运行相当长的一段时间的话）</p>
 <p>模式举例：成就解锁功能/APP的UI界面响应/角色面板血条变化</p>
-<h2 id="原型模式">原型模式</h2><p>模式说明：略（你精通JS各种工厂模式的话，可以跳过这一章）</p>
-<p>我的理解：不为所有独立的对象都写一个继承基础对象生成器的特殊对象生成器，而是在基类上描述一个虚拟的clone()方法，给每一个子类都提供返回给自身类型和状态相同对象的方法；这样一旦子类实现这个接口，只需要定义一个类就好了。一开始只需要创建一个原型，然后将其作为生成器即可。（当然clone没那么好写，比如深浅拷贝的问题）</p>
+<h2 id="原型模式">原型模式</h2><p>模式说明：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象（你精通JS各种工厂模式的话，可以跳过这一章）</p>
+<p>我的理解：不为所有独立的对象都写一个继承基础对象生成器的特殊对象生成器（比如GhostSpawner::Spawner），而是在基类上描述一个虚拟的clone()方法，给每一个子类都提供返回给自身类型和状态相同对象的方法；这样一旦任何子类实现这个接口，只需要实例化出一个原型，然后将其作为生成器即可。（当然clone没那么好写，比如深浅拷贝的问题）</p>
 <p>模式举例：怪物生成器/孵化函数</p>
 <h2 id="单例模式">单例模式</h2><p>模式说明：确保一个类只有一个实例，并为其提供一个全局访问入口。</p>
-<p>我的理解：这是一个有争议的模式</p>
+<p>我的理解：这是一个有争议的模式。它的优点如下：不使用就不创建；运行时才初始化；单例可以被继承扩展（比如跨平台的文件系统）。它的缺点也很明显：1. 它是一个全局变量。它令代码晦涩难懂；全局变量促进了耦合；它对并发不友好。2. 它是一个画蛇添足的方案。全局变量访问很方便，但对于允许多个实例的类，访问也并不麻烦，而且不利于多人开发沟通。3. 延迟初始化剥离了你的控制。使用静态函数比使用单例简单，而且还能表面你在使用静态内存。</p>
+<p>建议做法：面向对象就是让对象自己管理自己，从对象思考是否需要类；用检测来防止创建多个实例；为实例提供便捷的访问方式：传入参数（比如上下文）、从基类获取、封装全局对象。</p>
 <p>模式举例：全局变量</p>
-<h2 id="状态模式">状态模式</h2><h1 id="序列型模式">序列型模式</h1><h2 id="双缓冲">双缓冲</h2><h2 id="游戏循环">游戏循环</h2><h2 id="更新方法">更新方法</h2><h1 id="行为型模式">行为型模式</h1><h2 id="字节码">字节码</h2><h2 id="子类沙盒">子类沙盒</h2><h2 id="类型对象">类型对象</h2><h2 id="组件模式">组件模式</h2><h2 id="事件队列">事件队列</h2><h2 id="服务定位器">服务定位器</h2><h1 id="优化型模式">优化型模式</h1><h2 id="数据局部性">数据局部性</h2><h2 id="脏标记模式">脏标记模式</h2><h2 id="对象池">对象池</h2><h2 id="空间分区">空间分区</h2><h1 id="笔记更新记录">笔记更新记录</h1><p>2017-10-20 文章大致结构 概述 命令模式 （终于决定开始写博客</p>
+<h2 id="状态模式">状态模式</h2><p>模式说明：允许对象在当内部状态改变时改变其行为，就好像此对象改变了自己的类一样</p>
+<p>我的理解：有限状态机（借鉴了图灵机）相当于一种状态流程图；状态枚举优于分支，用状态判断逻辑能有效封装代码。状态模式下，为每一个状态定义一个类，在需要多状态对的象中私有一个状态对象用于委托，在这种情况下，推荐使用静态状态，也可以使用实例化状态。同时可以进一步封装，把状态进入和退出函数暴露以提供支持。并发状态机用于支持不同系统间的状态；层次状态机以继承的方式处理类似的状态；下推自动机用栈记录上一次操作前的状态。</p>
+<p>模式举例：横版游戏主角动作逻辑</p>
+<h1 id="序列型模式">序列型模式</h1><h2 id="双缓冲">双缓冲</h2><p>模式说明：使用序列操作来模拟瞬间或者同时发生的事情</p>
+<p>我的理解：在一个不断被写入和读出的数据内存中，为了避免读出过快导致信息不完整，使用两块内存用于写入且在每次读出后交替指针，这样能够保证每次读出数据的完整性。</p>
+<p>模式举例：图形渲染的帧缓冲区交换，以及任何适用双缓冲的模式</p>
+<h2 id="游戏循环">游戏循环</h2><p>模式说明：游戏循环模式，实现游戏运行过程中对用户输入处理和时间处理的解耦。</p>
+<p>我的理解：</p>
+<p>模式举例：任何游戏或游戏引擎都拥有自己的游戏循环，因为游戏循环是游戏运行的主心骨。 </p>
+<h2 id="更新方法">更新方法</h2><p>模式说明：更新方法，通过每次处理一帧的行为来模拟一系列独立对象。</p>
+<h1 id="行为型模式">行为型模式</h1><h2 id="字节码">字节码</h2><p>模式说明：字节码模式，将行为编码为虚拟机器上的指令，来赋予其数据的灵活性。从而让数据易于修改，易于加载，并与其他可执行部分相隔离。</p>
+<h2 id="子类沙盒">子类沙盒</h2><p>模式说明：用一系列由基类提供的操作定义子类中的行为。</p>
+<h2 id="类型对象">类型对象</h2><p>模式说明：创造一个类A来允许灵活的创造新的类，而类A的每个实例都代表了不同类型的对象。</p>
+<h2 id="组件模式">组件模式</h2><p>模式说明：允许单一的实体跨越多个领域，无需这些领域彼此耦合。</p>
+<h2 id="事件队列">事件队列</h2><p>模式说明：事件队列模式，对消息或事件的发送与处理进行时间上的解耦。</p>
+<h2 id="服务定位器">服务定位器</h2><p>模式说明：提供服务的全局接入点，而不必让用户和实现它的具体类耦合。</p>
+<h1 id="优化型模式">优化型模式</h1><h2 id="数据局部性">数据局部性</h2><p>模式说明：合理组织数据，充分使用CPU的缓存来加速内存读取。</p>
+<h2 id="脏标记模式">脏标记模式</h2><p>模式说明：将工作延期至需要其结果时才去执行，以避免不必要的工作。</p>
+<h2 id="对象池">对象池</h2><p>模式说明：放弃单独地分配和释放对象，从固定的池中重用对象，以提高性能和内存使用率。</p>
+<h2 id="空间分区">空间分区</h2><p>模式说明：将对象存储在基于位置组织的数据结构中，来有效的定位对象。</p>
+<h1 id="笔记更新记录">笔记更新记录</h1><p>2017-10-20 文章大致结构 概述 命令模式 （终于决定开始写博客</p>
 <p>2017-10-21 至 单例模式</p>
+<p>2017-10-24 至 游戏循环</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -197,22 +216,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">文章目錄</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">4.4.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">4.5.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">4.6.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">5.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">5.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">5.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">5.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">5.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">6.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -257,7 +276,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			
@@ -345,7 +364,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -427,7 +446,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -636,7 +655,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/miku.gif"/></a>
+	<a title="返回頂部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
