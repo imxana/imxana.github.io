@@ -24,7 +24,7 @@
 命令模式模式说明：命令模式将“请">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读《游戏编程模式》">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/game_programming_patterns/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/11/05/game_programming_patterns/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="写一点更一点 更新时间不定
 
@@ -37,7 +37,7 @@
 设计模式：可复用面向对象软件的基础
 
 命令模式模式说明：命令模式将“请">
-<meta property="og:updated_time" content="2017-11-04T08:22:33.000Z">
+<meta property="og:updated_time" content="2017-11-05T10:41:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《游戏编程模式》">
 <meta name="twitter:description" content="写一点更一点 更新时间不定
@@ -75,7 +75,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -91,7 +91,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -106,21 +106,21 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/20/game_programming_patterns/" title="读《游戏编程模式》" itemprop="url">读《游戏编程模式》</a>
+      <a href="/2017/11/05/game_programming_patterns/" title="读《游戏编程模式》" itemprop="url">读《游戏编程模式》</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T14:16:24.000Z" itemprop="datePublished"> Published 2017-10-20</time>
+    <time datetime="2017-11-05T14:16:24.000Z" itemprop="datePublished"> 发表于 2017-11-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解耦型模式"><span class="toc-number">5.</span> <span class="toc-text">解耦型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">5.1.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">5.2.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">5.3.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">6.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">6.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">6.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">6.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">6.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">7.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
 		
@@ -187,17 +187,34 @@
 <p>我的理解：在定义实例类之前，先定义更加通用的类，把各个系统抽象化为组件，为减少耦合把组件作为参数传入。组件之间的通信可以之间引用，也可以通过一个信息传递系统通过广播建立联系。</p>
 <p>举例：Unity的GameObject设计</p>
 <h2 id="事件队列">事件队列</h2><p>模式说明：事件队列模式，对消息或事件的发送与处理进行时间上的解耦。</p>
+<p>我的理解：以播放游戏音效举例，我们在主游戏循环或者专门的声音线程调用Audio.update()（参考更新方法模式）来播放声音，但是我们需要一个真正的队列。使用环状缓冲区来模拟队列。汇总请求，将与当前等待处理的请求相符的请求进行合并（播放同一个音乐，入列而不是处理时合并）。对于同步音频API，要保证队列不被同步修改（基本上就在阻塞处理进程时锁住update()）。</p>
+<p>举例：中心事件总线模拟『教程引导』事件；播放游戏声音</p>
 <h2 id="服务定位器">服务定位器</h2><p>模式说明：提供服务的全局接入点，而不必让用户和实现它的具体类耦合。</p>
-<h1 id="优化型模式">优化型模式</h1><h2 id="数据局部性">数据局部性</h2><p>模式说明：合理组织数据，充分使用CPU的缓存来加速内存读取。</p>
+<p>我的理解：在某个需要服务的时候，我们往往实例化服务对象，但是这样变得耦合。把对象传入参数很直观，但是不优雅，比如渲染代码参数应该与渲染相关，而不是什么日志系统那样的东西。所以我们使用服务定位器，举例：抽象接口类Audio，实现类ConsoleAudio:Audio，用一个Locator类的provide(Audio* service)加载它， getAudio()去定位它，这样audio对ConsoleAudio的实现毫不知情，它只知道Audio的抽象接口。在未加载服务之前，一个解决方案是提供空服务(NullAudio:Audio)。</p>
+<p>同时，此方法的优雅之初在于它可以用装饰器模式实现过滤信息。（替换Locator中的service_的Audio子类）</p>
+<p>适用对象：需要多处被跨域调用的代码</p>
+<h1 id="优化型模式">优化型模式</h1><blockquote>
+<p>列举一些常用来优化加速游戏的几个中级模式</p>
+</blockquote>
+<h2 id="数据局部性">数据局部性</h2><p>模式说明：合理组织数据，充分使用CPU的缓存来加速内存读取。</p>
+<p>我的理解：这个很好理解，因为CPU比RAM要快的多，所以缓存速度决定了瓶颈。将类似的数据放在连续的内存上（比如集合每个实例的相同部分的组件，虽然这反面向对象），而不是散落在整个内存中，使一次读取能命中多个有效数据。遍历无序数据时可以在修改时的有序排列代替标志筛选，某些情况下在内存中移动数据的开销其实是很小的（指针集合灵活，但对缓存不友好，反对重度继承）。</p>
+<p>本模式与组件模式一起使用，优化缓存的最常见方案。</p>
+<p>适用对象：游戏实体组件</p>
 <h2 id="脏标记模式">脏标记模式</h2><p>模式说明：将工作延期至需要其结果时才去执行，以避免不必要的工作。</p>
+<p>我的理解：将多次类似的计算合并以减少逻辑复杂度，比如相对移动就可以通过递归延时重算子节点的位移。但是何时清除标记（计算结果时/检查点/后台计时器）和脏标记追踪的粒度大小是需要思考的。</p>
+<p>模式举例：处理局部变换和世界变换，文本编辑器的自动保存</p>
 <h2 id="对象池">对象池</h2><p>模式说明：放弃单独地分配和释放对象，从固定的池中重用对象，以提高性能和内存使用率。</p>
+<p>我的理解：</p>
+<p>使用情境：</p>
 <h2 id="空间分区">空间分区</h2><p>模式说明：将对象存储在基于位置组织的数据结构中，来有效的定位对象。</p>
+<p>我的理解</p>
 <h1 id="笔记更新记录">笔记更新记录</h1><p>2017-10-20 文章大致结构 概述 命令模式 （终于决定开始写博客</p>
 <p>2017-10-21 至 单例模式</p>
 <p>2017-10-24 至 游戏循环</p>
 <p>2017-10-30 书已经看至18章，玩巫师3中</p>
 <p>2017-11-3 仍旧沉迷昆特牌</p>
 <p>2017-11-4 至 组件模式</p>
+<p>2017-11-5 至 对象池</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -215,7 +232,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/20/game_programming_patterns/" data-title="读《游戏编程模式》 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/11/05/game_programming_patterns/" data-title="读《游戏编程模式》 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -228,19 +245,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/23/tw_think/" title="看了100+小时的蓝营政治新闻节目有感">
-  <strong>上一篇：</strong><br/>
-  <span>
-  看了100+小时的蓝营政治新闻节目有感</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/13/roll_a_ball/"  title="U3D Beginner">
+<a href="/2017/10/23/tw_think/"  title="看了100+小时的蓝营政治新闻节目有感">
  <strong>下一篇：</strong><br/> 
- <span>U3D Beginner
+ <span>看了100+小时的蓝营政治新闻节目有感
 </span>
 </a>
 </div>
@@ -250,22 +259,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解耦型模式"><span class="toc-number">5.</span> <span class="toc-text">解耦型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">5.1.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">5.2.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">5.3.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">6.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">6.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">6.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">6.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">6.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">7.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -310,7 +319,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -398,7 +407,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -480,7 +489,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -689,7 +698,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
