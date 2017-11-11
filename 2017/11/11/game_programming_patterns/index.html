@@ -1,0 +1,720 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>读《游戏编程模式》 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="写一点更一点 更新时间不定
+
+概述
+选书一般先看作者。
+
+《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
+我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
+设计模式
+设计模式：可复用面向对象软件的基础
+
+命令模式模式说明：命令模式将“请求”封装成对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读《游戏编程模式》">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/game_programming_patterns/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="写一点更一点 更新时间不定
+
+概述
+选书一般先看作者。
+
+《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
+我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
+设计模式
+设计模式：可复用面向对象软件的基础
+
+命令模式模式说明：命令模式将“请求”封装成对">
+<meta property="og:updated_time" content="2017-11-11T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读《游戏编程模式》">
+<meta name="twitter:description" content="写一点更一点 更新时间不定
+
+概述
+选书一般先看作者。
+
+《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。
+我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。
+设计模式
+设计模式：可复用面向对象软件的基础
+
+命令模式模式说明：命令模式将“请求”封装成对">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/11/11/game_programming_patterns/" title="读《游戏编程模式》" itemprop="url">读《游戏编程模式》</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-11T02:16:24.000Z" itemprop="datePublished"> Published 2017-11-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解耦型模式"><span class="toc-number">5.</span> <span class="toc-text">解耦型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">5.1.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">5.2.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">5.3.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">6.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">6.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">6.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">6.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">6.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">7.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>写一点更一点 更新时间不定</p>
+</blockquote>
+<h1 id="概述">概述</h1><blockquote>
+<p>选书一般先看作者。</p>
+</blockquote>
+<p>《游戏编程模式》的作者是一个从小学开始写游戏的全平台游戏开发者，这样一个超过20年编程经验的从业人员，对游戏开发的理解已经超出很多客观因素的见识限制。</p>
+<p>我需要寻找的就是这种万千世界中纷纷扰扰、风格各异的规律中寻找普世的，相同的、漂亮而易用的规律。</p>
+<h1 id="设计模式">设计模式</h1><blockquote>
+<p>设计模式：可复用面向对象软件的基础</p>
+</blockquote>
+<h2 id="命令模式">命令模式</h2><p>模式说明：命令模式将“请求”封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象，同时支持可撤消的操作。</p>
+<p>我的理解：将命令抽象化，虚拟命令内容和执行方法，具体命令实现执行方法，之后将按键指针指向它；相当于增加一个间接调用层。如果将具体命令设计为需要传入角色参数（原来相当于默认主角），那么可以同时作为AI引擎与角色之间的接口，AI代码仅提供Commands以驱动，解除紧耦合。/每次命令时仅记录行为而非状态（游戏录像文件不大的原因），支持多次撤销的话，把记录类型改为队列即可。</p>
+<p>举例说明：游戏按键绑定修改/策略游戏的撤销操作</p>
+<h2 id="享元模式">享元模式</h2><p>模式说明：享元模式，以共享的方式高效地支持大量的细粒度的对象。通过复用内存中已存在的对象，降低系统创建对象实例的性能消耗。</p>
+<p>我的理解：将对象分割成两个独立的类，一个通用类（model）记录不变部分，一个实例类（保存指向通用类的一个指针）记录可变部分。将数据存于内存中是个好办法，但对于渲染毫无助益。无论是Direct3D和OpenGL都能实现实例绘制，这两种API中都需要提供两种数据（通用数据&amp;实例列表）。/将地形相关的方法写在地形类中，而不是在世界对象的地形列表中取出枚举数据再判断逻辑而决定方法，因为这样符合OO思想，而且世界对象中不使用枚举，而使用指针，因为内存开销要小得多。</p>
+<p>模式举例：渲染森林树木/瓦片地形技术</p>
+<h2 id="观察者模式">观察者模式</h2><p>模式说明：观察者模式定义了对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</p>
+<p>我的理解：被观察者对象（Subject）有两个职责，它拥有一个观察者（Observer）列表，以及暴露用来修改观察者列表的共有API，这样允许外部代码来控制谁可以接受通知；另一个职责就是发送通知。程序员潜意识里认为，『通知』太慢了，其实只要不是性能瓶颈的地方，它只是同步方法的间接实现，并没有什么开销。为了避免僵尸UI，最后学到的经验就是及时删除观察者。另外，程序员关心内存碎片回收胜于内存分配（如果你希望你的游戏能够运行相当长的一段时间的话）</p>
+<p>模式举例：成就解锁功能/APP的UI界面响应/角色面板血条变化</p>
+<h2 id="原型模式">原型模式</h2><p>模式说明：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象（你精通JS各种工厂模式的话，可以跳过这一章）</p>
+<p>我的理解：不为所有独立的对象都写一个继承基础对象生成器的特殊对象生成器（比如GhostSpawner::Spawner），而是在基类上描述一个虚拟的clone()方法，给每一个子类都提供返回给自身类型和状态相同对象的方法；这样一旦任何子类实现这个接口，只需要实例化出一个原型，然后将其作为生成器即可。（当然clone没那么好写，比如深浅拷贝的问题）</p>
+<p>模式举例：怪物生成器/孵化函数</p>
+<h2 id="单例模式">单例模式</h2><p>模式说明：确保一个类只有一个实例，并为其提供一个全局访问入口。</p>
+<p>我的理解：这是一个有争议的模式。它的优点如下：不使用就不创建；运行时才初始化；单例可以被继承扩展（比如跨平台的文件系统）。它的缺点也很明显：1. 它是一个全局变量。它令代码晦涩难懂；全局变量促进了耦合；它对并发不友好。2. 它是一个画蛇添足的方案。全局变量访问很方便，但对于允许多个实例的类，访问也并不麻烦，而且不利于多人开发沟通。3. 延迟初始化剥离了你的控制。使用静态函数比使用单例简单，而且还能表面你在使用静态内存。</p>
+<p>建议做法：面向对象就是让对象自己管理自己，从对象思考是否需要类；用检测来防止创建多个实例；为实例提供便捷的访问方式：传入参数（比如上下文）、从基类获取、封装全局对象。</p>
+<p>模式举例：全局变量</p>
+<h2 id="状态模式">状态模式</h2><p>模式说明：允许对象在当内部状态改变时改变其行为，就好像此对象改变了自己的类一样</p>
+<p>我的理解：有限状态机（借鉴了图灵机）相当于一种状态流程图；状态枚举优于分支，用状态判断逻辑能有效封装代码。状态模式下，为每一个状态定义一个类，在需要多状态对的象中私有一个状态对象用于委托，在这种情况下，推荐使用静态状态，也可以使用实例化状态。同时可以进一步封装，把状态进入和退出函数暴露以提供支持。并发状态机用于支持不同系统间的状态；层次状态机以继承的方式处理类似的状态；下推自动机用栈记录上一次操作前的状态。</p>
+<p>模式举例：横版游戏主角动作逻辑</p>
+<h1 id="序列型模式">序列型模式</h1><blockquote>
+<p>大多数游戏世界的特征是时间——虚拟世界按照自己的节奏运行着</p>
+</blockquote>
+<h2 id="双缓冲">双缓冲</h2><p>模式说明：使用序列操作来模拟瞬间或者同时发生的事情</p>
+<p>我的理解：在一个不断被写入和读出的数据内存中，为了避免读出过快导致信息不完整，使用两块内存用于写入且在每次读出后交替指针，这样能够保证每次读出数据的完整性。（说白了避免对同一块内存同时进行读写操作）</p>
+<p>模式举例：图形渲染的帧缓冲区交换，以及任何适用双缓冲的模式</p>
+<h2 id="游戏循环">游戏循环</h2><p>模式说明：游戏循环模式，实现游戏运行过程中对用户输入处理和时间处理的解耦</p>
+<p>我的理解：游戏时间步长是一个问题，你可以使用非同步的固定时长（受硬件和游戏复杂度影响），也可以同步的固定时长（省电，对移动端友好，但是太慢），也可以变步时长（适应平台，但是游戏变得不稳定不确定，尤其对物理和网络模块），或者定时更新、变时渲染（适配最强，太复杂）</p>
+<p>模式举例：任何游戏或游戏引擎都拥有自己的游戏循环，因为游戏循环是游戏运行的主心骨。 </p>
+<h2 id="更新方法">更新方法</h2><p>模式说明：更新方法，通过每次处理一帧的行为来模拟一系列独立对象</p>
+<p>我的理解：保持对象集合（更新期间谨慎处理新生和移除的对象），赋予每个对象自身的更新方法（放在组件类和代理类中，不要设置在实体类中），必要是设置独立集合来存放非激活对象。在更新时保持当前帧的状态以以防万一。</p>
+<p>模式举例：游戏更新帧中对新生、死亡物体的处理</p>
+<h1 id="行为型模式">行为型模式</h1><blockquote>
+<p>快速定义并提炼大量高质量而且可维护的行为。</p>
+</blockquote>
+<h2 id="字节码">字节码</h2><p>模式说明：字节码模式，将行为编码为虚拟机器上的指令，来赋予其数据的灵活性。从而让数据易于修改，易于加载，并与其他可执行部分相隔离。</p>
+<p>我的理解：设置虚拟机，使游戏不需要重新编译就进行调试（需要前端界面，解释器，甚至一门新的语言），避免程序和设计打架。（设计思想，比如RPG游戏测试战斗时制作一张战斗测试专用地图，通过对话修改数据）</p>
+<p>举例：修改数值测试时遇到的遥遥无期的编译问题</p>
+<h2 id="子类沙盒">子类沙盒</h2><p>模式说明：用一系列由基类提供的操作定义子类中的行为。</p>
+<p>我的理解：把一个有大量子类的基类定义出受保护抽象方法和预定义的操作集合，确保子类能够使用。子类间能更便捷地共享代码，继承耦合最小化。（基类方法过多，可以分流到辅助类中，基类仅提供辅助类的访问方法）</p>
+<p>举例：任何适用沙盒模式的情况</p>
+<h2 id="类型对象">类型对象</h2><p>模式说明：创造一个类来允许灵活的创造新的类，而类A的每个实例都代表了不同类型的对象。</p>
+<p>我的理解：抛开经典的面向对象，在繁琐的实例中尽量使其初始化于一个基类中，而不是各个继承的子类（一个类型一个类）。</p>
+<p>适用对象：不知道将来新的类型；不重新编译或者修改代码下，修改或添加新的类型</p>
+<h1 id="解耦型模式">解耦型模式</h1><blockquote>
+<p>模块代码的变化通常不会影响到另一块代码</p>
+</blockquote>
+<h2 id="组件模式">组件模式</h2><p>模式说明：允许单一的实体跨越多个领域，无需这些领域彼此耦合。</p>
+<p>我的理解：在定义实例类之前，先定义更加通用的类，把各个系统抽象化为组件，为减少耦合把组件作为参数传入。组件之间的通信可以之间引用，也可以通过一个信息传递系统通过广播建立联系。</p>
+<p>举例：Unity的GameObject设计</p>
+<h2 id="事件队列">事件队列</h2><p>模式说明：事件队列模式，对消息或事件的发送与处理进行时间上的解耦。</p>
+<p>我的理解：以播放游戏音效举例，我们在主游戏循环或者专门的声音线程调用Audio.update()（参考更新方法模式）来播放声音，但是我们需要一个真正的队列。使用环状缓冲区来模拟队列。汇总请求，将与当前等待处理的请求相符的请求进行合并（播放同一个音乐，入列而不是处理时合并）。对于同步音频API，要保证队列不被同步修改（基本上就在阻塞处理进程时锁住update()）。</p>
+<p>举例：中心事件总线模拟『教程引导』事件；播放游戏声音</p>
+<h2 id="服务定位器">服务定位器</h2><p>模式说明：提供服务的全局接入点，而不必让用户和实现它的具体类耦合。</p>
+<p>我的理解：在某个需要服务的时候，我们往往实例化服务对象，但是这样变得耦合。把对象传入参数很直观，但是不优雅，比如渲染代码参数应该与渲染相关，而不是什么日志系统那样的东西。所以我们使用服务定位器，举例：抽象接口类Audio，实现类ConsoleAudio:Audio，用一个Locator类的provide(Audio* service)加载它， getAudio()去定位它，这样audio对ConsoleAudio的实现毫不知情，它只知道Audio的抽象接口。在未加载服务之前，一个解决方案是提供空服务(NullAudio:Audio)。</p>
+<p>同时，此方法的优雅之初在于它可以用装饰器模式实现过滤信息。（替换Locator中的service_的Audio子类）</p>
+<p>适用对象：需要多处被跨域调用的代码</p>
+<h1 id="优化型模式">优化型模式</h1><blockquote>
+<p>列举一些常用来优化加速游戏的几个中级模式</p>
+</blockquote>
+<h2 id="数据局部性">数据局部性</h2><p>模式说明：合理组织数据，充分使用CPU的缓存来加速内存读取。</p>
+<p>我的理解：这个很好理解，因为CPU比RAM要快的多，所以缓存速度决定了瓶颈。将类似的数据放在连续的内存上（比如集合每个实例的相同部分的组件，虽然这反面向对象），而不是散落在整个内存中，使一次读取能命中多个有效数据。遍历无序数据时可以在修改时的有序排列代替标志筛选，某些情况下在内存中移动数据的开销其实是很小的（指针集合灵活，但对缓存不友好，反对重度继承）。</p>
+<p>本模式与组件模式一起使用，优化缓存的最常见方案。</p>
+<p>适用对象：游戏实体组件</p>
+<h2 id="脏标记模式">脏标记模式</h2><p>模式说明：将工作延期至需要其结果时才去执行，以避免不必要的工作。</p>
+<p>我的理解：将多次类似的计算合并以减少逻辑复杂度，比如相对移动就可以通过递归延时重算子节点的位移。但是何时清除标记（计算结果时/检查点/后台计时器）和脏标记追踪的粒度大小是需要思考的。</p>
+<p>模式举例：处理局部变换和世界变换，文本编辑器的自动保存</p>
+<h2 id="对象池">对象池</h2><p>模式说明：放弃单独地分配和释放对象，从固定的池中重用对象，以提高性能和内存使用率。</p>
+<p>我的理解：一开始就为即将实例对象集开辟一块专用的内存空间（对象池），并实现基于对象生命周期的构造和析构方法。使用空闲表（freelist）可以使未活跃的对象自身来提升性能</p>
+<p>使用情境：有频繁重用对象的情境</p>
+<h2 id="空间分区">空间分区</h2><p>模式说明：将对象存储在基于位置组织的数据结构中，来有效的定位对象。</p>
+<p>我的理解：将空间分为小的集合，以免遍历带来的损耗。为了边际的特殊情况，一般需要遍历周围的网格。根据分区与对象的依赖关系，可以采用固定分区，或者自适应分区（二叉空间分割，k-d树分割，四叉树分割）</p>
+<p>使用情境：对象的移动碰撞和相互影响（与距离有关的系统）</p>
+<h1 id="笔记更新记录">笔记更新记录</h1><p>2017-10-20 文章大致结构 概述 命令模式 （终于决定开始写博客</p>
+<p>2017-10-21 至 单例模式</p>
+<p>2017-10-24 至 游戏循环</p>
+<p>2017-10-30 书已经看至18章，玩巫师3中</p>
+<p>2017-11-3 仍旧沉迷昆特牌</p>
+<p>2017-11-4 至 组件模式</p>
+<p>2017-11-5 至 对象池</p>
+<p>2017-11-11 完</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/game/">game</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/11/11/game_programming_patterns/" data-title="读《游戏编程模式》 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/10/23/tw_think/"  title="看了100+小时的蓝营政治新闻节目有感">
+ <strong>下一篇：</strong><br/> 
+ <span>看了100+小时的蓝营政治新闻节目有感
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令模式"><span class="toc-number">2.1.</span> <span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#享元模式"><span class="toc-number">2.2.</span> <span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#观察者模式"><span class="toc-number">2.3.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.4.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">2.5.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态模式"><span class="toc-number">2.6.</span> <span class="toc-text">状态模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#序列型模式"><span class="toc-number">3.</span> <span class="toc-text">序列型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#双缓冲"><span class="toc-number">3.1.</span> <span class="toc-text">双缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏循环"><span class="toc-number">3.2.</span> <span class="toc-text">游戏循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新方法"><span class="toc-number">3.3.</span> <span class="toc-text">更新方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行为型模式"><span class="toc-number">4.</span> <span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节码"><span class="toc-number">4.1.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子类沙盒"><span class="toc-number">4.2.</span> <span class="toc-text">子类沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型对象"><span class="toc-number">4.3.</span> <span class="toc-text">类型对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解耦型模式"><span class="toc-number">5.</span> <span class="toc-text">解耦型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模式"><span class="toc-number">5.1.</span> <span class="toc-text">组件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件队列"><span class="toc-number">5.2.</span> <span class="toc-text">事件队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务定位器"><span class="toc-number">5.3.</span> <span class="toc-text">服务定位器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化型模式"><span class="toc-number">6.</span> <span class="toc-text">优化型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据局部性"><span class="toc-number">6.1.</span> <span class="toc-text">数据局部性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脏标记模式"><span class="toc-number">6.2.</span> <span class="toc-text">脏标记模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象池"><span class="toc-number">6.3.</span> <span class="toc-text">对象池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间分区"><span class="toc-number">6.4.</span> <span class="toc-text">空间分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记更新记录"><span class="toc-number">7.</span> <span class="toc-text">笔记更新记录</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/djagno/" title="djagno">djagno<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/politic/" title="politic">politic<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
