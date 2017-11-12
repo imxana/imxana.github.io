@@ -4,29 +4,44 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>计时器的正确用法 | XANA&#39;s Blog</title>
+    <title>读《Theory of Fun for Game Design》 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
-To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
-To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
+    <meta name="description" content="原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）
+
+写一点更一点 更新时间不定
+
+How our brains work
+对游戏的定义无助于设计师找到『快乐』，因为我们的大脑是 pattern-driven 的。
+
+大脑最擅长的事情是填补空白，这是通过目前所得信息，和之前累积的事物的基础上合理构造出来的，有一整套科学分支致力于解决这个问题。我们擅长描述脑中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计时器的正确用法">
-<meta property="og:url" content="http://yoursite.com/2015/05/16/计时器的正确用法/index.html">
+<meta property="og:title" content="读《Theory of Fun for Game Design》">
+<meta property="og:url" content="http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
-To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
-To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
-<meta property="og:updated_time" content="2015-05-17T07:18:19.000Z">
+<meta property="og:description" content="原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）
+
+写一点更一点 更新时间不定
+
+How our brains work
+对游戏的定义无助于设计师找到『快乐』，因为我们的大脑是 pattern-driven 的。
+
+大脑最擅长的事情是填补空白，这是通过目前所得信息，和之前累积的事物的基础上合理构造出来的，有一整套科学分支致力于解决这个问题。我们擅长描述脑中">
+<meta property="og:updated_time" content="2017-11-12T06:57:52.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计时器的正确用法">
-<meta name="twitter:description" content="Introduction之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。
-To think of it我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。
-To do this首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个Time">
+<meta name="twitter:title" content="读《Theory of Fun for Game Design》">
+<meta name="twitter:description" content="原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）
+
+写一点更一点 更新时间不定
+
+How our brains work
+对游戏的定义无助于设计师找到『快乐』，因为我们的大脑是 pattern-driven 的。
+
+大脑最擅长的事情是填补空白，这是通过目前所得信息，和之前累积的事物的基础上合理构造出来的，有一整套科学分支致力于解决这个问题。我们擅长描述脑中">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -82,14 +97,14 @@ To do this首先要引入Timer类，调用Timer里的schedule方法，这个方�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/05/16/计时器的正确用法/" title="计时器的正确用法" itemprop="url">计时器的正确用法</a>
+      <a href="/2017/11/12/Theory_of_Fun_for_Game_Design/" title="读《Theory of Fun for Game Design》" itemprop="url">读《Theory of Fun for Game Design》</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-16T15:14:51.000Z" itemprop="datePublished"> 发表于 2015-05-16</time>
+    <time datetime="2017-11-12T07:16:24.000Z" itemprop="datePublished"> 发表于 2017-11-12</time>
     
   </p>
 </header>
@@ -98,47 +113,48 @@ To do this首先要引入Timer类，调用Timer里的schedule方法，这个方�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_think_of_it"><span class="toc-number">2.</span> <span class="toc-text">To think of it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_do_this"><span class="toc-number">3.</span> <span class="toc-text">To do this</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How_our_brains_work"><span class="toc-number">1.</span> <span class="toc-text">How our brains work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What_games_are"><span class="toc-number">2.</span> <span class="toc-text">What games are</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新时间"><span class="toc-number">3.</span> <span class="toc-text">更新时间</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Introduction">Introduction</h2><p>之前一直想实现“技能冷却”效果，百度和论坛上一时间也搜不到什么好的方法，在宿舍和天花板交流了一会以后发现用一个简单的计时器即可。</p>
-<h2 id="To_think_of_it">To think of it</h2><p>我要使用一个技能fff()；这个技能需要放在一个布尔锁里，每当使用这个技能，就用一个计时器去控制布尔锁。</p>
-<h2 id="To_do_this">To do this</h2><p>首先要引入Timer类，调用Timer里的schedule方法，这个方法需要引进一个TimerTask类参数，和下一次执行的时间。</p>
-<p>运行环境:Processing-Java</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Timer;</div><div class="line"><span class="built_in">boolean</span> fA = <span class="keyword">true</span>;	<span class="comment">//fireAvailable</span></div><div class="line">Timer timer;</div><div class="line"><span class="comment">//这里的draw()用来即时激活keyPressed()函数</span></div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="built_in">keyPressed</span>() &#123;</div><div class="line">  fff();</div><div class="line">&#125;</div><div class="line"><span class="comment">//有汽油就烧！</span></div><div class="line"><span class="keyword">void</span> fff() &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">key</span> == <span class="string">'f'</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (fA) &#123;</div><div class="line">      <span class="built_in">println</span>(<span class="string">"FFFFFF!"</span>);</div><div class="line">      setTimer();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="built_in">println</span>(<span class="string">"Fire is not prepared, please wait 5s."</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//待我去买汽油</span></div><div class="line"><span class="keyword">void</span> setTimer() &#123;</div><div class="line">  fA = <span class="keyword">false</span>;</div><div class="line">  Timer timer = <span class="keyword">new</span> Timer();</div><div class="line">  timer.schedule(<span class="keyword">new</span> task(), <span class="number">5000</span>L);</div><div class="line">&#125;</div><div class="line"><span class="comment">//建立一个买汽油的任务</span></div><div class="line">class task extends java.util.TimerTask &#123;</div><div class="line">  <span class="keyword">void</span> run() &#123;</div><div class="line">    fA = <span class="keyword">true</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果</p>
-<pre><code>FFFFFF!
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-FFFFFF!
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, please <span class="keyword">wait</span> <span class="number">5</span>s.
-</code></pre><p>完美</p>
+		<p>原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）</p>
+<blockquote>
+<p>写一点更一点 更新时间不定</p>
+</blockquote>
+<h1 id="How_our_brains_work">How our brains work</h1><blockquote>
+<p>对游戏的定义无助于设计师找到『快乐』，因为我们的大脑是 pattern-driven 的。</p>
+</blockquote>
+<p>大脑最擅长的事情是填补空白，这是通过目前所得信息，和之前累积的事物的基础上合理构造出来的，有一整套科学分支致力于解决这个问题。我们擅长描述脑中的存在，却很难有意识地观察确实存在的东西，『cognitive theory』这个理论表述了『how we think we know what we think we know』，大部分都是叫做『chunking』概念的例子。</p>
+<p>『chunking』是我们一直在做的事情，比如我们能简单的描述从今天起床到上班的过程，但是很难想起细节，比如穿衣服的所有细节，你怎么扣纽扣的啊，你怎么撸袖子的啊。我们能够下意识地做这些事情，是因为这个程序已经在大脑中『chunking』化了，这个日常程序已经烧录到神经元上了，再也不用思考它了。</p>
+<blockquote>
+<p>当我们掌握了一个pattern，我们会厌倦它，并把它图标化。</p>
+</blockquote>
+<p>当『chunking』的事情不想我们期望那样运作时，这会让我陷入困境，甚至出大问题。比如汽车不像我们预期那样行进时，我们的迅速的反应程序就失灵了。因为有意识地思考效率很低，反应时间会成倍增加。如何在chunking化的世界中生活是一件有趣的事情，你可能怀疑自己现在是否真正在阅读。</p>
+<p>人们不喜欢混沌，我们喜欢秩序 —— 有一定结构或者略有变化的秩序，这在艺术作品上能很明显的看出来。宇宙中没有真正无『pattern』的事物，如果你觉得某些东西像噪音，这要从自己身上找原因。</p>
+<blockquote>
+<p>当我们看不到pattern时，就会垂头丧气，并且最终放弃</p>
+</blockquote>
+<p>举个例子，你从厌恶爵士乐，到一旦掌握它的pattern，你会发现快乐的一刻。到了真正投入其中时，你就将它『chunking』化了。</p>
+<blockquote>
+<p>一旦我们看出了一种pattern，我们就会追踪并在它重新出现的时候感到兴奋</p>
+</blockquote>
+<p>然而这并不意味着你已经掌握了爵士乐，从智力理解、直觉理解到完全理解(grok)，你还有很长的路要走。grok和肌肉记忆有相似之处，第一个级别是有意识、符合逻辑的思考，比如数学运算；第二个级别是缓慢的、综合的、联想的直觉的，它就是把大脑中把事物打包并chunking的那部分，它不一定正确，但它构造了现实的近似。最后一种是不思考，通过本能做出的一整套决定。</p>
+<blockquote>
+<p>『练习』做的越多，我们越少在思考我们在做什么（天马行空的梦！</p>
+</blockquote>
+<p>触类旁通大抵就是这样的例子，你精通一种乐器后，学习另外一种就不是什么难事。你甚至不需要身体去做，只需要想象，精神训练就能让你很快的达到目标。很明显这是大脑而不是肌肉在运作。</p>
+<p>我们的大脑在练习什么东西的时候，我们会梦到它。大脑的直觉部分会把神经系统烧录到大脑中，把最新的pattern转变为某些东西，并且把它和已知事物融为一体，最后将其变成一个日常程序。实际上大脑并不想特别为其重新处理一边。（重复训练是强化记录和补偿神经细胞的新陈代谢。）</p>
+<h1 id="What_games_are">What games are</h1><p>游戏往往被定义成一个虚拟的世界，但是它与我们大脑想象的事物有许多共同点。我们对现实的感知基本上就是对它的抽象，我们对一些游戏的规则和我们处理真实事物的方式完全一样，唯一不同的是一些细节。</p>
+<h1 id="更新时间">更新时间</h1><p>11-12 至 How our brains work</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Processing/">Processing</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Processing/">Processing</a><a href="/tags/Java/">Java</a>
+  <span></span> <a href="/tags/game/">game</a>
   </div>
 
 </div>
@@ -147,7 +163,7 @@ Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/05/16/计时器的正确用法/" data-title="计时器的正确用法 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/" data-title="读《Theory of Fun for Game Design》 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -160,19 +176,11 @@ Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, 
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/05/18/canvasAPI整理/" title="canvasAPI整理">
-  <strong>上一篇：</strong><br/>
-  <span>
-  canvasAPI整理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/19/我在geekLub上的自我介绍/"  title="我在geekLub上的自我介绍">
+<a href="/2017/11/11/game_programming_patterns/"  title="读《游戏编程模式》">
  <strong>下一篇：</strong><br/> 
- <span>我在geekLub上的自我介绍
+ <span>读《游戏编程模式》
 </span>
 </a>
 </div>
@@ -187,7 +195,7 @@ Fire <span class="keyword">is</span> <span class="keyword">not</span> prepared, 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_think_of_it"><span class="toc-number">2.</span> <span class="toc-text">To think of it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To_do_this"><span class="toc-number">3.</span> <span class="toc-text">To do this</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How_our_brains_work"><span class="toc-number">1.</span> <span class="toc-text">How our brains work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What_games_are"><span class="toc-number">2.</span> <span class="toc-text">What games are</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新时间"><span class="toc-number">3.</span> <span class="toc-text">更新时间</span></a></li></ol>
  
   </div>
 

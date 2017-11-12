@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/</loc>
+    
+    <lastmod>2017-11-12T06:57:52.088Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/11/game_programming_patterns/</loc>
     
     <lastmod>2017-11-11T02:47:02.000Z</lastmod>

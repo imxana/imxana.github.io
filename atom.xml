@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-11T02:47:02.000Z</updated>
+  <updated>2017-11-12T06:57:52.088Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读《Theory of Fun for Game Design》</title>
+    <link href="http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/"/>
+    <id>http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/</id>
+    <published>2017-11-12T07:16:24.000Z</published>
+    <updated>2017-11-12T06:57:52.088Z</updated>
+    
+    <content type="html"><![CDATA[<p>原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）</p>
+<blockquote>
+<p>写一点更一点 更新时间不定</p>
+</blockquote>
+<h1 id="How_our_brains_work">How our brains work</h1><blockquote>
+<p>对游戏的定义无助于设计师找到『快乐』，因为我们的大脑是 pattern-driven 的。</p>
+</blockquote>
+<p>大脑最擅长的事情是填补空白，这是通过目前所得信息，和之前累积的事物的基础上合理构造出来的，有一整套科学分支致力于解决这个问题。我们擅长描述脑中的存在，却很难有意识地观察确实存在的东西，『cognitive theory』这个理论表述了『how we think we know what we think we know』，大部分都是叫做『chunking』概念的例子。</p>
+<p>『chunking』是我们一直在做的事情，比如我们能简单的描述从今天起床到上班的过程，但是很难想起细节，比如穿衣服的所有细节，你怎么扣纽扣的啊，你怎么撸袖子的啊。我们能够下意识地做这些事情，是因为这个程序已经在大脑中『chunking』化了，这个日常程序已经烧录到神经元上了，再也不用思考它了。</p>
+<blockquote>
+<p>当我们掌握了一个pattern，我们会厌倦它，并把它图标化。</p>
+</blockquote>
+<p>当『chunking』的事情不想我们期望那样运作时，这会让我陷入困境，甚至出大问题。比如汽车不像我们预期那样行进时，我们的迅速的反应程序就失灵了。因为有意识地思考效率很低，反应时间会成倍增加。如何在chunking化的世界中生活是一件有趣的事情，你可能怀疑自己现在是否真正在阅读。</p>
+<p>人们不喜欢混沌，我们喜欢秩序 —— 有一定结构或者略有变化的秩序，这在艺术作品上能很明显的看出来。宇宙中没有真正无『pattern』的事物，如果你觉得某些东西像噪音，这要从自己身上找原因。</p>
+<blockquote>
+<p>当我们看不到pattern时，就会垂头丧气，并且最终放弃</p>
+</blockquote>
+<p>举个例子，你从厌恶爵士乐，到一旦掌握它的pattern，你会发现快乐的一刻。到了真正投入其中时，你就将它『chunking』化了。</p>
+<blockquote>
+<p>一旦我们看出了一种pattern，我们就会追踪并在它重新出现的时候感到兴奋</p>
+</blockquote>
+<p>然而这并不意味着你已经掌握了爵士乐，从智力理解、直觉理解到完全理解(grok)，你还有很长的路要走。grok和肌肉记忆有相似之处，第一个级别是有意识、符合逻辑的思考，比如数学运算；第二个级别是缓慢的、综合的、联想的直觉的，它就是把大脑中把事物打包并chunking的那部分，它不一定正确，但它构造了现实的近似。最后一种是不思考，通过本能做出的一整套决定。</p>
+<blockquote>
+<p>『练习』做的越多，我们越少在思考我们在做什么（天马行空的梦！</p>
+</blockquote>
+<p>触类旁通大抵就是这样的例子，你精通一种乐器后，学习另外一种就不是什么难事。你甚至不需要身体去做，只需要想象，精神训练就能让你很快的达到目标。很明显这是大脑而不是肌肉在运作。</p>
+<p>我们的大脑在练习什么东西的时候，我们会梦到它。大脑的直觉部分会把神经系统烧录到大脑中，把最新的pattern转变为某些东西，并且把它和已知事物融为一体，最后将其变成一个日常程序。实际上大脑并不想特别为其重新处理一边。（重复训练是强化记录和补偿神经细胞的新陈代谢。）</p>
+<h1 id="What_games_are">What games are</h1><p>游戏往往被定义成一个虚拟的世界，但是它与我们大脑想象的事物有许多共同点。我们对现实的感知基本上就是对它的抽象，我们对一些游戏的规则和我们处理真实事物的方式完全一样，唯一不同的是一些细节。</p>
+<h1 id="更新时间">更新时间</h1><p>11-12 至 How our brains work</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原标题：读《快乐之道—游戏设计的黄金法则》（无法忍受频繁的非专业名词翻译版，而去读了原版）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写一点更一点 更新时间不定&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;How_our_brains_work&quot;&gt;How our br
+    
+    </summary>
+    
+    
+      <category term="game" scheme="http://yoursite.com/tags/game/"/>
+    
+  </entry>
   
   <entry>
     <title>读《游戏编程模式》</title>
@@ -1537,41 +1590,6 @@
     
     
       <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【实验班】使用supervisor守护进程</title>
-    <link href="http://yoursite.com/2016/10/22/supervisor/"/>
-    <id>http://yoursite.com/2016/10/22/supervisor/</id>
-    <published>2016-10-22T03:55:59.000Z</published>
-    <updated>2016-12-29T11:26:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><del>误导向</del></p>
-<h2 id="Forward">Forward</h2><p>当初我一看到supervisor，第一反应是nodejs的那个supervisor，一个修改保存文件之后自动重启node应用的一个好用的小工具。然而这个supervisor是Linux上的用于守护进程的脚本（当然后来我才知道它是python写的）。</p>
-<h2 id="Easy_Start">Easy Start</h2><p>首先安装supervisor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install supervisord</div></pre></td></tr></table></figure></p>
-<p>然后执行<code>echo_supervisord_conf</code>，打印出默认sv的例子，并保持到默认路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo_supervisord_conf &gt; /etc/supervisord.conf</div></pre></td></tr></table></figure></p>
-<p>然后编辑<code>supervisord.conf</code>文件，以ec_forum为例，在文件最后添加下列内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[program:ec]</div><div class="line">command=python3 /root/workspace/service/ec_forum/app.py</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">stdout_logfile=/root/workspace/service/ec_forum/logs/supervisor_stdout.log</div><div class="line">stderr_logfile=/root/workspace/service/ec_forum/logs/supervisor_stderr.log</div></pre></td></tr></table></figure></p>
-<p>program 后面跟的是你的项目名，启动用。<br>比如重启应用，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">supervisorctl restart ec</div></pre></td></tr></table></figure></p>
-<p>command 你要执行的进程命令<br>autostart 自动启动<br>autorestart 自动重启<br>stdout_logfile 标准输出流（可选）<br>stderr_logfile 标准错误流（可选）</p>
-<p>这里输出流是服务器日志的重要来源</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;del&gt;误导向&lt;/del&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Forward&quot;&gt;Forward&lt;/h2&gt;&lt;p&gt;当初我一看到supervisor，第一反应是nodejs的那个supervisor，一个修改保存文件之后自动重启node应用的一个好用的小工具。然而这个supervisor
-    
-    </summary>
-    
-      <category term="python3" scheme="http://yoursite.com/categories/python3/"/>
-    
-    
-      <category term="实验班" scheme="http://yoursite.com/tags/%E5%AE%9E%E9%AA%8C%E7%8F%AD/"/>
-    
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
-      <category term="python3" scheme="http://yoursite.com/tags/python3/"/>
     
   </entry>
   
