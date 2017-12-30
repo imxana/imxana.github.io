@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/12/31/goodbye2017/</loc>
+    
+    <lastmod>2017-12-30T17:51:07.239Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/12/Theory_of_Fun_for_Game_Design/</loc>
     
-    <lastmod>2017-11-12T06:57:52.088Z</lastmod>
+    <lastmod>2017-11-12T07:08:21.827Z</lastmod>
     
   </url>
   
