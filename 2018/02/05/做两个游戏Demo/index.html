@@ -1,0 +1,638 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>做两个游戏Demo | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="Foreward在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。
+LLDPGame Design:
+在一条很长（至少隔两个屏幕）而不定（在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做两个游戏Demo">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/做两个游戏Demo/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="Foreward在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。
+LLDPGame Design:
+在一条很长（至少隔两个屏幕）而不定（在">
+<meta property="og:updated_time" content="2018-02-15T17:37:39.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="做两个游戏Demo">
+<meta name="twitter:description" content="Foreward在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。
+LLDPGame Design:
+在一条很长（至少隔两个屏幕）而不定（在">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/05/做两个游戏Demo/" title="做两个游戏Demo" itemprop="url">做两个游戏Demo</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2018-02-05T12:25:19.000Z" itemprop="datePublished"> Published 2018-02-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Foreward">Foreward</h1><p>在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。</p>
+<h1 id="LLDP">LLDP</h1><p>Game Design:</p>
+<p>在一条很长（至少隔两个屏幕）而不定（在射程内）的对战平台上，固定位置的对战双方轮流相互炮击，在尝试过程中，玩家需要找到最佳的射击角度和力度来攻击对手，击中时根据动能、动量或者其他依据来判定损失的血量。对战逻辑上本地多人比较简单，人机对战的AI使用某个经验模型*。</p>
+<p>*思考：为了避免简单二分法导致最后ai无限完美命中玩家，对AI采取和人类类似的经验方式，记射击修正范围为<code>[B+N(deltaD), B+P(deltaD)]</code>（每次过大过小修正时会倾向修改一个固定的数值，而且一般上一次操作的影响权重最大，上上次也会<code>有一定影响</code>，再之前基本就不计入计算了）；稳定射击修正为<code>[-deltaA+N(deltaD), +deltaA+P(deltaD)]</code>（而命中以后，会采用类似的数值，但是会有偏差，不确定偏大或偏小），</p>
+<p>注：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">P(x) = &#123; 0, x &lt;= 0      N(x) = &#123; x, x &lt;= 0</div><div class="line">       &#123; x, x &gt; 0              &#123; 0, x &gt; 0</div></pre></td></tr></table></figure></p>
+<p>需要回答的问题</p>
+<p>使用游戏物理引擎？否，所有物理变量可以自己掌握，不是性能问题，是掌控问题，需要自己写Debuger。</p>
+<p>以上</p>
+<p>必须解决的问题</p>
+<p>摄像机问题，摄像机需要不停的绑定不同的物体（或者主摄像在不停的相机间变换），还有第一视角和第三视角的切换</p>
+<p>回合控制问题，如果不考虑本地多人游戏的话，可以修改游戏模式，一机一角色的游戏方式根本用不着回合，加入一个内置的开火CD即可。（本地多人当然也可以，不过需要分屏）内置CD的方法比较简单，可以考虑先实现这个模式。</p>
+<p>以上，貌似没有疑问了，好，明天写出来</p>
+<p>Notes：根据以往的经验，实现时尽量避免犯一些经验主义的错误，比如过早优化，沉迷实现，在细节上纠结太久的时候，大概就要想想是不是走偏了……</p>
+<h2 id="version_0-1（2-6">version 0.1（2.6</h2><p>这个小于1的版本号是我另一个写了开头的打气球游戏，对于本游戏还没有任何的可玩性，但是能够分离出一些组件，1版本号代表已经可以有基本的完整玩法了。这个气球游戏大概内容是一个自由移动的主角和和一个自由视角的摄像机，我需要提取出摄像机部分的代码，顺便把这个未完成的场景变成一个实验池。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Game/">Game</a><a href="/tags/Unity/">Unity</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/02/05/做两个游戏Demo/" data-title="做两个游戏Demo | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/02/16/做两个游戏Demo（二）/" title="做两个游戏Demo（二）">
+  <strong>上一篇：</strong><br/>
+  <span>
+  做两个游戏Demo（二）</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/12/31/goodbye2017/"  title="二〇一七年年末总结">
+ <strong>下一篇：</strong><br/> 
+ <span>二〇一七年年末总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/game/" title="game">game<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
