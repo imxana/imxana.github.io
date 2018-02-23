@@ -19,7 +19,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="Foreward我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。
 LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
-<meta property="og:updated_time" content="2018-02-15T17:48:03.539Z">
+<meta property="og:updated_time" content="2018-02-23T20:34:39.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做两个游戏Demo（二）">
 <meta name="twitter:description" content="Foreward我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。
@@ -95,14 +95,18 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">2.2.</span> <span class="toc-text"> </span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<h1 id="Foreward">Foreward</h1><p>我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。</p>
 <h1 id="LLDP">LLDP</h1><h2 id="version_0-2（2-14">version 0.2（2.14</h2><p>到目前完成了条形飞行道具的抛物线运动和运动过程中的旋转变换，这里使用了<code>rigidbody</code>这个物理模型，通过赋予加速度和速度的方式来代替原本的数学公式计算。（有关物理引擎的计算要使用<code>FixedUpdate</code>中）</p>
 <p>优化了代码架构</p>
-<h2 id=""> </h2>  
+<h2 id="version_0-3(2-23">version 0.3(2.23</h2><p>完成飞行物体初始化（即发射），绑定到UI界面中。使用<code>Queue</code>对飞行道具数量进行有限控制，销毁掉队列头部的飞行道具从而控制一定数量</p>
+<p>重改并优化两个摄像机，自由视角摄像机(wasdSpaceCtrl+mouse)和鼠标控制左右边界平行拖动、滚轮缩放的远矩视角摄像机</p>
+<h2 id="version_1-0（2-24">version 1.0（2.24</h2><p>完成碰撞检测，主要是双方玩家、飞行道具(trigger)和地面碰撞器，以及盒型边界的接触回收。飞行初始参数可以控制但目前先使用范围随机参数。</p>
+<p>此游戏已经有基本的发射、飞行、命中操作。（到这里有点想弃坑了，不过还是把它搞完把</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -156,7 +160,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">2.2.</span> <span class="toc-text"> </span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li></ol></li></ol>
  
   </div>
 
