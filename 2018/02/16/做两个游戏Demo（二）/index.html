@@ -19,7 +19,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="Foreward我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。
 LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
-<meta property="og:updated_time" content="2018-02-23T20:34:39.958Z">
+<meta property="og:updated_time" content="2018-03-09T09:43:22.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做两个游戏Demo（二）">
 <meta name="twitter:description" content="Foreward我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。
@@ -95,7 +95,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-1"><span class="toc-number">2.4.</span> <span class="toc-text">version 1.1</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -106,6 +106,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 <p>重改并优化两个摄像机，自由视角摄像机(wasdSpaceCtrl+mouse)和鼠标控制左右边界平行拖动、滚轮缩放的远矩视角摄像机</p>
 <h2 id="version_1-0（2-24">version 1.0（2.24</h2><p>完成碰撞检测，主要是双方玩家、飞行道具(trigger)和地面碰撞器，以及盒型边界的接触回收。飞行初始参数可以控制但目前先使用范围随机参数。</p>
 <p>此游戏已经有基本的发射、飞行、命中操作。（到这里有点想弃坑了，不过还是把它搞完把</p>
+<h2 id="version_1-1">version 1.1</h2><p>给物体加上了一个血条，并使用脚本使血条永远对着摄像机。因为摄像机群管理是我自己写的一套工具，没有使用网上推荐的那种方法，所以不能使用<code>Camera.Current</code>来确定，所以在工具里暴露一个方法，return回当前的摄像机。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +120,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Game/">Game</a><a href="/tags/Unity/">Unity</a>
+  <span></span> <a href="/tags/Unity/">Unity</a><a href="/tags/Game/">Game</a>
   </div>
 
 </div>
@@ -141,6 +142,14 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2018/03/09/uchan-learn/" title="寒假结束了">
+  <strong>上一篇：</strong><br/>
+  <span>
+  寒假结束了</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2018/02/05/做两个游戏Demo/"  title="做两个游戏Demo">
@@ -160,7 +169,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-2（2-14"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.2（2.14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-3(2-23"><span class="toc-number">2.2.</span> <span class="toc-text">version 0.3(2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-0（2-24"><span class="toc-number">2.3.</span> <span class="toc-text">version 1.0（2.24</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version_1-1"><span class="toc-number">2.4.</span> <span class="toc-text">version 1.1</span></a></li></ol></li></ol>
  
   </div>
 
@@ -174,7 +183,7 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 		<ul>
 		
 		  
-			<li><a href="/categories/Game/" title="Game">Game<sup>2</sup></a></li>
+			<li><a href="/categories/Game/" title="Game">Game<sup>3</sup></a></li>
 		  
 		
 		  
@@ -187,8 +196,6 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 		
 		  
 			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
-		  
-		
 		  
 		
 		  
@@ -245,11 +252,11 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
@@ -257,15 +264,23 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 			
 		
 			
-				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Unity/" title="Unity">Unity<sup>3</sup></a></li>
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>4</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
 			
 		
 			
@@ -281,27 +296,19 @@ LLDPversion 0.2（2.14到目前完成了条形飞行道具的抛物线">
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/svn/" title="svn">svn<sup>1</sup></a></li>
 			
 		
 		</ul>

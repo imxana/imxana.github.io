@@ -4,22 +4,34 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>XANA&#39;s Blog</title>
+    <title>寒假结束了 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
     
 
     
-    <meta name="description" content="iOS/JS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XANA's Blog">
-<meta property="og:url" content="http://yoursite.com/page/10/index.html">
+    <meta name="description" content="跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子
+
+
+使用的组件人物模型：开源项目Unity-Chan（以下简称uchan)使用到的Unity标准库：Camera（MultipurposeCameraRig组件，使视角自动旋转跟踪角色后上方）Characters （第三人称人物Prefab，用uchan内的女性化动作代替模型内的男性动作）CrossPlatformInput（适配移动端的输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="寒假结束了">
+<meta property="og:url" content="http://yoursite.com/2018/03/09/uchan-learn/index.html">
 <meta property="og:site_name" content="XANA's Blog">
-<meta property="og:description" content="iOS/JS">
+<meta property="og:description" content="跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子
+
+
+使用的组件人物模型：开源项目Unity-Chan（以下简称uchan)使用到的Unity标准库：Camera（MultipurposeCameraRig组件，使视角自动旋转跟踪角色后上方）Characters （第三人称人物Prefab，用uchan内的女性化动作代替模型内的男性动作）CrossPlatformInput（适配移动端的输">
+<meta property="og:image" content="https://oi3qt7c8d.qnssl.com/uchan.gif">
+<meta property="og:updated_time" content="2018-03-09T17:38:26.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XANA's Blog">
-<meta name="twitter:description" content="iOS/JS">
+<meta name="twitter:title" content="寒假结束了">
+<meta name="twitter:description" content="跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子
+
+
+使用的组件人物模型：开源项目Unity-Chan（以下简称uchan)使用到的Unity标准库：Camera（MultipurposeCameraRig组件，使视角自动旋转跟踪角色后上方）Characters （第三人称人物Prefab，用uchan内的女性化动作代替模型内的男性动作）CrossPlatformInput（适配移动端的输">
+<meta name="twitter:image" content="https://oi3qt7c8d.qnssl.com/uchan.gif">
 <meta name="twitter:creator" content="@hdu_xana">
 
     
@@ -69,103 +81,99 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/02/cli/" title="cli" itemprop="url">
-  
-    <h1 itemprop="name">cli</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-           <p itemprop="description" >写属于你的命令行(CLI)工具
-
-可执行文件我们在平时使用Linux和类Linux的终端时，一般对一些系统指令的使用觉得十分自然，比如查看当前目录下的文件：12/usr » ls                                                   </p>
-        
+      <a href="/2018/03/09/uchan-learn/" title="寒假结束了" itemprop="url">寒假结束了</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-09T09:36:43.000Z" itemprop="datePublished"> Published 2018-03-09</time>
     
-    <time datetime="2015-11-02T07:58:31.000Z" itemprop="datePublished">2015-11-02</time>
-  </a>
-</section>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的组件"><span class="toc-number">1.</span> <span class="toc-text">使用的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需要了解的知识"><span class="toc-number">2.</span> <span class="toc-text">需要了解的知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境问题"><span class="toc-number">3.</span> <span class="toc-text">环境问题</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子</p>
+</blockquote>
+<p><img src="https://oi3qt7c8d.qnssl.com/uchan.gif" alt="uchan.gif"></p>
+<h2 id="使用的组件">使用的组件</h2><p>人物模型：开源项目Unity-Chan（以下简称uchan)<br>使用到的Unity标准库：<br>Camera（MultipurposeCameraRig组件，使视角自动旋转跟踪角色后上方）<br>Characters （第三人称人物Prefab，用uchan内的女性化动作代替模型内的男性动作）<br>CrossPlatformInput（适配移动端的输入，添加简单的摇杆和较大的按钮）</p>
+<h2 id="需要了解的知识">需要了解的知识</h2><p>人物状态机，即图，在满足某个某个条件后状态即从某个顶点到达另一个顶点。一个顶点可以是段固定动画，也可以是一个动作树。</p>
+<p>人物动画，是可以通过设置关键帧来进行组合剪辑来形成连贯的新动作。</p>
+<p>第三人称人物Prefab的移动Animation和uchan的移动Animation有设计上的差异，前者具有移动的地面和脚本参数的设置（比如双腿交替频率），而uchan只是一个动画，即原地踏步而已。所以需要在uchan的移动动画的首帧至末帧添加一个参数来表示速度（从前者地面移动速度中获取数值），然后在移动逻辑里添加这个移动的向量，并且修改一下脚本参数使移动看起来较为顺畅。</p>
+<h2 id="环境问题">环境问题</h2><p>mac版本的unity（5.3.4版本）目前因为苹果的新的文件格式APFS，导致Unity打开项目时显示Project为空，按照网上内容新建一个分区可解决。但还是存在text元素不显示的的问题，我开始以为是哪里代码的问题，后来发现所有以前的项目的text都不见了，在win上显示正常，所以仍然是Unity的问题。</p>
+<p>在win上利用AndroidStudio下载 Android-SDK 时卡住，在设置全局模式无效时，请不要使用国内乱七八糟的高校proxy，还是使用socks模式设置localhost:1080 靠谱的多。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
 
 
+  <div class="article-tags">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/10/26/dyc-py/" title="dyc.py" itemprop="url">
-  
-    <h1 itemprop="name">dyc.py</h1>
-    
-     
-           <p itemprop="description" >delete your comments写了一个删除注释的python脚本，能够通过正则匹配：文档注释：/** */区块注释：/* */单行注释：//注：无法识别字符串内的注释dyc_raw.py1234567891011121314__author__ = &amp;apos;xan</p>
-        
-    
-    <time datetime="2015-10-26T06:25:53.000Z" itemprop="datePublished">2015-10-26</time>
-  </a>
-</section>
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/08/31/一-实现N段跳/" title="(一)实现多段跳(airJump)" itemprop="url">
-  
-    <h1 itemprop="name">(一)实现多段跳(airJump)</h1>
-    
-     
-           <p itemprop="description" >刚刚回到学校，整个人都不好了
-Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的思考过程。
-变量说明123touching.down			// </p>
-        
-    
-    <time datetime="2015-08-31T02:12:11.000Z" itemprop="datePublished">2015-08-31</time>
-  </a>
-</section>
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/08/21/webServer/" title="A web server?But I want to make games!" itemprop="url">
-  
-    <h1 itemprop="name">A web server?But I want to make games!</h1>
-    
-     
-           <p itemprop="description" >By Richard Davey on 17th June 2014   @photonstorm
-In this tutorial we’re going to cover setting-up a development environment with which you </p>
-        
-    
-    <time datetime="2015-08-21T08:54:52.000Z" itemprop="datePublished">2015-08-21</time>
-  </a>
-</section>
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/08/03/Knowing_Phaser-js/" title="初识Phaser.js" itemprop="url">
-  
-    <h1 itemprop="name">初识Phaser.js</h1>
-    
-     
-           <p itemprop="description" >基础能吃人
-
-无意义的碎碎念之前花了一周左右的时间细读了《Pro HTML5 Games》这本书的前5章，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。
-没有任何基础的情况下（纯原生canvas），当初做一</p>
-        
-    
-    <time datetime="2015-08-03T12:59:58.000Z" itemprop="datePublished">2015-08-03</time>
-  </a>
-</section>
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/page/9/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/">Next<span></span></a>
-  </nav>
+  <span></span> <a href="/tags/Unity/">Unity</a><a href="/tags/Game/">Game</a>
+  </div>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/09/uchan-learn/" data-title="寒假结束了 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/02/16/做两个游戏Demo（二）/"  title="做两个游戏Demo（二）">
+ <strong>下一篇：</strong><br/> 
+ <span>做两个游戏Demo（二）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用的组件"><span class="toc-number">1.</span> <span class="toc-text">使用的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需要了解的知识"><span class="toc-number">2.</span> <span class="toc-text">需要了解的知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境问题"><span class="toc-number">3.</span> <span class="toc-text">环境问题</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -490,12 +498,69 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 
@@ -561,4 +626,4 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
