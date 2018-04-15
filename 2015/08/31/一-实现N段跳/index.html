@@ -53,7 +53,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -69,7 +69,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -91,39 +91,39 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-31T02:12:11.000Z" itemprop="datePublished"> Published 2015-08-31</time>
+    <time datetime="2015-08-31T02:12:11.000Z" itemprop="datePublished"> 发表于 2015-08-31</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END?"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
 		
 		</div>
 		
 		<p><del>刚刚回到学校，整个人都不好了</del></p>
-<h1 id="Forward">Forward</h1><p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/nduantiao.png" alt=""><br>一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的<code>思考过程</code>。</p>
-<h1 id="变量说明">变量说明</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">touching.down			<span class="comment">// 与下方物体接触 (boolean)</span></div><div class="line">cursor.up			<span class="comment">// 方向键的上箭头 (Object)</span></div><div class="line">player.body.velocity.y		<span class="comment">// 玩家的y轴速度 (Number)</span></div></pre></td></tr></table></figure>
-<h1 id="实现基本跳跃">实现基本跳跃</h1><p>玩家的默认操作，与左右行走相同，都是放在update函数(即时更新函数)里的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( cursors.up.isDown &amp;&amp; player.body.touching.down ) </div><div class="line">&#123;</div><div class="line">  player.body.velocity.y = <span class="number">-500</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="特别说明">特别说明</h1><p>和东方类游戏的”shift”集中状态一样，所有的操作都是布尔状态量！<br>例如向左行走，就是打开了velocity.x=-100的开关，而不是触发一次position.x-=100，哪怕位移间隔再小也不行。一个原因是行为的流畅度，第二个原因是计算的需要。<br>跳跃也是如此，cursors.up.isDown是按下上箭头这个状态，对于我们后续的计算不利，所以我们用原生的事件方法，把跳跃变成事件，这样对于一次按键只会触发一次事件，直到松开按键。</p>
-<h1 id="实现二段跳">实现二段跳</h1><h2 id="定义变量">定义变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> airJump = <span class="number">2</span>;		<span class="comment">//剩余跳跃次数，与地面接触即恢复为2</span></div></pre></td></tr></table></figure>
+<h1 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h1><p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/nduantiao.png" alt=""><br>一个横版过关游戏，相比于单纯的固定跳跃来说，多段跳能更好的让玩家自由、细致的操作。实现N段跳的过程并不太难，然而在思考的过程中，还是遇到了一些问题。下面是我对这个方法实现的<code>思考过程</code>。</p>
+<h1 id="变量说明"><a href="#变量说明" class="headerlink" title="变量说明"></a>变量说明</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">touching.down			<span class="comment">// 与下方物体接触 (boolean)</span></div><div class="line">cursor.up			<span class="comment">// 方向键的上箭头 (Object)</span></div><div class="line">player.body.velocity.y		<span class="comment">// 玩家的y轴速度 (Number)</span></div></pre></td></tr></table></figure>
+<h1 id="实现基本跳跃"><a href="#实现基本跳跃" class="headerlink" title="实现基本跳跃"></a>实现基本跳跃</h1><p>玩家的默认操作，与左右行走相同，都是放在update函数(即时更新函数)里的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( cursors.up.isDown &amp;&amp; player.body.touching.down ) </div><div class="line">&#123;</div><div class="line">  player.body.velocity.y = <span class="number">-500</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h1><p>和东方类游戏的”shift”集中状态一样，所有的操作都是布尔状态量！<br>例如向左行走，就是打开了velocity.x=-100的开关，而不是触发一次position.x-=100，哪怕位移间隔再小也不行。一个原因是行为的流畅度，第二个原因是计算的需要。<br>跳跃也是如此，cursors.up.isDown是按下上箭头这个状态，对于我们后续的计算不利，所以我们用原生的事件方法，把跳跃变成事件，这样对于一次按键只会触发一次事件，直到松开按键。</p>
+<h1 id="实现二段跳"><a href="#实现二段跳" class="headerlink" title="实现二段跳"></a>实现二段跳</h1><h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> airJump = <span class="number">2</span>;		<span class="comment">//剩余跳跃次数，与地面接触即恢复为2</span></div></pre></td></tr></table></figure>
 <p>并删去update()中原有的跳跃相关代码</p>
-<h2 id="phaser的监听方法">phaser的监听方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// now the key is listened (created())</span></div><div class="line">cursors.up.onDown.add(jump);</div></pre></td></tr></table></figure>
-<h2 id="jump函数">jump函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// if player touch the groud, jump-times reset</span></div><div class="line">  player.body.touching.down &amp;&amp; ( airJump = <span class="number">2</span> );	  </div><div class="line">  </div><div class="line">  <span class="keyword">switch</span>(airJump)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">2</span>: </div><div class="line">      player.body.velocity.y = <span class="number">-500</span>;</div><div class="line">      airJump = <span class="number">1</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">      player.body.velocity.y = <span class="number">-400</span>;</div><div class="line">      airJump = <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="debug">debug</h2><p>这种跳跃方法在平地上测试OK，在平台间测试有bug。<br>bug原因：由于测试时通过按下Jump来判断位置重置，因此从平台上落下时无法跳跃。<br>原本是为了性能从而把判断放在jump函数中，在需要跳跃时再去判断当前的位置，因为游戏运行时卡顿严重。后来发现开着调试窗口的原因。<br>解决了以上问题以后，把判断放在update中时，问题解决。</p>
-<h1 id="实现二段跳·改">实现二段跳·改</h1><h2 id="debug-1">debug</h2><p>有一定游戏经验的同学都知道，从平台上落下的时候只能触发二次airJump，而此函数在落下时保留了两段跳。从而导致下落二段跳是玩家能跳的非常远。于是我们把update函数中的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">player.body.touching.down &amp;&amp; ( airJump = <span class="number">2</span> );</div></pre></td></tr></table></figure></p>
+<h2 id="phaser的监听方法"><a href="#phaser的监听方法" class="headerlink" title="phaser的监听方法"></a>phaser的监听方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// now the key is listened (created())</span></div><div class="line">cursors.up.onDown.add(jump);</div></pre></td></tr></table></figure>
+<h2 id="jump函数"><a href="#jump函数" class="headerlink" title="jump函数"></a>jump函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// if player touch the groud, jump-times reset</span></div><div class="line">  player.body.touching.down &amp;&amp; ( airJump = <span class="number">2</span> );	  </div><div class="line">  </div><div class="line">  <span class="keyword">switch</span>(airJump)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">2</span>: </div><div class="line">      player.body.velocity.y = <span class="number">-500</span>;</div><div class="line">      airJump = <span class="number">1</span>;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">      player.body.velocity.y = <span class="number">-400</span>;</div><div class="line">      airJump = <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>这种跳跃方法在平地上测试OK，在平台间测试有bug。<br>bug原因：由于测试时通过按下Jump来判断位置重置，因此从平台上落下时无法跳跃。<br>原本是为了性能从而把判断放在jump函数中，在需要跳跃时再去判断当前的位置，因为游戏运行时卡顿严重。后来发现开着调试窗口的原因。<br>解决了以上问题以后，把判断放在update中时，问题解决。</p>
+<h1 id="实现二段跳·改"><a href="#实现二段跳·改" class="headerlink" title="实现二段跳·改"></a>实现二段跳·改</h1><h2 id="debug-1"><a href="#debug-1" class="headerlink" title="debug"></a>debug</h2><p>有一定游戏经验的同学都知道，从平台上落下的时候只能触发二次airJump，而此函数在落下时保留了两段跳。从而导致下落二段跳是玩家能跳的非常远。于是我们把update函数中的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">player.body.touching.down &amp;&amp; ( airJump = <span class="number">2</span> );</div></pre></td></tr></table></figure></p>
 <p>更正为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">airJump = player.body.touching.down ? <span class="number">2</span> : (airJump == <span class="number">2</span> ? <span class="number">1</span> : airJump);</div></pre></td></tr></table></figure></p>
 <p>用if语句来解释就是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (player.body.touching.down) &#123;</div><div class="line">  airJump = <span class="number">2</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (airJump == <span class="number">2</span>) &#123;</div><div class="line">  airJump = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>如果是高空落下的情况如果airjump次数为最大值，则让次数减少1。否则保持原来的次数</p>
-<h1 id="实现多段跳">实现多段跳</h1><p>按照之前的思路，能够较容易地实现并优化我们的代码。</p>
-<h2 id="定义变量-1">定义变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxJump = <span class="number">3</span>;	<span class="comment">// 实现N段跳</span></div><div class="line"><span class="keyword">var</span> airJump;		<span class="comment">// 剩余跳跃次数</span></div></pre></td></tr></table></figure>
-<h2 id="update函数更新">update函数更新</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">airJump = player.body.touching.down ? maxJump : (airJump == maxJump ? maxJump<span class="number">-1</span> : airJump);</div></pre></td></tr></table></figure>
-<h2 id="jump函数更新">jump函数更新</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="comment">// return when jump-times out</span></div><div class="line"> <span class="keyword">if</span> (airJump&lt;<span class="number">1</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line"> <span class="comment">// the jump-height depends on the jump-times :)</span></div><div class="line"> player.body.velocity.y = airJump == maxJump ? <span class="number">-500</span> : <span class="number">-400</span>;</div><div class="line"> airJump --;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="实现多段跳"><a href="#实现多段跳" class="headerlink" title="实现多段跳"></a>实现多段跳</h1><p>按照之前的思路，能够较容易地实现并优化我们的代码。</p>
+<h2 id="定义变量-1"><a href="#定义变量-1" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxJump = <span class="number">3</span>;	<span class="comment">// 实现N段跳</span></div><div class="line"><span class="keyword">var</span> airJump;		<span class="comment">// 剩余跳跃次数</span></div></pre></td></tr></table></figure>
+<h2 id="update函数更新"><a href="#update函数更新" class="headerlink" title="update函数更新"></a>update函数更新</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">airJump = player.body.touching.down ? maxJump : (airJump == maxJump ? maxJump<span class="number">-1</span> : airJump);</div></pre></td></tr></table></figure>
+<h2 id="jump函数更新"><a href="#jump函数更新" class="headerlink" title="jump函数更新"></a>jump函数更新</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="comment">// return when jump-times out</span></div><div class="line"> <span class="keyword">if</span> (airJump&lt;<span class="number">1</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line"> <span class="comment">// the jump-height depends on the jump-times :)</span></div><div class="line"> player.body.velocity.y = airJump == maxJump ? <span class="number">-500</span> : <span class="number">-400</span>;</div><div class="line"> airJump --;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>具体跳跃高度你可以用与次数有关的线性方程来决定，也可以像我一样使用固定高度。</p>
-<h1 id="END?">END?</h1><p>说了这么多，然而这只是一个临时替代的方案，最终还是要用状态量去实现多段跳跃。这对于<code>后续维护</code>非常重要。</p>
+<h1 id="END"><a href="#END" class="headerlink" title="END?"></a>END?</h1><p>说了这么多，然而这只是一个临时替代的方案，最终还是要用状态量去实现多段跳跃。这对于<code>后续维护</code>非常重要。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -164,9 +164,9 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
 
 <div class="next">
-<a href="/2015/08/21/webServer/"  title="A web server?But I want to make games!">
+<a href="/2015/08/21/webServer/"  title="【科普】A web server?But I want to make games!">
  <strong>下一篇：</strong><br/> 
- <span>A web server?But I want to make games!
+ <span>【科普】A web server?But I want to make games!
 </span>
 </a>
 </div>
@@ -176,22 +176,22 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END?"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -240,7 +240,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -264,19 +264,19 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -300,11 +300,11 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -312,15 +312,15 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -328,7 +328,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -410,7 +410,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -619,7 +619,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

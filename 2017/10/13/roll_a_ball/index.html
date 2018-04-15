@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>U3D Beginner | XANA&#39;s Blog</title>
+    <title>【Unity】U3D Beginner | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -16,16 +16,16 @@
 Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。
 物体碰撞模块那时候看的似懂非懂（物理引擎我还停留在box2d.js的阶段），到下一课明白基本Trigger的概念，简单来说，就是你希望Rigidbody（刚体）发生碰撞并由">
 <meta property="og:type" content="article">
-<meta property="og:title" content="U3D Beginner">
+<meta property="og:title" content="【Unity】U3D Beginner">
 <meta property="og:url" content="http://yoursite.com/2017/10/13/roll_a_ball/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="手撸了官方两个例子后稍微回忆一下
 
 Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。
 物体碰撞模块那时候看的似懂非懂（物理引擎我还停留在box2d.js的阶段），到下一课明白基本Trigger的概念，简单来说，就是你希望Rigidbody（刚体）发生碰撞并由">
-<meta property="og:updated_time" content="2018-02-05T12:35:49.226Z">
+<meta property="og:updated_time" content="2018-04-15T15:21:51.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U3D Beginner">
+<meta name="twitter:title" content="【Unity】U3D Beginner">
 <meta name="twitter:description" content="手撸了官方两个例子后稍微回忆一下
 
 Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。
@@ -54,7 +54,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -70,7 +70,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -85,34 +85,34 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/13/roll_a_ball/" title="U3D Beginner" itemprop="url">U3D Beginner</a>
+      <a href="/2017/10/13/roll_a_ball/" title="【Unity】U3D Beginner" itemprop="url">【Unity】U3D Beginner</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-12T18:54:24.000Z" itemprop="datePublished"> Published 2017-10-13</time>
+    <time datetime="2017-10-12T18:54:24.000Z" itemprop="datePublished"> 发表于 2017-10-13</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roll_a_ball"><span class="toc-number">1.</span> <span class="toc-text">Roll a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Space_Shooter"><span class="toc-number">2.</span> <span class="toc-text">Space Shooter</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roll-a-ball"><span class="toc-number">1.</span> <span class="toc-text">Roll a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Space-Shooter"><span class="toc-number">2.</span> <span class="toc-text">Space Shooter</span></a></li></ol>
 		
 		</div>
 		
 		<blockquote>
 <p>手撸了官方两个例子后稍微回忆一下</p>
 </blockquote>
-<h2 id="Roll_a_ball">Roll a ball</h2><p>U3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。</p>
+<h2 id="Roll-a-ball"><a href="#Roll-a-ball" class="headerlink" title="Roll a ball"></a>Roll a ball</h2><p>U3D入门第一课，大概讲了一个Unity游戏的基本组成，比如摄像机，光源，实例化的物体和prefabs等。界面和iOS开发差不多，但是调参时基本上需要你自己定制界面。</p>
 <p>物体碰撞模块那时候看的似懂非懂（物理引擎我还停留在box2d.js的阶段），到下一课明白基本Trigger的概念，简单来说，就是你希望Rigidbody（刚体）发生碰撞并由此发生相应的后续运动时，那就取消双方的trigger选项；如果你不希望某个物体因接触而运动时，仅仅是作为一个事件的触发器，那就将其设为Trigger。Trigger可以不受物理效果影响，一些可穿透区域的碰撞检测，可以使用Trigger来进行碰撞检测，包括进入和离开。</p>
 <p>Is Kinematic 是否参与物理系统，有用的属性，相当于不受力的『恒星』，因为毕竟也是rigidbody，会有质量等参数。</p>
 <p>整个游戏没有流程控制，得分事件绑定随意，最后作为PC/Mac/Linux端导出</p>
-<h2 id="Space_Shooter">Space Shooter</h2><p>U3D入门第二课，教你做一个基本上完整的Web独立游戏（实际上和PC端相同）。最后补充了把此游戏构建于iOS上的补充步骤，包括控制判断和重启判断。</p>
+<h2 id="Space-Shooter"><a href="#Space-Shooter" class="headerlink" title="Space Shooter"></a>Space Shooter</h2><p>U3D入门第二课，教你做一个基本上完整的Web独立游戏（实际上和PC端相同）。最后补充了把此游戏构建于iOS上的补充步骤，包括控制判断和重启判断。</p>
 <p>移动端和PC端的操控方式虽然不同，但是逻辑相同，所以这个部分的个人见解是需要把这个部分分离出来（当然这个时候 Oct.20 我已经知道这个实际上是一种游戏中常见的叫做『命令模式』的设计模式。例子中因为逻辑简单，比较简陋，但是如果你需要例如『改键』操作的话，是必须使用的）。</p>
 <p>游戏重点包括光源（主光源，辅光源，还有补光），几种不同的碰撞器（简单的说按照游戏要求碰撞几何越简单越好）</p>
 <p>任何游戏逻辑都要绑在一个gameobject上，比如总逻辑要绑在一个空的全局游戏对象上，然后任何全局设定相关的游戏参数可以一同绑在它上面，例如游戏总背景音乐。</p>
@@ -136,7 +136,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/13/roll_a_ball/" data-title="U3D Beginner | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/13/roll_a_ball/" data-title="【Unity】U3D Beginner | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,18 +150,18 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/10/23/tw_think/" title="看了100+小时的蓝营政治新闻节目有感">
+ <a href="/2017/10/23/tw_think/" title="【闲聊】看了100+小时的蓝营政治新闻节目有感">
   <strong>上一篇：</strong><br/>
   <span>
-  看了100+小时的蓝营政治新闻节目有感</span>
+  【闲聊】看了100+小时的蓝营政治新闻节目有感</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/09/19/comidiot/"  title="我是个组装机白痴">
+<a href="/2017/09/19/comidiot/"  title="【闲聊】我是个组装机白痴">
  <strong>下一篇：</strong><br/> 
- <span>我是个组装机白痴
+ <span>【闲聊】我是个组装机白痴
 </span>
 </a>
 </div>
@@ -171,22 +171,22 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roll_a_ball"><span class="toc-number">1.</span> <span class="toc-text">Roll a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Space_Shooter"><span class="toc-number">2.</span> <span class="toc-text">Space Shooter</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roll-a-ball"><span class="toc-number">1.</span> <span class="toc-text">Roll a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Space-Shooter"><span class="toc-number">2.</span> <span class="toc-text">Space Shooter</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -235,7 +235,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -259,19 +259,19 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -295,11 +295,11 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -307,15 +307,15 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -323,7 +323,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -405,7 +405,7 @@ Roll a ballU3D入门第一课，大概讲了一个Unity游戏的基本组成，�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -614,7 +614,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

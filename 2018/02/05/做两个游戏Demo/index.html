@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>做两个游戏Demo | XANA&#39;s Blog</title>
+    <title>【Unity】做两个游戏Demo | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -15,15 +15,15 @@
 LLDPGame Design:
 在一条很长（至少隔两个屏幕）而不定（在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="做两个游戏Demo">
+<meta property="og:title" content="【Unity】做两个游戏Demo">
 <meta property="og:url" content="http://yoursite.com/2018/02/05/做两个游戏Demo/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="Foreward在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。
 LLDPGame Design:
 在一条很长（至少隔两个屏幕）而不定（在">
-<meta property="og:updated_time" content="2018-02-26T13:55:23.766Z">
+<meta property="og:updated_time" content="2018-04-15T15:14:31.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="做两个游戏Demo">
+<meta name="twitter:title" content="【Unity】做两个游戏Demo">
 <meta name="twitter:description" content="Foreward在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。
 LLDPGame Design:
 在一条很长（至少隔两个屏幕）而不定（在">
@@ -51,7 +51,7 @@ LLDPGame Design:
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -67,7 +67,7 @@ LLDPGame Design:
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -82,28 +82,28 @@ LLDPGame Design:
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/05/做两个游戏Demo/" title="做两个游戏Demo" itemprop="url">做两个游戏Demo</a>
+      <a href="/2018/02/05/做两个游戏Demo/" title="【Unity】做两个游戏Demo" itemprop="url">【Unity】做两个游戏Demo</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-05T12:25:19.000Z" itemprop="datePublished"> Published 2018-02-05</time>
+    <time datetime="2018-02-05T12:25:19.000Z" itemprop="datePublished"> 发表于 2018-02-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version-0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Foreward">Foreward</h1><p>在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。</p>
-<h1 id="LLDP">LLDP</h1><p>Game Design:</p>
+		<h1 id="Foreward"><a href="#Foreward" class="headerlink" title="Foreward"></a>Foreward</h1><p>在家里躺尸一周多以后，对寒假做一个详尽而长期的计划，太短的计划让人提不起劲来（逃）。这个月大概也不要说至少什么什么了，反正做两个游戏，一个第三人称视角的策略类游戏，一个2d躲避的射击类游戏，把重点放在优化细节上。第一个游戏就是『轮流打炮』，看谁先把谁击败为止；另一个就是模仿星露谷里的牛仔游戏，可能改一些细节。</p>
+<h1 id="LLDP"><a href="#LLDP" class="headerlink" title="LLDP"></a>LLDP</h1><p>Game Design:</p>
 <p>在一条很长（至少隔两个屏幕）而不定（在射程内）的对战平台上，固定位置的对战双方轮流相互炮击，在尝试过程中，玩家需要找到最佳的射击角度和力度来攻击对手，击中时根据动能、动量或者其他依据来判定损失的血量。对战逻辑上本地多人比较简单，人机对战的AI使用某个经验模型*。</p>
 <p>*思考：为了避免简单二分法导致最后ai无限完美命中玩家，对AI采取和人类类似的经验方式，记射击修正范围为<code>[B+N(deltaD), B+P(deltaD)]</code>（每次过大过小修正时会倾向修改一个固定的数值，而且一般上一次操作的影响权重最大，上上次也会<code>有一定影响</code>，再之前基本就不计入计算了）；稳定射击修正为<code>[-deltaA+N(deltaD), +deltaA+P(deltaD)]</code>（而命中以后，会采用类似的数值，但是会有偏差，不确定偏大或偏小），</p>
 <p>注：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">P(x) = &#123; 0, x &lt;= 0      N(x) = &#123; x, x &lt;= 0</div><div class="line">       &#123; x, x &gt; 0              &#123; 0, x &gt; 0</div></pre></td></tr></table></figure></p>
@@ -115,7 +115,7 @@ LLDPGame Design:
 <p>回合控制问题，如果不考虑本地多人游戏的话，可以修改游戏模式，一机一角色的游戏方式根本用不着回合，加入一个内置的开火CD即可。（本地多人当然也可以，不过需要分屏）内置CD的方法比较简单，可以考虑先实现这个模式。</p>
 <p>以上，貌似没有疑问了，好，明天写出来</p>
 <p>Notes：根据以往的经验，实现时尽量避免犯一些经验主义的错误，比如过早优化，沉迷实现，在细节上纠结太久的时候，大概就要想想是不是走偏了……</p>
-<h2 id="version_0-1（2-6">version 0.1（2.6</h2><p>这个小于1的版本号是我另一个写了开头的打气球游戏，对于本游戏还没有任何的可玩性，但是能够分离出一些组件，1版本号代表已经可以有基本的完整玩法了。这个气球游戏大概内容是一个自由移动的主角和和一个自由视角的摄像机，我需要提取出摄像机部分的代码，顺便把这个未完成的场景变成一个实验池。</p>
+<h2 id="version-0-1（2-6"><a href="#version-0-1（2-6" class="headerlink" title="version 0.1（2.6"></a>version 0.1（2.6</h2><p>这个小于1的版本号是我另一个写了开头的打气球游戏，对于本游戏还没有任何的可玩性，但是能够分离出一些组件，1版本号代表已经可以有基本的完整玩法了。这个气球游戏大概内容是一个自由移动的主角和和一个自由视角的摄像机，我需要提取出摄像机部分的代码，顺便把这个未完成的场景变成一个实验池。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -129,7 +129,7 @@ LLDPGame Design:
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Unity/">Unity</a><a href="/tags/Game/">Game</a>
+  <span></span> <a href="/tags/Game/">Game</a><a href="/tags/Unity/">Unity</a>
   </div>
 
 </div>
@@ -138,7 +138,7 @@ LLDPGame Design:
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/05/做两个游戏Demo/" data-title="做两个游戏Demo | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/02/05/做两个游戏Demo/" data-title="【Unity】做两个游戏Demo | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,18 +152,18 @@ LLDPGame Design:
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/02/16/做两个游戏Demo（二）/" title="做两个游戏Demo（二）">
+ <a href="/2018/02/16/做两个游戏Demo（二）/" title="【Unity】做两个游戏Demo（二）">
   <strong>上一篇：</strong><br/>
   <span>
-  做两个游戏Demo（二）</span>
+  【Unity】做两个游戏Demo（二）</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/12/31/goodbye2017/"  title="二〇一七年年末总结">
+<a href="/2017/12/31/goodbye2017/"  title="【总结】二〇一七年年末总结">
  <strong>下一篇：</strong><br/> 
- <span>二〇一七年年末总结
+ <span>【总结】二〇一七年年末总结
 </span>
 </a>
 </div>
@@ -173,22 +173,22 @@ LLDPGame Design:
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version_0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Foreward"><span class="toc-number">1.</span> <span class="toc-text">Foreward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LLDP"><span class="toc-number">2.</span> <span class="toc-text">LLDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#version-0-1（2-6"><span class="toc-number">2.1.</span> <span class="toc-text">version 0.1（2.6</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -237,7 +237,7 @@ LLDPGame Design:
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -261,19 +261,19 @@ LLDPGame Design:
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -297,11 +297,11 @@ LLDPGame Design:
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -309,15 +309,15 @@ LLDPGame Design:
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -325,7 +325,7 @@ LLDPGame Design:
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -407,7 +407,7 @@ LLDPGame Design:
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -616,7 +616,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

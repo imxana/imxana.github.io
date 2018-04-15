@@ -19,7 +19,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="Forword本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽好像可以看的懂了，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）
 IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您">
-<meta property="og:updated_time" content="2015-05-19T02:30:59.000Z">
+<meta property="og:updated_time" content="2018-04-15T15:26:48.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvasAPI整理">
 <meta name="twitter:description" content="Forword本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽好像可以看的懂了，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）
@@ -48,7 +48,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -86,24 +86,25 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-18T11:55:43.000Z" itemprop="datePublished"> Published 2015-05-18</time>
+    <time datetime="2015-05-18T11:55:43.000Z" itemprop="datePublished"> 发表于 2015-05-18</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser_support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML_DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标/键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser-support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML-DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标-键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Forword">Forword</h1><p>本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽<del>好像可以看的懂了</del>，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）</p>
-<h1 id="Introduction">Introduction</h1><p>HTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。<br>不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您必须使用脚本来完成实际的绘图任务。<br>getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。<br>本手册提供完整的 getContext(“2d”) 对象属性和方法，可用于在画布上绘制文本、线条、矩形、圆形等等。</p>
-<h1 id="Browser_support">Browser support</h1><p>Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。</p>
+		<h1 id="Forword"><a href="#Forword" class="headerlink" title="Forword"></a>Forword</h1><p>本文在w3school和w3cschool的文档基础上进行增删改，方法加入了具体参数是文档看起来更加清爽<del>好像可以看的懂了</del>，删去一些无用的API，后期加入Procesing中的对应语法。（资深社区吸血鬼）</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>HTML5 canvas 标签用于绘制图像（通过脚本，通常是 JavaScript）。<br>不过，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） - 您必须使用脚本来完成实际的绘图任务。<br>getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。<br>本手册提供完整的 getContext(“2d”) 对象属性和方法，可用于在画布上绘制文本、线条、矩形、圆形等等。</p>
+<h1 id="Browser-support"><a href="#Browser-support" class="headerlink" title="Browser support"></a>Browser support</h1><p>Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。</p>
 <p>注释：Internet Explorer 8 以及更早的版本不支持 canvas 元素。<del>H5新标签</del></p>
-<h1 id="canvasAPI">canvasAPI</h1><h2 id="颜色、样式和阴影">颜色、样式和阴影</h2><table>
+<h1 id="canvasAPI"><a href="#canvasAPI" class="headerlink" title="canvasAPI"></a>canvasAPI</h1><h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -140,10 +141,12 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 <tr>
 <td>shadowOffsetY</td>
 <td>设置或返回阴影距形状的垂直距离</td>
-<td>number </td>
+<td>number</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -175,7 +178,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h3 id="（属性值）">（属性值）</h3><table>
+</div>
+<h3 id="（属性值）"><a href="#（属性值）" class="headerlink" title="（属性值）"></a>（属性值）</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>值</th>
@@ -197,7 +202,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="线条样式">线条样式</h2><table>
+</div>
+<h2 id="线条样式"><a href="#线条样式" class="headerlink" title="线条样式"></a>线条样式</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -228,7 +235,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="矩形">矩形</h2><table>
+</div>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -259,7 +268,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="路径">路径</h2><table>
+</div>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -320,7 +331,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="转换">转换</h2><table>
+</div>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -356,7 +369,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h3 id="（参数值）">（参数值）</h3><table>
+</div>
+<h3 id="（参数值）"><a href="#（参数值）" class="headerlink" title="（参数值）"></a>（参数值）</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>参数</th>
@@ -390,7 +405,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="文本">文本</h2><table>
+</div>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -416,6 +433,8 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -442,7 +461,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="图像绘制">图像绘制</h2><table>
+</div>
+<h2 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -468,7 +489,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="像素操作">像素操作</h2><table>
+</div>
+<h2 id="像素操作"><a href="#像素操作" class="headerlink" title="像素操作"></a>像素操作</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -494,6 +517,8 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -520,7 +545,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="合成">合成</h2><table>
+</div>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -541,7 +568,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="其他">其他</h2><table>
+</div>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -571,7 +600,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h1 id="附录1：HTML_DOM事件">附录1：HTML DOM事件</h1><h2 id="目标事件对象">目标事件对象</h2><table>
+</div>
+<h1 id="附录1：HTML-DOM事件"><a href="#附录1：HTML-DOM事件" class="headerlink" title="附录1：HTML DOM事件"></a>附录1：HTML DOM事件</h1><h2 id="目标事件对象"><a href="#目标事件对象" class="headerlink" title="目标事件对象"></a>目标事件对象</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -587,8 +618,10 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
+</div>
 <p>兼容问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (document.addEventListener) &#123;                //所有主流浏览器，除了 IE 8 及更早 IE版本</div><div class="line">    document.addEventListener(&quot;click&quot;, myFunction);</div><div class="line">&#125; else if (document.attachEvent) &#123;             // IE 8 及更早 IE 版本</div><div class="line">    document.attachEvent(&quot;onclick&quot;, myFunction);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="（参数说明）">（参数说明）</h3><table>
+<h3 id="（参数说明）"><a href="#（参数说明）" class="headerlink" title="（参数说明）"></a>（参数说明）</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>参数</th>
@@ -610,7 +643,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="鼠标事件">鼠标事件</h2><table>
+</div>
+<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -671,7 +706,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="键盘事件">键盘事件</h2><table>
+</div>
+<h2 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -697,7 +734,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="鼠标/键盘事件对象">鼠标/键盘事件对象</h2><table>
+</div>
+<h2 id="鼠标-键盘事件对象"><a href="#鼠标-键盘事件对象" class="headerlink" title="鼠标/键盘事件对象"></a>鼠标/键盘事件对象</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -783,6 +822,8 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -804,7 +845,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="拖动事件">拖动事件</h2><table>
+</div>
+<h2 id="拖动事件"><a href="#拖动事件" class="headerlink" title="拖动事件"></a>拖动事件</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>事件</th>
@@ -850,7 +893,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
-<h2 id="滚轮事件">滚轮事件</h2><table>
+</div>
+<h2 id="滚轮事件"><a href="#滚轮事件" class="headerlink" title="滚轮事件"></a>滚轮事件</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>事件</th>
@@ -866,8 +911,9 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 </tr>
 </tbody>
 </table>
+</div>
 <p>注：safary不支持</p>
-<h1 id="参考文档">参考文档</h1><p><a href="http://www.w3school.com.cn/tags/html_ref_canvas.asp" target="_blank" rel="external">http://www.w3school.com.cn/tags/html_ref_canvas.asp</a><br><a href="http://www.w3cschool.cc/jsref/met-document-addeventlistener.html" target="_blank" rel="external">http://www.w3cschool.cc/jsref/met-document-addeventlistener.html</a></p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://www.w3school.com.cn/tags/html_ref_canvas.asp" target="_blank" rel="external">http://www.w3school.com.cn/tags/html_ref_canvas.asp</a><br><a href="http://www.w3cschool.cc/jsref/met-document-addeventlistener.html" target="_blank" rel="external">http://www.w3cschool.cc/jsref/met-document-addeventlistener.html</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -925,22 +971,22 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser_support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML_DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标/键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forword"><span class="toc-number">1.</span> <span class="toc-text">Forword</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Browser-support"><span class="toc-number">3.</span> <span class="toc-text">Browser support</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#canvasAPI"><span class="toc-number">4.</span> <span class="toc-text">canvasAPI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色、样式和阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式和阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（属性值）"><span class="toc-number">4.1.1.</span> <span class="toc-text">（属性值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线条样式"><span class="toc-number">4.2.</span> <span class="toc-text">线条样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">4.3.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径"><span class="toc-number">4.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-number">4.5.</span> <span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数值）"><span class="toc-number">4.5.1.</span> <span class="toc-text">（参数值）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本"><span class="toc-number">4.6.</span> <span class="toc-text">文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像绘制"><span class="toc-number">4.7.</span> <span class="toc-text">图像绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#像素操作"><span class="toc-number">4.8.</span> <span class="toc-text">像素操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合成"><span class="toc-number">4.9.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.10.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录1：HTML-DOM事件"><span class="toc-number">5.</span> <span class="toc-text">附录1：HTML DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标事件对象"><span class="toc-number">5.1.</span> <span class="toc-text">目标事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（参数说明）"><span class="toc-number">5.1.1.</span> <span class="toc-text">（参数说明）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标事件"><span class="toc-number">5.2.</span> <span class="toc-text">鼠标事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘事件"><span class="toc-number">5.3.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标-键盘事件对象"><span class="toc-number">5.4.</span> <span class="toc-text">鼠标/键盘事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拖动事件"><span class="toc-number">5.5.</span> <span class="toc-text">拖动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚轮事件"><span class="toc-number">5.6.</span> <span class="toc-text">滚轮事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文档"><span class="toc-number">6.</span> <span class="toc-text">参考文档</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -989,7 +1035,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -1013,19 +1059,19 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -1049,11 +1095,11 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -1061,15 +1107,15 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -1077,7 +1123,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -1159,7 +1205,7 @@ IntroductionHTML5 canvas 标签用于绘制图像（通过脚本，通常是 Jav
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -1368,7 +1414,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

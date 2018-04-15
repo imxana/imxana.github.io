@@ -57,7 +57,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -73,7 +73,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -95,14 +95,14 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-03T12:59:58.000Z" itemprop="datePublished"> Published 2015-08-03</time>
+    <time datetime="2015-08-03T12:59:58.000Z" itemprop="datePublished"> 发表于 2015-08-03</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无意义的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">无意义的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的安全问题"><span class="toc-number">2.</span> <span class="toc-text">头疼的安全问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伪·正片"><span class="toc-number">3.</span> <span class="toc-text">伪·正片</span></a></li></ol>
 		
@@ -111,7 +111,7 @@
 		<blockquote>
 <p>基础能吃人</p>
 </blockquote>
-<h1 id="无意义的碎碎念">无意义的碎碎念</h1><p>之前花了一周左右的时间细读了《Pro HTML5 Games》这本书<del>的前5章</del>，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。</p>
+<h1 id="无意义的碎碎念"><a href="#无意义的碎碎念" class="headerlink" title="无意义的碎碎念"></a>无意义的碎碎念</h1><p>之前花了一周左右的时间细读了《Pro HTML5 Games》这本书<del>的前5章</del>，发现一个很重要的道理，变量的对象（函数）化封装非常的重要，一个能够防止歧义，避免环境污染，还有一个是是代码显得简洁美观。</p>
 <p>没有任何基础的情况下（纯原生canvas），当初做一个类东方游戏的时候，我是这样写的；总共近1k行，放个前一百行，你们体验一下：</p>
 <p>捂眼（瞎）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// game.js</span></div><div class="line"><span class="keyword">var</span> canvas,</div><div class="line">	ctx,</div><div class="line">	w,</div><div class="line">	h,</div><div class="line">	bgPIC = <span class="keyword">new</span> Image(),</div><div class="line">	picLoc,</div><div class="line">	picSpeed = <span class="number">0.2</span>;</div><div class="line"><span class="comment">//load the background</span></div><div class="line">bgPIC.src = <span class="string">"./img/bg.png"</span>;</div><div class="line"><span class="comment">//console.log(bgPIC.src)</span></div><div class="line"></div><div class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"load"</span>, start);</div><div class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"keydown"</span>, key_down)</div><div class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"keyup"</span>, key_up)</div><div class="line"></div><div class="line"><span class="comment">//the game</span></div><div class="line"><span class="keyword">var</span> gameover = <span class="literal">false</span>,</div><div class="line">	score = <span class="number">0</span>,</div><div class="line">	Fscore = <span class="number">0</span>,</div><div class="line">	scoreL = <span class="literal">true</span>,</div><div class="line">	edgeScore = <span class="number">5</span>,</div><div class="line">	sScore = <span class="number">200</span>,</div><div class="line">	mScore = <span class="number">500</span>,</div><div class="line">	backgroundColor = <span class="string">"rgb(235,0,0)"</span>,</div><div class="line">	menuColor = <span class="string">"rgb(30, 30 ,100)"</span>;</div><div class="line"></div><div class="line"><span class="comment">//your role</span></div><div class="line"><span class="keyword">var</span> ballinit = &#123;</div><div class="line">	x : <span class="number">150</span>, </div><div class="line">	y : <span class="number">300</span>,</div><div class="line">	r : <span class="number">4</span>,</div><div class="line">	vx : <span class="number">0</span>,</div><div class="line">	vy : <span class="number">0</span>,</div><div class="line">	v : <span class="number">5</span>,	<span class="comment">//temp speed</span></div><div class="line">	sv : <span class="number">2</span>,	<span class="comment">//slow speed</span></div><div class="line">	nv : <span class="number">5</span>, <span class="comment">//normal speed</span></div><div class="line">	rate : <span class="number">2.5</span>,	<span class="comment">// nv/sv</span></div><div class="line">	color : <span class="string">"rgba(255,0,0,1)"</span>,</div><div class="line">	isSlow : <span class="literal">false</span>,</div><div class="line">	isProtected : <span class="literal">false</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//to get the copyright</span></div><div class="line"><span class="keyword">var</span> ball = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> pro <span class="keyword">in</span> ballinit)&#123;ball[pro] = ballinit[pro];&#125;</div><div class="line"></div><div class="line"><span class="comment">//myThings</span></div><div class="line"><span class="keyword">var</span> lifeLeft = <span class="number">2</span>,</div><div class="line">	bombsinit = <span class="number">3</span>,</div><div class="line">	bombsLeft = <span class="number">3</span>,</div><div class="line">	bullets = [],</div><div class="line">	bombs = [],</div><div class="line">	bombAvai = <span class="literal">true</span>,</div><div class="line">	bombCD = <span class="number">5000</span>,</div><div class="line">	protectTime = <span class="number">2000</span>;</div><div class="line">	</div><div class="line"></div><div class="line"><span class="comment">//enemyThings</span></div><div class="line"><span class="keyword">var</span> enemyBullet = [],</div><div class="line">	enemis = [],</div><div class="line">	levelupCD = <span class="number">30000</span>,</div><div class="line">	levelNum = <span class="number">0</span>,</div><div class="line">	level = &#123;</div><div class="line">		dayuT : <span class="number">3000</span>,</div><div class="line">		zhongyuT : <span class="number">2000</span>,</div><div class="line">		EST : <span class="number">1000</span>,</div><div class="line">		EMT : <span class="number">2000</span>,</div><div class="line">	&#125;,</div><div class="line">	ts1,ts2,ts3,ts4,ts5,ts6,levelup;</div><div class="line"></div><div class="line"><span class="comment">//check the key</span></div><div class="line"><span class="keyword">var</span> isDowninit = &#123;</div><div class="line">	up : <span class="literal">false</span>,</div><div class="line">	down : <span class="literal">false</span>,</div><div class="line">	left : <span class="literal">false</span>,</div><div class="line">	right : <span class="literal">false</span>,</div><div class="line">	item : <span class="literal">false</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//getthe copyof isDown</span></div><div class="line"><span class="keyword">var</span> isDown = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> pro <span class="keyword">in</span> isDowninit)&#123;isDown[pro] = isDowninit[pro]&#125;;</div><div class="line">isDown.shoot = <span class="literal">false</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">	canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</div><div class="line">	ctx = canvas.getContext(<span class="string">'2d'</span>)</div><div class="line">	canvas.width = <span class="number">500</span></div><div class="line">	canvas.height = <span class="number">400</span></div><div class="line">	w = canvas.width - <span class="number">200</span></div><div class="line">	h = canvas.height</div><div class="line">	picLoc=bgPIC.height-bgPIC.width*h/w</div><div class="line">	<span class="comment">//isProtected()	//init protect</span></div><div class="line"></div><div class="line">	<span class="keyword">var</span> ts1 = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;		</div><div class="line">		update(ball)</div><div class="line">		render(ball, ctx)</div><div class="line">	&#125;, <span class="number">20</span>)</div><div class="line"></div><div class="line">	<span class="keyword">var</span> ts2 = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="comment">//quadra shot</span></div><div class="line">		<span class="keyword">if</span>(isDown.shoot)&#123;</div><div class="line">			<span class="keyword">if</span>(ball.isSlow)&#123;</div><div class="line">				bullets.push(</div><div class="line">					bullet(&#123;swing:<span class="number">0.3</span>,dx:<span class="number">4</span>,dy:<span class="number">-3</span>&#125;), </div><div class="line">					bullet(&#123;swing:<span class="number">-0.3</span>,dx:<span class="number">-4</span>,dy:<span class="number">-3</span>&#125;),</div><div class="line">					bullet(&#123;swing:<span class="number">1</span>,dx:<span class="number">10</span>,dy:<span class="number">5</span>&#125;),</div><div class="line">					bullet(&#123;swing:<span class="number">-1</span>,dx:<span class="number">-10</span>,dy:<span class="number">5</span>&#125;)</div><div class="line">				);</div><div class="line">			&#125;<span class="keyword">else</span> &#123;</div><div class="line">				bullets.push(</div><div class="line">					bullet(&#123;swing:<span class="number">2</span>,dx:<span class="number">7</span>,dy:<span class="number">-3</span>&#125;), </div><div class="line">					bullet(&#123;swing:<span class="number">-2</span>,dx:<span class="number">-7</span>,dy:<span class="number">-3</span>&#125;),</div><div class="line">					bullet(&#123;swing:<span class="number">6</span>,dx:<span class="number">15</span>,dy:<span class="number">20</span>&#125;),</div><div class="line">					bullet(&#123;swing:<span class="number">-6</span>,dx:<span class="number">-15</span>,dy:<span class="number">20</span>&#125;)</div><div class="line">				);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;, <span class="number">50</span>)</div><div class="line"></div><div class="line">	IntervalStart()</div><div class="line"></div><div class="line">	levelup = setInterval(levelUP, levelupCD)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>举个例子。<br>一个场景对象state，我们要创建它，初始化它，更新它，渲染它，我们就不应该凌乱的陈列函数，应该用对象或是方法去封装它们比如这样：</p>
@@ -137,9 +137,9 @@
 </ul>
 <p>封装好以后，游戏就变成这样辣<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// game.js</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">$(<span class="built_in">window</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    game.init();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 基本的游戏对象</span></div><div class="line"><span class="keyword">var</span> game = &#123;...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 关卡对象</span></div><div class="line"><span class="keyword">var</span> levels = &#123;...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 所有物体</span></div><div class="line"><span class="keyword">var</span> entities = &#123;...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// Box2D世界对象</span></div><div class="line"><span class="keyword">var</span> box2d = &#123;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 图像声音资源加载器</span></div><div class="line"><span class="keyword">var</span> loader = &#123;...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 鼠标</span></div><div class="line"><span class="keyword">var</span> mouse = &#123;...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>是不是看的很爽！</p>
-<h1 id="头疼的安全问题">头疼的安全问题</h1><p>在涉及到webGL的时候，学习瓶颈的出现往往是代码OK的情况下，只要一出现drawImage，Safari抛出个”SecurityError”，Chrome抛出个”canvas tainted by cross-origin data”，解决无果，心灰意冷，放弃。</p>
+<h1 id="头疼的安全问题"><a href="#头疼的安全问题" class="headerlink" title="头疼的安全问题"></a>头疼的安全问题</h1><p>在涉及到webGL的时候，学习瓶颈的出现往往是代码OK的情况下，只要一出现drawImage，Safari抛出个”SecurityError”，Chrome抛出个”canvas tainted by cross-origin data”，解决无果，心灰意冷，放弃。</p>
 <p>今天要学习的Phaser也是一样，就好像好不容易看上挺好一妹子，谈不上话，心塞塞。英文文档看的很吃力，前辈们表示不会，心灰意冷。一个简单的图片移动的例子，十几行代码，就是跑不动。幸好把源码放到FF里时，它跑动了，在解决跨域资源问题之前，我先把火狐当祖宗一样供着吧！(拥抱ES6)</p>
-<h1 id="伪·正片">伪·正片</h1><p>我们来谈谈Phaser</p>
+<h1 id="伪·正片"><a href="#伪·正片" class="headerlink" title="伪·正片"></a>伪·正片</h1><p>我们来谈谈Phaser</p>
 <p>Phaser.js是一个游戏引擎，目前将要出Phaser3版本。它帮开发者造好了轮子，直接通过Phaser对象方法来完成游戏的开发。</p>
 <p>这个引擎说大不大，说小不小，近10w行代码，压缩后也还有700多kb。用这个引擎做的<a href="http://phaser.io" target="_blank" rel="external">游戏</a>很多，在js游戏引擎里它现在的排名是第一。我始终保持这个一个观点，<em>框架、引擎这种东西，永远是让你程序写得更舒服而存在的，如果它让你不舒服了，那就没有学的必要。</em></p>
   
@@ -178,10 +178,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/21/webServer/" title="A web server?But I want to make games!">
+ <a href="/2015/08/21/webServer/" title="【科普】A web server?But I want to make games!">
   <strong>上一篇：</strong><br/>
   <span>
-  A web server?But I want to make games!</span>
+  【科普】A web server?But I want to make games!</span>
 </a>
 </div>
 
@@ -199,22 +199,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无意义的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">无意义的碎碎念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的安全问题"><span class="toc-number">2.</span> <span class="toc-text">头疼的安全问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伪·正片"><span class="toc-number">3.</span> <span class="toc-text">伪·正片</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -263,7 +263,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -287,19 +287,19 @@
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -323,11 +323,11 @@
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -335,15 +335,15 @@
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -351,7 +351,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -433,7 +433,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -642,7 +642,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

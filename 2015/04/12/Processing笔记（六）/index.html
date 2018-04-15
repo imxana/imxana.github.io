@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -86,33 +86,33 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-12T04:14:51.000Z" itemprop="datePublished"> Published 2015-04-12</time>
+    <time datetime="2015-04-12T04:14:51.000Z" itemprop="datePublished"> 发表于 2015-04-12</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用Processing玩坏图片（一）"><span class="toc-number">1.</span> <span class="toc-text">如何用Processing玩坏图片（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#玩坏图片前要了解的知识"><span class="toc-number">1.1.</span> <span class="toc-text">玩坏图片前要了解的知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CreateImage()"><span class="toc-number">1.1.1.</span> <span class="toc-text">CreateImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pimage"><span class="toc-number">1.1.2.</span> <span class="toc-text">Pimage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#image()"><span class="toc-number">1.1.3.</span> <span class="toc-text">image()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#imageMode()"><span class="toc-number">1.1.4.</span> <span class="toc-text">imageMode()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadImage()"><span class="toc-number">1.1.5.</span> <span class="toc-text">loadImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requestImage()"><span class="toc-number">1.1.6.</span> <span class="toc-text">requestImage()</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用Processing玩坏图片（一）"><span class="toc-number">1.</span> <span class="toc-text">如何用Processing玩坏图片（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#玩坏图片前要了解的知识"><span class="toc-number">1.1.</span> <span class="toc-text">玩坏图片前要了解的知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CreateImage"><span class="toc-number">1.1.1.</span> <span class="toc-text">CreateImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pimage"><span class="toc-number">1.1.2.</span> <span class="toc-text">Pimage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#image"><span class="toc-number">1.1.3.</span> <span class="toc-text">image()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#imageMode"><span class="toc-number">1.1.4.</span> <span class="toc-text">imageMode()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadImage"><span class="toc-number">1.1.5.</span> <span class="toc-text">loadImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requestImage"><span class="toc-number">1.1.6.</span> <span class="toc-text">requestImage()</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
 		<p>昨天一个人<del>很帅气</del>去了趟<strong>魔都</strong>，虽然出了一点<strong>事情</strong>，然而人总算安全归来，东西也没有丢，算是皆大欢喜吧，最后说一句，<strong>LL大法好！</strong></p>
-<h2 id="如何用Processing玩坏图片（一）">如何用Processing玩坏图片（一）</h2><h3 id="玩坏图片前要了解的知识">玩坏图片前要了解的知识</h3><p>在大多数情况下，我们最好一开始在setup()中加载所有的图像。如果在 draw()中加载图像会极大的减慢Processing运行速度。图像不能在setup()之外被加载，除非他们在一个函数内部，并且那个函数已经在setup()后运行。</p>
+<h2 id="如何用Processing玩坏图片（一）"><a href="#如何用Processing玩坏图片（一）" class="headerlink" title="如何用Processing玩坏图片（一）"></a>如何用Processing玩坏图片（一）</h2><h3 id="玩坏图片前要了解的知识"><a href="#玩坏图片前要了解的知识" class="headerlink" title="玩坏图片前要了解的知识"></a>玩坏图片前要了解的知识</h3><p>在大多数情况下，我们最好一开始在setup()中加载所有的图像。如果在 draw()中加载图像会极大的减慢Processing运行速度。图像不能在setup()之外被加载，除非他们在一个函数内部，并且那个函数已经在setup()后运行。</p>
 <p>另外，文件可以从计算机的任何绝对路径进行加载(Unix和Linux的 / ，或者Windows中的驱动盘符)，或者filename参数也可以是一个网络上的URL。</p>
 <p>如果文件不可用或者发生错误，就会返回一个null值并且在消息控制台中显示一个错误信息。但是显示错误信息并不会使程序停止，如果使null值，也可能会在消息控制台中显示NullPointerExceptio(在你的代码没有返回null值的时候)。</p>
-<h4 id="CreateImage()">CreateImage()</h4><p>这个关键词用于创建一个新的PImage(用于存储图像的数据类型)。高级用户请注意，createImage()函数应该代替语法new PImage()</p>
+<h4 id="CreateImage"><a href="#CreateImage" class="headerlink" title="CreateImage()"></a>CreateImage()</h4><p>这个关键词用于创建一个新的PImage(用于存储图像的数据类型)。高级用户请注意，createImage()函数应该代替语法new PImage()</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">createImage</span>(<span class="built_in">width</span>, <span class="built_in">height</span>, format)	<span class="comment">//format参数为RGB/ARGB/ALPHA(灰阶通道)</span></div></pre></td></tr></table></figure>
-<h4 id="Pimage">Pimage</h4><p>Datatype for storing images. Processing can display .gif, .jpg, .tga, and .png images. Images may be displayed in 2D and 3D space.<br>(翔一样的翻译，直接引用官方文档)</p>
+<h4 id="Pimage"><a href="#Pimage" class="headerlink" title="Pimage"></a>Pimage</h4><p>Datatype for storing images. Processing can display .gif, .jpg, .tga, and .png images. Images may be displayed in 2D and 3D space.<br>(翔一样的翻译，直接引用官方文档)</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">PImage</span>(<span class="built_in">width</span>, <span class="built_in">height</span>)</div><div class="line"><span class="keyword">PImage</span>(<span class="built_in">width</span>, <span class="built_in">height</span>, format)</div><div class="line"><span class="keyword">PImage</span>(<span class="built_in">width</span>, <span class="built_in">height</span>, format, factor)</div><div class="line"><span class="keyword">PImage</span>(img)</div></pre></td></tr></table></figure>
 <p>实例（用处也一般只有这种）<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">PImage</span> photo;</div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line">  <span class="built_in">size</span>(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">  photo = <span class="built_in">loadImage</span>(<span class="string">"laDefense.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line">  <span class="built_in">image</span>(photo, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="image()">image()</h4><p>image()函数用于在窗口显示图像。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">image</span>(img, x, y)</div><div class="line"><span class="built_in">image</span>(img, x, y, <span class="built_in">width</span>, <span class="built_in">height</span>) </div><div class="line"><span class="comment">//在窗口显示图像，图片要放在目录“data”下</span></div><div class="line"><span class="comment">//支持GIF,JPEG,PNG，支持将图片直接拖入草稿窗口中</span></div></pre></td></tr></table></figure></p>
-<h4 id="imageMode()">imageMode()</h4><p>这个函数用于修改图像绘制所显示的原点。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mageMode(mode)	<span class="comment">//默认参数CORNER 可选CENTER CORNERS（右下）</span></div></pre></td></tr></table></figure></p>
-<h4 id="loadImage()">loadImage()</h4><p>加载图像到一个PImage类型的变量。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">loadImage</span>(filename);</div><div class="line"><span class="built_in">loadImage</span>(filename, extension);</div><div class="line"><span class="comment">//文件，图像类型，支持格式同上，返回类型为PImage</span></div></pre></td></tr></table></figure></p>
+<h4 id="image"><a href="#image" class="headerlink" title="image()"></a>image()</h4><p>image()函数用于在窗口显示图像。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">image</span>(img, x, y)</div><div class="line"><span class="built_in">image</span>(img, x, y, <span class="built_in">width</span>, <span class="built_in">height</span>) </div><div class="line"><span class="comment">//在窗口显示图像，图片要放在目录“data”下</span></div><div class="line"><span class="comment">//支持GIF,JPEG,PNG，支持将图片直接拖入草稿窗口中</span></div></pre></td></tr></table></figure></p>
+<h4 id="imageMode"><a href="#imageMode" class="headerlink" title="imageMode()"></a>imageMode()</h4><p>这个函数用于修改图像绘制所显示的原点。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mageMode(mode)	<span class="comment">//默认参数CORNER 可选CENTER CORNERS（右下）</span></div></pre></td></tr></table></figure></p>
+<h4 id="loadImage"><a href="#loadImage" class="headerlink" title="loadImage()"></a>loadImage()</h4><p>加载图像到一个PImage类型的变量。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">loadImage</span>(filename);</div><div class="line"><span class="built_in">loadImage</span>(filename, extension);</div><div class="line"><span class="comment">//文件，图像类型，支持格式同上，返回类型为PImage</span></div></pre></td></tr></table></figure></p>
 <p>实例<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">PImage</span> webImg;</div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line">  <span class="keyword">String</span> url = <span class="string">"http://processing.org/img/processing_cover"</span>;</div><div class="line">  <span class="comment">// Load image from a web server</span></div><div class="line">  webImg = <span class="built_in">loadImage</span>(url, <span class="string">"gif"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line">  <span class="built_in">background</span>(<span class="number">0</span>);</div><div class="line">  <span class="built_in">image</span>(webImg, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="requestImage()">requestImage()</h4><p>这个函数用于加载一个独立线程的图像，草稿不会冻结它，同时它在setup()中加载。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">requestImage</span>(filename);</div><div class="line"><span class="built_in">requestImage</span>(filename, extension);</div><div class="line"><span class="comment">//文件，图像类型，支持格式同上，返回类型为PImage</span></div></pre></td></tr></table></figure></p>
+<h4 id="requestImage"><a href="#requestImage" class="headerlink" title="requestImage()"></a>requestImage()</h4><p>这个函数用于加载一个独立线程的图像，草稿不会冻结它，同时它在setup()中加载。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">requestImage</span>(filename);</div><div class="line"><span class="built_in">requestImage</span>(filename, extension);</div><div class="line"><span class="comment">//文件，图像类型，支持格式同上，返回类型为PImage</span></div></pre></td></tr></table></figure></p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">PImage</span> bigImage;</div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>() &#123;</div><div class="line">  bigImage = <span class="built_in">requestImage</span>(<span class="string">"something.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>() &#123;</div><div class="line">  <span class="keyword">if</span> (bigImage.<span class="built_in">width</span> == <span class="number">0</span>) &#123;</div><div class="line">    <span class="comment">// Image is not yet loaded</span></div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bigImage.<span class="built_in">width</span> == <span class="number">-1</span>) &#123;</div><div class="line">    <span class="comment">// This means an error occurred during image loading</span></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Image is ready to go, draw it</span></div><div class="line">    <span class="built_in">image</span>(bigImage, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -170,22 +170,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用Processing玩坏图片（一）"><span class="toc-number">1.</span> <span class="toc-text">如何用Processing玩坏图片（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#玩坏图片前要了解的知识"><span class="toc-number">1.1.</span> <span class="toc-text">玩坏图片前要了解的知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CreateImage()"><span class="toc-number">1.1.1.</span> <span class="toc-text">CreateImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pimage"><span class="toc-number">1.1.2.</span> <span class="toc-text">Pimage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#image()"><span class="toc-number">1.1.3.</span> <span class="toc-text">image()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#imageMode()"><span class="toc-number">1.1.4.</span> <span class="toc-text">imageMode()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadImage()"><span class="toc-number">1.1.5.</span> <span class="toc-text">loadImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requestImage()"><span class="toc-number">1.1.6.</span> <span class="toc-text">requestImage()</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何用Processing玩坏图片（一）"><span class="toc-number">1.</span> <span class="toc-text">如何用Processing玩坏图片（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#玩坏图片前要了解的知识"><span class="toc-number">1.1.</span> <span class="toc-text">玩坏图片前要了解的知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CreateImage"><span class="toc-number">1.1.1.</span> <span class="toc-text">CreateImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pimage"><span class="toc-number">1.1.2.</span> <span class="toc-text">Pimage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#image"><span class="toc-number">1.1.3.</span> <span class="toc-text">image()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#imageMode"><span class="toc-number">1.1.4.</span> <span class="toc-text">imageMode()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadImage"><span class="toc-number">1.1.5.</span> <span class="toc-text">loadImage()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requestImage"><span class="toc-number">1.1.6.</span> <span class="toc-text">requestImage()</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -234,7 +234,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -258,19 +258,19 @@
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -294,11 +294,11 @@
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -306,15 +306,15 @@
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -322,7 +322,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -404,7 +404,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -613,7 +613,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

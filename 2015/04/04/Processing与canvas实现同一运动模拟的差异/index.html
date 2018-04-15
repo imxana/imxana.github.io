@@ -45,7 +45,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -61,7 +61,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -83,21 +83,21 @@
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-03T18:19:38.000Z" itemprop="datePublished"> Published 2015-04-04</time>
+    <time datetime="2015-04-03T18:19:38.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing"><span class="toc-number">1.</span> <span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas"><span class="toc-number">2.</span> <span class="toc-text">canvas</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="Processing">Processing</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">float</span> x = <span class="number">33</span>;</div><div class="line"><span class="built_in">float</span> y = <span class="number">5</span>;</div><div class="line"><span class="built_in">float</span> velocity = <span class="number">0.0</span>;		<span class="comment">//初速度</span></div><div class="line"><span class="built_in">float</span> radius = <span class="number">15.0</span>;		<span class="comment">//半径</span></div><div class="line"><span class="built_in">float</span> friction = <span class="number">0.99</span>;		<span class="comment">//摩擦系数</span></div><div class="line"><span class="built_in">float</span> acceleration = <span class="number">0.3</span>;	<span class="comment">//加速度</span></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>()&#123;</div><div class="line">  <span class="built_in">size</span>(<span class="number">500</span>, <span class="number">100</span>);		<span class="comment">//画布大小</span></div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">  <span class="built_in">noStroke</span>();</div><div class="line">  <span class="built_in">ellipseMode</span>(RADIUS);</div><div class="line">&#125; </div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>()&#123;</div><div class="line">  <span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">12</span>);</div><div class="line">  <span class="built_in">rect</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line">  <span class="built_in">fill</span>(<span class="number">255</span>);</div><div class="line">  velocity += acceleration;</div><div class="line">  velocity *= friction;</div><div class="line">  y += velocity;</div><div class="line">  x++;</div><div class="line">  <span class="keyword">if</span> (y &gt; (<span class="built_in">height</span> - radius)) &#123;</div><div class="line">    y = <span class="built_in">height</span> - radius;</div><div class="line">    velocity = -velocity;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">ellipse</span>(x, y, radius, radius);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="canvas">canvas</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">   <span class="keyword">var</span> ball = &#123;x:<span class="number">33</span>, y:<span class="number">15</span>, radius:<span class="number">15.0</span>, acceleration:<span class="number">3</span>, velocity:<span class="number">0</span>, friction:<span class="number">0.98</span>, color:<span class="string">"#005588"</span>&#125;</div><div class="line">   <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   	<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);	<span class="comment">//拿到canvas画布</span></div><div class="line">   	canvas.width = <span class="number">1000</span>;</div><div class="line">  		canvas.height = <span class="number">250</span>;</div><div class="line">  		<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);	<span class="comment">//取得canvas绘图环境</span></div><div class="line">  		setInterval(				<span class="comment">//每50ms执行一次function函数</span></div><div class="line">  			<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   				render(context);</div><div class="line">  				update();</div><div class="line">  			&#125;,<span class="number">50</span></div><div class="line">  		)</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   		ball.x += <span class="number">2</span>;</div><div class="line">   		ball.y += ball.velocity；</div><div class="line">   		ball.velocity *= ball.friction;</div><div class="line">   		ball.velocity += ball.acceleration;</div><div class="line">   		<span class="keyword">if</span>(ball.y &gt;= canvas.height - ball.radius)&#123;</div><div class="line">   			ball.y = canvas.height - ball.radius;</div><div class="line">   			ball.velocity = - ball.velocity;</div><div class="line">   		&#125;</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">cxt</span>)</span>&#123;</div><div class="line">   		cxt.clearRect(<span class="number">0</span> , <span class="number">0</span> , cxt.canvas.width , cxt.canvas.height);</div><div class="line">   		cxt.fillStyle = ball.color;</div><div class="line">   		cxt.beginPath();</div><div class="line">   		cxt.arc(ball.x , ball.y , ball.radius , <span class="number">0</span> , <span class="number">2</span>*<span class="built_in">Math</span>.PI);</div><div class="line">   		cxt.closePath();</div><div class="line">   		cxt.fill()</div><div class="line">   	&#125;</div><div class="line">   &lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+		<h2 id="Processing"><a href="#Processing" class="headerlink" title="Processing"></a>Processing</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">float</span> x = <span class="number">33</span>;</div><div class="line"><span class="built_in">float</span> y = <span class="number">5</span>;</div><div class="line"><span class="built_in">float</span> velocity = <span class="number">0.0</span>;		<span class="comment">//初速度</span></div><div class="line"><span class="built_in">float</span> radius = <span class="number">15.0</span>;		<span class="comment">//半径</span></div><div class="line"><span class="built_in">float</span> friction = <span class="number">0.99</span>;		<span class="comment">//摩擦系数</span></div><div class="line"><span class="built_in">float</span> acceleration = <span class="number">0.3</span>;	<span class="comment">//加速度</span></div><div class="line"><span class="keyword">void</span> <span class="title">setup</span>()&#123;</div><div class="line">  <span class="built_in">size</span>(<span class="number">500</span>, <span class="number">100</span>);		<span class="comment">//画布大小</span></div><div class="line">  <span class="built_in">smooth</span>();</div><div class="line">  <span class="built_in">noStroke</span>();</div><div class="line">  <span class="built_in">ellipseMode</span>(RADIUS);</div><div class="line">&#125; </div><div class="line"><span class="keyword">void</span> <span class="title">draw</span>()&#123;</div><div class="line">  <span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">12</span>);</div><div class="line">  <span class="built_in">rect</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line">  <span class="built_in">fill</span>(<span class="number">255</span>);</div><div class="line">  velocity += acceleration;</div><div class="line">  velocity *= friction;</div><div class="line">  y += velocity;</div><div class="line">  x++;</div><div class="line">  <span class="keyword">if</span> (y &gt; (<span class="built_in">height</span> - radius)) &#123;</div><div class="line">    y = <span class="built_in">height</span> - radius;</div><div class="line">    velocity = -velocity;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">ellipse</span>(x, y, radius, radius);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">   <span class="keyword">var</span> ball = &#123;x:<span class="number">33</span>, y:<span class="number">15</span>, radius:<span class="number">15.0</span>, acceleration:<span class="number">3</span>, velocity:<span class="number">0</span>, friction:<span class="number">0.98</span>, color:<span class="string">"#005588"</span>&#125;</div><div class="line">   <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   	<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);	<span class="comment">//拿到canvas画布</span></div><div class="line">   	canvas.width = <span class="number">1000</span>;</div><div class="line">  		canvas.height = <span class="number">250</span>;</div><div class="line">  		<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);	<span class="comment">//取得canvas绘图环境</span></div><div class="line">  		setInterval(				<span class="comment">//每50ms执行一次function函数</span></div><div class="line">  			<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   				render(context);</div><div class="line">  				update();</div><div class="line">  			&#125;,<span class="number">50</span></div><div class="line">  		)</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   		ball.x += <span class="number">2</span>;</div><div class="line">   		ball.y += ball.velocity；</div><div class="line">   		ball.velocity *= ball.friction;</div><div class="line">   		ball.velocity += ball.acceleration;</div><div class="line">   		<span class="keyword">if</span>(ball.y &gt;= canvas.height - ball.radius)&#123;</div><div class="line">   			ball.y = canvas.height - ball.radius;</div><div class="line">   			ball.velocity = - ball.velocity;</div><div class="line">   		&#125;</div><div class="line">   	&#125;</div><div class="line">   	<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">cxt</span>)</span>&#123;</div><div class="line">   		cxt.clearRect(<span class="number">0</span> , <span class="number">0</span> , cxt.canvas.width , cxt.canvas.height);</div><div class="line">   		cxt.fillStyle = ball.color;</div><div class="line">   		cxt.beginPath();</div><div class="line">   		cxt.arc(ball.x , ball.y , ball.radius , <span class="number">0</span> , <span class="number">2</span>*<span class="built_in">Math</span>.PI);</div><div class="line">   		cxt.closePath();</div><div class="line">   		cxt.fill()</div><div class="line">   	&#125;</div><div class="line">   &lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>就从效果上看，Processing的效果比canvas要好的多，而且代码更加直观，更易理解，下次学了d3以后也一同放上来</p>
   
 	</div>
@@ -156,22 +156,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Processing"><span class="toc-number">1.</span> <span class="toc-text">Processing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas"><span class="toc-number">2.</span> <span class="toc-text">canvas</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -220,7 +220,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -244,19 +244,19 @@
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -280,11 +280,11 @@
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -292,15 +292,15 @@
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -308,7 +308,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -390,7 +390,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -599,7 +599,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

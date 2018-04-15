@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>这几天学到的Django项目总体架构思路 | XANA&#39;s Blog</title>
+    <title>【Django】这几天学到的项目总体架构思路 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -15,15 +15,15 @@
 
 搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这几天学到的Django项目总体架构思路">
+<meta property="og:title" content="【Django】这几天学到的项目总体架构思路">
 <meta property="og:url" content="http://yoursite.com/2017/03/27/这几天学到的Django项目总体架构思路/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="原标题: 这几天搬砖所得
 
 搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
-<meta property="og:updated_time" content="2017-04-20T10:40:00.000Z">
+<meta property="og:updated_time" content="2018-04-15T15:25:27.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这几天学到的Django项目总体架构思路">
+<meta name="twitter:title" content="【Django】这几天学到的项目总体架构思路">
 <meta name="twitter:description" content="原标题: 这几天搬砖所得
 
 搬了大概一周的砖头以后, 对Django这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写Django的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必">
@@ -51,7 +51,7 @@
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -67,7 +67,7 @@
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -82,21 +82,21 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/27/这几天学到的Django项目总体架构思路/" title="这几天学到的Django项目总体架构思路" itemprop="url">这几天学到的Django项目总体架构思路</a>
+      <a href="/2017/03/27/这几天学到的Django项目总体架构思路/" title="【Django】这几天学到的项目总体架构思路" itemprop="url">【Django】这几天学到的项目总体架构思路</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-27T10:09:45.000Z" itemprop="datePublished"> Published 2017-03-27</time>
+    <time datetime="2017-03-27T10:09:45.000Z" itemprop="datePublished"> 发表于 2017-03-27</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#应用挂载"><span class="toc-number">1.</span> <span class="toc-text">应用挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板路径"><span class="toc-number">2.</span> <span class="toc-text">模板路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义用户"><span class="toc-number">3.</span> <span class="toc-text">自定义用户</span></a></li></ol>
 		
@@ -106,7 +106,7 @@
 <p>原标题: 这几天搬砖所得</p>
 </blockquote>
 <p>搬了大概一周的砖头以后, 对<code>Django</code>这个框架的想法就是, 真tm好用, 又真tm难用. 好用的地方在于web开发中你一切遇到的所有问题, 都会有一套对应的解决方案; 难用的地方就是, 遇到的那些问题, 你必须要按照它的那套解决方案. 所以写<code>Django</code>的时候, 基本上不需要休息思考的时间, 就是查手册, 查源码, 搜方案, 面向stackoverflow编程, 必须用IDE, 爬断点, 文件改名全局索引, debug热点表达式, 不然手动打log工作量就不是人能承受的了.当然, 如果你是个熟练工的话,用<code>Django</code>的工作量可能是最小的…</p>
-<h2 id="应用挂载">应用挂载</h2><p>Django是一个典型的<code>Restful</code>架构框架, 举个例子, 在<code>animal</code>应用下挂载一个猫应用, tree如下所示:</p>
+<h2 id="应用挂载"><a href="#应用挂载" class="headerlink" title="应用挂载"></a>应用挂载</h2><p>Django是一个典型的<code>Restful</code>架构框架, 举个例子, 在<code>animal</code>应用下挂载一个猫应用, tree如下所示:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animal</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── cat</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── admin.py</div><div class="line">│   ├── models.py</div><div class="line">│   ├── tests.py</div><div class="line">│   └── views.py</div><div class="line">└── manage.py</div></pre></td></tr></table></figure>
 <p>如果在cat下继续挂应用, 比如挂喂养的子应用, 此时无法直接通过manage.py创建cat/feed应用, 需要手动构建, 具体做法如下(feed模块为手动构建):</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animal</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── settings.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── wsgi.py</div><div class="line">├── cat</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── admin.py</div><div class="line">│   ├── feed</div><div class="line">│   │   ├── __init__.py</div><div class="line">│   │   ├── models.py</div><div class="line">│   │   ├── templates</div><div class="line">│   │   │   └── feed</div><div class="line">│   │   │       └── home.html</div><div class="line">│   │   ├── urls.py</div><div class="line">│   │   └── views.py</div><div class="line">│   ├── models.py</div><div class="line">│   ├── tests.py</div><div class="line">│   ├── urls.py</div><div class="line">│   └── views.py</div><div class="line">└── manage.py</div></pre></td></tr></table></figure>
@@ -118,8 +118,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    url(<span class="string">r'^feed/'</span>, include(<span class="string">'cat.feed.urls'</span>, namespace=<span class="string">'cat_feed'</span>))</div><div class="line">)</div></pre></td></tr></table></figure>
 <p>就可以通过配置 cat/feed/urls.py, 配置子项目的MVC了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">	url(<span class="string">r'^$'</span>,  <span class="string">'cat.feed.views.home'</span>,  name=<span class="string">'home'</span>),</div><div class="line">)</div></pre></td></tr></table></figure>
-<h2 id="模板路径">模板路径</h2><p>Django的模板路径优先级是先去搜索<code>setting.py</code>下<code>TEMPLATES</code>变量里的<code>DIRS</code>对象中的路径下遍历的<code>templates</code>文件夹, 同名的按照先搜索到的为准. 因此除了一些公用模板(例如<code>base.html</code>和<code>404.html</code>), 一般子应用的模板不应该随意用长变量名的方式放在应用挂载下, 应该放在<code>templates</code>内同名的文件夹中,例如feed应用应该在feed目录下的templates文件夹中新建一个feed文件夹,在这个文件夹中放feed应用的专用模板, 这样挂载在子应用下的子应用内的view层就能通过<code>应用名/模板名</code>的方式去引用模板, 一层一层的extend上一层应用的<code>base.html</code>, 这样就遵循了代码组件化的原则, 类似于React.<br>同时使用<code>namespace</code>可以使路由可读性变得更好.</p>
-<h2 id="自定义用户">自定义用户</h2><p>这里涉及到Django庞大的第三方库的使用, 一般第三方库都不会去重写User类, 倾向于到Django中<code>django.contrib.auth.model</code>去重写/继承/封装,例如要在User中添加字段的技巧</p>
+<h2 id="模板路径"><a href="#模板路径" class="headerlink" title="模板路径"></a>模板路径</h2><p>Django的模板路径优先级是先去搜索<code>setting.py</code>下<code>TEMPLATES</code>变量里的<code>DIRS</code>对象中的路径下遍历的<code>templates</code>文件夹, 同名的按照先搜索到的为准. 因此除了一些公用模板(例如<code>base.html</code>和<code>404.html</code>), 一般子应用的模板不应该随意用长变量名的方式放在应用挂载下, 应该放在<code>templates</code>内同名的文件夹中,例如feed应用应该在feed目录下的templates文件夹中新建一个feed文件夹,在这个文件夹中放feed应用的专用模板, 这样挂载在子应用下的子应用内的view层就能通过<code>应用名/模板名</code>的方式去引用模板, 一层一层的extend上一层应用的<code>base.html</code>, 这样就遵循了代码组件化的原则, 类似于React.<br>同时使用<code>namespace</code>可以使路由可读性变得更好.</p>
+<h2 id="自定义用户"><a href="#自定义用户" class="headerlink" title="自定义用户"></a>自定义用户</h2><p>这里涉及到Django庞大的第三方库的使用, 一般第三方库都不会去重写User类, 倾向于到Django中<code>django.contrib.auth.model</code>去重写/继承/封装,例如要在User中添加字段的技巧</p>
 <p>————————— 以下引用 —————————</p>
 <p>本篇主要讨论一下User Model的使用技巧. 注意, 由于Django 1.5之后user model带来了很大的变化, 本篇内容只针对django 1.5之后的版本.</p>
 <p><em>1.确定 User Model</em></p>
@@ -143,7 +143,7 @@
 <p>参考官方文档:<br><a href="https://docs.djangoproject.com/en/1.7/topics/auth/customizing/" target="_blank" rel="external">https://docs.djangoproject.com/en/1.7/topics/auth/customizing/</a></p>
 <p>方法3: 使用OneToOneField</p>
 <p>如果你想建立一个第三方模块发布在PyPi上, 这一模块需要根据用户储存每个用户的额外信息. 或者我们的django项目中希望不同的用户拥有不同的field, 有些用户则需要不同field的组合, 且我们使用了方法1或方法2:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># profiles/models.py</span></div><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="keyword">from</span> flavors.models <span class="keyword">import</span> Flavor</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EasterProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    favorite_ice_cream = models.ForeignKey(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScooperProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    scoops_scooped = models.IntergerField(default=<span class="number">0</span>)</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">InventorProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    flavors_invented = models.ManyToManyField(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># profiles/models.py</span></div><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="keyword">from</span> flavors.models <span class="keyword">import</span> Flavor</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EasterProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    favorite_ice_cream = models.ForeignKey(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScooperProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    scoops_scooped = models.IntergerField(default=<span class="number">0</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">InventorProfile</span><span class="params">(models.Model)</span>:</span></div><div class="line">    user = models.OneToOneField(settings.AUTH_USER_MODEL)</div><div class="line">    flavors_invented = models.ManyToManyField(Flavor, null=<span class="keyword">True</span>, blank=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
 <p>使用以上方法, 我们可以使用user.easterprofile.favorite_ice_cream获取相应的profile.</p>
 <p>使用这一方法的坏处可能就是增加了代码的复杂性.</p>
 <p>原文链接: <a href="http://www.weiguda.com/blog/28/" target="_blank" rel="external">http://www.weiguda.com/blog/28/</a></p>
@@ -166,7 +166,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/03/27/这几天学到的Django项目总体架构思路/" data-title="这几天学到的Django项目总体架构思路 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/27/这几天学到的Django项目总体架构思路/" data-title="【Django】这几天学到的项目总体架构思路 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -189,9 +189,9 @@
 
 
 <div class="next">
-<a href="/2017/03/23/svn快速入门/"  title="svn快速入门">
+<a href="/2017/03/23/svn快速入门/"  title="【科普】svn快速入门">
  <strong>下一篇：</strong><br/> 
- <span>svn快速入门
+ <span>【科普】svn快速入门
 </span>
 </a>
 </div>
@@ -201,22 +201,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#应用挂载"><span class="toc-number">1.</span> <span class="toc-text">应用挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板路径"><span class="toc-number">2.</span> <span class="toc-text">模板路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义用户"><span class="toc-number">3.</span> <span class="toc-text">自定义用户</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -265,7 +265,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -289,19 +289,19 @@
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -325,11 +325,11 @@
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -337,15 +337,15 @@
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -353,7 +353,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -435,7 +435,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -644,7 +644,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

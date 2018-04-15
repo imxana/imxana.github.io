@@ -28,7 +28,7 @@ Rendering pipeline in GPU渲染管线大致分解为以下几个主要阶段：
 Input Assembelr Stage
 [顶点着色器（VS）阶">
 <meta property="og:image" content="https://oi3qt7c8d.qnssl.com/wavesdemo.gif">
-<meta property="og:updated_time" content="2018-04-03T09:01:20.604Z">
+<meta property="og:updated_time" content="2018-04-03T09:01:20.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="March 2018 Progress Report">
 <meta name="twitter:description" content="手撸了第六章的5个例子（box/hills/skull/shapes/waves)，顺便大致过了一遍第七章：因为光(Light)在《Unity-shader入门精要》已经看过了，而且我觉得那个说的更好（
@@ -62,7 +62,7 @@ Input Assembelr Stage
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -78,7 +78,7 @@ Input Assembelr Stage
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -100,22 +100,22 @@ Input Assembelr Stage
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-03T08:48:30.000Z" itemprop="datePublished"> Published 2018-04-03</time>
+    <time datetime="2018-04-03T08:48:30.000Z" itemprop="datePublished"> 发表于 2018-04-03</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rendering_pipeline_in_GPU"><span class="toc-number">1.</span> <span class="toc-text">Rendering pipeline in GPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WavesDemo"><span class="toc-number">2.</span> <span class="toc-text">WavesDemo</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rendering-pipeline-in-GPU"><span class="toc-number">1.</span> <span class="toc-text">Rendering pipeline in GPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WavesDemo"><span class="toc-number">2.</span> <span class="toc-text">WavesDemo</span></a></li></ol>
 		
 		</div>
 		
 		<p>手撸了第六章的5个例子（box/hills/skull/shapes/waves)，顺便大致过了一遍第七章：因为光(Light)在《Unity-shader入门精要》已经看过了，而且我觉得那个说的更好（</p>
 <p>总之先输出一点</p>
-<h2 id="Rendering_pipeline_in_GPU">Rendering pipeline in GPU</h2><p>渲染管线大致分解为以下几个主要阶段：</p>
+<h2 id="Rendering-pipeline-in-GPU"><a href="#Rendering-pipeline-in-GPU" class="headerlink" title="Rendering pipeline in GPU"></a>Rendering pipeline in GPU</h2><p>渲染管线大致分解为以下几个主要阶段：</p>
 <p>[输入装配（IA）阶段]</p>
 <p>Input Assembelr Stage</p>
 <p>[顶点着色器（VS）阶段]</p>
@@ -137,7 +137,7 @@ Input Assembelr Stage
 <p>…</p>
 <hr>
 <p>举例来说基本上你看到函数名字是以IA开头的，就是在进行输入装配阶段。细分着色器属于高阶阶段，目前我还木有遇到细分处理的例子。</p>
-<h2 id="WavesDemo">WavesDemo</h2><p>用Demo做例子，这里skull及之后的例子才用到了光栅化。最后一个例子WavesDemo由两部分组成，z=f(x, y)的山谷和波动的水面网格。</p>
+<h2 id="WavesDemo"><a href="#WavesDemo" class="headerlink" title="WavesDemo"></a>WavesDemo</h2><p>用Demo做例子，这里skull及之后的例子才用到了光栅化。最后一个例子WavesDemo由两部分组成，z=f(x, y)的山谷和波动的水面网格。</p>
 <p><img src="https://oi3qt7c8d.qnssl.com/wavesdemo.gif" alt="wavesdemo.gif"></p>
 <p>先不管update函数直接看draw</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//MountainDemo.cpp (WavesDemo.cpp)</span></div><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">void</span> MountainApp::DrawScene()</div><div class="line">&#123;</div><div class="line">	assert(md3dImmediateContext);</div><div class="line">	assert(mSwapChain);</div><div class="line"></div><div class="line">	md3dImmediateContext-&gt;ClearRenderTargetView(mRenderTargetView, <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">float</span>*&gt;(&amp;Colors::LightSteelBlue));</div><div class="line">	md3dImmediateContext-&gt;ClearDepthStencilView(mDepthStencilView, D3D11_CLEAR_DEPTH|D3D11_CLEAR_STENCIL, <span class="number">1.0f</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">	md3dImmediateContext-&gt;IASetInputLayout(mInputLayout);</div><div class="line">	md3dImmediateContext-&gt;IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);</div><div class="line"></div><div class="line">	UINT strike = <span class="keyword">sizeof</span>(Vertex);</div><div class="line">	UINT offset = <span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="comment">//XMATRIX mxfWorldViewProj</span></div><div class="line">	XMMATRIX view  = XMLoadFloat4x4(&amp;mView);</div><div class="line">	XMMATRIX proj  = XMLoadFloat4x4(&amp;mProj);</div><div class="line"></div><div class="line">	D3DX11_TECHNIQUE_DESC techDesc;</div><div class="line">	mTech-&gt;GetDesc(&amp;techDesc);</div><div class="line">	<span class="keyword">for</span> ( UINT p = <span class="number">0</span>; p &lt; techDesc.Passes; ++p)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">// the land</span></div><div class="line">		md3dImmediateContext-&gt;IASetVertexBuffers(<span class="number">0</span>, <span class="number">1</span>, &amp;mLandVB, &amp;strike, &amp;offset);</div><div class="line">		md3dImmediateContext-&gt;IASetIndexBuffer(mLandIB, DXGI_FORMAT_R32_UINT, <span class="number">0</span>);</div><div class="line"></div><div class="line">		XMMATRIX world = XMLoadFloat4x4(&amp;mGridWorld);</div><div class="line">		XMMATRIX worldViewProj = world*view*proj;</div><div class="line">		mfxWorldViewProj-&gt;SetMatrix(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">float</span>*&gt;(&amp;worldViewProj));</div><div class="line">		mTech-&gt;GetPassByIndex(p)-&gt;Apply(<span class="number">0</span>, md3dImmediateContext);</div><div class="line">		md3dImmediateContext-&gt;DrawIndexed(mGridIndexCount, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">		<span class="comment">// the waves</span></div><div class="line">		md3dImmediateContext-&gt;RSSetState(mWireframeRS); <span class="comment">// wf set</span></div><div class="line">		md3dImmediateContext-&gt;IASetVertexBuffers(<span class="number">0</span>, <span class="number">1</span>, &amp;mWavesVB, &amp;strike, &amp;offset);</div><div class="line">		md3dImmediateContext-&gt;IASetIndexBuffer(mWavesIB, DXGI_FORMAT_R32_UINT, <span class="number">0</span>);</div><div class="line"></div><div class="line">		world = XMLoadFloat4x4(&amp;mWavesWorld);</div><div class="line">		worldViewProj = world*view*proj;</div><div class="line">		mfxWorldViewProj-&gt;SetMatrix(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">float</span>*&gt;(&amp;worldViewProj));</div><div class="line">		mTech-&gt;GetPassByIndex(p)-&gt;Apply(<span class="number">0</span>, md3dImmediateContext);</div><div class="line">		md3dImmediateContext-&gt;DrawIndexed(<span class="number">3</span>*mWaves.TriangleCount(), <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">		md3dImmediateContext-&gt;RSSetState(<span class="number">0</span>); <span class="comment">// wf reset</span></div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	HR(mSwapChain-&gt;Present(<span class="number">0</span>, <span class="number">0</span>));</div><div class="line">&#125;</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
@@ -151,8 +151,8 @@ Input Assembelr Stage
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Waves.cpp</span></div><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">void</span> Waves::Init(UINT m, UINT n, <span class="keyword">float</span> dx, <span class="keyword">float</span> dt, <span class="keyword">float</span> speed, <span class="keyword">float</span> damping)</div><div class="line">&#123;</div><div class="line">	<span class="comment">// 	mWaves.Init(200, 200, 0.8f, 0.03f, 3.25f, 0.4f);</span></div><div class="line">	mNumRows = m;</div><div class="line">	mNumCols = n;</div><div class="line">	mVertexCount = m*n;</div><div class="line">	mTriangleCount = (m<span class="number">-1</span>)*(n<span class="number">-1</span>)*<span class="number">2</span>;</div><div class="line"></div><div class="line">	mTimeStep = dt;                           <span class="comment">// 时间步长</span></div><div class="line">	mSpatialStep = dx;                        <span class="comment">// 空间步长</span></div><div class="line"></div><div class="line">	<span class="keyword">float</span> d = damping*dt+<span class="number">2.0f</span>;                <span class="comment">// 阻尼系数（速度？）*dt + 常数</span></div><div class="line">	<span class="keyword">float</span> e = (speed*speed)*(dt*dt)/(dx*dx);  <span class="comment">// pow(（水波速度 / dv）, 2)</span></div><div class="line">	mK1     = (damping*dt<span class="number">-2.0</span>f)/ d;           <span class="comment">// （d(dt) - a0） / d(dt)</span></div><div class="line">	mK2     = (<span class="number">4.0f</span><span class="number">-8.0</span>f*e) / d;              <span class="comment">// (a0 - 2 * a0 * e(dt)) / d(dt)</span></div><div class="line">	mK3     = (<span class="number">2.0f</span>*e) / d;                   <span class="comment">// (2 * a0) / d(dt) / 4</span></div><div class="line"></div><div class="line">	<span class="comment">// In case Init() called again.</span></div><div class="line">	<span class="keyword">delete</span>[] mPrevSolution;</div><div class="line">	<span class="keyword">delete</span>[] mCurrSolution;</div><div class="line"></div><div class="line">	mPrevSolution = <span class="keyword">new</span> XMFLOAT3[m*n];</div><div class="line">	mCurrSolution = <span class="keyword">new</span> XMFLOAT3[m*n];</div><div class="line"></div><div class="line">	<span class="comment">// Generate grid vertices in system memory.</span></div><div class="line"></div><div class="line">	<span class="keyword">float</span> halfWidth = (n<span class="number">-1</span>)*dx*<span class="number">0.5f</span>; <span class="comment">// 这样看来dx = mSpatialStep  = 网格边长</span></div><div class="line">	<span class="keyword">float</span> halfDepth = (m<span class="number">-1</span>)*dx*<span class="number">0.5f</span>;</div><div class="line">	<span class="keyword">for</span>(UINT i = <span class="number">0</span>; i &lt; m; ++i)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">float</span> z = halfDepth - i*dx;</div><div class="line">		<span class="keyword">for</span>(UINT j = <span class="number">0</span>; j &lt; n; ++j)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">float</span> x = -halfWidth + j*dx;</div><div class="line"></div><div class="line">			mPrevSolution[i*n+j] = XMFLOAT3(x, <span class="number">0.0f</span>, z);</div><div class="line">			mCurrSolution[i*n+j] = XMFLOAT3(x, <span class="number">0.0f</span>, z);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
 <p>理论上水波模型一般使用正弦函数，这里用了近似的函数组合来模拟，水波的某一点取决于上一帧的状态和周围四格的状态。</p>
 <p>将 speed=3.25, damping=0.4, dx=0.8 带入得：</p>
-<pre><code>mK1 = ( 0.4 <span class="keyword">*</span> dt - 2.0 ) / ( 0.4 <span class="keyword">*</span> dt + 2.0 )
-mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</span> dt )  / ( 0.4 <span class="keyword">*</span> dt + 2.0 )
+<pre><code>mK1 = ( 0.4 * dt - 2.0 ) / ( 0.4 * dt + 2.0 )
+mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
 </code></pre><p>研究了一会之后，我只能说这是经验公式，这样只有前两个水波比较明显（由函数图像可得）</p>
   
 	</div>
@@ -184,11 +184,19 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2018/04/15/Ideal-Geeklub/" title="【闲聊】我理想中的极客部落">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【闲聊】我理想中的极客部落</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2018/03/23/BoxDemo-learning/"  title="BoxDemo学习">
+<a href="/2018/03/23/BoxDemo-learning/"  title="【DirectX】BoxDemo学习">
  <strong>下一篇：</strong><br/> 
- <span>BoxDemo学习
+ <span>【DirectX】BoxDemo学习
 </span>
 </a>
 </div>
@@ -198,22 +206,22 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rendering_pipeline_in_GPU"><span class="toc-number">1.</span> <span class="toc-text">Rendering pipeline in GPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WavesDemo"><span class="toc-number">2.</span> <span class="toc-text">WavesDemo</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rendering-pipeline-in-GPU"><span class="toc-number">1.</span> <span class="toc-text">Rendering pipeline in GPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WavesDemo"><span class="toc-number">2.</span> <span class="toc-text">WavesDemo</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -262,7 +270,7 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -286,19 +294,19 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -322,11 +330,11 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -334,15 +342,15 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -350,7 +358,7 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -432,7 +440,7 @@ mK2 = ( 4.0 - 132.0 <span class="keyword">*</span> dt <span class="keyword">*</s
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -641,7 +649,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

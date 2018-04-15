@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>cbv是个好东西二 | XANA&#39;s Blog</title>
+    <title>【Django】cbv是个好东西二 | XANA&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="XANA">
@@ -16,16 +16,16 @@
 权限控制思路
 fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，django.contrib.auth.mixins里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上@login_required的fbv只要在c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cbv是个好东西二">
+<meta property="og:title" content="【Django】cbv是个好东西二">
 <meta property="og:url" content="http://yoursite.com/2017/04/25/cbv是个好东西二/index.html">
 <meta property="og:site_name" content="XANA's Blog">
 <meta property="og:description" content="谈一下一些解决方案
 
 权限控制思路
 fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，django.contrib.auth.mixins里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上@login_required的fbv只要在c">
-<meta property="og:updated_time" content="2017-04-25T10:56:10.000Z">
+<meta property="og:updated_time" content="2018-04-15T15:19:49.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cbv是个好东西二">
+<meta name="twitter:title" content="【Django】cbv是个好东西二">
 <meta name="twitter:description" content="谈一下一些解决方案
 
 权限控制思路
@@ -54,7 +54,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -70,7 +70,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -85,21 +85,21 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/25/cbv是个好东西二/" title="cbv是个好东西二" itemprop="url">cbv是个好东西二</a>
+      <a href="/2017/04/25/cbv是个好东西二/" title="【Django】cbv是个好东西二" itemprop="url">【Django】cbv是个好东西二</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-25T09:56:01.000Z" itemprop="datePublished"> Published 2017-04-25</time>
+    <time datetime="2017-04-25T09:56:01.000Z" itemprop="datePublished"> 发表于 2017-04-25</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-number">1.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类页面"><span class="toc-number">2.</span> <span class="toc-text">复合类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fbvs和cbvs源代码转换"><span class="toc-number">3.</span> <span class="toc-text">fbvs和cbvs源代码转换</span></a></li></ol>
 		
@@ -108,10 +108,10 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 		<blockquote>
 <p>谈一下一些解决方案</p>
 </blockquote>
-<h2 id="权限控制">权限控制</h2><p>思路</p>
+<h2 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h2><p>思路</p>
 <p>fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质上是重写方法。cbv里控制访问权限使用mixin，<code>django.contrib.auth.mixins</code>里提供了几个基于django user的权限访问方法。只要你的用户是使用django user，或者和django user有联系的就可以直接调用它，例如挂上<code>@login_required</code>的fbv只要在cbv中继承<code>LoginRequiredMixin</code>即可。</p>
 <p><code>django.contrib.auth.mixins</code>里除去一个抽象类，总共有3个mixin，用于判断<code>request.user.is_authenticated</code>是否为True的<code>LoginRequiredMixin</code>，用于自定义权限的 <code>PermissionRequiredMixin</code>，和自己设置一个考验方法<code>test_func</code>，返回False就拒绝request的<code>UserPassesTestMixin</code>。注意抽象类<code>AccessMixin</code>里的<code>get_login_url</code>会自动调用全局变量<code>settings.LOGIN_URL</code>，不想这么做的话设置它的属性<code>login_url</code>即可（如果登录入口不止一个的话）</p>
-<h2 id="复合类页面">复合类页面</h2><p>思路</p>
+<h2 id="复合类页面"><a href="#复合类页面" class="headerlink" title="复合类页面"></a>复合类页面</h2><p>思路</p>
 <p>之前用的<code>Django-oscar</code>框架的沙盒里，注册和登录界面是一起的，当然这种界面并不少见，很多网站都是用这种写法。但是Django没有这种view，这个时候不能直接同时继承<code>TemplateView</code>和<code>CreateView</code>。因为我们知道，『在同一个上下文中，同名函数或属性将会覆盖』，这样，我们就无法预知这个得到的视图会做出怎样的行为。为了减少代码耦合，并做到简单继承，我们就需要去看这两个视图的关系：</p>
 <p>CreateView-&gt;(SingleObjectTemplateResponseMixin, BaseCreateView)</p>
 <p>TemplateView-&gt;(ContextMixin, TemplateResponseMixin, View)</p>
@@ -122,7 +122,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 <p>DeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseDeleteView)</p>
 <p>得到</p>
 <p>UpdateDeleteView-&gt;(SingleObjectTemplateResponseMixin, BaseUpdateView, BaseDeleteView)</p>
-<h2 id="fbvs和cbvs源代码转换">fbvs和cbvs源代码转换</h2><p>举例(TemplateView)</p>
+<h2 id="fbvs和cbvs源代码转换"><a href="#fbvs和cbvs源代码转换" class="headerlink" title="fbvs和cbvs源代码转换"></a>fbvs和cbvs源代码转换</h2><p>举例(TemplateView)</p>
 <p>拿公司的代码举例, 原主页是一个后台管理界面的主界面，页面功能看上去很复杂，但是从源代码上看只是渲染了几个传入的变量而已。 传入变量的方法为<code>get_context_data</code>，这个方法的根方法在<code>ContextMixin</code>中，加上一个渲染引擎和基本view，之后发现<code>TemplateView</code>刚好够满足需要(真的是刚好)，就直接用这个View即可，当然自己写view也可以。然后<code>LoginRequiredMixin</code>对应<code>@login_required</code>方法，直接继承即可，cbv的权限控制有一个专门的Mixin类。</p>
 <p>原代码(fbv)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@login_required</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index_view</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="string">"""后台主页</span></div><div class="line">    """</div><div class="line">    staff = request.user.myuser</div><div class="line">    announcement_list = []</div><div class="line">    menu = <span class="number">0</span></div><div class="line">    <span class="comment"># announcement_list = Announcement.objects.filter(del_status=0).order_by("-create_time")  ##获取公告信息</span></div><div class="line">    <span class="comment"># vacate_count,hr_vacate_count = load_message(staff)</span></div><div class="line">    <span class="keyword">return</span> render_to_response(<span class="string">'dashboard/index.html'</span>, locals(), context_instance=RequestContext(request))</div></pre></td></tr></table></figure>
@@ -145,7 +145,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/04/25/cbv是个好东西二/" data-title="cbv是个好东西二 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/04/25/cbv是个好东西二/" data-title="【Django】cbv是个好东西二 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -159,18 +159,18 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/05/04/cbv是个好东西三/" title="cbv是个好东西三（完）">
+ <a href="/2017/05/04/cbv是个好东西三/" title="【Django】cbv是个好东西三（完）">
   <strong>上一篇：</strong><br/>
   <span>
-  cbv是个好东西三（完）</span>
+  【Django】cbv是个好东西三（完）</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/04/21/cbv是个好东西/"  title="cbv是个好东西">
+<a href="/2017/04/21/cbv是个好东西/"  title="【Django】cbv是个好东西">
  <strong>下一篇：</strong><br/> 
- <span>cbv是个好东西
+ <span>【Django】cbv是个好东西
 </span>
 </a>
 </div>
@@ -180,22 +180,22 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-number">1.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类页面"><span class="toc-number">2.</span> <span class="toc-text">复合类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fbvs和cbvs源代码转换"><span class="toc-number">3.</span> <span class="toc-text">fbvs和cbvs源代码转换</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -244,7 +244,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -268,19 +268,19 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -304,11 +304,11 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -316,15 +316,15 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -332,7 +332,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -414,7 +414,7 @@ fbv里页面控制访问很简单，在方法上挂上几个修饰器，本质�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -623,7 +623,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

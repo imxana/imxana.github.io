@@ -66,7 +66,7 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -82,7 +82,7 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -104,16 +104,16 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2016-12-22T11:49:20.000Z" itemprop="datePublished"> Published 2016-12-22</time>
+    <time datetime="2016-12-22T11:49:20.000Z" itemprop="datePublished"> 发表于 2016-12-22</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发技术栈"><span class="toc-number">1.</span> <span class="toc-text">开发技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3"><span class="toc-number">1.1.</span> <span class="toc-text">Python3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask"><span class="toc-number">1.2.</span> <span class="toc-text">Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL"><span class="toc-number">1.3.</span> <span class="toc-text">MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">2.</span> <span class="toc-text">开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unix-like"><span class="toc-number">2.1.</span> <span class="toc-text">Unix-like</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">2.2.</span> <span class="toc-text">Vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署环境"><span class="toc-number">3.</span> <span class="toc-text">部署环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.2.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uWSGI"><span class="toc-number">3.3.</span> <span class="toc-text">uWSGI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervisord"><span class="toc-number">3.4.</span> <span class="toc-text">Supervisord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试工具"><span class="toc-number">4.</span> <span class="toc-text">测试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unittest（单元测试）"><span class="toc-number">4.1.</span> <span class="toc-text">unittest（单元测试）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl（脚本测试）"><span class="toc-number">4.2.</span> <span class="toc-text">curl（脚本测试）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">5.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pymysql无法使用localhost连接MySQL的解决方法"><span class="toc-number">5.1.</span> <span class="toc-text">pymysql无法使用localhost连接MySQL的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL的问题以及解决过程"><span class="toc-number">5.2.</span> <span class="toc-text">MySQL的问题以及解决过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The_problem"><span class="toc-number">5.2.1.</span> <span class="toc-text">The problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Debug"><span class="toc-number">5.2.2.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fix_up"><span class="toc-number">5.2.3.</span> <span class="toc-text">Fix up</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#improve"><span class="toc-number">5.2.4.</span> <span class="toc-text">improve</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发技术栈"><span class="toc-number">1.</span> <span class="toc-text">开发技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3"><span class="toc-number">1.1.</span> <span class="toc-text">Python3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask"><span class="toc-number">1.2.</span> <span class="toc-text">Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL"><span class="toc-number">1.3.</span> <span class="toc-text">MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">2.</span> <span class="toc-text">开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unix-like"><span class="toc-number">2.1.</span> <span class="toc-text">Unix-like</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">2.2.</span> <span class="toc-text">Vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署环境"><span class="toc-number">3.</span> <span class="toc-text">部署环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.2.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uWSGI"><span class="toc-number">3.3.</span> <span class="toc-text">uWSGI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervisord"><span class="toc-number">3.4.</span> <span class="toc-text">Supervisord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试工具"><span class="toc-number">4.</span> <span class="toc-text">测试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unittest（单元测试）"><span class="toc-number">4.1.</span> <span class="toc-text">unittest（单元测试）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl（脚本测试）"><span class="toc-number">4.2.</span> <span class="toc-text">curl（脚本测试）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">5.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pymysql无法使用localhost连接MySQL的解决方法"><span class="toc-number">5.1.</span> <span class="toc-text">pymysql无法使用localhost连接MySQL的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL的问题以及解决过程"><span class="toc-number">5.2.</span> <span class="toc-text">MySQL的问题以及解决过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-problem"><span class="toc-number">5.2.1.</span> <span class="toc-text">The problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Debug"><span class="toc-number">5.2.2.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fix-up"><span class="toc-number">5.2.3.</span> <span class="toc-text">Fix up</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#improve"><span class="toc-number">5.2.4.</span> <span class="toc-text">improve</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -121,49 +121,49 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 <p>系统架构为BS架构，基于Flask和React的web应用</p>
 </blockquote>
 <p><a href="http://github.com/imxana/ec_forum" target="_blank" rel="external">项目地址</a> (托管于Github)</p>
-<h2 id="开发技术栈">开发技术栈</h2><h3 id="Python3">Python3</h3><p>osx下安装python3</p>
-<pre><code>brew <span class="keyword">install</span> python3
+<h2 id="开发技术栈"><a href="#开发技术栈" class="headerlink" title="开发技术栈"></a>开发技术栈</h2><h3 id="Python3"><a href="#Python3" class="headerlink" title="Python3"></a>Python3</h3><p>osx下安装python3</p>
+<pre><code>brew install python3
 </code></pre><p>ubuntu下安装python3(自带3.4版本)</p>
-<pre><code>apt-<span class="built_in">get</span> install <span class="keyword">python3</span>
+<pre><code>apt-get install python3
 </code></pre><p>Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。</p>
 <p>为什么在这个项目选择Python而不是nodejs，因为使用Python开发快，语言简洁，没那么多技巧，所以读起来很清楚容易。加上Python标准库确实很庞大。它可以帮助你处理各种工作，包括正则表达式、文档生成、单元测试、线程、数据库、网页浏览器、CGI、FTP、电子邮件、XML、XML-RPC、HTML、WAV文件、密码系统、GUI（图形用户界面）、Tk和其他与系统有关的操作。记住，只要安装了Python，所有这些功能都是可用的。而且构架选择多，开源社区活跃。缺点是国内文档基本没有，需要自己看懂。</p>
-<h3 id="Flask">Flask</h3><p>安装flask</p>
-<pre><code>pip3 <span class="keyword">install</span> flask
+<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>安装flask</p>
+<pre><code>pip3 install flask
 </code></pre><p>Flask是一个使用 Python 编写的轻量级 Web 应用框架。优点是小，定制性高，能让开发人员从0开始享受折腾的结果。缺点也就是重复造轮子，不过flask插件多，能提高开发效率。</p>
-<h3 id="MySQL">MySQL</h3><p>osx下安装mysql</p>
-<pre><code>brew <span class="keyword">install</span> mysql
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>osx下安装mysql</p>
+<pre><code>brew install mysql
 </code></pre><p>ubuntu下安装mysql</p>
-<pre><code>1. sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span>
-<span class="number">2.</span> apt-<span class="keyword">get</span> isntall mysql-client
-<span class="number">3.</span> sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> libmysqlclient-dev</span>
+<pre><code>1. sudo apt-get install mysql-server
+2. apt-get isntall mysql-client
+3. sudo apt-get install libmysqlclient-dev
 </code></pre><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 最流行的关系型数据库管理系统，在 WEB 应用方面MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
 <p>MySQL是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
 <p>对我来说，sql型数据库与其说是成熟，不如说是历史遗留问题，用拼接字符串组成sql语句的执行方式，不但留下了注入式攻击漏洞，而且本身也让人多了额外的学习成本，来学习一些奇奇怪怪的语法。nosql不仅完美与JSON贴合，而且因为本身键值对的数据结构，可以放心的进行删除、插入操作，不用担心什么外键的问题。抹去一个人的数据，其所有子数据都会消除，就不用再一条条的到别的表去查找删除。尤其的表多了的时候。</p>
 <p>选择MySQL的原因一部分是因为没有办法，很多公司还是用的这种数据库，MySQL是开源的这点还是值得肯定的。针对MySQL的问题有很多在社区中得到了解决。</p>
-<h2 id="开发环境">开发环境</h2><h3 id="Unix-like">Unix-like</h3><p>不管如何，linux永远是最适合开发的系统环境。其对用户最小开发程度的限制，能让你高度定制你的生产环境。只要是一台Linux的终端，你就可以从0开始把它完全复原成你所用过的那台Linux的环境。有很多问题，不像win，你可以从系统层次上去解决这类问题，例如启动项，进程管理这一类。我们可以写一些简单脚本来做到一下很酷的事情。</p>
-<h3 id="Vim">Vim</h3><p>下载</p>
-<pre><code>apt-<span class="built_in">get</span> install <span class="keyword">vim</span>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><h3 id="Unix-like"><a href="#Unix-like" class="headerlink" title="Unix-like"></a>Unix-like</h3><p>不管如何，linux永远是最适合开发的系统环境。其对用户最小开发程度的限制，能让你高度定制你的生产环境。只要是一台Linux的终端，你就可以从0开始把它完全复原成你所用过的那台Linux的环境。有很多问题，不像win，你可以从系统层次上去解决这类问题，例如启动项，进程管理这一类。我们可以写一些简单脚本来做到一下很酷的事情。</p>
+<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>下载</p>
+<pre><code>apt-get install vim
 </code></pre><p>vim像是一杯酒，越酿越醇，在unix-like上使用nvim，在一些插件的辅助下，已经成为unix-like下的最强大的编译器。</p>
-<h2 id="部署环境">部署环境</h2><h3 id="Ubuntu">Ubuntu</h3><p>Ubuntu下能快速搭建工作环境，安装系统后，跑个脚本，把自己开发需要的环境，工具（git/vim和自己的配置）什么的一通自动安装好，一切简单快捷。</p>
+<h2 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h2><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubuntu下能快速搭建工作环境，安装系统后，跑个脚本，把自己开发需要的环境，工具（git/vim和自己的配置）什么的一通自动安装好，一切简单快捷。</p>
 <p>Ubuntu有开源的第三方软件安装，因此漏洞少，开源反而安全。</p>
-<h3 id="Nginx">Nginx</h3><p>下载</p>
-<pre><code>apt-<span class="keyword">get</span> install nginx
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>下载</p>
+<pre><code>apt-get install nginx
 </code></pre><p>Nginx (“engine x”) 是一个高性能的HTTP和反向代理服务器。拥有负载均衡的功能，但是在单台服务器上无法体现。</p>
-<h3 id="uWSGI">uWSGI</h3><p>下载</p>
-<pre><code>pip3 <span class="keyword">install</span> uwsgi
+<h3 id="uWSGI"><a href="#uWSGI" class="headerlink" title="uWSGI"></a>uWSGI</h3><p>下载</p>
+<pre><code>pip3 install uwsgi
 </code></pre><p>uWSGI是一个Web服务器，它实现了WSGI协议、uwsgi、http等协议。Nginx中HttpUwsgiModule的作用是与uWSGI服务器进行交换。</p>
-<h3 id="Supervisord">Supervisord</h3><p>下载</p>
-<pre><code>pip <span class="keyword">install</span> supervisor
+<h3 id="Supervisord"><a href="#Supervisord" class="headerlink" title="Supervisord"></a>Supervisord</h3><p>下载</p>
+<pre><code>pip install supervisor
 </code></pre><p>Supervisor是一个客户/服务器系统，它可以在类Unix系统中管理控制大量进程。Supervisor使用python开发，有多年历史，目前很多生产环境下的服务器都在使用Supervisor。</p>
-<h2 id="测试工具">测试工具</h2><h3 id="unittest（单元测试）">unittest（单元测试）</h3><p>The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.</p>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h2><h3 id="unittest（单元测试）"><a href="#unittest（单元测试）" class="headerlink" title="unittest（单元测试）"></a>unittest（单元测试）</h3><p>The Python unit testing framework, sometimes referred to as “PyUnit,” is a Python language version of JUnit, by Kent Beck and Erich Gamma. JUnit is, in turn, a Java version of Kent’s Smalltalk testing framework. Each is the de facto standard unit testing framework for its respective language.</p>
 <p>下载</p>
-<pre><code>pip3 <span class="keyword">install</span> unittest
-</code></pre><h3 id="curl（脚本测试）">curl（脚本测试）</h3><p>下载</p>
-<pre><code>apt-<span class="keyword">get</span> install curl
+<pre><code>pip3 install unittest
+</code></pre><h3 id="curl（脚本测试）"><a href="#curl（脚本测试）" class="headerlink" title="curl（脚本测试）"></a>curl（脚本测试）</h3><p>下载</p>
+<pre><code>apt-get install curl
 </code></pre><p>curl  is  a  tool  to  transfer  data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS,  TELNET  and TFTP). The command is designed to work without user interaction.</p>
 <p>curl offers a busload of useful tricks like proxy support, user authentication, FTP upload, HTTP post, SSL connections,cookies, file transfer resume, Metalink, and more. As you will see below, the number of features will  make  your  head spin!</p>
 <p>curl is powered by libcurl for all transfer-related features. See libcurl(3) for details.</p>
-<h2 id="遇到的问题">遇到的问题</h2><h3 id="pymysql无法使用localhost连接MySQL的解决方法">pymysql无法使用localhost连接MySQL的解决方法</h3><p>我的阿里服务器快过期了，在迁移项目的部署过程中抛了一个pymysql不能连接127.0.0.1的错误，host改成localhost也不行</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="pymysql无法使用localhost连接MySQL的解决方法"><a href="#pymysql无法使用localhost连接MySQL的解决方法" class="headerlink" title="pymysql无法使用localhost连接MySQL的解决方法"></a>pymysql无法使用localhost连接MySQL的解决方法</h3><p>我的阿里服务器快过期了，在迁移项目的部署过程中抛了一个pymysql不能连接127.0.0.1的错误，host改成localhost也不行</p>
 <p>源抛错代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pymysql.Connect(host=<span class="string">'127.0.0.1'</span>,user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
 <p>解决方法：使用mysql中的.sock文件进行连接，放弃通过IP匹配本地的方法。</p>
@@ -171,20 +171,20 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin variables| grep socket</div></pre></td></tr></table></figure>
 <p>查看socket所在位置，然后尝试使用格式如下的连接     </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pymysql.Connect(user=MyConfig.USERNAME,passwd=MyConfig.PASSWORD,db=<span class="string">'ec_forum'</span>,charset=<span class="string">'utf8'</span>,unix_socket=<span class="string">'/var/run/mysqld/mysqld.sock'</span>)</div></pre></td></tr></table></figure>
-<h3 id="MySQL的问题以及解决过程">MySQL的问题以及解决过程</h3><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
-<h4 id="The_problem">The problem</h4><p>前台说请求报错，她那里格式正常。启动服务器简单脚本测试，发送get正常，post报<code>pipeBroken</code>。重启应用，好了。过了半天，一发post，跪。</p>
-<h4 id="Debug">Debug</h4><p>get能用，post挂了，肯定是数据库问题，看了下错误类型，连接管道断了，那就是pymysql的问题。</p>
+<h3 id="MySQL的问题以及解决过程"><a href="#MySQL的问题以及解决过程" class="headerlink" title="MySQL的问题以及解决过程"></a>MySQL的问题以及解决过程</h3><p>我一开始使用MySQL我就后悔了，因为我深深的体会到，在sql型数据库中，当表之间关系复杂以后，要删除一条信息是有多么的困难。而几乎所有的第三方MySQL库使用的还是原生的sql语句。且不说sql语句的拼接被x问题，sql的高阶语法本身就非常的反人类。加上我已经习惯了noSQL带来的好处（直接字典\对象操作），仿佛就从天堂到了地狱。</p>
+<h4 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h4><p>前台说请求报错，她那里格式正常。启动服务器简单脚本测试，发送get正常，post报<code>pipeBroken</code>。重启应用，好了。过了半天，一发post，跪。</p>
+<h4 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h4><p>get能用，post挂了，肯定是数据库问题，看了下错误类型，连接管道断了，那就是pymysql的问题。</p>
 <p>第一反应，连接对象过期了，定期更新it，无解。</p>
 <p>加快更新频率，无解。</p>
 <p>启用连接池，加大连接节点数，加快更新频率，均无解。此时已过2周，暂时用无限手动重启应用的方法应付问题。</p>
 <p>通过<code>supervisor</code>查应用日志，发现启动应用大约过了半天时间一发<code>post</code>服务器才会<code>pipeBroken</code>，而报错期间并没有主动断开。就是过期了啊（葛优瘫）</p>
-<h4 id="Fix_up">Fix up</h4><p>经过一段时间的思考，我感觉是MySQL本身的问题，查了一会相关资料，把服务器日志<code>pipeBroken</code>的报文Google了一下，发现是MySQL长时间没有操作，进入睡眠了。。</p>
+<h4 id="Fix-up"><a href="#Fix-up" class="headerlink" title="Fix up"></a>Fix up</h4><p>经过一段时间的思考，我感觉是MySQL本身的问题，查了一会相关资料，把服务器日志<code>pipeBroken</code>的报文Google了一下，发现是MySQL长时间没有操作，进入睡眠了。。</p>
 <p>进入MySQL交互界面输入</p>
-<pre><code><span class="operator"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%timeout%'</span>;</span>
+<pre><code>show variables like &#39;%timeout%&#39;;
 </code></pre><p>发现<code>wait_timeout</code>的值为28800s，相等于8小时没操作MySQL就会断开连接。于是我用最简单暴力的方法：</p>
-<pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">global</span> wait_timeout=<span class="number">2880000</span>;</span>
+<pre><code>set global wait_timeout=2880000;
 </code></pre><p>服务器再也不频繁抛错了。至于之前的那些解决方案……先留着那些代码吧</p>
-<h4 id="improve">improve</h4><p>修改MySQL变量不是权宜之计，MySQL休眠是因为长期没有操作，所以自动断开连接节点，而且不是所有的服务器都支持修改MySQL全局变量的，有时候root也不能改- -。所以用计时器每隔一段时间向MySQL发一次查询，重置连接时间。若还抛出错误<code>pipeBroken</code>的时候换一条新的管道。</p>
+<h4 id="improve"><a href="#improve" class="headerlink" title="improve"></a>improve</h4><p>修改MySQL变量不是权宜之计，MySQL休眠是因为长期没有操作，所以自动断开连接节点，而且不是所有的服务器都支持修改MySQL全局变量的，有时候root也不能改- -。所以用计时器每隔一段时间向MySQL发一次查询，重置连接时间。若还抛出错误<code>pipeBroken</code>的时候换一条新的管道。</p>
 <p>实际效果：MySQL能够平稳的运行好几天，几天之内查询成功率在90%左右，仍然不太能够令人满意，但是相比以前，已经进步了很多。。</p>
   
 	</div>
@@ -217,18 +217,18 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/12/29/decorator/" title="Python3修饰器和线程锁">
+ <a href="/2016/12/29/decorator/" title="Python3的修饰器和线程锁">
   <strong>上一篇：</strong><br/>
   <span>
-  Python3修饰器和线程锁</span>
+  Python3的修饰器和线程锁</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/11/28/artists_and_hackers/"  title="大三读《黑客与画家》">
+<a href="/2016/11/28/artists_and_hackers/"  title="【读书】大三读《黑客与画家》">
  <strong>下一篇：</strong><br/> 
- <span>大三读《黑客与画家》
+ <span>【读书】大三读《黑客与画家》
 </span>
 </a>
 </div>
@@ -238,22 +238,22 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发技术栈"><span class="toc-number">1.</span> <span class="toc-text">开发技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3"><span class="toc-number">1.1.</span> <span class="toc-text">Python3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask"><span class="toc-number">1.2.</span> <span class="toc-text">Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL"><span class="toc-number">1.3.</span> <span class="toc-text">MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">2.</span> <span class="toc-text">开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unix-like"><span class="toc-number">2.1.</span> <span class="toc-text">Unix-like</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">2.2.</span> <span class="toc-text">Vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署环境"><span class="toc-number">3.</span> <span class="toc-text">部署环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.2.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uWSGI"><span class="toc-number">3.3.</span> <span class="toc-text">uWSGI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervisord"><span class="toc-number">3.4.</span> <span class="toc-text">Supervisord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试工具"><span class="toc-number">4.</span> <span class="toc-text">测试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unittest（单元测试）"><span class="toc-number">4.1.</span> <span class="toc-text">unittest（单元测试）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl（脚本测试）"><span class="toc-number">4.2.</span> <span class="toc-text">curl（脚本测试）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">5.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pymysql无法使用localhost连接MySQL的解决方法"><span class="toc-number">5.1.</span> <span class="toc-text">pymysql无法使用localhost连接MySQL的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL的问题以及解决过程"><span class="toc-number">5.2.</span> <span class="toc-text">MySQL的问题以及解决过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The_problem"><span class="toc-number">5.2.1.</span> <span class="toc-text">The problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Debug"><span class="toc-number">5.2.2.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fix_up"><span class="toc-number">5.2.3.</span> <span class="toc-text">Fix up</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#improve"><span class="toc-number">5.2.4.</span> <span class="toc-text">improve</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发技术栈"><span class="toc-number">1.</span> <span class="toc-text">开发技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3"><span class="toc-number">1.1.</span> <span class="toc-text">Python3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask"><span class="toc-number">1.2.</span> <span class="toc-text">Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL"><span class="toc-number">1.3.</span> <span class="toc-text">MySQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">2.</span> <span class="toc-text">开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unix-like"><span class="toc-number">2.1.</span> <span class="toc-text">Unix-like</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim"><span class="toc-number">2.2.</span> <span class="toc-text">Vim</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署环境"><span class="toc-number">3.</span> <span class="toc-text">部署环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.2.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uWSGI"><span class="toc-number">3.3.</span> <span class="toc-text">uWSGI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervisord"><span class="toc-number">3.4.</span> <span class="toc-text">Supervisord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试工具"><span class="toc-number">4.</span> <span class="toc-text">测试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unittest（单元测试）"><span class="toc-number">4.1.</span> <span class="toc-text">unittest（单元测试）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl（脚本测试）"><span class="toc-number">4.2.</span> <span class="toc-text">curl（脚本测试）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">5.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pymysql无法使用localhost连接MySQL的解决方法"><span class="toc-number">5.1.</span> <span class="toc-text">pymysql无法使用localhost连接MySQL的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL的问题以及解决过程"><span class="toc-number">5.2.</span> <span class="toc-text">MySQL的问题以及解决过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-problem"><span class="toc-number">5.2.1.</span> <span class="toc-text">The problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Debug"><span class="toc-number">5.2.2.</span> <span class="toc-text">Debug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fix-up"><span class="toc-number">5.2.3.</span> <span class="toc-text">Fix up</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#improve"><span class="toc-number">5.2.4.</span> <span class="toc-text">improve</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -302,7 +302,7 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -326,19 +326,19 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
 			
 		
 			
@@ -362,11 +362,11 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 			
 		
 			
-				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/cpp/" title="cpp">cpp<sup>2</sup></a></li>
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
 			
 		
 			
@@ -374,15 +374,15 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/Phaser/" title="Phaser">Phaser<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>1</sup></a></li>
+				<li><a href="/tags/Django/" title="Django">Django<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -390,7 +390,7 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -472,7 +472,7 @@ Python, 是一种面向对象的解释型计算机程序设计语言，由荷兰
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -681,7 +681,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
