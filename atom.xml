@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-15T16:52:05.100Z</updated>
+  <updated>2018-04-17T06:56:50.911Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,138 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【ShaderLab】光</title>
+    <link href="http://yoursite.com/2018/04/16/light/"/>
+    <id>http://yoursite.com/2018/04/16/light/</id>
+    <published>2018-04-16T08:38:35.000Z</published>
+    <updated>2018-04-17T06:56:50.911Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>n个月后重读《Unity Shader入门精要》（第六章</p>
+</blockquote>
+<h1 id="光与材质"><a href="#光与材质" class="headerlink" title="光与材质"></a>光与材质</h1><p>首先要明白一件事情，物体的呈现的颜色不是物体的性质。物体的颜色取决于物体的材质和光。</p>
+<p>而光有分为好几种，一是最简单的平行光，它没有所谓的光源，光强均等，是一种理想模型（例如狭义上的太阳光），二是点光源，例如基本上所有的灯光都是点光源，它的光强与它有限的距离成反比，还有其他衍生下去的光类型，不外乎这几种性质：照射距离，光的强度（颜色）。</p>
+<p>物体的材质包括对各个颜色分量的处理程度，因此对某个颜色处理得更宽容，物体就偏向呈现那个颜色。还包括反射率，漫反射率，和环境光率，这些都直接影响到物体呈现的效果。</p>
+<p>物体除了被光直接照亮，反射到摄像机中，还有其他的光线。例如密室中一个物体被聚光灯照亮，背部也不是完全的黑暗。这就是部分散射光和环境光的作用。总体来说，「从摄像机看到某位置的」光=反射光+散射光+环境光，这有一个具体的公式，有兴趣的可以查阅相关资料</p>
+<h1 id="标准光照模型（数学基础"><a href="#标准光照模型（数学基础" class="headerlink" title="标准光照模型（数学基础"></a>标准光照模型（数学基础</h1><p>裴祥风（Bui Tuong Phong）提1975年出的的标准光照模型，基本方法是把进入摄像机的光线分为四个部分，每个部分用各自的方法计算贡献度。由简单至复杂陈列如下：</p>
+<h2 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h2><p>环境光用于描述所有其他的间接光照，但在标准光照模型中，通常使用一个全局变量环境光来近似模拟间接光照：</p>
+<script type="math/tex; mode=display">c_{ambiet}\,=\,g_{ambiet}</script><h2 id="自发光"><a href="#自发光" class="headerlink" title="自发光"></a>自发光</h2><p>光线可以由光源直接进入摄像机而不进行反射。自发光的表面并不会照亮其他物体，只是使自身看起来更亮而已。计算时直接使用材质的自发光颜色：</p>
+<script type="math/tex; mode=display">c_{emissive}\,=\,m_{emissive}</script><h2 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h2><p>漫反射光照符合兰伯特定律（Lambert’s law）：反射光线强度与表面法线和光源方向间夹角的余弦成正比。因此漫反射部分计算如下：</p>
+<script type="math/tex; mode=display">c_{diffuse} = ( c_{light} · m_{diffuse} )\max(0, \ n·l)</script><p>其中$c_{light}$光源颜色，$m_{diffuse}$为材质的漫反射颜色，$n$为表面法线，$l$为指向光源的单位矢量</p>
+<h2 id="高光反射"><a href="#高光反射" class="headerlink" title="高光反射"></a>高光反射</h2><p>这里的高光反射都是经验模型，不符合真实世界情况。它用于计算那些镜面反射的光线，使物体看起来比较有光泽。</p>
+<p>已知表面法线$n$，光源方向$l$，视角方向$v$这三个矢量，可以推出第四个矢量反射方向$r$：</p>
+<script type="math/tex; mode=display">r = 2(n·l)n-l</script><p>这样就可以利用Phone模型，计算高光反射部分如下</p>
+<script type="math/tex; mode=display">c_{specular} = ( c_{light} · m_{specular} )\max(0, v·r) ^{m_{gloss}}</script><p>其中$c_{light}$为光源颜色和强度， $m_{specular}$为材质的高光反射颜色。$m_{gloss}$为材料的光泽度（gloss），也成为反光度（shininess），$m_{gloss}$越小，亮点就越大。</p>
+<p>Blinn使用了一个更简单的修改方法来得到类似的效果，它的基本思想是避免计算反射方向$r$。因此引入一个新的矢量$h$，它是通过$v$和$l$的取平均后再归一得到的，即</p>
+<script type="math/tex; mode=display">h = \frac{v+l}{|v+l|}</script><p>然后使用$n$和$h$之间的夹角进行计算</p>
+<script type="math/tex; mode=display">c_{specular} = ( c_{light} · m_{specular} )\max(0, n·h) ^{m_{gloss}}</script><p>在硬件实现时如果摄像机和光源足够近（$v$和$l$都是定值，因此$h$是常量），Blinn模型会更快。如果$v$和$l$不是定值时Phong模型可能更快一点。Blinn方法由于简化计算从而在某些情况可能更快，而且在一些情况下更符合实验结果。但是注意，这两种光照模型都是经验模型，不应该认为Blinn是『正确的』Phong模型的近似。</p>
+<p>标准光照模型是一个经验模型，因为裴祥风先提出、Blinn的方法简化计算，因此这种模型称为Blinn-Phone模型。</p>
+<h1 id="实现（Unity-Shader"><a href="#实现（Unity-Shader" class="headerlink" title="实现（Unity Shader"></a>实现（Unity Shader</h1><h2 id="漫反射光照模型"><a href="#漫反射光照模型" class="headerlink" title="漫反射光照模型"></a>漫反射光照模型</h2><p>上一节我们给出漫反射部分的计算公式：</p>
+<script type="math/tex; mode=display">c_{diffuse} = ( c_{light} · m_{diffuse} )\max(0, \ n·l)</script><ul>
+<li>saturate(x)函数把x截取在[0,1]内</li>
+</ul>
+<h3 id="逐顶点光照"><a href="#逐顶点光照" class="headerlink" title="逐顶点光照"></a>逐顶点光照</h3><p>DiffuseVertexLevel.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">Shader "Unity Shaders Book/Chapter 6/Diffuse Vertex-Level" &#123;</div><div class="line">  Properties &#123;</div><div class="line">    _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)</div><div class="line">  &#125;</div><div class="line">  SubShader &#123;</div><div class="line">    Pass &#123;</div><div class="line">      Tags &#123; "LightMode"="ForwardBase" &#125;</div><div class="line"></div><div class="line">      CGPROGRAM</div><div class="line"></div><div class="line">      #pragma vertex vert</div><div class="line">      #pragma fragment frag</div><div class="line"></div><div class="line">      #include "Lighting.cginc"</div><div class="line"></div><div class="line">      fixed4 _Diffuse;</div><div class="line"></div><div class="line">      struct a2v &#123;</div><div class="line">        float4 vertex : POSITION;</div><div class="line">        float3 normal : NORMAL;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      struct v2f &#123;</div><div class="line">        float4 pos : SV_POSITION;</div><div class="line">        fixed3 color : COLOR;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      v2f vert(a2v v) &#123;</div><div class="line">        v2f o;</div><div class="line">        // Transform the vertex from object space to projection space</div><div class="line">        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</div><div class="line"></div><div class="line">        // Get ambient term</div><div class="line">        fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;</div><div class="line"></div><div class="line">        // Transform the normal from object space to world space</div><div class="line">        fixed3 worldNormal = normalize(mul(v.normal, (float3x3)_World2Object));</div><div class="line">        // Get the light direction in world space</div><div class="line">        fixed3 worldLight = normalize(_WorldSpaceLightPos0.xyz);</div><div class="line">        // Compute diffuse term</div><div class="line">        fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLight));</div><div class="line"></div><div class="line">        o.color = ambient + diffuse;</div><div class="line"></div><div class="line">        return o;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">        return fixed4(i.color, 1.0);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      ENDCG</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  FallBack "Diffuse"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="逐像素光照"><a href="#逐像素光照" class="headerlink" title="逐像素光照"></a>逐像素光照</h3><p>DiffusePixelLevel.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">Shader "Unity Shaders Book/Chapter 6/Diffuse Pixel-Level" &#123;</div><div class="line">  Properties &#123;</div><div class="line">    _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)</div><div class="line">  &#125;</div><div class="line">  SubShader &#123;</div><div class="line">    Pass &#123;</div><div class="line">      Tags &#123; "LightMode"="ForwardBase" &#125;</div><div class="line"></div><div class="line">      CGPROGRAM</div><div class="line"></div><div class="line">      #pragma vertex vert</div><div class="line">      #pragma fragment frag</div><div class="line"></div><div class="line">      #include "Lighting.cginc"</div><div class="line"></div><div class="line">      fixed4 _Diffuse;</div><div class="line"></div><div class="line">      struct a2v &#123;</div><div class="line">        float4 vertex : POSITION;</div><div class="line">        float3 normal : NORMAL;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      struct v2f &#123;</div><div class="line">        float4 pos : SV_POSITION;</div><div class="line">        float3 worldNormal : TEXCOORD0;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      v2f vert(a2v v) &#123;</div><div class="line">        v2f o;</div><div class="line">        // Transform the vertex from object space to projection space</div><div class="line">        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</div><div class="line"></div><div class="line">        // Transform the normal from object space to world space</div><div class="line">        o.worldNormal = mul(v.normal, (float3x3)_World2Object);</div><div class="line"></div><div class="line">        return o;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">        // Get ambient term</div><div class="line">        fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;</div><div class="line"></div><div class="line">        // Get the normal in world space</div><div class="line">        fixed3 worldNormal = normalize(i.worldNormal);</div><div class="line">        // Get the light direction in world space</div><div class="line">        fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);</div><div class="line"></div><div class="line">        // Compute diffuse term</div><div class="line">        fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));</div><div class="line"></div><div class="line">        fixed3 color = ambient + diffuse;</div><div class="line"></div><div class="line">        return fixed4(color, 1.0);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      ENDCG</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  FallBack "Diffuse"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="半兰伯特模型"><a href="#半兰伯特模型" class="headerlink" title="半兰伯特模型"></a>半兰伯特模型</h3><p>Valve在开发HF的时候在兰伯特模型（即漫反射光照模型）上进行修改，因此称为半兰伯特光照模型，广义的半兰伯特光照模型的公式如下</p>
+<script type="math/tex; mode=display">c_{diffuse} = ( c_{light} · m_{diffuse} )（\alpha(n·l) +\beta）</script><p>使用了一次函数来代替max函数防止负值，绝大多数情况下，$\alpha$和$\beta$的值为0.5，即</p>
+<script type="math/tex; mode=display">c_{diffuse} = ( c_{light} · m_{diffuse} )（0.5(n·l) +0.5）</script><p>修改DiffusePixelLevel.shader中的片源着色器：</p>
+<p>HalfLambert.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">    ......</div><div class="line"></div><div class="line">    // Compute diffuse term</div><div class="line">    fixed halfLambert = dot(worldNormal, worldLightDir) * 0.5 + 0.5;</div><div class="line">    fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * halfLambert;</div><div class="line"></div><div class="line">    fixed3 color = ambient + diffuse;</div><div class="line"></div><div class="line">    return fixed4(color, 1.0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下是三个光照的对比效果：（半兰伯特很明显能够使背光面照亮</p>
+<p><img src="https://oi3qt7c8d.qnssl.com/diff.gif" alt="diff.gif"></p>
+<h2 id="高光反射模型"><a href="#高光反射模型" class="headerlink" title="高光反射模型"></a>高光反射模型</h2><p>上一节我们给出高光反射部分的计算公式：</p>
+<script type="math/tex; mode=display">c_{specular} = ( c_{light} · m_{specular} )\max(0, v·r) ^{m_{gloss}}</script><ul>
+<li>reflect(i,n)函数用于计算反射方向（i：入射方向，n：法线方向）</li>
+</ul>
+<h3 id="逐顶点光照-1"><a href="#逐顶点光照-1" class="headerlink" title="逐顶点光照"></a>逐顶点光照</h3><p>SpecularVertexLevel.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level" &#123;</div><div class="line">  Properties &#123;</div><div class="line">    _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)</div><div class="line">    _Specular ("Specular", Color) = (1, 1, 1, 1)</div><div class="line">    _Gloss ("Gloss", Range(8.0, 256)) = 20</div><div class="line">  &#125;</div><div class="line">  SubShader &#123;</div><div class="line">    Pass &#123;</div><div class="line">      Tags &#123; "LightMode"="ForwardBase" &#125;</div><div class="line"></div><div class="line">      CGPROGRAM</div><div class="line"></div><div class="line">      #pragma vertex vert</div><div class="line">      #pragma fragment frag</div><div class="line"></div><div class="line">      #include "Lighting.cginc"</div><div class="line"></div><div class="line">      fixed4 _Diffuse;</div><div class="line">      fixed4 _Specular;</div><div class="line">      float _Gloss;</div><div class="line"></div><div class="line">      struct a2v &#123;</div><div class="line">        float4 vertex : POSITION;</div><div class="line">        float3 normal : NORMAL;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      struct v2f &#123;</div><div class="line">        float4 pos : SV_POSITION;</div><div class="line">        fixed3 color : COLOR;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      v2f vert(a2v v) &#123;</div><div class="line">        v2f o;</div><div class="line">        // Transform the vertex from object space to projection space</div><div class="line">        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</div><div class="line"></div><div class="line">        // Get ambient term</div><div class="line">        fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;</div><div class="line"></div><div class="line">        // Transform the normal from object space to world space</div><div class="line">        fixed3 worldNormal = normalize(mul(v.normal, (float3x3)_World2Object));</div><div class="line">        // Get the light direction in world space</div><div class="line">        fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);</div><div class="line"></div><div class="line">        // Compute diffuse term</div><div class="line">        fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));</div><div class="line"></div><div class="line">        // Get the reflect direction in world space</div><div class="line">        fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));</div><div class="line">        // Get the view direction in world space</div><div class="line">        fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(_Object2World, v.vertex).xyz);</div><div class="line"></div><div class="line">        // Compute specular term</div><div class="line">        fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);</div><div class="line"></div><div class="line">        o.color = ambient + diffuse + specular;</div><div class="line"></div><div class="line">        return o;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">        return fixed4(i.color, 1.0);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      ENDCG</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  FallBack "Specular"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="逐像素光照-1"><a href="#逐像素光照-1" class="headerlink" title="逐像素光照"></a>逐像素光照</h3><p>SpecularPixelLevel.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">Shader "Unity Shaders Book/Chapter 6/Specular Pixel-Level" &#123;</div><div class="line">  Properties &#123;</div><div class="line">    _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)</div><div class="line">    _Specular ("Specular", Color) = (1, 1, 1, 1)</div><div class="line">    _Gloss ("Gloss", Range(8.0, 256)) = 20</div><div class="line">  &#125;</div><div class="line">  SubShader &#123;</div><div class="line">    Pass &#123;</div><div class="line">      Tags &#123; "LightMode"="ForwardBase" &#125;</div><div class="line"></div><div class="line">      CGPROGRAM</div><div class="line"></div><div class="line">      #pragma vertex vert</div><div class="line">      #pragma fragment frag</div><div class="line"></div><div class="line">      #include "Lighting.cginc"</div><div class="line"></div><div class="line">      fixed4 _Diffuse;</div><div class="line">      fixed4 _Specular;</div><div class="line">      float _Gloss;</div><div class="line"></div><div class="line">      struct a2v &#123;</div><div class="line">        float4 vertex : POSITION;</div><div class="line">        float3 normal : NORMAL;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      struct v2f &#123;</div><div class="line">        float4 pos : SV_POSITION;</div><div class="line">        float3 worldNormal : TEXCOORD0;</div><div class="line">        float3 worldPos : TEXCOORD1;</div><div class="line">      &#125;;</div><div class="line"></div><div class="line">      v2f vert(a2v v) &#123;</div><div class="line">        v2f o;</div><div class="line">        // Transform the vertex from object space to projection space</div><div class="line">        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);</div><div class="line"></div><div class="line">        // Transform the normal from object space to world space</div><div class="line">        o.worldNormal = mul(v.normal, (float3x3)_World2Object);</div><div class="line">        // Transform the vertex from object spacet to world space</div><div class="line">        o.worldPos = mul(_Object2World, v.vertex).xyz;</div><div class="line"></div><div class="line">        return o;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">        // Get ambient term</div><div class="line">        fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;</div><div class="line"></div><div class="line">        fixed3 worldNormal = normalize(i.worldNormal);</div><div class="line">        fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);</div><div class="line"></div><div class="line">        // Compute diffuse term</div><div class="line">        fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));</div><div class="line"></div><div class="line">        // Get the reflect direction in world space</div><div class="line">        fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));</div><div class="line">        // Get the view direction in world space</div><div class="line">        fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);</div><div class="line">        // Compute specular term</div><div class="line">        fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);</div><div class="line"></div><div class="line">        return fixed4(ambient + diffuse + specular, 1.0);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      ENDCG</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  FallBack "Specular"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Blinn-Phong光照模型"><a href="#Blinn-Phong光照模型" class="headerlink" title="Blinn-Phong光照模型"></a>Blinn-Phong光照模型</h3><p>上一节中提到了Phong光照模型的实习，但是我们提出来另一种Blinn光照模型，即引入一个矢量$h$来避免计算反射方向$r$：</p>
+<script type="math/tex; mode=display">h = \frac{v+l}{|v+l|}</script><p>然后使用$n$和$h$之间的夹角进行计算（Blinn模型）：</p>
+<script type="math/tex; mode=display">c_{specular} = ( c_{light} · m_{specular} )\max(0, n·h) ^{m_{gloss}}</script><p>修改SpecularPixelLevel.shader中的片源着色器：</p>
+<p>BlinnPhong.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">  ...</div><div class="line"></div><div class="line">  // Compute diffuse term</div><div class="line">  fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * max(0, dot(worldNormal, worldLightDir));</div><div class="line"></div><div class="line">  // Get the view direction in world space</div><div class="line">  fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);</div><div class="line">  // Get the half direction in world space</div><div class="line">  fixed3 halfDir = normalize(worldLightDir + viewDir);</div><div class="line">  // Compute specular term</div><div class="line">  fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0, dot(worldNormal, halfDir)), _Gloss);</div><div class="line"></div><div class="line">  return fixed4(ambient + diffuse + specular, 1.0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下是三个高光的对比效果：（Blinn-Phong模型看起来更大更亮一些。</p>
+<p><img src="https://oi3qt7c8d.qnssl.com/spe.gif" alt="spe.gif"></p>
+<h3 id="使用Unity内置函数"><a href="#使用Unity内置函数" class="headerlink" title="使用Unity内置函数"></a>使用Unity内置函数</h3><p>与BlinnPhong.shader中代码几乎一致，修改部分代码如下</p>
+<p>BlinnPhongUseBuildInFunctions.shader</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">v2f vert(a2v v) &#123;</div><div class="line">	v2f o;</div><div class="line">  ...</div><div class="line"></div><div class="line">  // Use the build-in funtion to compute the normal in world space</div><div class="line">  o.worldNormal = UnityObjectToWorldNormal(v.normal);</div><div class="line">  ...</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line"></div><div class="line">fixed4 frag(v2f i) : SV_Target &#123;</div><div class="line">  ...</div><div class="line">  fixed3 worldNormal = normalize(i.worldNormal);</div><div class="line">  //  Use the build-in funtion to compute the light direction in world space</div><div class="line">  // Remember to normalize the result</div><div class="line">  fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));</div><div class="line"></div><div class="line">  ...</div><div class="line"></div><div class="line">  // Use the build-in funtion to compute the view direction in world space</div><div class="line">  // Remember to normalize the result</div><div class="line">  fixed3 viewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>UnityCG.cginc的常用函数</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float3 WorldSpaceViewDir(float4 v)</td>
+<td>模型空间的顶点位置-&gt;世界空间中该点到摄像机的观察方向（内部使用UnityWorldSpaceViewDir）</td>
+</tr>
+<tr>
+<td>float3 UnityWorldSpaceViewDir(float4 v)</td>
+<td>世界空间的顶点位置-&gt;世界空间中该点到摄像机的观察方向</td>
+</tr>
+<tr>
+<td>float3 ObjSapceViewDir(float4 v)</td>
+<td>模型空间的顶点位置-&gt;模型空间中该点到摄像机的观察方向</td>
+</tr>
+<tr>
+<td>float3 WorldSpaceLightDir(float4 v)</td>
+<td>前向渲染中，模型空间的顶点位置-&gt;世界空间中该点到摄像机的光照方向。没有归一化（内部使用UnityWorldSpaceLightDir）</td>
+</tr>
+<tr>
+<td>float3 UnityWorldSpaceLightDir(float4 v)</td>
+<td>前向渲染中，世界空间的顶点位置-&gt;模型空间中该点到摄像机的光照方向。没有归一化</td>
+</tr>
+<tr>
+<td>float3 ObjSpaceLightDir(float4 v)</td>
+<td>前向渲染中，模型空间的顶点位置-&gt;模型空间中该点到摄像机的光照方向。没有归一化</td>
+</tr>
+<tr>
+<td>float3 UnityObjectToWorldNormal(float3 norm)</td>
+<td>法线方向，模型空间-&gt;世界空间</td>
+</tr>
+<tr>
+<td>float3 UnityObjectToWorldDir(float3 dir)</td>
+<td>方向矢量，模型空间-&gt;世界空间</td>
+</tr>
+<tr>
+<td>float3 UnityWorldToObjectDir(float3 dir)</td>
+<td>方向矢量，世界空间-&gt;模型空间</td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;n个月后重读《Unity Shader入门精要》（第六章&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;光与材质&quot;&gt;&lt;a href=&quot;#光与材质&quot; class=&quot;headerlink&quot; title=&quot;光与材质&quot;&gt;&lt;/a&gt;光与材质&lt;/h1&gt;&lt;p
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+      <category term="Shader" scheme="http://yoursite.com/tags/Shader/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【闲聊】我理想中的极客部落</title>
     <link href="http://yoursite.com/2018/04/15/Ideal-Geeklub/"/>
     <id>http://yoursite.com/2018/04/15/Ideal-Geeklub/</id>
     <published>2018-04-15T14:41:46.000Z</published>
-    <updated>2018-04-15T16:52:05.100Z</updated>
+    <updated>2018-04-16T11:48:21.920Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>看群里人聊天有感而发</p>
@@ -58,7 +185,7 @@
 <p>（如果你有写或者看到关于对GK评价的文章或者其他，联系我我会把链接加到这里</p>
 <h2 id="博客公式测试"><a href="#博客公式测试" class="headerlink" title="博客公式测试"></a>博客公式测试</h2><p>$ x^{y^z}=(1+e^x)^{-2xy^w} $</p>
 <p>$ A_0A_1A_2A_3 $</p>
-<p>参见<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="external">这篇文章</a>。</p>
+<p>参见这些文章<a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="external">1</a>，<a href="https://www.jianshu.com/p/a0aa94ef8ab2" target="_blank" rel="external">2</a>，<a href="https://docs.mathjax.org/en/latest/api/index.html" target="_blank" rel="external">APIdoc</a></p>
 <p>（因为后面要改很多手里屯着的文章，不要问我为什么发文章这么慢，因为写的太水呀……我只是不愿意妥协而已</p>
 ]]></content>
     
@@ -77,11 +204,11 @@
   </entry>
   
   <entry>
-    <title>March 2018 Progress Report</title>
+    <title>【DirectX】March 2018 Progress Report</title>
     <link href="http://yoursite.com/2018/04/03/March-2018-Progress-Report/"/>
     <id>http://yoursite.com/2018/04/03/March-2018-Progress-Report/</id>
     <published>2018-04-03T08:48:30.000Z</published>
-    <updated>2018-04-03T09:01:20.605Z</updated>
+    <updated>2018-04-16T08:36:45.159Z</updated>
     
     <content type="html"><![CDATA[<p>手撸了第六章的5个例子（box/hills/skull/shapes/waves)，顺便大致过了一遍第七章：因为光(Light)在《Unity-shader入门精要》已经看过了，而且我觉得那个说的更好（</p>
 <p>总之先输出一点</p>
@@ -182,11 +309,11 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
   </entry>
   
   <entry>
-    <title>February 2018 Progress Report</title>
+    <title>【Unity】February 2018 Progress Report</title>
     <link href="http://yoursite.com/2018/03/09/uchan-learn/"/>
     <id>http://yoursite.com/2018/03/09/uchan-learn/</id>
     <published>2018-03-09T09:36:43.000Z</published>
-    <updated>2018-04-03T08:55:04.788Z</updated>
+    <updated>2018-04-16T08:37:28.996Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子</p>
@@ -1395,69 +1522,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="Django" scheme="http://yoursite.com/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【科普】svn快速入门</title>
-    <link href="http://yoursite.com/2017/03/23/svn%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2017/03/23/svn快速入门/</id>
-    <published>2017-03-23T01:40:47.000Z</published>
-    <updated>2018-04-15T15:22:18.877Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>寄人篱下, 生活所迫</p>
-</blockquote>
-<h2 id="Foward"><a href="#Foward" class="headerlink" title="Foward"></a>Foward</h2><ol>
-<li>此文写给能使用git, 但是当下需要非常迫切使用SVN的开发人员</li>
-<li>本文默认你已经能够掌握git协议相关知识, 否则本文涉及到的相关术语看起来会造成一定的困惑.</li>
-<li>既然是快速入门, 文本尽量用git与SVN作对比进行说明(并没有</li>
-<li>本文远程仓库使用GitHub, 实际结合个人需要使用</li>
-</ol>
-<h2 id="Checkout"><a href="#Checkout" class="headerlink" title="Checkout"></a>Checkout</h2><p>首先你要做的事情是Subversion(以下简称svn) checkout。由于<code>Git clones</code>将工作目录（你编辑文件的地方）与存储库数据(.git)分开，因此在工作目录中一次只能有一个分支。</p>
-<p><code>svn checkouts</code>是不同的：它们将工作目录中的存储库数据混合在一起，因此对于checkout的每个分支和标记都有一个工作目录。对于具有许多分支和标签的存储库，检查所有文件可能是一个负担，因此你应该从部分checkout开始。</p>
-<p>1.在GitHub上找到repository的导航主页.</p>
-<p>2.在repository名称的下面, 点击<code>Clone or download</code>.</p>
-<p>3.选择<code>Clone with HTTPS</code>, 复制其中的链接.</p>
-<p>4.在本地repository中创建一个空的checkout:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo</div><div class="line">Checked out revision 1.</div><div class="line">$ <span class="built_in">cd</span> repo</div></pre></td></tr></table></figure>
-<p>5.获取<code>trunk</code>分支. SVN会把<code>trunk</code>桥接映射到<code>Git HEAD branch</code>(通常指<code>master</code>).</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">A    trunk</div><div class="line">A    trunk/README.md</div><div class="line">A    trunk/gizmo.rb</div><div class="line">Updated to revision 1.</div></pre></td></tr></table></figure>
-<p>6.在<code>branches</code>路径下获取空的checkout. 这是所有非<code>HEAD</code>分支存在的地方，你将在这里做<code>feature branches</code>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up --depth empty branches</div><div class="line">Updated to revision 1.</div></pre></td></tr></table></figure>
-<p>my ex:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ tree                                                                                                                                                                </div><div class="line">.</div><div class="line">├── branches</div><div class="line">│   └── more_awesome</div><div class="line">│       ├── LICENSE</div><div class="line">│       ├── README.md</div><div class="line">│       └── <span class="built_in">test</span></div><div class="line">└── trunk</div><div class="line">    ├── LICENSE</div><div class="line">    └── README.md</div></pre></td></tr></table></figure>
-<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><p>你也可以使用Subversion桥接到GitHub创建分支。</p>
-<p>从svn客户端，通过更新确保<code>master</code>是最新的trunk：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn up trunk</div><div class="line">At revision 1.</div></pre></td></tr></table></figure>
-<p>接下来，你可以使用<code>svn copy</code>创建新分支:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ svn copy trunk branches/more_awesome</div><div class="line">A    branches/more_awesome</div><div class="line">$ svn commit -m <span class="string">'Added more_awesome topic branch'</span></div><div class="line">Adding    branches/more_awesome</div><div class="line"></div><div class="line">Committed revision 2.</div></pre></td></tr></table></figure>
-<p>现在你能确认新分支能在github的branch下拉栏里看到:</p>
-<p><img src="https://help.github.com/assets/images/help/branch/svnflow-branch-snapshot.png" alt=""></p>
-<p>你可以确认新分支存在于存储库的分支下拉列表中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git fetch</div><div class="line">From https://github.com/user/repo/</div><div class="line">* [new branch]    more_awesome -&gt; origin/more_awesome</div></pre></td></tr></table></figure>
-<h2 id="提交修改"><a href="#提交修改" class="headerlink" title="提交修改"></a>提交修改</h2><p>在添加了一些功能并修复了一些错误之后，你需要将这些更改提交给GitHub。这就和你平时使用svn一样。编辑文件，并使用<code>svn commit</code>记录你的更改：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ svn status</div><div class="line">M    gizmo.rb</div><div class="line">$ svn commit -m <span class="string">'Guard against known problems'</span></div><div class="line">Sending    more_awesome/gizmo.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 3.</div><div class="line">$ svn status</div><div class="line">?    <span class="built_in">test</span></div><div class="line">$ svn add <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span></div><div class="line">A    <span class="built_in">test</span>/gizmo_test.rb</div><div class="line">$ svn commit -m <span class="string">'Test coverage for problems'</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span></div><div class="line">Adding    more_awesome/<span class="built_in">test</span>/gizmo_test.rb</div><div class="line">Transmitting file data .</div><div class="line">Committed revision 4.</div></pre></td></tr></table></figure>
-<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><p>要在分支机构之间切换，你可能需要首先检查<code>trunk</code>的内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn co --depth empty https://github.com/user/repo/trunk</div></pre></td></tr></table></figure>
-<p>然后，你可以切换到另一个分支：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn switch https://github.com/user/repo/branches/more_awesome</div></pre></td></tr></table></figure>
-<h2 id="一个有趣的网站"><a href="#一个有趣的网站" class="headerlink" title="一个有趣的网站"></a><del><a href="https://svnhub.com" target="_blank" rel="external">一个有趣的网站</a></del></h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;寄人篱下, 生活所迫&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Foward&quot;&gt;&lt;a href=&quot;#Foward&quot; class=&quot;headerlink&quot; title=&quot;Foward&quot;&gt;&lt;/a&gt;Foward&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;此文写
-    
-    </summary>
-    
-    
-      <category term="svn" scheme="http://yoursite.com/tags/svn/"/>
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
