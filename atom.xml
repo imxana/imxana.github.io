@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-30T09:05:25.987Z</updated>
+  <updated>2018-05-08T04:24:45.223Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【Unity】April 2018 Progress Report</title>
+    <title>【ShaderLab】时空断裂效果</title>
+    <link href="http://yoursite.com/2018/05/08/AntiEffect/"/>
+    <id>http://yoursite.com/2018/05/08/AntiEffect/</id>
+    <published>2018-05-08T03:33:05.000Z</published>
+    <updated>2018-05-08T04:24:45.223Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>居然写出来了，没想过能写出来</p>
+</blockquote>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://oi3qt7c8d.qnssl.com/AntiEffect.gif" alt="AntiEffect.gif"></p>
+<p>AntiEffect.shader<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">Shader "Custom/AntiTexture"</div><div class="line">&#123;</div><div class="line">	Properties</div><div class="line">	&#123;</div><div class="line">		_MainTex ("Texture", 2D) = "white" &#123;&#125;</div><div class="line">		[Enum(Const,1,Gradient,2)] _RenderType ("Render Type", Int) = 1</div><div class="line">		[Enum(AntiConst,1,AntiInverse,2)] _ColorType ("Color Type", Int) = 1</div><div class="line">		_Radius ("Radius", Range(0, 10)) = 0.0</div><div class="line">		_StartPos ("Start Position", Vector) = (0, 0, 0, 0)</div><div class="line">	&#125;</div><div class="line">	SubShader</div><div class="line">	&#123;</div><div class="line">		Pass</div><div class="line">		&#123;</div><div class="line">			CGPROGRAM</div><div class="line">			#pragma vertex vert</div><div class="line">			#pragma fragment frag</div><div class="line"></div><div class="line">			sampler2D _MainTex;</div><div class="line">			half _Radius;</div><div class="line">			fixed3 _StartPos;</div><div class="line">			int _RenderType;</div><div class="line">			int _ColorType;</div><div class="line"></div><div class="line"></div><div class="line">			#include "UnityCG.cginc"</div><div class="line"></div><div class="line">			struct a2v</div><div class="line">			&#123;</div><div class="line">				float4 vertex : POSITION;</div><div class="line">				float2 uv : TEXCOORD0;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			struct v2f</div><div class="line">			&#123;</div><div class="line">				float2 uv : TEXCOORD0;</div><div class="line">				float4 vertex : SV_POSITION;</div><div class="line">				float3 worldPos : TEXCOORD1;</div><div class="line">			&#125;;</div><div class="line"></div><div class="line"></div><div class="line">			v2f vert (a2v v)</div><div class="line">			&#123;</div><div class="line">				v2f o;</div><div class="line">				o.vertex = UnityObjectToClipPos(v.vertex);</div><div class="line">				o.worldPos = mul(unity_ObjectToWorld,  v.vertex);</div><div class="line">				o.uv = v.uv;</div><div class="line">				return o;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			bool inRange(float3 pos)</div><div class="line">			&#123;</div><div class="line">				return distance(pos, _StartPos.xyz) &lt; _Radius;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			fixed4 frag (v2f i) : SV_Target</div><div class="line">			&#123;</div><div class="line">				fixed4 col = tex2D(_MainTex, i.uv);</div><div class="line"></div><div class="line">				// improve performance</div><div class="line">				if (_RenderType == 1)</div><div class="line">				&#123;</div><div class="line">					if (_ColorType == 2)</div><div class="line">					&#123;</div><div class="line">						col = 1 - col;</div><div class="line">					&#125;</div><div class="line">					return col;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				switch(_ColorType)</div><div class="line">				&#123;</div><div class="line">					case 1:</div><div class="line">						if (inRange(i.worldPos))</div><div class="line">						&#123;</div><div class="line">							col = 1 - col;</div><div class="line">						&#125;</div><div class="line">						break;</div><div class="line">					case 2:</div><div class="line">						if (!inRange(i.worldPos))</div><div class="line">						&#123;</div><div class="line">							col = 1 - col;</div><div class="line">						&#125;</div><div class="line">						break;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				return col;</div><div class="line">			&#125;</div><div class="line">			ENDCG</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>复制粘贴在车上和旅馆里用手机打的字：</p>
+</blockquote>
+<p>想要实现的效果</p>
+<p>全局断裂 效果</p>
+<p>一开始是考虑这样一个效果，从某个点（比如player的中心）开始生成一个逐渐变大的球，在球范围内的物体开始产生效果（比如反色）</p>
+<p>直接效果</p>
+<p>对于一些简单的情况当然是可以做到的，比如物体A要被断裂，判断断裂球是否与A碰撞，从碰撞时在物体的shader传入几个参数（物体a的中心和断裂中心以计算断裂直线轨迹，还有断裂传播速度以获取半径），不过由于每帧要判断顶点或片元是否处于断裂球内，这样shader的计算量会变得相当大，可能会遇到一个性能瓶颈。</p>
+<p>还有一个问题，如果只是简单的贴图shader还好，对于本身shader就很复杂的物体改写shader也是一件很痛苦的事情。或者说构建很复杂的物体，比如一个简单的人物模型上面就有几十几百个子物体，要这样全部改一遍根本不可能。</p>
+<p>而且material和shader是多对一的关系，基本上就告别共用material了。（后记：对于Unity来说，shader即材质，没有更换shader的说法</p>
+<p>间接效果</p>
+<p>还有一个更加简单的办法，就是使用屏幕后处理。由名思义就是在所有渲染完成，呈现最终屏幕上的最终效果后，再进行最终的处理。</p>
+<p>这样就简单了，因为只是处理一个tex2d，只要传入一个平面坐标和扩散速度，这个shader写起来就没有任何难度可言。但是这样做就不好控制深度问题，比如我不想影响被A挡住的B，但是不可能，因为先屏幕后处理再渲染B的话会出现诡异的位置情况。</p>
+<p>（补个图）<br><img src="https://oi3qt7c8d.qnssl.com/AntiScreen.gif" alt="AntiScreen.gif"></p>
+<p>这大概就是一个取舍问题。</p>
+<p>无论如何，直接效果还是需要进行实验的，大致进度如下：（回去用那个猫模型为例）</p>
+<p>反色材质shader → 动态反色材质shader → 加上触发器 → 加上传入参数功能</p>
+<p>（然后摸了一周）</p>
+<blockquote>
+<p>这是写完后的想法：</p>
+</blockquote>
+<p>构思这个东西断断续续大概花了一周的时间，虽然一个很简单的想法，但是写起来不知道为什么那么痛苦。特别是shader的Debug，因为shader几乎没有Debug的方法，只能凭经验判断是哪里出了错。而且shaderlab对于初学者极不友好，我是在读了大概不知道多少个例子（而且是很陈旧的例子）之后，在脑子中推断语法，还要时时刻刻考虑性能问题。上面的代码我给出了一个<code>_RenderType</code>，从而在非碰撞时，设计一个能够跳过片元着色器的逻辑判断的分支。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>感谢下列文章，虽然无法根本解决问题，但是为我提供了宝贵的思考价值：</p>
+<p>【链接】UnityShader使用枚举切换整体色调<br><a href="https://blog.csdn.net/chy555chy/article/details/79065485" target="_blank" rel="external">https://blog.csdn.net/chy555chy/article/details/79065485</a></p>
+<p>【链接】【猫猫的UnityShader之旅】之使用顶点的世界坐标<br><a href="https://blog.csdn.net/dbtxdxy/article/details/45679371" target="_blank" rel="external">https://blog.csdn.net/dbtxdxy/article/details/45679371</a></p>
+<p>【链接】unity几种优化建议<br><a href="https://blog.csdn.net/ElyXiao/article/details/51980863" target="_blank" rel="external">https://blog.csdn.net/ElyXiao/article/details/51980863</a></p>
+<p>以及《Unity Shader入门精要》，从附带的代码中解决了我绝大多数的困惑</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;居然写出来了，没想过能写出来&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://oi3
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+      <category term="Shader" scheme="http://yoursite.com/tags/Shader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Unity】人物交互</title>
     <link href="http://yoursite.com/2018/04/29/CharactorSimulator/"/>
     <id>http://yoursite.com/2018/04/29/CharactorSimulator/</id>
     <published>2018-04-29T01:21:39.000Z</published>
-    <updated>2018-04-30T09:05:25.987Z</updated>
+    <updated>2018-05-08T04:19:58.165Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>动图杀猫，流量预警</p>
@@ -1193,269 +1250,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;权限控制&quot;&gt;&lt;a href=&quot;#权限控制&quot; class=&quot;headerlink&quot; title=&quot;权限控制&quot;&gt;&lt;/a&gt;权限控制&lt;/h2&gt;&lt;p&gt;思路&lt;/p&gt;
 &lt;p&gt;fbv里页面控制
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Django】cbv是个好东西</title>
-    <link href="http://yoursite.com/2017/04/21/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF/"/>
-    <id>http://yoursite.com/2017/04/21/cbv是个好东西/</id>
-    <published>2017-04-21T05:17:49.000Z</published>
-    <updated>2018-04-15T15:26:05.801Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>原标题: 这两天摸鱼所得</p>
-</blockquote>
-<p>将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有大量的第三方扩展了</p>
-<h2 id="1-CBVs的使用原则"><a href="#1-CBVs的使用原则" class="headerlink" title="1.CBVs的使用原则"></a>1.CBVs的使用原则</h2><p>代码越少越好</p>
-<p>永远不要重复代码</p>
-<p>View应当只包含呈现逻辑, 不应包括业务逻辑</p>
-<p>保持view逻辑清晰简单</p>
-<p>不要将CBVs用作403, 404, 500的错误处理程序</p>
-<p>保持mixin简单明了</p>
-<h2 id="2-如何使用mixin"><a href="#2-如何使用mixin" class="headerlink" title="2.如何使用mixin"></a>2.如何使用mixin</h2><p>在编程中mixin是指为继承它的class提供额外的功能, 但它自身却不能单独使用的类. 在具有多继承能力的编程语言中, mixin可以为类增加额外功能或方法. 在Django中, 我们可以使用mixin为CBVs提供更多的扩展性, 当然在类继承过程中, 我们推荐以下原则:</p>
-<p>Django自身提供的View永远在最右边</p>
-<p>mixin依次在以上view的左边</p>
-<p>mixin永远继承自Python的object类型</p>
-<h2 id="3-减少重复砌砖头-来看看通用视图"><a href="#3-减少重复砌砖头-来看看通用视图" class="headerlink" title="3.减少重复砌砖头?来看看通用视图"></a>3.减少重复砌砖头?来看看通用视图</h2><p>为了深入了解Django的通用view, 到了痛苦地读源码(文末附)的时候了. 当然如果你不写Django也不妨看看, 读一读或许对模板系统的理解有所启发</p>
-<p>来来来我们进入Django.views.generic (anyway), 从简到繁</p>
-<h3 id="base-py"><a href="#base-py" class="headerlink" title="base.py"></a>base.py</h3><p>颜料盒<code>base.py</code></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>Super</th>
-<th>Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ContextMixin</td>
-<td>object</td>
-<td>A default context mixin that passes the keyword arguments received by get_context_data as the template context.</td>
-</tr>
-<tr>
-<td>View</td>
-<td>object</td>
-<td>Intentionally simple parent class for all views. Only implements dispatch-by-method and simple sanity checking.</td>
-</tr>
-<tr>
-<td>TemplateResponseMixin</td>
-<td>object</td>
-<td>A mixin that can be used to render a template.</td>
-</tr>
-<tr>
-<td>TemplateView</td>
-<td>ContextMixin, TemplateResponseMixin, View</td>
-<td>A view that renders a template.  This view will also pass into the context any keyword arguments passed by the URLconf.</td>
-</tr>
-<tr>
-<td>RedirectView</td>
-<td>View</td>
-<td>A view that provides a redirect on any GET request.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>三个继承<code>Object</code>的初始class, 这就好比绘图使用的三原色, 后面大部分的Mixin和View都是由它们变化而来. 其中:</p>
-<p><code>ContextMixin</code>包含一个<code>get_context_data</code>方法, 用于渲染模板数据</p>
-<p><code>View</code>是通用View,包含一个<code>as_view</code>的req到res响应方法, 提供http方法及其允许列表, 进行一些简单的检查</p>
-<p><code>TemplateResponseMixin</code>是用于渲染模板的方法, 包括指定模板路径和渲染引擎</p>
-<p>这个<code>TemplateView</code>是个简单的模板View, 继承与上面三个对象, 定义了<code>render_to_response</code>, 相当于静态页面 (从fbv转过来的童鞋用这个View并且重写get_context_data方法就能完成简单的fbv-&gt;cbv的转换了)</p>
-<p><code>RedirectView</code>重定向View, 重写了<code>get</code>, 只需要处理GET请求的view, 使用<code>url</code>参数指定重定向页面</p>
-<h3 id="detail-py"><a href="#detail-py" class="headerlink" title="detail.py"></a>detail.py</h3><p>detail.py里定义了一系列对象信息展示的view, 核心View是最后的<code>DetailView</code></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>Super</th>
-<th>Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SingleObjectMixin</td>
-<td>ContextMixin</td>
-<td>Provides the ability to retrieve a single object for further manipulation.</td>
-</tr>
-<tr>
-<td>BaseDetailView</td>
-<td>SingleObjectMixin, View</td>
-<td>A base view for displaying a single object</td>
-</tr>
-<tr>
-<td>SingleObjectTemplateResponseMixin</td>
-<td>TemplateResponseMixin</td>
-<td>-</td>
-</tr>
-<tr>
-<td>DetailView</td>
-<td>SingleObjectTemplateResponseMixin, BaseDetailView</td>
-<td>Render a “detail” view of an object. By default this is a model instance looked up from <code>self.queryset</code>, but the view will support display of <em>any</em> object by overriding <code>self.get_object()</code>.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><code>SingleObjectMixin</code>扩展了<code>ContextMixin</code>, 使其能够使用model,query等获取对象, 然后通过设置定义的<code>context_object_name</code>去渲染模板内定义的字段</p>
-<p><code>BaseDetailView</code>在<code>view</code>上使用了<code>SingleObjectMixin</code>, 给<code>get</code>方法添加了将对象转化为<code>context</code>(上下文)的操作, 使其成为一个能够请求处理对象的基础view, 但是还没有渲染方法, 不设置的原因是还能够绑定删除mixin成为<code>BaseDeleteView</code></p>
-<p><code>SingleObjectTemplateResponseMixin</code>无说明, 但是从代码上看是除了渲染方法以外,额外定义默认对象渲染模板名称 默认页面后缀<code>_detail</code> 这个方法多次复用于base类view, 给基础对象处理类view提供渲染方法</p>
-<p><code>DetailView</code>详情View, 单纯地继承<code>BaseDetailView</code>和<code>SingleObjectTemplateResponseMixin</code></p>
-<h3 id="list-py"><a href="#list-py" class="headerlink" title="list.py"></a>list.py</h3><p>list.py用于展示列表, 写法与<code>detail.py</code>类似, 核心View是<code>ListView</code></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>Super</th>
-<th>Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MultipleObjectMixin</td>
-<td>Context</td>
-<td>A mixin for views manipulating multiple objects.</td>
-</tr>
-<tr>
-<td>BaseListView</td>
-<td>MultipleObjectMixin, View</td>
-<td>A base view for displaying a list of objects.</td>
-<td></td>
-</tr>
-<tr>
-<td>MultipleObjectTemplateResponseMixin</td>
-<td>TemplateResponseMixin</td>
-<td>Mixin for responding with a template and list of objects.</td>
-</tr>
-<tr>
-<td>ListView</td>
-<td>MultipleObjectTemplateResponseMixin, BaseListView</td>
-<td>Render some list of objects, set by <code>self.model</code> or <code>self.queryset</code>. <code>self.queryset</code> can actually be any iterable of items, not just a queryset.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><code>MultipleObjectMixin</code>与<code>SingleObjectMixin</code>不同的方式扩展了<code>ContextMixin</code>, 使其能够使用model等获取queryset之外, 额外提供了页面分页功能及其参数和方法</p>
-<p><code>BaseListView</code>是一个能够请求处理对象列表的基础view, 但是还没有渲染方法</p>
-<p><code>MultipleObjectTemplateResponseMixin</code>功能都差不多..</p>
-<p><code>ListView</code>单纯继承上面两个</p>
-<h3 id="edit-py"><a href="#edit-py" class="headerlink" title="edit.py"></a>edit.py</h3><p>edit.p涉及了CRUD, 所以引入了<code>form</code>的概念, 核心View为<code>CreateView</code>,<code>UpdateView</code>,<code>DeleteView</code>,这里的View比较耳熟吧</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>Super</th>
-<th>Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FormMixinBase</td>
-<td>type</td>
-<td>-</td>
-</tr>
-<tr>
-<td>FormMixin</td>
-<td>six.with_metaclass(FormMixinBase, ContextMixin)</td>
-<td>A mixin that provides a way to show and handle a form in a request.</td>
-</tr>
-<tr>
-<td>ModelFormMixin</td>
-<td>FormMixin, SingleObjectMixin</td>
-<td>A mixin that provides a way to show and handle a modelform in a request.</td>
-</tr>
-<tr>
-<td>ProcessFormView</td>
-<td>View</td>
-<td>A mixin that renders a form on GET and processes it on POST.</td>
-</tr>
-<tr>
-<td>BaseFormView</td>
-<td>FormMixin, ProcessFormView</td>
-<td>A base view for displaying a form</td>
-</tr>
-<tr>
-<td>FormView</td>
-<td>TemplateResponseMixin, BaseFormView</td>
-<td>A view for displaying a form, and rendering a template response.</td>
-</tr>
-<tr>
-<td>BaseCreateView</td>
-<td>ModelFormMixin, ProcessFormView</td>
-<td>Base view for creating an new object instance. Using this base class requires subclassing to provide a response mixin.</td>
-</tr>
-<tr>
-<td>CreateView</td>
-<td>SingleObjectTemplateResponseMixin, BaseCreateView</td>
-<td>View for creating a new object instance, with a response rendered by template.</td>
-</tr>
-<tr>
-<td>BaseUpdateView</td>
-<td>ModelFormMixin, ProcessFormView</td>
-<td>Base view for updating an existing object. Using this base class requires subclassing to provide a response mixin.</td>
-</tr>
-<tr>
-<td>UpdateView</td>
-<td>SingleObjectTemplateResponseMixin, BaseUpdateView</td>
-<td>View for updating an object, with a response rendered by template.</td>
-</tr>
-<tr>
-<td>DeletionMixin</td>
-<td>object</td>
-<td>A mixin providing the ability to delete objects</td>
-</tr>
-<tr>
-<td>BaseDeleteView</td>
-<td>DeletionMixin, BaseDetailView</td>
-<td>Base view for deleting an object. Using this base class requires subclassing to provide a response mixin.</td>
-</tr>
-<tr>
-<td>DeleteView</td>
-<td>SingleObjectTemplateResponseMixin, BaseDeleteView</td>
-<td>View for deleting an object retrieved with <code>self.get_object()</code>, with a response rendered by template.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>注: six是一个python2和python3兼容库.</p>
-<p><code>FormMixinBase</code>继承type定义了一个类型, 重写了<code>__new__</code>, 内容暂时看不懂:)</p>
-<p><code>FormMixin</code>表单逻辑, 这里就定义了几个重要的属性和方法, 用户使用form<code>form_class</code>, 成功回调url<code>success_url</code> 表单合法<code>form_valid</code> 表单不合法<code>form_invalid</code>等</p>
-<p><code>ModelFormMixin</code>进一步扩展<code>FormMixin</code>, 提供<code>fields</code>字段使用户能够处理<code>ModelForm</code>, <code>form_valid</code>中添加了保存操作</p>
-<p><code>ProcessFormView</code>功能View, 重写了<code>View</code>的get和post方法(put直接return post方法) 使View能够在get的时候 渲染form内容, post的时候能提交form内容</p>
-<p><code>BaseFormView</code> 相当于给<code>ProcessFormView</code>提供了表单处理逻辑, 相当于能处理一些简单的请求了</p>
-<p><code>FormView</code> 继续给<code>BaseFormView</code>加上模板渲染引擎, 处理结果能从前台渲染出来了</p>
-<p><code>BaseCreateView</code> 和<code>BaseFormView</code>类似, 不过其使用的是modelForm, <code>form_valid</code>会调用<code>form.save()</code>方法, <code>get</code>和<code>post</code>中执行了一句<code>self.object = None</code> 其作用于<code>SingleObjectMixin</code>的<code>get_context_data</code>方法中 (detail.py 103-107行,判断self.object不为空时执行取址操作 v1.9.5)</p>
-<p><code>CreateView</code> 单纯基础<code>BaseCreateView</code>和<code>SingleObjectTemplateResponseMixin</code>,别忘了后者只是是一个轻度继承的渲染工具 默认页面后缀<code>_form</code></p>
-<p><code>BaseUpdateView</code> 和<code>BaseCreateView</code>代码几乎相同, 除了<code>self.object = None</code>改为<code>self.object = self.get_object()</code> 作用于相同位置, 进行字典更新操作</p>
-<p><code>UpdateView</code> 单纯基础<code>BaseUpdateView</code>和<code>SingleObjectTemplateResponseMixin</code> 默认页面后缀<code>_form</code></p>
-<p><code>DeletionMixin</code> 新的颜料,因为功能使用不频繁所以单独放在这里, 提供了<code>delete</code>方法和<code>success_url</code>属性, <code>delete</code>执行<code>self.object.delete()</code>后会自动执行页面回调. 特别注意的是, 这里只有<code>post</code>方法return了<code>delete</code>方法, 其他方法暂不支持</p>
-<p><code>BaseDeleteView</code> 给<code>BaseDetailView</code>绑定删除功能, 仅简单继承, 无页面渲染 简单的删除后跳转</p>
-<p><code>DeleteView</code> 单纯继承<code>BaseDeleteView</code>和<code>SingleObjectTemplateResponseMixin</code>,  默认页面后缀<code>_confirm_delete</code>, 给一个删除页面, get即渲染一个页面, 给个表格, post到这个页面后将删除对象</p>
-<h3 id="dates-py"><a href="#dates-py" class="headerlink" title="dates.py"></a>dates.py</h3><p>这是一个基于时间的页面通用view模板, 但是除了博客之类的基本上用不着, 不阐述.</p>
-<h2 id="假装参考"><a href="#假装参考" class="headerlink" title="假装参考"></a>假装参考</h2><p><a href="http://www.weiguda.com/blog/11/" target="_blank" rel="external">weiguda的博客</a></p>
-<p>(这篇博文原意是好的, 但是读着感觉变成<code>django-braces</code>文档了, 那我为啥不去看源文档呢呢)</p>
-<p><a href="https://docs.djangoproject.com/en/1.9/topics/class-based-views/intro/" target="_blank" rel="external">django官方文档</a></p>
-<p>这些通用view的具体简单实例.</p>
-<p><a href="https://github.com/django/django/tree/master/django/views/generic" target="_blank" rel="external">django.views.generic源码</a></p>
-<p>本文源码 顺带一提 Django中admin还是保持fbv风格(逃</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;原标题: 这两天摸鱼所得&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;将狗里cbv与fbv的优劣不阐述, cbv的多态继承与python这种oo语言风格上就保持了一致, 无论是呈现逻辑(View)与业务逻辑(Mixin)都能很好的进行拼接, 更别说有
     
     </summary>
     
