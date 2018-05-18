@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-18T12:21:19.454Z</updated>
+  <updated>2018-05-18T12:28:17.290Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/05/16/May6/"/>
     <id>http://yoursite.com/2018/05/16/May6/</id>
     <published>2018-05-16T05:50:31.000Z</published>
-    <updated>2018-05-18T12:21:19.454Z</updated>
+    <updated>2018-05-18T12:28:17.290Z</updated>
     
     <content type="html"><![CDATA[<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><ul>
 <li>改进了反色Shader，现在物体会被平行光源/点光源影响了</li>
@@ -29,7 +29,7 @@
 <h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><ul>
 <li>添加了物品栏满后无法拾取的互动提示</li>
 </ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/AntiSpecular.gif" alt="PackageFullTips.gif"></p>
+<p><img src="https://oi3qt7c8d.qnssl.com/PackageFullTips.gif" alt="PackageFullTips.gif"></p>
 <ul>
 <li>和NPC互动会控制玩家位置</li>
 </ul>
