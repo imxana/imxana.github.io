@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/16/May6/</loc>
+    
+    <lastmod>2018-05-18T12:21:19.454Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/03/March-2018-Progress-Report/</loc>
+    
+    <lastmod>2018-05-16T05:56:12.595Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/08/AntiEffect/</loc>
     
     <lastmod>2018-05-08T04:24:45.223Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://yoursite.com/2018/03/09/uchan-learn/</loc>
     
     <lastmod>2018-04-16T08:37:28.996Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/03/March-2018-Progress-Report/</loc>
-    
-    <lastmod>2018-04-16T08:36:45.159Z</lastmod>
     
   </url>
   
