@@ -53,7 +53,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -69,7 +69,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -91,14 +91,14 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-31T02:12:11.000Z" itemprop="datePublished"> Published 2015-08-31</time>
+    <time datetime="2015-08-31T02:12:11.000Z" itemprop="datePublished"> 发表于 2015-08-31</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
 		
@@ -176,22 +176,22 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Forward"><span class="toc-number">1.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量说明"><span class="toc-number">2.</span> <span class="toc-text">变量说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现基本跳跃"><span class="toc-number">3.</span> <span class="toc-text">实现基本跳跃</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特别说明"><span class="toc-number">4.</span> <span class="toc-text">特别说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳"><span class="toc-number">5.</span> <span class="toc-text">实现二段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量"><span class="toc-number">5.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phaser的监听方法"><span class="toc-number">5.2.</span> <span class="toc-text">phaser的监听方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数"><span class="toc-number">5.3.</span> <span class="toc-text">jump函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.4.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现二段跳·改"><span class="toc-number">6.</span> <span class="toc-text">实现二段跳·改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#debug-1"><span class="toc-number">6.1.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现多段跳"><span class="toc-number">7.</span> <span class="toc-text">实现多段跳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义变量-1"><span class="toc-number">7.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update函数更新"><span class="toc-number">7.2.</span> <span class="toc-text">update函数更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jump函数更新"><span class="toc-number">7.3.</span> <span class="toc-text">jump函数更新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#END"><span class="toc-number">8.</span> <span class="toc-text">END?</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -240,7 +240,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -264,11 +264,11 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
 			
 		
 			
@@ -276,11 +276,11 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
 			
 		
 			
@@ -300,10 +300,6 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 			
 		
 			
-				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
 			
 		
@@ -313,6 +309,10 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 		
 			
 				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
 			
 		
 			
@@ -328,7 +328,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -410,7 +410,7 @@ Forward一个横版过关游戏，相比于单纯的固定跳跃来说，多段�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -619,7 +619,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

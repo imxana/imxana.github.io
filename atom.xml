@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-18T12:28:17.290Z</updated>
+  <updated>2018-05-23T08:59:28.930Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,17 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我又来找工作了^^</title>
+    <link href="http://yoursite.com/2018/05/22/resume/"/>
+    <id>http://yoursite.com/2018/05/22/resume/</id>
+    <published>2018-05-22T01:30:31.000Z</published>
+    <updated>2018-05-23T08:59:28.930Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>姓名：金云天 / 现居住地：杭州</p>
+<p>学校：杭州电子科技大学/软件工程/大四应届生</p>
+<p>联系方式：<code>MTc3NjQ1OTE0NTA=</code></p>
+<p>邮箱：<em>xana.awaken@gmail.com</em></p>
+<p>需求职位：<em>U3D客户端</em> 或其他相关职位</p>
+<p>熟练使用Unity3d，熟悉人物模型，物理引擎、UGUI、C#脚本，写过很多小游戏，会写简单的Unity-Shader。</p>
+<p>熟悉Git-flow工作流，能有效快速的处理bug~（前同事用了都说好</p>
+<p>自学能力很强，乐意接受并钻研分享新技术，以前写Web和iOS，能够熟练使用 Python/NodeJS/Swift/OC 每种至少有一个商业应用或者比赛作品，轻度Linux/Vim党。</p>
+<p>欢迎推荐~HR请通过邮箱或者其他方式联系我~</p>
+<h2 id="U3D游戏相关经历"><a href="#U3D游戏相关经历" class="headerlink" title="U3D游戏相关经历"></a>U3D游戏相关经历</h2><p>目前使用U3D进行开发，目前在做的作品demo链接：<a href="http://mikumiku.com.cn/04/29/CharactorSimulator/" target="_blank" rel="external">交互模拟</a> <a href="http://mikumiku.com.cn/05/16/May6/" target="_blank" rel="external">更新1</a>，（开源模型/标准库动画/触发检测/ScriptableObject/Shader/UGUI 运行环境：PC + U3D）</p>
+<p>自学过一段时间的图形学，学习过Directx11（读的是原版龙书），会写一些简单的shader，了解性能优化。ShaderLab demo链接：<a href="http://mikumiku.com.cn/05/08/AntiEffect/" target="_blank" rel="external">AntiEffect</a>，（自定义顶点/片源着色器 运行环境：PC + U3D）</p>
+<h2 id="其他游戏经历"><a href="#其他游戏经历" class="headerlink" title="其他游戏经历"></a>其他游戏经历</h2><p>使用缘之空游戏内的素材写过一个半成品的iOS游戏（语言使用swift2）。游戏部分截图：<a href="http://mikumiku.com.cn/01/12/worst_code_of_year/" target="_blank" rel="external">YZK</a></p>
+<p>参加过三次hackathon，使用NodeJS快速开发游戏主要逻辑和长短请求处理。最好的一次成绩：<a href="https://mp.weixin.qq.com/s/I2_spfIfHM8QcuYT3Jh_PQ" target="_blank" rel="external">【链接】2016“龙驰杯”浙江高校Hackathon大赛圆满落幕</a> 作品源码：<a href="https://github.com/Gklub/DemoX_Model" target="_blank" rel="external">DemoX</a></p>
+<p>大一写过五六个使用RPGmaker制作的游戏，其中最长的一个花了两个月整理素材，还有一个帮助姬友实现小说剧情化。</p>
+<h2 id="与游戏无关的经历"><a href="#与游戏无关的经历" class="headerlink" title="与游戏无关的经历"></a>与游戏无关的经历</h2><blockquote>
+<p>仅证明自学能力</p>
+</blockquote>
+<p>使用Objective-C写过iOS商业应用 集成支付宝/微信/QQ，独立上传过App Store。 App Store应用名：水南照相馆；文档主页：<a href="http://mikumiku.com.cn/03/20/snzxg/" target="_blank" rel="external">水南照相馆技术支持文档</a>。之后还尝试用ReactNative重写一次，坑太多（RN版本更新太快），复刻界面后不了了之。</p>
+<p>大三上学期使用python的flask框架写了一个为实验班搭建的论坛，后端技术栈 Python3 + Flask + Mysql，开发与部署平台 Linux / Supervisor + Nginx + uWsgi，自动化运维+测试。项目GitHub地址：<a href="https://github.com/imxana/ec_forum" target="_blank" rel="external">Experimental_Class_Forum_Backend</a></p>
+<p>大三下写过一个跨国公司商业用python-django项目。原公司最初使用 svn/django-fbv 经个人坚持后转型 git-flow/django-cbv 最大的收获是 从0到1掌握Django，通过读Django源码深入解读cbv系统（view的结构组织和生命周期）和模板系统，并掌握前端基本技能（jq+Bootstrap3）。网站实现国际化，并至少支持两种语言，官网：<a href="http://www.ebizbank.com" target="_blank" rel="external">ebizbank</a></p>
+<p>大四毕设，学车和看书。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;个人简介&quot;&gt;&lt;a href=&quot;#个人简介&quot; class=&quot;headerlink&quot; title=&quot;个人简介&quot;&gt;&lt;/a&gt;个人简介&lt;/h2&gt;&lt;p&gt;姓名：金云天 / 现居住地：杭州&lt;/p&gt;
+&lt;p&gt;学校：杭州电子科技大学/软件工程/大四应届生&lt;/p&gt;
+&lt;p&gt;联系方式：&lt;co
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【Unity】May 6 Study Progerss</title>
     <link href="http://yoursite.com/2018/05/16/May6/"/>
     <id>http://yoursite.com/2018/05/16/May6/</id>
     <published>2018-05-16T05:50:31.000Z</published>
-    <updated>2018-05-18T12:28:17.290Z</updated>
+    <updated>2018-05-23T02:10:06.688Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><ul>
+    <content type="html"><![CDATA[<blockquote>
+<p>动图（大图）杀猫，流量预警</p>
+</blockquote>
+<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><p>Last Update: <a href="/2018/05/08/AntiEffect/">2018/05/08</a></p>
+<ul>
 <li>改进了反色Shader，现在物体会被平行光源/点光源影响了</li>
 </ul>
 <p><img src="https://oi3qt7c8d.qnssl.com/AntiSpecular.gif" alt="AntiSpecular.gif"></p>
-<h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><ul>
+<h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><p>Last Update: <a href="/2018/04/29/CharactorSimulator/">2018/04/29</a></p>
+<ul>
 <li>添加了物品栏满后无法拾取的互动提示</li>
 </ul>
 <p><img src="https://oi3qt7c8d.qnssl.com/PackageFullTips.gif" alt="PackageFullTips.gif"></p>
@@ -42,9 +88,9 @@
 </ul>
 <p><img src="https://oi3qt7c8d.qnssl.com/QuickTurn.gif" alt="QuickTurn.gif"></p>
 <ul>
-<li>设计一个玩家技能（TODO</li>
+<li>设计一个玩家技能</li>
 </ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/SkillDemo.gif" alt="SkillDemo.gif"></p>
+<p><img src="https://oi3qt7c8d.qnssl.com/SkillDemo.gif" alt="SkillDemo.gif（TODO"></p>
 <h2 id="hackathon设计构思（备胎"><a href="#hackathon设计构思（备胎" class="headerlink" title="hackathon设计构思（备胎"></a>hackathon设计构思（备胎</h2><p>写一个123木头人的即时游戏</p>
 <p>角色：主机（蒙眼人），其他玩家（木头人，自由观察者）</p>
 <p>开始条件：主机开始</p>
@@ -65,8 +111,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;AntiShader&quot;&gt;&lt;a href=&quot;#AntiShader&quot; class=&quot;headerlink&quot; title=&quot;AntiShader&quot;&gt;&lt;/a&gt;AntiShader&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;改进了反色Shader，现在物体会被平行光源/点光源影响了&lt;/l
+      &lt;blockquote&gt;
+&lt;p&gt;动图（大图）杀猫，流量预警&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;AntiShader&quot;&gt;&lt;a href=&quot;#AntiShader&quot; class=&quot;headerlink&quot; title=&quot;AntiShader&quot;&gt;&lt;/a&gt;AntiShad
     
     </summary>
     
@@ -1233,43 +1281,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【Django】cbv是个好东西三（完）</title>
-    <link href="http://yoursite.com/2017/05/04/cbv%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF%E4%B8%89/"/>
-    <id>http://yoursite.com/2017/05/04/cbv是个好东西三/</id>
-    <published>2017-05-04T03:19:45.000Z</published>
-    <updated>2018-04-15T15:19:46.510Z</updated>
-    
-    <content type="html"><![CDATA[<p>其实到现在，我已经有点后悔放弃Oscar了，Oscar现在在我看来是一个非常好的框架，它用了非常棒的第三方支持，例如一些tableMixin</p>
-<p>以下是一些构建Django-b2b网站的解决方案，做过web的同学都懂</p>
-<h2 id="cbv-mixin"><a href="#cbv-mixin" class="headerlink" title="cbv mixin"></a>cbv mixin</h2><p><a href="https://docs.djangoproject.com/en/dev/topics/class-based-views/mixins/" target="_blank" rel="external">https://docs.djangoproject.com/en/dev/topics/class-based-views/mixins/</a></p>
-<h2 id="bootstrap-icon"><a href="#bootstrap-icon" class="headerlink" title="bootstrap-icon"></a>bootstrap-icon</h2><p><a href="https://www.w3schools.com/bootstrap/bootstrap_ref_comp_glyphs.asp" target="_blank" rel="external">https://www.w3schools.com/bootstrap/bootstrap_ref_comp_glyphs.asp</a></p>
-<h2 id="国际化问题"><a href="#国际化问题" class="headerlink" title="国际化问题"></a>国际化问题</h2><p><a href="http://code.ziqiangxuetang.com/django/django-internationalization.html" target="_blank" rel="external">http://code.ziqiangxuetang.com/django/django-internationalization.html</a></p>
-<p><a href="http://djangobook.com/internationalization-url-patterns/" target="_blank" rel="external">http://djangobook.com/internationalization-url-patterns/</a></p>
-<p><a href="https://www.xncoding.com/2015/08/24/simpleblog-12.html" target="_blank" rel="external">https://www.xncoding.com/2015/08/24/simpleblog-12.html</a></p>
-<p><a href="http://bastengao.com/blog/2016/11/django-translations.html" target="_blank" rel="external">http://bastengao.com/blog/2016/11/django-translations.html</a></p>
-<p><a href="http://djangobook.py3k.cn/2.0/chapter19/" target="_blank" rel="external">http://djangobook.py3k.cn/2.0/chapter19/</a></p>
-<h2 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h2><p><a href="http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html" target="_blank" rel="external">http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html</a></p>
-<p><a href="https://virusdefender.net/index.php/archives/318/" target="_blank" rel="external">https://virusdefender.net/index.php/archives/318/</a></p>
-<p><a href="http://blog.csdn.net/iloveyin/article/details/44940931" target="_blank" rel="external">http://blog.csdn.net/iloveyin/article/details/44940931</a></p>
-<p><a href="http://www.cnblogs.com/piperck/p/5391128.html" target="_blank" rel="external">http://www.cnblogs.com/piperck/p/5391128.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;其实到现在，我已经有点后悔放弃Oscar了，Oscar现在在我看来是一个非常好的框架，它用了非常棒的第三方支持，例如一些tableMixin&lt;/p&gt;
-&lt;p&gt;以下是一些构建Django-b2b网站的解决方案，做过web的同学都懂&lt;/p&gt;
-&lt;h2 id=&quot;cbv-mixin&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="django" scheme="http://yoursite.com/tags/django/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
