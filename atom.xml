@@ -56,16 +56,17 @@
     <link href="http://yoursite.com/2018/05/22/resume/"/>
     <id>http://yoursite.com/2018/05/22/resume/</id>
     <published>2018-05-22T01:30:31.000Z</published>
-    <updated>2018-05-25T09:35:46.745Z</updated>
+    <updated>2018-05-25T10:09:43.326Z</updated>
     
     <content type="html"><![CDATA[<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>姓名：金云天 / 现居住地：杭州</p>
 <p>学校：杭州电子科技大学/软件工程/大四应届生</p>
 <p>联系方式：<code>MTc3NjQ1OTE0NTA=</code></p>
 <p>邮箱：<em>xana.awaken@gmail.com</em></p>
 <p>需求职位：<em>U3D客户端</em> 或其他相关职位</p>
-<p>熟练使用Unity3d，熟悉人物模型，物理引擎、UGUI、C#脚本，写过很多小游戏，会写简单的Unity-Shader。</p>
+<p>我从去年辞职以后自学了半年多的游戏设计、常用编程模式、Unity3d和Shader，有一定的图形学基础，目标是写一个能用到所学内容的独立游戏，并且能够一直保持更新扩展维护。</p>
+<p>能熟练使用Unity3d，熟悉人物模型，物理引擎、UGUI、C#脚本，写过很多小游戏；会写一定程度的Unity-Shader，了解各种光的计算、卡通风格的渲染、广告牌等技术。</p>
 <p>熟悉Git-flow工作流，能有效快速的处理bug~（前同事用了都说好</p>
-<p>自学能力很强，乐意接受并钻研分享新技术，以前写Web和iOS，能够熟练使用 Python/NodeJS/Swift/OC 每种至少有一个商业应用或者比赛作品，轻度Linux/Vim党。</p>
+<p>我自学能力很强，乐意接受并钻研分享新技术，以前写Web和iOS，能够熟练使用 Python/NodeJS/Swift/OC 每种至少有一个商业应用或者比赛作品，轻度Linux/Vim党。个人控制欲也比较强，写项目希望能完整掌握所有的细节。</p>
 <p>欢迎推荐~HR请通过邮箱或者其他方式联系我~</p>
 <h2 id="U3D游戏相关经历"><a href="#U3D游戏相关经历" class="headerlink" title="U3D游戏相关经历"></a>U3D游戏相关经历</h2><p>目前使用U3D进行开发，目前在做的作品demo链接：<a href="http://mikumiku.com.cn/2018/04/29/CharactorSimulator/" target="_blank" rel="external">交互模拟</a> <a href="http://mikumiku.com.cn/2018/05/16/May6/" target="_blank" rel="external">更新1</a>，（开源模型/标准库动画/触发检测/ScriptableObject/Shader/UGUI 运行环境：PC + U3D）</p>
 <p>自学过一段时间的图形学，学习过Directx11（读的是原版龙书），会写一些简单的shader，了解性能优化。ShaderLab demo链接：<a href="http://mikumiku.com.cn/2018/05/08/AntiEffect/" target="_blank" rel="external">AntiEffect</a>，（自定义顶点/片源着色器 运行环境：PC + U3D）</p>
@@ -97,17 +98,17 @@
     <link href="http://yoursite.com/2018/05/16/May6/"/>
     <id>http://yoursite.com/2018/05/16/May6/</id>
     <published>2018-05-16T05:50:31.000Z</published>
-    <updated>2018-05-23T02:10:06.688Z</updated>
+    <updated>2018-05-25T10:06:11.145Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>动图（大图）杀猫，流量预警</p>
 </blockquote>
-<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><p>Last Update: <a href="/2018/05/08/AntiEffect/">2018/05/08</a></p>
+<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><p>Last Update: <a href="http://mikumiku.com.cn/2018/05/08/AntiEffect/" target="_blank" rel="external">2018/05/08</a></p>
 <ul>
 <li>改进了反色Shader，现在物体会被平行光源/点光源影响了</li>
 </ul>
 <p><img src="https://oi3qt7c8d.qnssl.com/AntiSpecular.gif" alt="AntiSpecular.gif"></p>
-<h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><p>Last Update: <a href="/2018/04/29/CharactorSimulator/">2018/04/29</a></p>
+<h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><p>Last Update: <a href="http://mikumiku.com.cn/2018/04/29/CharactorSimulator/" target="_blank" rel="external">2018/04/29</a></p>
 <ul>
 <li>添加了物品栏满后无法拾取的互动提示</li>
 </ul>
