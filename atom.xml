@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-25T10:02:50.800Z</updated>
+  <updated>2018-06-04T17:02:38.374Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【电魂】我对m3服务端的理解</title>
+    <link href="http://yoursite.com/2018/06/05/m3server/"/>
+    <id>http://yoursite.com/2018/06/05/m3server/</id>
+    <published>2018-06-04T16:53:27.000Z</published>
+    <updated>2018-06-04T17:02:38.374Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>根据MMServer.sln的结构来确认</p>
+</blockquote>
+<h1 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h1><h2 id="CommonShare"><a href="#CommonShare" class="headerlink" title="CommonShare"></a>CommonShare</h2><p>一些重要的通用方法和工具，一般需要先行编译。</p>
+<h2 id="DependModules"><a href="#DependModules" class="headerlink" title="DependModules"></a>DependModules</h2><p>依赖库</p>
+<h2 id="ServerBase"><a href="#ServerBase" class="headerlink" title="ServerBase"></a>ServerBase</h2><p>定义了SeBaseServerNew和SeNetworkService，前者用来发送心跳包，注册包，更新连接等方法；后者用于检测网络状态（？</p>
+<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><p>根据策划xml动态生成的c++代码</p>
+<h2 id="TestClient"><a href="#TestClient" class="headerlink" title="TestClient"></a>TestClient</h2><p>没看，但是感觉没卵用，现在用u3d客户端直接测试。</p>
+<h1 id="SeBaseServer"><a href="#SeBaseServer" class="headerlink" title="SeBaseServer"></a>SeBaseServer</h1><p>所有的服务器都基于一个基础服务器类SeBaseServer，其中包括一些通用功能，比如初始化，更新，以及网络负载均衡等。</p>
+<p>启动服务器后，每个server都会启动一个监听窗口，实时打印出服务器的状态，连接情况。</p>
+<h2 id="服务器架构"><a href="#服务器架构" class="headerlink" title="服务器架构"></a>服务器架构</h2><p><img src="https://oi3qt7c8d.qnssl.com/m3server.png" alt="这张图可能有点老，但是基本架构不变"></p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>每个Server的目录下有几个固定的文件路径：</p>
+<p>xxxServer<br>|<br>├── (D)Logic/GameLogic：           处理业务逻辑<br>├── (D)MSGProcess<br>|          └── (D)yyyServer：      yyyServer的Send和Agent，自定义的Agent用来处理回调（Handle函数）<br>|                    └── (D)Auto： 自动生成的inl，列出需要实现的函数文件头<br>├── (D)Stream：                    流处理，传输统一使用二进制<br>└── xxxServer.h/cpp/-Def.h：       服务器的初始化，以及输出到控制台的信息序列化</p>
+<h2 id="AuctionServer"><a href="#AuctionServer" class="headerlink" title="AuctionServer"></a>AuctionServer</h2><p>交易服不太了解，貌似暂时没有用，需要监听服务器端口、WS，连接DS【MySQL】</p>
+<h2 id="ChatServer"><a href="#ChatServer" class="headerlink" title="ChatServer"></a>ChatServer</h2><p>单独的聊天服。处理WS中的聊天，需要监听服务器端口、TS，连接DS</p>
+<h2 id="CommunityServer"><a href="#CommunityServer" class="headerlink" title="CommunityServer"></a>CommunityServer</h2><p>处理社团相关，需要监听服务器端口、TS，连接DS</p>
+<h2 id="ContactServer"><a href="#ContactServer" class="headerlink" title="ContactServer"></a>ContactServer</h2><p>好友服。需要监听服务器端口、TS，连接DS【好友缓存】、DLS、SS</p>
+<h2 id="DBLogServer"><a href="#DBLogServer" class="headerlink" title="DBLogServer"></a>DBLogServer</h2><p>日志系统，目前没卵用。监听服务器端口、WS、GS、ContactS、MS、CommunityS、ChatS</p>
+<h2 id="DBServer"><a href="#DBServer" class="headerlink" title="DBServer"></a>DBServer</h2><p>连接指定的数据库表，提供服务器处理服务。监听服务器端口、TS、ContactS</p>
+<h2 id="GlobalServer"><a href="#GlobalServer" class="headerlink" title="GlobalServer"></a>GlobalServer</h2><p>全局服。监听服务器端口、WS、LS、HttpS、MS、连接DS、NodeJSHttp集群、MySQL【全服账户信息】</p>
+<h2 id="LoginServer"><a href="#LoginServer" class="headerlink" title="LoginServer"></a>LoginServer</h2><p>登录服集群。连接GS</p>
+<h2 id="MatchServer"><a href="#MatchServer" class="headerlink" title="MatchServer"></a>MatchServer</h2><p>匹配服？监听服务器端口、RS、TS、HttpS、DLS、SS</p>
+<h2 id="RaceServer"><a href="#RaceServer" class="headerlink" title="RaceServer"></a>RaceServer</h2><p>比赛服，处理对战时的逻辑。TCP监听，连接MS</p>
+<h2 id="SwitchServer"><a href="#SwitchServer" class="headerlink" title="SwitchServer"></a>SwitchServer</h2><p>听说是取代TS的一种方案，让切换服务器的时候绕开TS。监听服务器端口、MS、ContactS、WS</p>
+<h2 id="TcpServer"><a href="#TcpServer" class="headerlink" title="TcpServer"></a>TcpServer</h2><p>连接检测，socket。监听TS</p>
+<h2 id="TownServer"><a href="#TownServer" class="headerlink" title="TownServer"></a>TownServer</h2><p>中心Server，基本上所有的Server的中转站。监听服务器端口、TS，连接WS、MS、DS、ContactS、CommunityS、ChatS</p>
+<h2 id="WorldServer"><a href="#WorldServer" class="headerlink" title="WorldServer"></a>WorldServer</h2><p>逻辑服/支持水平扩展。监听服务器端口、TS、HttpS，连接GS、DS【逻辑缓存】、Redis【位置信息】、DLS、AS（已注释）、SS</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;根据MMServer.sln的结构来确认&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Common&quot;&gt;&lt;a href=&quot;#Common&quot; class=&quot;headerlink&quot; title=&quot;Common&quot;&gt;&lt;/a&gt;Common&lt;/h1&gt;&lt;h
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+      <category term="cpp" scheme="http://yoursite.com/tags/cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>【闲聊】How to Deal with the Poor</title>
@@ -98,7 +150,7 @@
     <link href="http://yoursite.com/2018/05/16/May6/"/>
     <id>http://yoursite.com/2018/05/16/May6/</id>
     <published>2018-05-16T05:50:31.000Z</published>
-    <updated>2018-05-25T10:06:11.145Z</updated>
+    <updated>2018-06-04T16:52:17.270Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>动图（大图）杀猫，流量预警</p>
@@ -1211,58 +1263,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
 &lt;p&gt;本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;Foward&quot;&gt;&lt;a href=&quot;#Foward&quot; class=&quot;headerlink&quot; title=&quot;Foward&quot;&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【总结】大三结束了</title>
-    <link href="http://yoursite.com/2017/07/17/%E5%A4%A7%E4%B8%89%E7%BB%93%E6%9D%9F%E4%BA%86/"/>
-    <id>http://yoursite.com/2017/07/17/大三结束了/</id>
-    <published>2017-07-17T01:54:24.000Z</published>
-    <updated>2018-04-15T15:27:36.605Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>虽然不是很明白，还是抬头向前看吧～</p>
-</blockquote>
-<h2 id="关于实习"><a href="#关于实习" class="headerlink" title="关于实习"></a>关于实习</h2><p>我的第一份实习工作 离学校很近 工资也不错 只是一个实习 工资就给我开了4k 而且老板下个月就承诺给我加工资 但是这4个月以来总觉得做着这个事情少了些什么</p>
-<p>某天上班的时候中午是午睡时间 我没睡然后看了会星际比赛录播（刚吃过午饭 2点才开始下午班）老板看到直接摆脸色说上班不要做这种事情 那个时候我就意识到了什么 加上平时气氛又不太好 除了公事以外无话可谈 技术的事情又聊不来几句 平时又任由需求摆布改到吐血 我就有了这种事情不适合我的感觉</p>
-<p>老板时时刻刻对我的警戒也让我寒心 每天下班前说的最后一句话就是让我提交代码 当然出于程序员的素养 我的代码都写成随时可以让人接手并看的一目了然的架构 果然我一走 算起来已经半个月了 老板就再也没有联系我 一点问题都没出 呵呵 真的应该学学《Write code that nobody else can read🐮》</p>
-<p>而且 然后明明是一起写的那部分功能 客户找到bug了就全部甩锅给我 哦 一共两个bug 其中一个就叫做『冰山一角』了啊 所以我常常自嘲我虽然岗位上写的是后台 其实做的是全栈开发 顺便测试 顺便运维 顺便和甲方撕逼 顺便背锅</p>
-<p>我问了刚辞职不久的UI 学姐 她说 你想辞就辞啊 你现在还早 大三还有的是机会 我是应届生 没有办法 辞职都要考虑很多</p>
-<p>辞职不是偶然 UI学姐的离职 对潜加班的不爽 对氛围的不满 对团队水平的质疑 只是最后找了学车这个理由 一夜之间不辞而别</p>
-<p>辞职前 作为一个实习生 我总结的理由如下</p>
-<ol>
-<li>本来就对老板没有安全感，近期又问了下，老板对未来并没有一个长远的计划，更加没有安全感</li>
-<li>公司氛围不自由。我能按时完成每天任务，又不在任何感官上影响他人，你管我做什么？4个人的公司还要面子工程</li>
-<li>一样的活，朝九晚四能做完，拖到加班四五个小时，就证明什么？（心疼朝九晚十才发4k的学长）如果真的按时间计费，那我认认真真coding8小时，和刷1天的日剧，有什么区别？</li>
-<li>我做的事情明确超过了责任的范围（而且基本每天就没按时下过班），我提了不下2次的加薪，第一次说转正再说，第二次说你当初不是说钱不重要么（这种那客套话出来当理由的，活久见。后来在我离职的前一周可能终于察觉了什么，说下个月给你加薪，我就更加决心了离职</li>
-<li>……</li>
-</ol>
-<p>当然上面这些原因我不可能直接给老板说，以他的性格，他肯定用人类通用规则那一套理论反驳我，类似于“一般来说”“难道不是”“至少也要”<br>之类，或者说，他仅仅只是不爽而已。我只想说员工不是傻子。明明有好的一套方案，为什么要用糟糕的那种？</p>
-<p>顺便走的时候 为了避免不必要的麻烦 把离职原因全部归到自己头上 明确态度 毫无余地 不再回头</p>
-<p>简历喜加一：<code>5p2t5bee5rWp6YCU572R57uc56eR5oqA5pyJ6ZmQ5YWs5Y+4</code>（ 2017.3.21 - 2017.6.30 ）</p>
-<p>裸辞一周后 我开始反省到底是哪里不对劲 为什么我会放弃这样的一份实习 最后觉得 其他的原因有但不是关键 真正的理由是这个</p>
-<ol>
-<li>这不是一份具备创造性的工作，只是单纯的写外包而已，而且还要长期写上一段时间。没有办法进行「表达」自我。</li>
-<li>这不是一份自由的事业，按时打卡的制度存在缺陷。衡量员工应该取决于他实际创造的价值，而不是时间或者其他。人因此变得消极。</li>
-</ol>
-<p>大概内心不自觉地意识到这两点，潜意识里开始害怕，想要光速逃离，甚至连公司里我留下的手办和书籍都没考虑就给老板从感谢信开始发信息。</p>
-<h2 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h2><p>果然还是自由创造最有趣啊。可能学个乐器，可能学学板绘，可能学门新技♂术。</p>
-<p>这种大热天学车，果然是在作死。</p>
-<p>为了自由的创造性的事业，积累基础</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;虽然不是很明白，还是抬头向前看吧～&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;关于实习&quot;&gt;&lt;a href=&quot;#关于实习&quot; class=&quot;headerlink&quot; title=&quot;关于实习&quot;&gt;&lt;/a&gt;关于实习&lt;/h2&gt;&lt;p&gt;我的第一份实习工作 
     
     </summary>
     
