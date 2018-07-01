@@ -65,7 +65,7 @@ TestClient没看，但是感">
 				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
 				<h2 class="blog-motto">I can be who you are</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -81,7 +81,7 @@ TestClient没看，但是感">
  					
 					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -103,14 +103,14 @@ TestClient没看，但是感">
 		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
 		
   <p class="article-time">
-    <time datetime="2018-06-04T16:53:27.000Z" itemprop="datePublished"> Published 2018-06-05</time>
+    <time datetime="2018-06-04T16:53:27.000Z" itemprop="datePublished"> 发表于 2018-06-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common"><span class="toc-number">1.</span> <span class="toc-text">Common</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CommonShare"><span class="toc-number">1.1.</span> <span class="toc-text">CommonShare</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DependModules"><span class="toc-number">1.2.</span> <span class="toc-text">DependModules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ServerBase"><span class="toc-number">1.3.</span> <span class="toc-text">ServerBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">1.4.</span> <span class="toc-text">Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TestClient"><span class="toc-number">1.5.</span> <span class="toc-text">TestClient</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SeBaseServer"><span class="toc-number">2.</span> <span class="toc-text">SeBaseServer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器架构"><span class="toc-number">2.1.</span> <span class="toc-text">服务器架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目结构"><span class="toc-number">2.2.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AuctionServer"><span class="toc-number">2.3.</span> <span class="toc-text">AuctionServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatServer"><span class="toc-number">2.4.</span> <span class="toc-text">ChatServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CommunityServer"><span class="toc-number">2.5.</span> <span class="toc-text">CommunityServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ContactServer"><span class="toc-number">2.6.</span> <span class="toc-text">ContactServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBLogServer"><span class="toc-number">2.7.</span> <span class="toc-text">DBLogServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBServer"><span class="toc-number">2.8.</span> <span class="toc-text">DBServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlobalServer"><span class="toc-number">2.9.</span> <span class="toc-text">GlobalServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LoginServer"><span class="toc-number">2.10.</span> <span class="toc-text">LoginServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MatchServer"><span class="toc-number">2.11.</span> <span class="toc-text">MatchServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RaceServer"><span class="toc-number">2.12.</span> <span class="toc-text">RaceServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SwitchServer"><span class="toc-number">2.13.</span> <span class="toc-text">SwitchServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TcpServer"><span class="toc-number">2.14.</span> <span class="toc-text">TcpServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TownServer"><span class="toc-number">2.15.</span> <span class="toc-text">TownServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WorldServer"><span class="toc-number">2.16.</span> <span class="toc-text">WorldServer</span></a></li></ol></li></ol>
 		
@@ -173,14 +173,6 @@ TestClient没看，但是感">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/06/19/Ein anderes selbst/" title="【闲聊】Ein anderes selbst">
-  <strong>上一篇：</strong><br/>
-  <span>
-  【闲聊】Ein anderes selbst</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2018/05/25/how-to-deal-with-the-poor/"  title="【闲聊】How to Deal with the Poor">
@@ -195,22 +187,22 @@ TestClient没看，但是感">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Common"><span class="toc-number">1.</span> <span class="toc-text">Common</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CommonShare"><span class="toc-number">1.1.</span> <span class="toc-text">CommonShare</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DependModules"><span class="toc-number">1.2.</span> <span class="toc-text">DependModules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ServerBase"><span class="toc-number">1.3.</span> <span class="toc-text">ServerBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">1.4.</span> <span class="toc-text">Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TestClient"><span class="toc-number">1.5.</span> <span class="toc-text">TestClient</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SeBaseServer"><span class="toc-number">2.</span> <span class="toc-text">SeBaseServer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器架构"><span class="toc-number">2.1.</span> <span class="toc-text">服务器架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目结构"><span class="toc-number">2.2.</span> <span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AuctionServer"><span class="toc-number">2.3.</span> <span class="toc-text">AuctionServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatServer"><span class="toc-number">2.4.</span> <span class="toc-text">ChatServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CommunityServer"><span class="toc-number">2.5.</span> <span class="toc-text">CommunityServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ContactServer"><span class="toc-number">2.6.</span> <span class="toc-text">ContactServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBLogServer"><span class="toc-number">2.7.</span> <span class="toc-text">DBLogServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBServer"><span class="toc-number">2.8.</span> <span class="toc-text">DBServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GlobalServer"><span class="toc-number">2.9.</span> <span class="toc-text">GlobalServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LoginServer"><span class="toc-number">2.10.</span> <span class="toc-text">LoginServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MatchServer"><span class="toc-number">2.11.</span> <span class="toc-text">MatchServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RaceServer"><span class="toc-number">2.12.</span> <span class="toc-text">RaceServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SwitchServer"><span class="toc-number">2.13.</span> <span class="toc-text">SwitchServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TcpServer"><span class="toc-number">2.14.</span> <span class="toc-text">TcpServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TownServer"><span class="toc-number">2.15.</span> <span class="toc-text">TownServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WorldServer"><span class="toc-number">2.16.</span> <span class="toc-text">WorldServer</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -259,7 +251,7 @@ TestClient没看，但是感">
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -347,7 +339,7 @@ TestClient没看，但是感">
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -429,7 +421,7 @@ TestClient没看，但是感">
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -638,7 +630,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	<a title="返回顶部"><img src="/img/miku.gif"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
