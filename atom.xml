@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-04T17:02:38.374Z</updated>
+  <updated>2018-07-11T00:03:57.054Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【电魂】我对m3服务端的理解</title>
+    <title>【电魂】我对m3服务器的理解（二）</title>
+    <link href="http://yoursite.com/2018/07/04/m3server2/"/>
+    <id>http://yoursite.com/2018/07/04/m3server2/</id>
+    <published>2018-07-04T00:02:17.000Z</published>
+    <updated>2018-07-11T00:03:57.054Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有</p>
+</blockquote>
+<h2 id="MMServer"><a href="#MMServer" class="headerlink" title="MMServer"></a>MMServer</h2><p>每天对着这十几个G代码鼓捣来鼓捣去，从开始的盲人摸象到开始摸出这是一个什么东西了，一些超级好用的工具不说，代码本身越看越有意思。昨天对着新加的一张库表进行了DBServer的底层C++封装，一天大概贡献了几百行C++代码，下班了人都是晕的。虽然是依葫芦画瓢，但是我感觉对DBServer这个服务器已经基本理解了。其实分布式架构，真的也就这样了。我感觉过个一年对架构的理解不会比现在高多少，如果这样混日子过个3年，那不就是「3年大型游戏分布式架构经验」，但是就这样的话，想想不会不甘心么？</p>
+<p>底层先是DatabaseDef对表进行简单的定义和注册，然后用宏进行初步封装，抽象出基本的CURD，然后是DBServer的DBPlayerMgr对DBPlayer的个人线程进行内存管理，把查询数据放在DBPlayer层中，而MSGProcess里的Process和Send相当于对DBPlayer内存对database的读和写。这里用的trick就是在有些比如一局游戏结算时，把数据发放到个人线程中去处理。</p>
+<p>因为DBServer的结构简单，我又看了下入口的main，发现其实每个服务器进程在启动后都有自己的Debug模式，按下F1即可，比如DBserver就可以实时查看各部分内存占用，或者同步所有Player数据从内存到DB，WorldServer可以选择开关商城功能等。（宏是真的好用，明显地大幅度提升代码可读性）</p>
+<p>说DBServer结构简单的原因是因为和它通信的除了一个Database，对于服务器就只有WorldServer。而且通信的方法有很简单，就是对接受data的curd。稍稍复杂的方法都放在了DBPlayer中，主要是Login时的进行内存层的DB读取，然后每读取一个模块就set一个flag，之后通过二进制运算来判断来决定是否让用户进入主界面。（我当初3天没有解决的登录问题貌似就是出在这，那时候是一个开发中的模块在入口逻辑中有人忘记注释那一行就提交到SVN，导致我登录返回值是OK但是停留在登录界面。当时整个人都快崩溃了，断点一天后update整个项目还是报错，还没人鸟我）</p>
+<p>端游和手游还是有差别的，比如m3端游这边完全找不到历史战绩的模块，甚至HttpServer内容都很少。因为这里客户端基本上是直接和运维通信，就不走服务器这里，拿数据也直接从运维那里拿。而光影这边基本上是一样，但是有很多内容是客户端-服务器-运维这样走。老大这边对手游这部分的架构还保持不确定的态度，我就有点不太想做了-_-||。</p>
+<h2 id="KBEngine"><a href="#KBEngine" class="headerlink" title="KBEngine"></a>KBEngine</h2><p>我看了几天的这个框架，把这个参考bigworld的国内解决方案拿来做入门服务器运维不知道是祸是福。说是文档友好其实已经过期相当一段时间，按照它的getstart的代码七改八改，然而怎么都跑不起来，只能直接用它附带的源码。用它的原因除了是国内环境以外，还是因为它们公司是电魂投资，对我会存在潜在的资源（并不-_-除了一次宣讲会完全没有）。我觉得kbe想要提高知名度和拿到更多的资源，还是需要一款游戏的成功来证明。就好像崩坏3对于unity，wow对于bigworld，仅仅靠一大堆没听过的页游是不行的。</p>
+<p>虽然helloworld跑不起来，但是写的时候好处还是看的到的，至少它很对我的相性（还是说我见识少，说不定用过Photon我就不这么想了）。我刚刚fork了b站有人用它写了一个麻将的游戏，有时间去看看。看来还是看视频这种最low又最直接的方法适合我^^（&lt;-这个人真的菜</p>
+<p>之前不是写了一个人物demo嘛，其实我一开始还是想把它写成多人的。很多细节就是考虑到多人联机才设计的复杂一些。但是这几天的工作下来，感觉自己一个人要完成的话会吐血到死。但是我并不指望（一开始就）有人会分摊我的工作，这也是我最近的观点，永远不要指望别人做什么，尽量发挥你的主观能动性吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
+    
+      <category term="cpp" scheme="http://yoursite.com/tags/cpp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【电魂】我对m3服务器的理解（一）</title>
     <link href="http://yoursite.com/2018/06/05/m3server/"/>
     <id>http://yoursite.com/2018/06/05/m3server/</id>
     <published>2018-06-04T16:53:27.000Z</published>
-    <updated>2018-06-04T17:02:38.374Z</updated>
+    <updated>2018-07-11T00:03:47.494Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>根据MMServer.sln的结构来确认</p>
@@ -1069,205 +1105,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
     
     
       <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【闲聊】我是个组装机白痴</title>
-    <link href="http://yoursite.com/2017/09/19/comidiot/"/>
-    <id>http://yoursite.com/2017/09/19/comidiot/</id>
-    <published>2017-09-18T18:54:24.000Z</published>
-    <updated>2018-04-15T15:20:12.346Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已</p>
-</blockquote>
-<h1 id="Foward"><a href="#Foward" class="headerlink" title="Foward"></a>Foward</h1><p>事情是这样的，我在淘宝逛到这台主机：</p>
-<p><img src="https://img.alicdn.com/imgextra/i2/832641540/TB2BjNqXBoHL1JjSZFAXXc1rXXa_!!832641540.jpg" alt="scboy.taobao.com"></p>
-<p>马上我就去看看它的配置，在详情页下看到了它是根据不同配置分成五个价位，这里放出前三个：</p>
-<p><img src="https://img.alicdn.com/imgextra/i3/832641540/TB2vuFxXgoQMeJjy0FoXXcShVXa_!!832641540.jpg" alt="¥6699.00"></p>
-<p><img src="https://img.alicdn.com/imgextra/i1/832641540/TB2g0plXEAKL1JjSZFkXXa8cFXa_!!832641540.jpg" alt="¥8699.00"></p>
-<p><img src="https://img.alicdn.com/imgextra/i4/832641540/TB2RaxvXgsSMeJjSspdXXXZ4pXa_!!832641540.jpg" alt="¥10999.00"></p>
-<p>恩，这个价格我是可以接受的。我拿着图1去问gay哈，gay哈表示赞同，表示没被坑</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c0.png" alt=""></p>
-<p>我又拿着这个图去问桐哥，桐哥表示这明显价格不对，并发给我他的配置</p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c1.png" alt=""></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c2.png" alt=""></p>
-<p>桐哥还说前一段时间优惠大约只需要4k多。我打开一看，顿时开始怀疑人生 <a href="http://item.jd.com/1555771170.html" target="_blank" rel="external">武极 i7 7700/8G/华硕GTX1060 游戏台式电脑主机/DIY组装机</a></p>
-<p><img src="http://img14.360buyimg.com/n0/jfs/t4957/89/73465466/141719/2e72323d/58da27a5N6a74cd4c.jpg" alt="握草，这配置，这价格"></p>
-<p><img src="https://coding.net/u/xana/p/yinyong/git/raw/master/img/blog/17.9.19/c3.png" alt="gay哈和我都很困惑"></p>
-<p>于是乎我开始准备上知乎求助，但是发现知乎好像除了我一个人全部都用的组装机，整机党是异端。</p>
-<p>『自己组装很爽』『整机有猫腻』『不要用新手做借口，谁不是新手过来的？』</p>
-<p>我感到很惶恐，经过几分钟的软文洗脑以后，我简单看了几个装机视频，在自己组装之前，我想看看这个机子买整机的话到底会坑我多少钱。</p>
-<h1 id="配置查询"><a href="#配置查询" class="headerlink" title="配置查询"></a>配置查询</h1><p>（以下配置信息均来源于我手搜，有多个近似商品时，以型号近似为准；有多个相同商品时，以官方旗舰店为准。</p>
-<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>i5-7500</th>
-<th>i7-7700</th>
-<th>i7-7700k</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>￥1399</td>
-<td>￥2199</td>
-<td>￥2499</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://item.jd.com/4132882.html##none" target="_blank" rel="external">https://item.jd.com/4132882.html##none</a></p>
-<p> （英特尔旗舰店）</p>
-<h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>大致参考：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>GTX1050TI</th>
-<th>GTX1060TI</th>
-<th>GTX1080TI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1000~1200</td>
-<td>1800~2200</td>
-<td>4000+</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>华硕 STRIX （猛禽）</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>GTX1050TI</th>
-<th>GTX1060</th>
-<th>GTX1070</th>
-<th>GTX1080TI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>￥1399</td>
-<td>￥2799</td>
-<td>￥3799</td>
-<td>￥7399</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://item.jd.com/3640705.html" target="_blank" rel="external">https://item.jd.com/3640705.html</a></p>
-<p>（华硕旗舰店）</p>
-<h2 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h2><p>华硕 STRIX B250I GAMING</p>
-<p>   ￥1099</p>
-<p><a href="https://item.jd.com/4311113.html##crumb-wrap" target="_blank" rel="external">https://item.jd.com/4311113.html##crumb-wrap</a></p>
-<h2 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h2><p>ANDYSON H6 SERIES 600W金牌半模组</p>
-<p>   ￥300</p>
-<p>(未查到，大致300左右)</p>
-<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>G.Skill Ripjaws DDR4 2400 8G  (*2)</p>
-<p>   ￥579  ( *2= ￥1158 )</p>
-<p><a href="https://item.taobao.com/item.htm?spm=a230r.1.14.13.76bf523x4s3AE&amp;id=549060502110&amp;ns=1&amp;abbucket=2##detail" target="_blank" rel="external">https://item.taobao.com/item.htm?spm=a230r.1.14.13.76bf523x4s3AE&amp;id=549060502110&amp;ns=1&amp;abbucket=2##detail</a></p>
-<p>   ￥1199</p>
-<p><a href="https://item.jd.com/2066808.html##none" target="_blank" rel="external">https://item.jd.com/2066808.html##none</a></p>
-<h2 id="固态硬盘-HDD"><a href="#固态硬盘-HDD" class="headerlink" title="固态硬盘 HDD"></a>固态硬盘 HDD</h2><p>APACER AS340 120G</p>
-<p>  ￥369.00</p>
-<p><a href="https://item.jd.com/10687235944.html" target="_blank" rel="external">https://item.jd.com/10687235944.html</a></p>
-<h2 id="机械硬盘-SSD"><a href="#机械硬盘-SSD" class="headerlink" title="机械硬盘 SSD"></a>机械硬盘 SSD</h2><p>希捷(SEAGATE)酷鱼系列 1TB 7200转64Mv</p>
-<p>   ￥329</p>
-<p><a href="https://item.jd.com/3843702.html##crumb-wrap" target="_blank" rel="external">https://item.jd.com/3843702.html##crumb-wrap</a></p>
-<h2 id="机箱"><a href="#机箱" class="headerlink" title="机箱"></a>机箱</h2><p>CORSAIR 380T 白色</p>
-<p>  ￥999</p>
-<p><a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.4c637810SOnu4i&amp;id=42859563387&amp;skuId=90458760832" target="_blank" rel="external">https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.4c637810SOnu4i&amp;id=42859563387&amp;skuId=90458760832</a></p>
-<h2 id="风扇"><a href="#风扇" class="headerlink" title="风扇"></a>风扇</h2><p>Eclipse 光轮12cm</p>
-<p>  ￥59 * 5 = ￥295</p>
-<p><a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.1.76bf523zOCf2G&amp;id=558284350071&amp;cm_id=140105335569ed55e27b&amp;abbucket=2" target="_blank" rel="external">https://detail.tmall.com/item.htm?spm=a230r.1.14.1.76bf523zOCf2G&amp;id=558284350071&amp;cm_id=140105335569ed55e27b&amp;abbucket=2</a></p>
-<h2 id="水冷"><a href="#水冷" class="headerlink" title="水冷"></a>水冷</h2><p>VTG寒霜之龙240</p>
-<p>  ￥259</p>
-<p><a href="https://item.jd.com/4918108.html" target="_blank" rel="external">https://item.jd.com/4918108.html</a></p>
-<h1 id="计算价格"><a href="#计算价格" class="headerlink" title="计算价格"></a>计算价格</h1><p>为了直观，计算过程放到脚本中：</p>
-<h2 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h2><p>fuck.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">cpu = [<span class="number">1399</span>, <span class="number">2199</span>, <span class="number">2499</span>]</div><div class="line"></div><div class="line">g_card = [<span class="number">1399</span>, <span class="number">2799</span>, <span class="number">3799</span>, <span class="number">7399</span>]</div><div class="line"></div><div class="line">mainboard = <span class="number">1099</span></div><div class="line"></div><div class="line">power = <span class="number">300</span></div><div class="line"></div><div class="line">ram = [<span class="number">579</span>, <span class="number">1158</span>]</div><div class="line"></div><div class="line">ssd = <span class="number">369</span></div><div class="line"></div><div class="line">hdd = <span class="number">329</span></div><div class="line"></div><div class="line">box = <span class="number">999</span></div><div class="line"></div><div class="line">fan = <span class="number">59</span> * <span class="number">5</span></div><div class="line"></div><div class="line">watercooler = <span class="number">259</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></div><div class="line">    cons = mainboard + power + ssd + box + fan + watercooler</div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        cpu_p = cpu[<span class="number">0</span>]</div><div class="line">        g_card_p = g_card[<span class="number">0</span>]</div><div class="line">        ram_p = ram[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</div><div class="line">        cpu_p = cpu[<span class="number">1</span>]</div><div class="line">        g_card_p = g_card[<span class="number">1</span>]</div><div class="line">        ram_p = ram[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> n == <span class="number">3</span>:</div><div class="line">        cpu_p = cpu[<span class="number">2</span>]</div><div class="line">        g_card_p = g_card[<span class="number">2</span>]</div><div class="line">        ram_p = ram[<span class="number">1</span>]</div><div class="line">        cons += hdd</div><div class="line">    var = cpu_p + g_card_p + ram_p</div><div class="line">    <span class="keyword">return</span> cons + var</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</div><div class="line">        print(<span class="string">'plan %s: %s'</span>%(i, cal(i)))</div></pre></td></tr></table></figure>
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plan 1: 6698</div><div class="line">plan 2: 8898</div><div class="line">plan 3: 11106</div></pre></td></tr></table></figure>
-<p>纳尼。。。</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>对海盗船的整机鉴定让我感到意外，套餐售价和成本相差无几……对前三个套餐的计算结果表面：『如果整机没有任何的问题，组装人是从网上购置零件的话，那这个贩卖是不赚，甚至亏钱的。』</p>
-<p>那问题来了，京东的组装机。。。</p>
-<p>—————————9.21更新—————————</p>
-<p>京东的配置我也去查了一哈：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Part</th>
-<th>Brand</th>
-<th>Price</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU</td>
-<td>i7 7700</td>
-<td>￥2199</td>
-</tr>
-<tr>
-<td>主板</td>
-<td>华硕 B250 M-ATX（紧凑型）</td>
-<td>￥699</td>
-</tr>
-<tr>
-<td>内存</td>
-<td>英睿达 DDR4 2400 8GB</td>
-<td>￥589</td>
-</tr>
-<tr>
-<td>显卡</td>
-<td>华硕 独立显卡 GTX1060 3GB</td>
-<td>￥1899</td>
-</tr>
-<tr>
-<td>硬盘</td>
-<td>三星 固态硬盘 M.2接口 128GB</td>
-<td>￥469</td>
-</tr>
-<tr>
-<td>机箱</td>
-<td>游戏悍将 中塔式机箱</td>
-<td>￥209</td>
-</tr>
-<tr>
-<td>电源</td>
-<td>长城 301W-400W</td>
-<td>￥329</td>
-</tr>
-<tr>
-<td>散热器</td>
-<td>九州风神 风冷</td>
-<td>￥129</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>（因为上面的配置都没有标注具体型号，所以价格选取时存在多个，按照最低的来算。</p>
-<p>shit.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cpu = <span class="number">2199</span></div><div class="line">mb = <span class="number">699</span></div><div class="line">ram = <span class="number">589</span></div><div class="line">gc = <span class="number">1899</span></div><div class="line">ssd = <span class="number">469</span></div><div class="line">box = <span class="number">209</span></div><div class="line">power = <span class="number">329</span></div><div class="line">fan = <span class="number">129</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    print(cpu+mb+ram+gc+ssd+box+power+fan)</div></pre></td></tr></table></figure>
-<p>ouput:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6522</div></pre></td></tr></table></figure></p>
-<p>即使东西都按照最低价格算，计算价格仍高出配置价格1500多。。大概自营店批发的成本要低很多，难道说暴利的地方不在于组装费，而在于零件中间的利润？当然卖整机本来就没多少利润。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本来是计划近期内吃土买一台整机的，但是在好多人的指引下变得困惑不已&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;Foward&quot;&gt;&lt;a href=&quot;#Foward&quot; class=&quot;headerlink&quot; title=&quot;Foward&quot;&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
     
   </entry>
   

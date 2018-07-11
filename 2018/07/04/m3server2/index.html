@@ -1,0 +1,620 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【电魂】我对m3服务器的理解（二） | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有
+
+MMServer每天对着这十几个G代码鼓捣来鼓捣去，从开始的盲人摸象到开始摸出这是一个什么东西了，一些超级好用的工具不说，代码本身越看越有意思。昨天对着新加的一张库表进行了DBServer的底层C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【电魂】我对m3服务器的理解（二）">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/m3server2/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有
+
+MMServer每天对着这十几个G代码鼓捣来鼓捣去，从开始的盲人摸象到开始摸出这是一个什么东西了，一些超级好用的工具不说，代码本身越看越有意思。昨天对着新加的一张库表进行了DBServer的底层C">
+<meta property="og:updated_time" content="2018-07-11T00:03:57.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【电魂】我对m3服务器的理解（二）">
+<meta name="twitter:description" content="其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有
+
+MMServer每天对着这十几个G代码鼓捣来鼓捣去，从开始的盲人摸象到开始摸出这是一个什么东西了，一些超级好用的工具不说，代码本身越看越有意思。昨天对着新加的一张库表进行了DBServer的底层C">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/07/04/m3server2/" title="【电魂】我对m3服务器的理解（二）" itemprop="url">【电魂】我对m3服务器的理解（二）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2018-07-04T00:02:17.000Z" itemprop="datePublished"> Published 2018-07-04</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MMServer"><span class="toc-number">1.</span> <span class="toc-text">MMServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KBEngine"><span class="toc-number">2.</span> <span class="toc-text">KBEngine</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>其实说是参考梦三端游的服务器，不如说更像是同为手游的光影对决的服务器。当然，两边的源码我都在读。除了架构是一样的外，很多细节也不尽相同，当然业务逻辑是不一样的。有一种一次性在做三个项目的感觉（并没有</p>
+</blockquote>
+<h2 id="MMServer"><a href="#MMServer" class="headerlink" title="MMServer"></a>MMServer</h2><p>每天对着这十几个G代码鼓捣来鼓捣去，从开始的盲人摸象到开始摸出这是一个什么东西了，一些超级好用的工具不说，代码本身越看越有意思。昨天对着新加的一张库表进行了DBServer的底层C++封装，一天大概贡献了几百行C++代码，下班了人都是晕的。虽然是依葫芦画瓢，但是我感觉对DBServer这个服务器已经基本理解了。其实分布式架构，真的也就这样了。我感觉过个一年对架构的理解不会比现在高多少，如果这样混日子过个3年，那不就是「3年大型游戏分布式架构经验」，但是就这样的话，想想不会不甘心么？</p>
+<p>底层先是DatabaseDef对表进行简单的定义和注册，然后用宏进行初步封装，抽象出基本的CURD，然后是DBServer的DBPlayerMgr对DBPlayer的个人线程进行内存管理，把查询数据放在DBPlayer层中，而MSGProcess里的Process和Send相当于对DBPlayer内存对database的读和写。这里用的trick就是在有些比如一局游戏结算时，把数据发放到个人线程中去处理。</p>
+<p>因为DBServer的结构简单，我又看了下入口的main，发现其实每个服务器进程在启动后都有自己的Debug模式，按下F1即可，比如DBserver就可以实时查看各部分内存占用，或者同步所有Player数据从内存到DB，WorldServer可以选择开关商城功能等。（宏是真的好用，明显地大幅度提升代码可读性）</p>
+<p>说DBServer结构简单的原因是因为和它通信的除了一个Database，对于服务器就只有WorldServer。而且通信的方法有很简单，就是对接受data的curd。稍稍复杂的方法都放在了DBPlayer中，主要是Login时的进行内存层的DB读取，然后每读取一个模块就set一个flag，之后通过二进制运算来判断来决定是否让用户进入主界面。（我当初3天没有解决的登录问题貌似就是出在这，那时候是一个开发中的模块在入口逻辑中有人忘记注释那一行就提交到SVN，导致我登录返回值是OK但是停留在登录界面。当时整个人都快崩溃了，断点一天后update整个项目还是报错，还没人鸟我）</p>
+<p>端游和手游还是有差别的，比如m3端游这边完全找不到历史战绩的模块，甚至HttpServer内容都很少。因为这里客户端基本上是直接和运维通信，就不走服务器这里，拿数据也直接从运维那里拿。而光影这边基本上是一样，但是有很多内容是客户端-服务器-运维这样走。老大这边对手游这部分的架构还保持不确定的态度，我就有点不太想做了-_-||。</p>
+<h2 id="KBEngine"><a href="#KBEngine" class="headerlink" title="KBEngine"></a>KBEngine</h2><p>我看了几天的这个框架，把这个参考bigworld的国内解决方案拿来做入门服务器运维不知道是祸是福。说是文档友好其实已经过期相当一段时间，按照它的getstart的代码七改八改，然而怎么都跑不起来，只能直接用它附带的源码。用它的原因除了是国内环境以外，还是因为它们公司是电魂投资，对我会存在潜在的资源（并不-_-除了一次宣讲会完全没有）。我觉得kbe想要提高知名度和拿到更多的资源，还是需要一款游戏的成功来证明。就好像崩坏3对于unity，wow对于bigworld，仅仅靠一大堆没听过的页游是不行的。</p>
+<p>虽然helloworld跑不起来，但是写的时候好处还是看的到的，至少它很对我的相性（还是说我见识少，说不定用过Photon我就不这么想了）。我刚刚fork了b站有人用它写了一个麻将的游戏，有时间去看看。看来还是看视频这种最low又最直接的方法适合我^^（&lt;-这个人真的菜</p>
+<p>之前不是写了一个人物demo嘛，其实我一开始还是想把它写成多人的。很多细节就是考虑到多人联机才设计的复杂一些。但是这几天的工作下来，感觉自己一个人要完成的话会吐血到死。但是我并不指望（一开始就）有人会分摊我的工作，这也是我最近的观点，永远不要指望别人做什么，尽量发挥你的主观能动性吧。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Unity/">Unity</a><a href="/tags/cpp/">cpp</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/07/04/m3server2/" data-title="【电魂】我对m3服务器的理解（二） | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/06/05/m3server/"  title="【电魂】我对m3服务器的理解（一）">
+ <strong>下一篇：</strong><br/> 
+ <span>【电魂】我对m3服务器的理解（一）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MMServer"><span class="toc-number">1.</span> <span class="toc-text">MMServer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KBEngine"><span class="toc-number">2.</span> <span class="toc-text">KBEngine</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python3/" title="Python3">Python3<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
