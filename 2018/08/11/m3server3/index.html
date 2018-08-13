@@ -1,0 +1,615 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【电魂】我对m3服务器的理解（三） | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="运营最近在做GM工具和日志，为了了解流程向大佬要来一份运营的权限，虽然一些内幕我不能说，但是能够看到dh下所有游戏的运营数据，一时间还是很震撼的。这些运营数据是怎么来的呢，就是服务器这边不厌其烦的输出各种各样的日志，从物品到比赛，从登陆到登出，从充值到消费。基本上这边想查，任何异常数据都是随便查出来的，没有什么查不出来的情况，就是看这边的态度怎么样了。
+流m3服务器的IPC的流读写部分我原来都当做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【电魂】我对m3服务器的理解（三）">
+<meta property="og:url" content="http://yoursite.com/2018/08/11/m3server3/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="运营最近在做GM工具和日志，为了了解流程向大佬要来一份运营的权限，虽然一些内幕我不能说，但是能够看到dh下所有游戏的运营数据，一时间还是很震撼的。这些运营数据是怎么来的呢，就是服务器这边不厌其烦的输出各种各样的日志，从物品到比赛，从登陆到登出，从充值到消费。基本上这边想查，任何异常数据都是随便查出来的，没有什么查不出来的情况，就是看这边的态度怎么样了。
+流m3服务器的IPC的流读写部分我原来都当做">
+<meta property="og:updated_time" content="2018-08-13T23:37:09.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【电魂】我对m3服务器的理解（三）">
+<meta name="twitter:description" content="运营最近在做GM工具和日志，为了了解流程向大佬要来一份运营的权限，虽然一些内幕我不能说，但是能够看到dh下所有游戏的运营数据，一时间还是很震撼的。这些运营数据是怎么来的呢，就是服务器这边不厌其烦的输出各种各样的日志，从物品到比赛，从登陆到登出，从充值到消费。基本上这边想查，任何异常数据都是随便查出来的，没有什么查不出来的情况，就是看这边的态度怎么样了。
+流m3服务器的IPC的流读写部分我原来都当做">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/08/11/m3server3/" title="【电魂】我对m3服务器的理解（三）" itemprop="url">【电魂】我对m3服务器的理解（三）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2018-08-11T12:02:17.000Z" itemprop="datePublished"> Published 2018-08-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运营"><span class="toc-number">1.</span> <span class="toc-text">运营</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流"><span class="toc-number">2.</span> <span class="toc-text">流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-number">3.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写的很怪的Node服务器"><span class="toc-number">4.</span> <span class="toc-text">写的很怪的Node服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规范"><span class="toc-number">5.</span> <span class="toc-text">规范</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="运营"><a href="#运营" class="headerlink" title="运营"></a>运营</h2><p>最近在做GM工具和日志，为了了解流程向大佬要来一份运营的权限，虽然一些内幕我不能说，但是能够看到dh下所有游戏的运营数据，一时间还是很震撼的。这些运营数据是怎么来的呢，就是服务器这边不厌其烦的输出各种各样的日志，从物品到比赛，从登陆到登出，从充值到消费。基本上这边想查，任何异常数据都是随便查出来的，没有什么查不出来的情况，就是看这边的态度怎么样了。</p>
+<h2 id="流"><a href="#流" class="headerlink" title="流"></a>流</h2><p>m3服务器的IPC的流读写部分我原来都当做黑盒在用，因为看不太懂也不想去看，后来发现有些非IPC，比如协议和DB也在用流读写，我就正常反应的点进去看了下发现其实并不复杂。大概就是一个<code>SeNetStream</code>结构体，把读写各种基本类型数据的方法进行分开处理，用读取和移动位置的方法把数据全部存在一个char组里。这样的好处就数据量小，而且解析的方法也比较自然且直观。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> SeNetStream</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="comment">// huge code here</span></div><div class="line"><span class="keyword">protected</span>:</div><div class="line">	<span class="keyword">char</span>	m_acData[<span class="number">65535</span>];</div><div class="line">	<span class="keyword">char</span>*	m_pcData;</div><div class="line">	<span class="keyword">int</span>		m_iSize;</div><div class="line">	<span class="keyword">int</span>		m_iPos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后我想这东西这么溜批，用法也简单，把结构体丢进去就好了，之后我发现不是的，你要为每个结构体定义读写方法（就是里面属性的读写顺序）。难怪梦2要用自动化工具，不然每定义一个协议，工作量都不小。</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>记得第一篇文章的那副架构图吗，我想说的是，这个架构并不是一开始是这样的。一开始基本上全部逻辑都在ws里，包括dbserver，后来发现业务太多就分离了出去。其他服务器情况雷同，比如处理GM和运维请求的那个node服务器。这给我们一个启发，任何东西的原型都是很丑陋的，一开始不要太专注于把它设计的很好，说的程序员一点，就是不要过早优化。</p>
+<h2 id="写的很怪的Node服务器"><a href="#写的很怪的Node服务器" class="headerlink" title="写的很怪的Node服务器"></a>写的很怪的Node服务器</h2><p>node服务器在解析和发送数据的时候也沿用了那套流的解析方法，以及协议的大量的枚举判断。这样写出来的的代码就充满着诡异的感觉（想想看充满着C++气息的JS代码）。导致我前面很长一段时间只能把这个node服务器当做黑盒用，哪怕到了后面，也完全没有是在写<code>Dynamically</code>的感觉，这是由于工程里硬性规定的变量命名，我copy一下文档，大概是这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">// 1字节的</div><div class="line">bool		bValue;		</div><div class="line">char		cValue;</div><div class="line">BYTE		byValue;</div><div class="line"></div><div class="line">// 2字节的</div><div class="line">short		sValue;</div><div class="line">WORD		wValue;</div><div class="line"></div><div class="line">// 4字节的</div><div class="line">BOOL		bValue;</div><div class="line">int			iValue;</div><div class="line">long		lValue;</div><div class="line">UINT		uiValue;</div><div class="line">DWORD		dwValue;</div><div class="line">float		fValue;</div><div class="line"></div><div class="line">// 8字节的</div><div class="line">double		dValue;</div><div class="line"></div><div class="line">// 数组</div><div class="line">char		acValues[100];</div><div class="line">UINT		auiValues[100];</div><div class="line">GePlayer	akPlayers[100];</div><div class="line"></div><div class="line">// 类实例(自定义的类)</div><div class="line">GePlayer	kPlayer;</div><div class="line"></div><div class="line">// 枚举</div><div class="line">GeState		eState;</div><div class="line"></div><div class="line">// 句柄</div><div class="line">HANDLE		hHandle;</div><div class="line"></div><div class="line">// 成员变量</div><div class="line">GePlayer	m_kPlayer;</div><div class="line"></div><div class="line">// 字符串</div><div class="line">string 		kLenth;</div><div class="line"></div><div class="line"></div><div class="line">U3D内部对象,能体现对象的含义即可</div><div class="line">比如GameObject  goObject; GameObject goUI;</div><div class="line">RectTransform  rectUI;</div></pre></td></tr></table></figure>
+<p>这个在JS里也是这么要求的（用前缀去命名一个c-union，2333），我以后估计代码风格就变成这个样子了。</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p>规范在大项目很重要，没有规范就没有一切，我能上手这个项目的很大原因就在于其清晰的结构和规范的命名（主要是协议命名）。很难相信梦2的代码是完全手撸的，我之前想参考梦2逻辑，问老大生成协议的xml，他告诉我没有xml，全部代码都是手撸的（当然包括每个通讯函数结构体的定义，及其读写方法）的时候，我一下子没反应过来。有句话说得好，前人栽树后人乘凉，我就是那个乘凉的人的其中一个，真的感谢前面种树的人，虽然很多都已经失联了，不过你们的留下的代码让我这个菜鸡学到了很多东西。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Unity/">Unity</a><a href="/tags/cpp/">cpp</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/08/11/m3server3/" data-title="【电魂】我对m3服务器的理解（三） | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/08/11/aug11/"  title="【闲聊】写给新人和自己">
+ <strong>下一篇：</strong><br/> 
+ <span>【闲聊】写给新人和自己
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运营"><span class="toc-number">1.</span> <span class="toc-text">运营</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流"><span class="toc-number">2.</span> <span class="toc-text">流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-number">3.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写的很怪的Node服务器"><span class="toc-number">4.</span> <span class="toc-text">写的很怪的Node服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规范"><span class="toc-number">5.</span> <span class="toc-text">规范</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APP/" title="APP">APP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
