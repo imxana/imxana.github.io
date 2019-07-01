@@ -1,0 +1,1138 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【TOP】个人对C4W的初步研究 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="C4W在puyopuyo等平台就是无敌的存在
+
+C4W概要Len（连击）作为俄罗斯方块三大攻击手段之一（其他两个是Tetris和T-Spin），C4W能够达到相对于其他较少width数的连击地形达到最大的连击数，和构造地形需要最少的方块数。因为是4-width的长度，所以必须确保每一个方块都能够消除掉一行。有些方块游戏的结束判定是生成方块的位置有没有方块单元存在，所以有的玩家特地这么摆，把中间生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【TOP】个人对C4W的初步研究">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/tetrisc4w/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="C4W在puyopuyo等平台就是无敌的存在
+
+C4W概要Len（连击）作为俄罗斯方块三大攻击手段之一（其他两个是Tetris和T-Spin），C4W能够达到相对于其他较少width数的连击地形达到最大的连击数，和构造地形需要最少的方块数。因为是4-width的长度，所以必须确保每一个方块都能够消除掉一行。有些方块游戏的结束判定是生成方块的位置有没有方块单元存在，所以有的玩家特地这么摆，把中间生">
+<meta property="og:updated_time" content="2019-07-01T16:13:04.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【TOP】个人对C4W的初步研究">
+<meta name="twitter:description" content="C4W在puyopuyo等平台就是无敌的存在
+
+C4W概要Len（连击）作为俄罗斯方块三大攻击手段之一（其他两个是Tetris和T-Spin），C4W能够达到相对于其他较少width数的连击地形达到最大的连击数，和构造地形需要最少的方块数。因为是4-width的长度，所以必须确保每一个方块都能够消除掉一行。有些方块游戏的结束判定是生成方块的位置有没有方块单元存在，所以有的玩家特地这么摆，把中间生">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/06/27/tetrisc4w/" title="【TOP】个人对C4W的初步研究" itemprop="url">【TOP】个人对C4W的初步研究</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2019-06-27T13:21:39.000Z" itemprop="datePublished"> Published 2019-06-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C4W概要"><span class="toc-number">1.</span> <span class="toc-text">C4W概要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#残骸质量"><span class="toc-number">2.</span> <span class="toc-text">残骸质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方块质量"><span class="toc-number">3.</span> <span class="toc-text">方块质量</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>C4W在puyopuyo等平台就是无敌的存在</p>
+</blockquote>
+<h2 id="C4W概要"><a href="#C4W概要" class="headerlink" title="C4W概要"></a>C4W概要</h2><p><code>Len</code>（连击）作为俄罗斯方块三大攻击手段之一（其他两个是<code>Tetris</code>和<code>T-Spin</code>），C4W能够达到相对于其他较少width数的连击地形达到最大的连击数，和构造地形需要最少的方块数。因为是4-width的长度，所以必须确保每一个方块都能够消除掉一行。有些方块游戏的结束判定是生成方块的位置有没有方块单元存在，所以有的玩家特地这么摆，把中间生成方块的4格留出来，哪怕低端被顶到最上方都死不了，相当于白嫖一个屏幕。这就相当于两个人打架，我平白无故比你多了一条血，难怪有的人看到C4W就开始毒骂。目前为止能够对抗熟练的C4Wer的方法只有两个，一个是通过开局超快速度的连续<code>T-Spin</code>降低对面高度，另一个就是加入他们。。</p>
+<table id="intro" style=""></table>
+
+<p>附TOP平台上<code>Len</code>恐怖的攻击能力：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>连击数</th>
+<th>垃圾行数</th>
+<th>总数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4</td>
+<td>20</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="残骸质量"><a href="#残骸质量" class="headerlink" title="残骸质量"></a>残骸质量</h2><p>相较于C3W和C2W，C4W对玩家的地形理解要求不低，下面统计了所有能够连击的C4W地形（部分地形不是最优解故不列出，手动计算，有错误请告诉我）</p>
+<table id="root1" style=""></table>
+
+<p>完全随机方块下连续出现相同方块的概率为1/7，而7-bag系统连续出现两个相同方块的概率为1/49，而且可以通过hold操作来进一步降低，在可以hold的情况下出现三个相同方块的概率简直微乎其微。另外不是每个方块都是渣方块，谁不希望同时持有三个I方块呢。下列是计算在不同有效方块数下，随机两块不同方块情况的消除概率。</p>
+<p>为了归类方便，本文把能够容纳n种不同方块的地形简称为有效方块n的地形，或简称有效n。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">有效n地形(总数)</th>
+<th style="text-align:left">两块方块都不能消除的情况(7-n)*(6-n)</th>
+<th>消除率(42)</th>
+<th>不含I方块时的消除率(30)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6(3种)</td>
+<td style="text-align:left">0</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td style="text-align:left">5(1种)</td>
+<td style="text-align:left">2</td>
+<td>0.952</td>
+<td>0.933</td>
+</tr>
+<tr>
+<td style="text-align:left">4(2种)</td>
+<td style="text-align:left">6</td>
+<td>0.857</td>
+<td>0.800</td>
+</tr>
+<tr>
+<td style="text-align:left">3(5种)</td>
+<td style="text-align:left">12</td>
+<td>0.714</td>
+<td>0.600</td>
+</tr>
+<tr>
+<td style="text-align:left">2(1种)</td>
+<td style="text-align:left">20</td>
+<td>0.524</td>
+<td>0.333</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>因此我们基本可以说，有效6的是比较好的形状，在做连的时候尽量往这3种形状上靠；有效5地形也不错断连率极低；有效4就有一种微妙的感觉，观感上7个方块里有3个方块是渣方块，同时持有两个就GG，这个概率感觉很高，然而从计算概率上看其实并不高。因此做出有效4的形状时要尽快回到高有效的形状来。有效3是非常糟糕的情况，而且大概率情况下会走向另一个有效3，出现3的时候要么就是被系统安排了，要么就是玩家一时间脑抽了，就听天由命吧。有效2是一个非常特殊的Spin形状，它唯一的走向是有效5，做2是一个为了放下一个Z(或S)而刻意的行为，在下面的结论中，这种地形几乎算是能做而必做的。</p>
+<p>有效3和有效4是常见的导致断连的形状。总体来说，有效方块数和当前形状能容纳的方块空间大小有关，当出现方块隔离和不连续的情况都会降低残骸容纳方块数。</p>
+<h2 id="方块质量"><a href="#方块质量" class="headerlink" title="方块质量"></a>方块质量</h2><p>上面的计算是对残骸的研究，然而就像人见人爱的I方块一样，其他方块对C4W的相性如何呢。下列是计算在不同有效方块数下，方块情况对残骸的适应情况。为保持观感一致，继续使用有效方块(n)作为纵坐标。</p>
+<ul>
+<li>有效方块残骸情况有镜像形状，将ZS和JL方块分别交换即可。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">有效方块(n)</th>
+<th style="text-align:left">O(5)</th>
+<th>T(7)</th>
+<th>I(12)</th>
+<th>S(4)</th>
+<th>Z(5)</th>
+<th>J(9)</th>
+<th>L(6)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">6(3种)</td>
+<td style="text-align:left">3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align:left">5(1种)</td>
+<td style="text-align:left">0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td style="text-align:left">4(2种)</td>
+<td style="text-align:left">1</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:left">3(5种)</td>
+<td style="text-align:left">1</td>
+<td>1</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align:left">2(1种)</td>
+<td style="text-align:left">0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I无疑是质量最高的方块，I方块因为平放是它的唯一放法（可证），所以也无法影响残骸形状。T方块不仅仅因为它的高消除率，也因为它对地形影响的多样性，使得无论如何下面的方块都能够很舒服的放下，然而面对有效3这类分隔地形显得有些无力。</p>
+<p>JL方块和也有着相当高的消除率，而且对有效3地形几乎是唯一的选项，有效3地形的不连续性使得它必须需要一个维度连续的方块才能消除(JLI)。JL放法基本也是唯一的，非插入操作的情况下，有一边必须贴墙从而制造较大的空间，因此JL也不容易制造Spin地形。</p>
+<p>O方块是比较挑剔的方块，基本适应所有高消地形，基本不适应所有低消地形，是所谓的有效3杀手。有意思的一点是，方块会把高消地形变成中消地形，也会把低消地形变成中消地形。因此低消地形能用O方块时要优先考虑O方块，高消地形用O方块时要慎重。</p>
+<p>ZS方块的消除情况和O方块类似，面对低消地形完全无力，除了Spin有着比较高的收益外，对地形的破坏力相当之高。Z和S对同一个高消地形的能力又完全相反。要么适用Z，要么适用S，要么全不适用，没有一个地形是两个都友好的。</p>
+<p>所以我可以得出大概的结论是在IJLT是好方块，OZS的渣方块。一个基本原则是，渣方块能出手要尽量早出手，否则渣方块堆积时会是一个灾难。</p>
+<ul>
+<li>有效6的渣方块消除法，能多塞一个是一个。</li>
+</ul>
+<table id="root2" style=""></table>
+
+<p>最后祝大家TOP水平精进~</p>
+<script type="text/javascript">
+    const BLOCKWITDH = 0;
+    const NC = "消除不能"
+    const LN = "连击不能";
+    const STYLE = {
+        O : "background-color:Gold;",
+        T : "background-color:BlueViolet;",
+        I : "background-color:DeepSkyBlue;",
+        S : "background-color:LawnGreen;",
+        Z : "background-color:Red;",
+        J : "background-color:Blue;",
+        L : "background-color:Orange;",
+        N : "background-color:SeaShell;border-style:none;",
+        G : "background-color:Grey;",
+        V : "border-style:none;",
+    }
+    function Gen(tr, arr, num) {
+        var text = "<table>"
+        for (var x in arr) {
+            text += '<tr>'
+            for (var i in arr[x]){
+                var ele = arr[x][i];
+                var fs = STYLE[ele];
+                if (BLOCKWITDH > 0)
+                {
+                  fs = 'height:'+BLOCKWITDH+'px;width:'+BLOCKWITDH+'px;' + fs;
+                }
+                text += '<td style="'+ fs +'"></td>';
+            }
+            text += '</tr>'
+        }
+        text += '</table>'
+        if (num) text += '<div>' + num + '</div>'
+        th = document.createElement("th");
+        th.innerHTML = text;
+        tr.appendChild(th);
+    }
+    function Tex(tr, t, t2) {
+        th = document.createElement("th");
+        th.innerHTML = '<div>' + t + '</div>';
+        if (t2) th.innerHTML += '<div>' + t2 + '</div>';
+        tr.appendChild(th);
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    var root = document.getElementById("intro");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, [
+      'NSSNNTTNNLVVVITTNNNTJJJ',
+      'SSZNNNTLLLVVVITZNNTTOOJ',
+      'IZZNNNNJJJVVVIZZSSNTOOL',
+      'IZZNNNNOOJVVVIZSSNNNLLL',
+      'IZZNNNNOOLVVVGGGNGGGGGG',
+      'IZTNNNNLLLVVVGGGNGGGGGG',
+      'ITTNNNNJJJVVVGGGNGGGGGG',
+      'ISTNNNNOOJVVVGGGNGGGGGG',
+      'ISSNNNNOOLVVVGGGGGGNGGG',
+      'ITSNNNNLLLVVVGGGGGGNGGG',
+      'ITTNNNNJJJVVVGGGGGGNGGG',
+      'ITZNNNNOOJVVVGGGGGGNGGG',
+      'IZZSSNNOOLVVVGNGGGGGGGG',
+      'IZSSNNNLLLVVVGNGGGGGGGG',
+       ], 'puyopuyotetris上最让人痛恨的玩家');
+
+</script>
+
+
+<script type="text/javascript">
+    var root = document.getElementById("root1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Tex(tr,  "C4W残骸", "(有效方块)");
+    Gen(tr, ['NOON', 'NOON'], 'O(5)(10)');
+    Gen(tr, ['NTNN', 'TTTN'], 'T(7)(14)');
+    Gen(tr, ['NNNN', 'IIII'], 'I(all)(24)');
+    Gen(tr, ['NSSN', 'SSNN'], 'S(4)(9)');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z(5)(9)');
+    Gen(tr, ['JNNN', 'JJJN'], 'J(9)(15)');
+    Gen(tr, ['NNLN', 'LLLN'], 'L(6)(15)');
+    Tex(tr,  "论外例", "有效(注释)");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GGNN', 'GNNN'], 6);
+    Gen(tr, ['NNNN', 'GNOO'], 4);
+    Gen(tr, ['NNNT', 'GNNT'], '6(O->5)');
+    Gen(tr, ['GGNN', 'GNNN'], 6);
+    Gen(tr, ['NNNN', 'GSSN'], 5);
+    Gen(tr, ['NNNZ', 'GNZN'], 3);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'GGNL'], 4);
+    Gen(tr, ['NNNN', 'GGTN'], '5(T-Spin)');
+    Gen(tr, ['NNSN', 'GNNS'], '2(Z->5)');
+    //Gen(tr, ['NZZN', 'GNNN'], '2(不考虑)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GGNN'], 6);
+    Gen(tr, ['NNNN', 'GNOO'], 4);
+    Gen(tr, ['NNNN', 'GGTN'], 5);
+    Gen(tr, ['GNNN', 'GGNN'], 6);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'GZZN'], 5);
+    Gen(tr, ['NNNJ', 'GNNJ'], 6);
+    Gen(tr, ['NNNL', 'GGNN'], 3);
+    Gen(tr, ['NNNN', 'GGNJ'], 4);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNNG'], 6);
+    Gen(tr, ['NNNN', 'GOON'], 5);
+    Gen(tr, ['NNNN', 'GNTG' ], '4(S->6)');
+    Gen(tr, ['GNNN', 'GNNG'], 6);
+    Gen(tr, ['NNNN', 'GNSS'], 4);
+    Tex(tr,  NC);
+    Gen(tr, ['NJNN', 'GNNG'], '2(S->5)');
+    Gen(tr, ['NNNL', 'GNNG'], 6);
+    Gen(tr, ['NNTN', 'GNNG'], '2(Z->5)');
+    Gen(tr, ['NLNN', 'GLNN'], '4(不考虑)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NNNN', 'GGGN'], 5);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNT', 'NNTT'], '6(T-Spin)');
+    Gen(tr, ['NNNN', 'GGGN'], 5);
+    Gen(tr, ['NNSN', 'NNSS'], 3);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'NJJJ'], 5);
+    Gen(tr, ['NNLL', 'NNNL'], 6);
+    Gen(tr, ['NNNI', 'NNNI', 'NNNI'], '4(不考虑)');
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NNNN', 'GGNG'], 4);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'NTTT'], 5);
+    Gen(tr, ['NNNN', 'GGNG'], 4);
+    Tex(tr,  LN);
+    Gen(tr, ['NNNZ', 'NNZZ'], 6);
+    Gen(tr, ['NNNN', 'JJJN', ], 5);
+    Tex(tr,  LN);
+    Gen(tr, ['NNTN', 'NNTT'], '3(O->5)');
+    Gen(tr, ['NNJJ', 'NNJN'], '3(O->5)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GGNN', 'NGNN'], 4);
+    Gen(tr, ['NNNN', 'NGOO'], 5);
+    Gen(tr, ['NNNT', 'NGNT'], 3);
+    Gen(tr, ['GGNN', 'NGNN'], 3);
+    Tex(tr,  LN);
+    Gen(tr, ['NNNZ', 'NGZN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NGNN', 'GGNN'], 3);
+    Gen(tr, ['NNNN', 'NGOO'], 5);
+    Tex(tr,  NC);
+    Gen(tr, ['NGNN', 'GGNN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNJ', 'NGNJ'], 3);
+    Tex(tr,  LN);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNGN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  LN);
+    Gen(tr, ['GNNN', 'GNGN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'GNGJ'], 4);
+    Gen(tr, ['NNNN', 'GLGN'], 5);
+    Gen(tr, ['NNNL', 'GNGN'], '3(不考虑)');
+
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NNNG', 'GGNN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNG', 'GGNN'], 3);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'NZZG'], 5);
+    Gen(tr, ['JNNN', 'GGNN'], 6);
+    Tex(tr,  LN);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NNNG', 'GNGN'], 3);
+    Tex(tr,  NC);
+    Gen(tr, ['NNNN', 'GTGN'], 5);
+    Gen(tr, ['NNNG', 'GNGN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['JNNN', 'GNGN'], 3);
+    Tex(tr,  LN);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NNNG', 'NGGN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  LN);
+    Gen(tr, ['NNNG', 'NGGN'], 3);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['JNNN', 'NGGN'], 3);
+    Gen(tr, ['NNNN', 'LGGN'], 5);
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['NGNN', 'GNNG'], 2);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Gen(tr, ['NGNN', 'GNNG'], 2);
+    Gen(tr, ['NNNN', 'NGSS'], '5(S-Spin)');
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+    Tex(tr,  NC);
+
+</script>
+
+
+
+<script type="text/javascript">
+    var root = document.getElementById("root2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GGNN', 'GNNN'], 'S');
+    Gen(tr, ['NNNN', 'GSSN'], 'S');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GGNN', 'GNNN'], 'SZ');
+    Gen(tr, ['NNSN', 'GNNS'], 'S');
+    Gen(tr, ['NNNN', 'ZZSN'], 'Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GGNN', 'GNNN'], 'OSZ');
+    Gen(tr, ['NNNN', 'GNOO'], 'O');
+    Gen(tr, ['SNNN', 'SSNN'], 'S');
+    Gen(tr, ['NNNN', 'SZZN'], 'Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GGNN'], 'Z');
+    Gen(tr, ['NNNN', 'GZZN'], 'Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GGNN'], 'Z(SO*n)');
+    Gen(tr, ['NNNN', 'GZZN'], 'Z');
+    Gen(tr, ['NNSN', 'NNSS'], 'S');
+    Gen(tr, ['NNNN', 'OOSN'], 'O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GGNN'], '(OS*n)Z');
+    Gen(tr, ['NNNN', 'GNOO'], 'O');
+    Gen(tr, ['SNNN', 'SSNN'], 'S');
+    Gen(tr, ['NNNN', 'SZZN'], 'Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNNG'], 'SJ');
+    Gen(tr, ['NNNN', 'GNSS'], 'S(J-Hold)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNNG'], 'JS');
+    Gen(tr, ['NJNN', 'GNNG'], 'J');
+    Gen(tr, ['NNNN', 'NJSS'], 'S(5)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNNG'], 'LZ');
+    Gen(tr, ['NNNL', 'GNNG'], 'L');
+    Gen(tr, ['NNNN', 'ZZNL'], 'Z(4)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['GNNN', 'GNNG'], 'TZ');
+    Gen(tr, ['NNTN', 'GNNG'], 'T');
+    Gen(tr, ['NNNN', 'ZZTN'], 'Z(5)');
+
+</script>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/TOP/">TOP</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/06/27/tetrisc4w/" data-title="【TOP】个人对C4W的初步研究 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/06/30/tosomeonelikeme/" title="【闲聊】写给和我一样在游戏行业迷茫的人">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【闲聊】写给和我一样在游戏行业迷茫的人</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/09/20/sept20/"  title="【闲聊】扯淡（n）">
+ <strong>下一篇：</strong><br/> 
+ <span>【闲聊】扯淡（n）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C4W概要"><span class="toc-number">1.</span> <span class="toc-text">C4W概要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#残骸质量"><span class="toc-number">2.</span> <span class="toc-text">残骸质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方块质量"><span class="toc-number">3.</span> <span class="toc-text">方块质量</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
