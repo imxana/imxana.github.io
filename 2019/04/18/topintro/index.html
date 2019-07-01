@@ -1,0 +1,851 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【TOP】现代俄罗斯方块简介 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="（图是后面C4W文后加的，让文章显得不那么无聊）
+玩TOP（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并不只是一个简单的消消类游戏而已。刚入门和非入门玩家就有很大的差别，后者可能堆着堆着就把自己堆死了，前者在了解一些基本原则且不MD（misdrop）的情况下，哪怕LPM（Lin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【TOP】现代俄罗斯方块简介">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/topintro/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="（图是后面C4W文后加的，让文章显得不那么无聊）
+玩TOP（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并不只是一个简单的消消类游戏而已。刚入门和非入门玩家就有很大的差别，后者可能堆着堆着就把自己堆死了，前者在了解一些基本原则且不MD（misdrop）的情况下，哪怕LPM（Lin">
+<meta property="og:updated_time" content="2019-07-01T17:09:39.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【TOP】现代俄罗斯方块简介">
+<meta name="twitter:description" content="（图是后面C4W文后加的，让文章显得不那么无聊）
+玩TOP（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并不只是一个简单的消消类游戏而已。刚入门和非入门玩家就有很大的差别，后者可能堆着堆着就把自己堆死了，前者在了解一些基本原则且不MD（misdrop）的情况下，哪怕LPM（Lin">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/04/18/topintro/" title="【TOP】现代俄罗斯方块简介" itemprop="url">【TOP】现代俄罗斯方块简介</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2019-04-18T08:21:39.000Z" itemprop="datePublished"> Published 2019-04-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用原理"><span class="toc-number">1.</span> <span class="toc-text">通用原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现代差异"><span class="toc-number">2.</span> <span class="toc-text">现代差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础练习"><span class="toc-number">3.</span> <span class="toc-text">基础练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a></li></ol>
+		
+		</div>
+		
+		<p>（图是后面C4W文后加的，让文章显得不那么无聊）</p>
+<p>玩<strong>TOP</strong>（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并不只是一个简单的消消类游戏而已。刚入门和非入门玩家就有很大的差别，后者可能堆着堆着就把自己堆死了，前者在了解一些基本原则且不<strong>MD</strong>（misdrop）的情况下，哪怕<strong>LPM</strong>（Line per minute）很低也能正常的进行<strong>挖掘</strong>，甚至能做一些简单的攻击。</p>
+<h2 id="通用原理"><a href="#通用原理" class="headerlink" title="通用原理"></a>通用原理</h2><p>在讲现代方块和经典方块的不同之前，我们先聊聊两者相同的地方，其相同的地方体现在方块旋转机制、多消奖励。</p>
+<table id="root1" style=""></table>
+
+
+<p>首先俄罗斯方块一共有7种，O Z S J L I T，每一块的各种旋转下的形态都不超过一个4*4的方格中，其中比较特殊的方块有两个，一个是O方块，一个是T方块。因为O方块是唯一一个没有旋转中心的方块，因此顺逆旋转键都对它不生效，他永远占着4*4中间4格的位置。其他6个方块都是有自己的旋转中心的，因此我们很容易想到，ZSI方块看起来只有2个形态，其实实实在在的是有4个形态的（这就是我们在旋转ZSI的时候仿佛同一个形态会有忽高忽低的感觉），换句话说，每个形态下的两种旋转态就共计8种变化态，而不是「竖横横竖」2种，这些形态对现代方块有很重要的意义，这涉及到现代方块<strong>SRS</strong>（Super Rotate System）而对街机的上的<strong>ARS</strong>（Arika Rotate System）影响不大。至于其他的旋转系统有兴趣的可以自行查询。T方块的特殊性在于它的奇偶性，什么叫方块的奇偶性呢，简单来说，你把方块放到黑白格子中会发现，其他6方块都是黑白各占两格，只有T方块的黑白格数呈奇数性，所以一般T方块能够很容易把方块平面和凹凸进行转换，而且T方块是也是现代方块的三大攻击手段之一（Tetris，Len，T-Spin），顺便一提，奇偶性的研究特别对<strong>全消</strong>（Perfect Clean）会有帮助。</p>
+<p>基本上消除类游戏的m+n的消除收益会大于m和n的单独消除总和，因为单独多次消除首先比较容易，然后短时间连续可能会有<strong>连</strong>（Len）的加成。像gameboy上的俄罗斯方块的1234消（Single，Double，Triple，Tetris）的得分就是1357，但是在TOP里Single是没有收益的，一般只视作玩家在简单的挖掘而不是在做攻击，除非玩家在做比如<strong>C4W</strong>（Combo 4wide，堆高空4列然后疯狂Single打Len）这种堆砌，<strong>C4W</strong>比较容易失误断Len，<strong>C3W</strong>不容易失误但是总Len数会少，<strong>C2W</strong>更甚。</p>
+<p>提高<strong>LPM</strong>永远不会过时。哪怕只做Tetris，只要LPM够高，仍然能碾压大部分玩家，这属于基本功一类。然后是<strong>挖掘能力</strong>，在处理垃圾行的时候有效的清除行数从而避免没淹没。还有基本的堆砌能力（基础的C1W），这个有专门的程序用AI在研究科学的堆砌方法，不过总的概括可以用几句话表述：尽量构造多种方块能置入的结构；尽量构造局部平面；尽量不创造3格即以上的高度差；但具体情况有时候要根据<strong>Next</strong>方块分析（包括<strong>Hold</strong>）。哪怕方块生成机制是完全随机的，只要运气不是太太太太太太太太太背，理论上是不可能把自己堆死的。总而言之，所有的策略游戏都有这么一个原理，策略要柔软，保留所有方向的可能性。</p>
+<p>经典竞技方块一般没有攻击手段，纯粹的比堆砌底力，竞技方块一般给对手的攻击手段是增加从底部增加垃圾行，于是还考验玩家的<strong>挖掘能力</strong>。有些游戏的垃圾行非常不友好，像QQ游戏的火拼俄罗斯方块垃圾行纯粹就是生成黑白格垃圾行，这种垃圾行极难消除，因为根据奇偶理论对会大量需求T方块，而且这个游戏方块生成机制是完全随机，于是后期就成为一个运气游戏。一般现代正常的竞技方块的垃圾行都是单次攻击下生成随机一列空白的n行垃圾行（行数由公式决定）。于是一组整齐的垃圾行送给对面，因为容易打出<strong>B2B</strong>（back-to-back，指连续的Tetris和T-Spin等高难度消行，会有翻倍的收益），常常反而成为对手制胜的关键。</p>
+<h2 id="现代差异"><a href="#现代差异" class="headerlink" title="现代差异"></a>现代差异</h2><p>现代的方块游戏更加具有趣味性，除了精美的画面和精致的BGM以外，游戏性也获得的极大的提升。常见的除了我正在玩的<strong>TOP</strong>，比较著名的还有<strong>噗呦噗呦</strong>，以及现在大火的Switch上的<strong>Tetris 99</strong>。</p>
+<p>游戏机制：</p>
+<p>操作手感：现代方块除非使用<strong>速降</strong>，否则哪怕当前方块降落速度再快，在方块落到底部的时候都会有一个比较长的停滞时间（大约0.5秒左右），这大幅提升了玩家的容错率，方便玩家能够更加从容的做各种旋转甚至<strong>踢墙</strong>（Kick Wall）操作。</p>
+<p>方块生成机制：现代方块系统一般不再采用完全随机，而是一种叫<strong>7-Pack</strong>的伪随机系统，顾名思义就是每包7个，包内随机。这样的好处就是玩家可以做一些固定的开局，对于高手来说，<strong>全消</strong>（Perfect clean）开局可以给对手带去巨量的垃圾行，甚至可以把握运气做出<strong>2PC</strong>，让对手的垃圾行警告槽直接拉满。理论上PC开局的可能性是78%（7-Pack方块加上正确的3个方块），要达到这个比例需要你熟练掌握一些基本原理，在出现可能PC的情况下做出正确的应对，在PC失败的时候也能坦然应变。当然开局方案有很多，但是基本上还是取决于个人的攻击风格（Tetris，Len，T-Spin），看下个人资料的攻击风格来决定最适合你的开局吧。</p>
+<p>SRS：超级旋转系统可以另起一篇文章来说明，不过这里只简单的说一下<strong>踢墙</strong>原理。踢墙指方块旋转时旋转中心发生偏移的情况，在方块中心贴边的时候进行旋转会不可避免的发生中心离边的情况，然而在一些特殊地形而满足踢墙机制的时候，方块会发生看起来很诡异的旋转。比如新手常常看到的<strong>T3</strong>：「这TM怎么进去的」。其中T方块进行的旋转统称<strong>T-Spin</strong>，其他常用的如<strong>S-Spin</strong>和<strong>L-Spin</strong>也存在，但只有T-Spin是有额外加分的。T-Spin的123消行称为<strong>T1T2T3</strong>，T-Spin攻击力很强，同时消耗的方块很少，又因为不难做所以同时很容易打出<strong>B2B</strong>的配合。</p>
+<table id="root2" style=""></table>
+
+<p>系统机制：</p>
+<p>Hold机制：玩家可以随时把当前的方块与Hold方块交换，然后从顶部重新开始降落。Hold方块不能再被Hold。是一个新手用了就停不下来的功能。</p>
+<p>攻击系统：玩家在被攻击时不会立即生成垃圾行，而是在垃圾行警告槽生成对应高度的红条，在一定时间内做出反击能消除对应高度的红条。消除不完就生成剩余高度的垃圾行。而单次攻击内生成的垃圾行空列的位置不同。总的来说，先手攻击带来的优势在这个游戏的过于明显。而具体攻击的行数和游戏有关，Top的垃圾行生成规则见附录链接。</p>
+<h2 id="基础练习"><a href="#基础练习" class="headerlink" title="基础练习"></a>基础练习</h2><p>40行无hold：基本上所有的现代方块都有40行模式，尝试着把时间尽可能短吧（大佬一般说1分钟以内算入门），尽量减少对<strong>Hold</strong>的依赖，能显著提升你的<strong>LPM</strong>，习惯特定方块的旋转模式，对垃圾行的理解。</p>
+<p>C1W练习：只做<strong>Tetris</strong>消行的练习，能提高你的堆砌能力。不管是不是在<strong>7-pack</strong>系统下都可以。</p>
+<p>TOP里也有单独的挖掘练习，个人感觉也还是不错的。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>关于TOP的介绍及攻略：<a href="https://tieba.baidu.com/p/1248256609" target="_blank" rel="external">https://tieba.baidu.com/p/1248256609</a></p>
+<p>TOP攻击规则。注意，<strong>Len</strong>的垃圾行属于额外附加垃圾行，不包含其本身一般消行的垃圾行，一般来说听到对手9Len的音效就可以双手离开键盘了（瞬死）。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>一般消行</th>
+<th>垃圾行数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Triple</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tetris</td>
+<td>4</td>
+</tr>
+<tr>
+<td>B2B-Tetris</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>T-spin消行</th>
+<th>垃圾行数</th>
+<th>B2B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mini</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Single</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Triple</td>
+<td>6</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>连击数</th>
+<th>垃圾行数</th>
+<th>总数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4</td>
+<td>20</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+    const BLOCKWITDH = 0;
+    const NC = "消除不能"
+    const LN = "连击不能";
+    const STYLE = {
+        O : "background-color:Gold;",
+        T : "background-color:BlueViolet;",
+        I : "background-color:DeepSkyBlue;",
+        S : "background-color:LawnGreen;",
+        Z : "background-color:Red;",
+        J : "background-color:Blue;",
+        L : "background-color:Orange;",
+        N : "background-color:SeaShell;border-style:none;",
+        G : "background-color:Grey;",
+        V : "border-style:none;",
+    }
+    function Gen(tr, arr, num) {
+        var text = "<table>"
+        for (var x in arr) {
+            text += '<tr>'
+            for (var i in arr[x]){
+                var ele = arr[x][i];
+                var fs = STYLE[ele];
+                if (BLOCKWITDH > 0)
+                {
+                  fs = 'height:'+BLOCKWITDH+'px;width:'+BLOCKWITDH+'px;' + fs;
+                }
+                text += '<td style="'+ fs +'"></td>';
+            }
+            text += '</tr>'
+        }
+        text += '</table>'
+        if (num) text += '<div>' + num + '</div>'
+        th = document.createElement("th");
+        th.innerHTML = text;
+        tr.appendChild(th);
+    }
+    function Tex(tr, t, t2) {
+        th = document.createElement("th");
+        th.innerHTML = '<div>' + t + '</div>';
+        if (t2) th.innerHTML += '<div>' + t2 + '</div>';
+        tr.appendChild(th);
+    }
+</script>
+
+<script type="text/javascript">
+    var root = document.getElementById("root1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+    var root = document.getElementById("root2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NNNNNNTNNN', 'GGGNNTTTNN', 'GGNNNNNNNN','GGNGGGGGGG','GGNNGGGGGG','GGNGGGGGGG'], '攻击力超强的T3');
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NNNNLNNNNN', 'NNLLLNNNNN', 'NNNNNNNNN', 'NNNNNNNNNN','GGNNNGGGGG','GGNNNGGGGG','GGNNNGGGGG'], '常见的T2+T2b2b');
+    Gen(tr, ['NNNNTNNNNN', 'NNNTTNNNNN', 'NSSNTOONNJ', 'SSNNNOOJJJ','GGNLLGGGGG','GGNNLGGGGG','GGNNLGGGGG'], '1');
+    Gen(tr, ['NNNNTNNNNN', 'NNNTTNNNNN', 'NNNNTNNNNN', 'NNNNNNNNNN', 'NGGNNGGNNG', 'GGNNNGGGGG','GGTNGGGGGG'], '2');
+</script>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/TOP/">TOP</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/04/18/topintro/" data-title="【TOP】现代俄罗斯方块简介 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/06/17/oneyearindh/" title="【总结】在游戏公司的一年">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【总结】在游戏公司的一年</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/01/09/2019/"  title="【总结】二〇一八年年末总结">
+ <strong>下一篇：</strong><br/> 
+ <span>【总结】二〇一八年年末总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用原理"><span class="toc-number">1.</span> <span class="toc-text">通用原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现代差异"><span class="toc-number">2.</span> <span class="toc-text">现代差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础练习"><span class="toc-number">3.</span> <span class="toc-text">基础练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/TOP/" title="TOP">TOP<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

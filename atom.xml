@@ -591,6 +591,315 @@
   </entry>
   
   <entry>
+    <title>【总结】在游戏公司的一年</title>
+    <link href="http://yoursite.com/2019/06/17/oneyearindh/"/>
+    <id>http://yoursite.com/2019/06/17/oneyearindh/</id>
+    <published>2019-06-17T06:21:39.000Z</published>
+    <updated>2019-07-01T16:31:11.825Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>不知不觉17楼又来了一批学生来参观，最近看到的第二批还是第三批了，这个时间算下来就算是大四毕业设计估计也过去几个月了吧。</p>
+</blockquote>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>在公司也待了已经整整一年了吧，刚入职的时候阴差阳错开始写C++服务器。其实我是很乐意写完全不符我现有知识结构的东西的，只要不是让我背锅，可以尽情的用自己的风格去影响架构，写的是挺爽的。从一开始的逻辑注重型，到后面也开始关注内存的控制。这里特别感谢前面的人把项目架构写的特别清晰，养成了我很多特别好的习惯。也感谢老大永远顶在第一线帮我擦了无数次屁股。也感谢几个服务器的同事无数个Debug的夜晚。</p>
+<h2 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h2><p>在公司的这年经历大致可以分为18年和19年两个大阶段，18年算是内测开发阶段，经过1次删档内测和2次不删档内测。我清楚的还记得第一次开服以后看到u3d里城镇瞬间全是玩家然后编辑器卡出屎的场景。后面几个版本人物算是能正常走了，然后单局里各种掉线。我写的一个信用分的功能，玩家信用分都快扣到0了，尴尬的一比。这个项目我虽然知道算是公司的核心项目，但是没想到有这么多人玩，甚至没宣传的的情况下第一次内测短期内人数到15000多。这段时间算是最累的一段时间，有的时候996感觉都不够用。19年开始为开服做版本更新，这个时候的版本还算是付费公测，大概一个月更新一个小版本，2个月一个大版本（iOS提示一次），中间无数次的bug修复类热更。算是比较轻松，6月之前恢复965，日程差不多空了许多，这段时间看了好多书，补了C++的一些东西。过几个月就是正式开服，全渠道的那种，什么4399，哔哩哔哩，金山都有的（举这几个例子的原因是这几个渠道的包贼几把难过审核，所以印象很深）。这就意味着，又要开始加班了，这个就算不说，也是会被动加班的。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>部门还是很宽松的，就算上班时间自己公司的游戏基本上怎么玩都不会管，看书学习这种也不会管（当然前提是把东西做完）也基本上很尊重个人意见，有几次我只是提了几个小意见就被几个人抓起来开会讨论了。然后大家都是比较年轻，没啥隔阂，开会也是很有效率的那种，基本上都是按流程把要说的说完就散了。部门效率也是感觉那种很明确，可能这就是大公司吧。一般checklist提前几个月就分配下来，你未来几个版本要做的功能都在上面，策划还被要求仅有文档不够，每个需求还必须自己开个小会和程序们讲清楚，项目经理还很鼓励我们怼策划，不要盲目执行，把不合理的需求打回去。</p>
+<h2 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h2><p>之前我也有提到对客户端有兴趣，老大就和我聊了一会说会分几个需求给我。我在8月版本的checklist的客户端看到了我的名字，有种不可思议的感觉。这样我就成为项目组唯二有svn全权限的人了，haha。现在想想，从进入公司前写的u3d都已经快忘得差不多了。我看了下7月版本的我的需求真的是超级少，估计老大是觉得我这个月学习下应该能完全搞定客户端吧（草）。这和我的职业规划也差不多：在公司至少完成2个项目，第二个项目想办法尝试下写客户端。毕竟自己也是想着写U3D才进游戏公司的。和互联网公司不同的是没有「全栈」这种概念，因为项目是在太大了，而且C++和Lua+C#是完全两套完全不一样的生态环境，网游很难用一套生态环境写，毕竟浸没成本在那。几十个G的项目完全不可能掌握每一个细节，能做的事情极其有限，这就特别考验你的举一反三的能力，写代码前的思考的要特别仔细，而且服务器用的又是C++这种goushi语言。目前总体还算满意，希望我接下去的兼职u3d生涯能顺利吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;不知不觉17楼又来了一批学生来参观，最近看到的第二批还是第三批了，这个时间算下来就算是大四毕业设计估计也过去几个月了吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;收获&quot;&gt;&lt;a href=&quot;#收获&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="Others" scheme="http://yoursite.com/categories/Others/"/>
+    
+    
+      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【TOP】现代俄罗斯方块简介</title>
+    <link href="http://yoursite.com/2019/04/18/topintro/"/>
+    <id>http://yoursite.com/2019/04/18/topintro/</id>
+    <published>2019-04-18T08:21:39.000Z</published>
+    <updated>2019-07-01T17:09:39.842Z</updated>
+    
+    <content type="html"><![CDATA[<p>（图是后面C4W文后加的，让文章显得不那么无聊）</p>
+<p>玩<strong>TOP</strong>（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并不只是一个简单的消消类游戏而已。刚入门和非入门玩家就有很大的差别，后者可能堆着堆着就把自己堆死了，前者在了解一些基本原则且不<strong>MD</strong>（misdrop）的情况下，哪怕<strong>LPM</strong>（Line per minute）很低也能正常的进行<strong>挖掘</strong>，甚至能做一些简单的攻击。</p>
+<h2 id="通用原理"><a href="#通用原理" class="headerlink" title="通用原理"></a>通用原理</h2><p>在讲现代方块和经典方块的不同之前，我们先聊聊两者相同的地方，其相同的地方体现在方块旋转机制、多消奖励。</p>
+<table id="root1" style=""></table>
+
+
+<p>首先俄罗斯方块一共有7种，O Z S J L I T，每一块的各种旋转下的形态都不超过一个4*4的方格中，其中比较特殊的方块有两个，一个是O方块，一个是T方块。因为O方块是唯一一个没有旋转中心的方块，因此顺逆旋转键都对它不生效，他永远占着4*4中间4格的位置。其他6个方块都是有自己的旋转中心的，因此我们很容易想到，ZSI方块看起来只有2个形态，其实实实在在的是有4个形态的（这就是我们在旋转ZSI的时候仿佛同一个形态会有忽高忽低的感觉），换句话说，每个形态下的两种旋转态就共计8种变化态，而不是「竖横横竖」2种，这些形态对现代方块有很重要的意义，这涉及到现代方块<strong>SRS</strong>（Super Rotate System）而对街机的上的<strong>ARS</strong>（Arika Rotate System）影响不大。至于其他的旋转系统有兴趣的可以自行查询。T方块的特殊性在于它的奇偶性，什么叫方块的奇偶性呢，简单来说，你把方块放到黑白格子中会发现，其他6方块都是黑白各占两格，只有T方块的黑白格数呈奇数性，所以一般T方块能够很容易把方块平面和凹凸进行转换，而且T方块是也是现代方块的三大攻击手段之一（Tetris，Len，T-Spin），顺便一提，奇偶性的研究特别对<strong>全消</strong>（Perfect Clean）会有帮助。</p>
+<p>基本上消除类游戏的m+n的消除收益会大于m和n的单独消除总和，因为单独多次消除首先比较容易，然后短时间连续可能会有<strong>连</strong>（Len）的加成。像gameboy上的俄罗斯方块的1234消（Single，Double，Triple，Tetris）的得分就是1357，但是在TOP里Single是没有收益的，一般只视作玩家在简单的挖掘而不是在做攻击，除非玩家在做比如<strong>C4W</strong>（Combo 4wide，堆高空4列然后疯狂Single打Len）这种堆砌，<strong>C4W</strong>比较容易失误断Len，<strong>C3W</strong>不容易失误但是总Len数会少，<strong>C2W</strong>更甚。</p>
+<p>提高<strong>LPM</strong>永远不会过时。哪怕只做Tetris，只要LPM够高，仍然能碾压大部分玩家，这属于基本功一类。然后是<strong>挖掘能力</strong>，在处理垃圾行的时候有效的清除行数从而避免没淹没。还有基本的堆砌能力（基础的C1W），这个有专门的程序用AI在研究科学的堆砌方法，不过总的概括可以用几句话表述：尽量构造多种方块能置入的结构；尽量构造局部平面；尽量不创造3格即以上的高度差；但具体情况有时候要根据<strong>Next</strong>方块分析（包括<strong>Hold</strong>）。哪怕方块生成机制是完全随机的，只要运气不是太太太太太太太太太背，理论上是不可能把自己堆死的。总而言之，所有的策略游戏都有这么一个原理，策略要柔软，保留所有方向的可能性。</p>
+<p>经典竞技方块一般没有攻击手段，纯粹的比堆砌底力，竞技方块一般给对手的攻击手段是增加从底部增加垃圾行，于是还考验玩家的<strong>挖掘能力</strong>。有些游戏的垃圾行非常不友好，像QQ游戏的火拼俄罗斯方块垃圾行纯粹就是生成黑白格垃圾行，这种垃圾行极难消除，因为根据奇偶理论对会大量需求T方块，而且这个游戏方块生成机制是完全随机，于是后期就成为一个运气游戏。一般现代正常的竞技方块的垃圾行都是单次攻击下生成随机一列空白的n行垃圾行（行数由公式决定）。于是一组整齐的垃圾行送给对面，因为容易打出<strong>B2B</strong>（back-to-back，指连续的Tetris和T-Spin等高难度消行，会有翻倍的收益），常常反而成为对手制胜的关键。</p>
+<h2 id="现代差异"><a href="#现代差异" class="headerlink" title="现代差异"></a>现代差异</h2><p>现代的方块游戏更加具有趣味性，除了精美的画面和精致的BGM以外，游戏性也获得的极大的提升。常见的除了我正在玩的<strong>TOP</strong>，比较著名的还有<strong>噗呦噗呦</strong>，以及现在大火的Switch上的<strong>Tetris 99</strong>。</p>
+<p>游戏机制：</p>
+<p>操作手感：现代方块除非使用<strong>速降</strong>，否则哪怕当前方块降落速度再快，在方块落到底部的时候都会有一个比较长的停滞时间（大约0.5秒左右），这大幅提升了玩家的容错率，方便玩家能够更加从容的做各种旋转甚至<strong>踢墙</strong>（Kick Wall）操作。</p>
+<p>方块生成机制：现代方块系统一般不再采用完全随机，而是一种叫<strong>7-Pack</strong>的伪随机系统，顾名思义就是每包7个，包内随机。这样的好处就是玩家可以做一些固定的开局，对于高手来说，<strong>全消</strong>（Perfect clean）开局可以给对手带去巨量的垃圾行，甚至可以把握运气做出<strong>2PC</strong>，让对手的垃圾行警告槽直接拉满。理论上PC开局的可能性是78%（7-Pack方块加上正确的3个方块），要达到这个比例需要你熟练掌握一些基本原理，在出现可能PC的情况下做出正确的应对，在PC失败的时候也能坦然应变。当然开局方案有很多，但是基本上还是取决于个人的攻击风格（Tetris，Len，T-Spin），看下个人资料的攻击风格来决定最适合你的开局吧。</p>
+<p>SRS：超级旋转系统可以另起一篇文章来说明，不过这里只简单的说一下<strong>踢墙</strong>原理。踢墙指方块旋转时旋转中心发生偏移的情况，在方块中心贴边的时候进行旋转会不可避免的发生中心离边的情况，然而在一些特殊地形而满足踢墙机制的时候，方块会发生看起来很诡异的旋转。比如新手常常看到的<strong>T3</strong>：「这TM怎么进去的」。其中T方块进行的旋转统称<strong>T-Spin</strong>，其他常用的如<strong>S-Spin</strong>和<strong>L-Spin</strong>也存在，但只有T-Spin是有额外加分的。T-Spin的123消行称为<strong>T1T2T3</strong>，T-Spin攻击力很强，同时消耗的方块很少，又因为不难做所以同时很容易打出<strong>B2B</strong>的配合。</p>
+<table id="root2" style=""></table>
+
+<p>系统机制：</p>
+<p>Hold机制：玩家可以随时把当前的方块与Hold方块交换，然后从顶部重新开始降落。Hold方块不能再被Hold。是一个新手用了就停不下来的功能。</p>
+<p>攻击系统：玩家在被攻击时不会立即生成垃圾行，而是在垃圾行警告槽生成对应高度的红条，在一定时间内做出反击能消除对应高度的红条。消除不完就生成剩余高度的垃圾行。而单次攻击内生成的垃圾行空列的位置不同。总的来说，先手攻击带来的优势在这个游戏的过于明显。而具体攻击的行数和游戏有关，Top的垃圾行生成规则见附录链接。</p>
+<h2 id="基础练习"><a href="#基础练习" class="headerlink" title="基础练习"></a>基础练习</h2><p>40行无hold：基本上所有的现代方块都有40行模式，尝试着把时间尽可能短吧（大佬一般说1分钟以内算入门），尽量减少对<strong>Hold</strong>的依赖，能显著提升你的<strong>LPM</strong>，习惯特定方块的旋转模式，对垃圾行的理解。</p>
+<p>C1W练习：只做<strong>Tetris</strong>消行的练习，能提高你的堆砌能力。不管是不是在<strong>7-pack</strong>系统下都可以。</p>
+<p>TOP里也有单独的挖掘练习，个人感觉也还是不错的。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>关于TOP的介绍及攻略：<a href="https://tieba.baidu.com/p/1248256609" target="_blank" rel="external">https://tieba.baidu.com/p/1248256609</a></p>
+<p>TOP攻击规则。注意，<strong>Len</strong>的垃圾行属于额外附加垃圾行，不包含其本身一般消行的垃圾行，一般来说听到对手9Len的音效就可以双手离开键盘了（瞬死）。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>一般消行</th>
+<th>垃圾行数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Triple</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tetris</td>
+<td>4</td>
+</tr>
+<tr>
+<td>B2B-Tetris</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>T-spin消行</th>
+<th>垃圾行数</th>
+<th>B2B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mini</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Single</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Triple</td>
+<td>6</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>连击数</th>
+<th>垃圾行数</th>
+<th>总数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>12</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4</td>
+<td>20</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+    const BLOCKWITDH = 0;
+    const NC = "消除不能"
+    const LN = "连击不能";
+    const STYLE = {
+        O : "background-color:Gold;",
+        T : "background-color:BlueViolet;",
+        I : "background-color:DeepSkyBlue;",
+        S : "background-color:LawnGreen;",
+        Z : "background-color:Red;",
+        J : "background-color:Blue;",
+        L : "background-color:Orange;",
+        N : "background-color:SeaShell;border-style:none;",
+        G : "background-color:Grey;",
+        V : "border-style:none;",
+    }
+    function Gen(tr, arr, num) {
+        var text = "<table>"
+        for (var x in arr) {
+            text += '<tr>'
+            for (var i in arr[x]){
+                var ele = arr[x][i];
+                var fs = STYLE[ele];
+                if (BLOCKWITDH > 0)
+                {
+                  fs = 'height:'+BLOCKWITDH+'px;width:'+BLOCKWITDH+'px;' + fs;
+                }
+                text += '<td style="'+ fs +'"></td>';
+            }
+            text += '</tr>'
+        }
+        text += '</table>'
+        if (num) text += '<div>' + num + '</div>'
+        th = document.createElement("th");
+        th.innerHTML = text;
+        tr.appendChild(th);
+    }
+    function Tex(tr, t, t2) {
+        th = document.createElement("th");
+        th.innerHTML = '<div>' + t + '</div>';
+        if (t2) th.innerHTML += '<div>' + t2 + '</div>';
+        tr.appendChild(th);
+    }
+</script>
+
+<script type="text/javascript">
+    var root = document.getElementById("root1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+    var root = document.getElementById("root2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NNNNNNTNNN', 'GGGNNTTTNN', 'GGNNNNNNNN','GGNGGGGGGG','GGNNGGGGGG','GGNGGGGGGG'], '攻击力超强的T3');
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NNNNLNNNNN', 'NNLLLNNNNN', 'NNNNNNNNN', 'NNNNNNNNNN','GGNNNGGGGG','GGNNNGGGGG','GGNNNGGGGG'], '常见的T2+T2b2b');
+    Gen(tr, ['NNNNTNNNNN', 'NNNTTNNNNN', 'NSSNTOONNJ', 'SSNNNOOJJJ','GGNLLGGGGG','GGNNLGGGGG','GGNNLGGGGG'], '1');
+    Gen(tr, ['NNNNTNNNNN', 'NNNTTNNNNN', 'NNNNTNNNNN', 'NNNNNNNNNN', 'NGGNNGGNNG', 'GGNNNGGGGG','GGTNGGGGGG'], '2');
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;（图是后面C4W文后加的，让文章显得不那么无聊）&lt;/p&gt;
+&lt;p&gt;玩&lt;strong&gt;TOP&lt;/strong&gt;（Tetris Online Poland）一段时间了，发现自己对这种经久不衰的老游戏无法自拔。现在的俄罗斯方块和老版FC上的已经有了很大的区别，而且玩久了也会发现这并
+    
+    </summary>
+    
+      <category term="Game" scheme="http://yoursite.com/categories/Game/"/>
+    
+    
+      <category term="TOP" scheme="http://yoursite.com/tags/TOP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【总结】二〇一八年年末总结</title>
+    <link href="http://yoursite.com/2019/01/09/2019/"/>
+    <id>http://yoursite.com/2019/01/09/2019/</id>
+    <published>2019-01-09T13:21:39.000Z</published>
+    <updated>2019-07-01T16:28:05.201Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="明白了一件很重要的事情，之前的我太急于求成了，就好像往水里丢块石头马上就要看水漂一样。时间也是一件很重要的事情，你的方向对了，给它一点耐心也很重要，坚持对的事情，没有什么事情是不能改变的。"><a href="#明白了一件很重要的事情，之前的我太急于求成了，就好像往水里丢块石头马上就要看水漂一样。时间也是一件很重要的事情，你的方向对了，给它一点耐心也很重要，坚持对的事情，没有什么事情是不能改变的。" class="headerlink" title="明白了一件很重要的事情，之前的我太急于求成了，就好像往水里丢块石头马上就要看水漂一样。时间也是一件很重要的事情，你的方向对了，给它一点耐心也很重要，坚持对的事情，没有什么事情是不能改变的。"></a>明白了一件很重要的事情，之前的我太急于求成了，就好像往水里丢块石头马上就要看水漂一样。时间也是一件很重要的事情，你的方向对了，给它一点耐心也很重要，坚持对的事情，没有什么事情是不能改变的。</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;明白了一件很重要的事情，之前的我太急于求成了，就好像往水里丢块石头马上就要看水漂一样。时间也是一件很重要的事情，你的方向对了，给它一点耐心也很重要，坚持对的事情，没有什么事情是不能改变的。&quot;&gt;&lt;a href=&quot;#明白了一件很重要的事情，之前的我太急于求成了，就好像
+    
+    </summary>
+    
+      <category term="Others" scheme="http://yoursite.com/categories/Others/"/>
+    
+    
+      <category term="Others" scheme="http://yoursite.com/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【闲聊】扯淡（n）</title>
     <link href="http://yoursite.com/2018/09/20/sept20/"/>
     <id>http://yoursite.com/2018/09/20/sept20/</id>
@@ -1349,116 +1658,6 @@ mK2 = ( 4.0 - 132.0 * dt * dt )  / ( 0.4 * dt + 2.0 )
       <category term="Directx11" scheme="http://yoursite.com/tags/Directx11/"/>
     
       <category term="cpp" scheme="http://yoursite.com/tags/cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【DirectX】BoxDemo学习</title>
-    <link href="http://yoursite.com/2018/03/23/BoxDemo-learning/"/>
-    <id>http://yoursite.com/2018/03/23/BoxDemo-learning/</id>
-    <published>2018-03-23T08:11:11.000Z</published>
-    <updated>2018-04-15T15:13:18.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>123</p>
-<blockquote>
-<p>人算不如天算</p>
-</blockquote>
-<p>龙书第六章中间的一个例子，用到了前几节所有的知识点。把这几百行行代码读懂就基本了解渲染管线的工作流程（日常读源码</p>
-<h2 id="Demo-Debug"><a href="#Demo-Debug" class="headerlink" title="Demo Debug"></a>Demo Debug</h2><p><img src="https://oi3qt7c8d.qnssl.com/boxdemo.jpg" alt="Front"><br><img src="https://oi3qt7c8d.qnssl.com/boxdemo1.jpg" alt="Back"></p>
-<h2 id="Src"><a href="#Src" class="headerlink" title="Src"></a>Src</h2><p>BoxDemo.cpp （使用D3DApp框架结构</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//***************************************************************************************</span></div><div class="line"><span class="comment">// BoxDemo.cpp by Frank Luna (C) 2011 All Rights Reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// Demonstrates rendering a colored box.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// Controls:</span></div><div class="line"><span class="comment">//        Hold the left mouse button down and move the mouse to rotate.</span></div><div class="line"><span class="comment">//      Hold the right mouse button down to zoom in and out.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//***************************************************************************************</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"d3dApp.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"d3dx11Effect.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathHelper.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">struct</span> Vertex</div><div class="line">&#123;</div><div class="line">    XMFLOAT3 Pos;</div><div class="line">    XMFLOAT4 Color;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> BoxApp : <span class="keyword">public</span> D3DApp</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    BoxApp(HINSTANCE hInstance);</div><div class="line">    ~BoxApp();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Init</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnResize</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">UpdateScene</span><span class="params">(<span class="keyword">float</span> dt)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">DrawScene</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseDown</span><span class="params">(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseUp</span><span class="params">(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseMove</span><span class="params">(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">BuildGeometryBuffers</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">BuildFX</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">BuildVertexLayout</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    ID3D11Buffer* mBoxVB; <span class="comment">// [vertex buffer]</span></div><div class="line">    ID3D11Buffer* mBoxIB; <span class="comment">// [index buffer]</span></div><div class="line"></div><div class="line">    ID3DX11Effect* mFX;   <span class="comment">// update in BuildFX()</span></div><div class="line">    ID3DX11EffectTechnique* mTech;</div><div class="line">    ID3DX11EffectMatrixVariable* mfxWorldViewProj;</div><div class="line"></div><div class="line">    ID3D11InputLayout* mInputLayout; <span class="comment">// update in BuildVertexLayout();</span></div><div class="line"></div><div class="line">    XMFLOAT4X4 mWorld;</div><div class="line">    XMFLOAT4X4 mView;</div><div class="line">    XMFLOAT4X4 mProj; <span class="comment">// 3 for DrawScene()</span></div><div class="line"></div><div class="line">    <span class="keyword">float</span> mTheta;</div><div class="line">    <span class="keyword">float</span> mPhi;</div><div class="line">    <span class="keyword">float</span> mRadius; <span class="comment">// 3 for rotation</span></div><div class="line"></div><div class="line">    POINT mLastMousePos; <span class="comment">// record the mouse postion for update scene</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> WINAPI <span class="title">WinMain</span><span class="params">(HINSTANCE hInstance, HINSTANCE prevInstance,</span></span></div><div class="line">                   PSTR cmdLine, <span class="keyword">int</span> showCmd)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// Enable run-time memory check for debug builds.</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(DEBUG) | defined(_DEBUG)</span></div><div class="line">    <span class="number">_</span>CrtSetDbgFlag( <span class="number">_</span>CRTDBG_ALLOC_MEM_DF | <span class="number">_</span>CRTDBG_LEAK_CHECK_DF );</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    <span class="function">BoxApp <span class="title">theApp</span><span class="params">(hInstance)</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>( !theApp.Init() ) <span class="comment">// minit</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> theApp.Run();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">BoxApp::BoxApp(HINSTANCE hInstance)</div><div class="line">: D3DApp(hInstance), mBoxVB(<span class="number">0</span>), mBoxIB(<span class="number">0</span>), mFX(<span class="number">0</span>), mTech(<span class="number">0</span>),</div><div class="line">  mfxWorldViewProj(<span class="number">0</span>), mInputLayout(<span class="number">0</span>),</div><div class="line">  mTheta(<span class="number">1.5f</span>*MathHelper::Pi), mPhi(<span class="number">0.25f</span>*MathHelper::Pi), mRadius(<span class="number">5.0f</span>)</div><div class="line">&#123;</div><div class="line">    mMainWndCaption = <span class="string">L"Box Demo"</span>;</div><div class="line"></div><div class="line">    mLastMousePos.x = <span class="number">0</span>;</div><div class="line">    mLastMousePos.y = <span class="number">0</span>;</div><div class="line"></div><div class="line">    XMMATRIX I = XMMatrixIdentity();</div><div class="line">    XMStoreFloat4x4(&amp;mWorld, I);</div><div class="line">    XMStoreFloat4x4(&amp;mView, I);</div><div class="line">    XMStoreFloat4x4(&amp;mProj, I); <span class="comment">// init these m-args</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">BoxApp::~BoxApp()</div><div class="line">&#123;</div><div class="line">    ReleaseCOM(mBoxVB);</div><div class="line">    ReleaseCOM(mBoxIB);</div><div class="line">    ReleaseCOM(mFX);</div><div class="line">    ReleaseCOM(mInputLayout);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">bool</span> BoxApp::Init() <span class="comment">//dinit</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(!D3DApp::Init())</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">    BuildGeometryBuffers(); <span class="comment">//mbgb</span></div><div class="line">    BuildFX();              <span class="comment">//mbfx</span></div><div class="line">    BuildVertexLayout();    <span class="comment">//mbvl</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//******************************** Scene map (d3dapp methods) ********************************</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::OnResize()</div><div class="line">&#123;</div><div class="line">    D3DApp::OnResize();</div><div class="line"></div><div class="line">    <span class="comment">// The window resized, so update the aspect ratio and recompute the projection matrix.</span></div><div class="line">    XMMATRIX P = XMMatrixPerspectiveFovLH(<span class="number">0.25f</span>*MathHelper::Pi, AspectRatio(), <span class="number">1.0f</span>, <span class="number">1000.0f</span>);</div><div class="line">    XMStoreFloat4x4(&amp;mProj, P); <span class="comment">// update mProj</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::UpdateScene(<span class="keyword">float</span> dt)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// Convert Spherical to Cartesian coordinates.</span></div><div class="line">    <span class="keyword">float</span> x = mRadius*sinf(mPhi)*cosf(mTheta);</div><div class="line">    <span class="keyword">float</span> z = mRadius*sinf(mPhi)*sinf(mTheta);</div><div class="line">    <span class="keyword">float</span> y = mRadius*cosf(mPhi);</div><div class="line"></div><div class="line">    <span class="comment">// Build the view matrix.</span></div><div class="line">    XMVECTOR pos    = XMVectorSet(x, y, z, <span class="number">1.0f</span>);</div><div class="line">    XMVECTOR target = XMVectorZero();</div><div class="line">    XMVECTOR up     = XMVectorSet(<span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>);</div><div class="line"></div><div class="line">    XMMATRIX V = XMMatrixLookAtLH(pos, target, up);</div><div class="line">    XMStoreFloat4x4(&amp;mView, V); <span class="comment">// update mView</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::DrawScene()</div><div class="line">&#123;</div><div class="line">    md3dImmediateContext-&gt;ClearRenderTargetView(mRenderTargetView, <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">float</span>*&gt;(&amp;Colors::LightSteelBlue));</div><div class="line">    md3dImmediateContext-&gt;ClearDepthStencilView(mDepthStencilView, D3D11_CLEAR_DEPTH|D3D11_CLEAR_STENCIL, <span class="number">1.0f</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">    md3dImmediateContext-&gt;IASetInputLayout(mInputLayout);</div><div class="line">    md3dImmediateContext-&gt;IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);</div><div class="line"></div><div class="line">    UINT stride = <span class="keyword">sizeof</span>(Vertex);</div><div class="line">    UINT offset = <span class="number">0</span>;</div><div class="line">    md3dImmediateContext-&gt;IASetVertexBuffers(<span class="number">0</span>, <span class="number">1</span>, &amp;mBoxVB, &amp;stride, &amp;offset);</div><div class="line">    md3dImmediateContext-&gt;IASetIndexBuffer(mBoxIB, DXGI_FORMAT_R32_UINT, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Set constants</span></div><div class="line">    XMMATRIX world = XMLoadFloat4x4(&amp;mWorld);</div><div class="line">    XMMATRIX view  = XMLoadFloat4x4(&amp;mView);</div><div class="line">    XMMATRIX proj  = XMLoadFloat4x4(&amp;mProj);</div><div class="line">    XMMATRIX worldViewProj = world*view*proj;</div><div class="line"></div><div class="line">    mfxWorldViewProj-&gt;SetMatrix(<span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">float</span>*&gt;(&amp;worldViewProj));</div><div class="line"></div><div class="line">    D3DX11_TECHNIQUE_DESC techDesc;</div><div class="line">    mTech-&gt;GetDesc( &amp;techDesc );</div><div class="line">    <span class="keyword">for</span>(UINT p = <span class="number">0</span>; p &lt; techDesc.Passes; ++p)</div><div class="line">    &#123;</div><div class="line">        mTech-&gt;GetPassByIndex(p)-&gt;Apply(<span class="number">0</span>, md3dImmediateContext);</div><div class="line"></div><div class="line">        <span class="comment">// 36 indices for the box.</span></div><div class="line">        md3dImmediateContext-&gt;DrawIndexed(<span class="number">36</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    HR(mSwapChain-&gt;Present(<span class="number">0</span>, <span class="number">0</span>));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//************************* Mouse Control ***********************************************</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::OnMouseDown(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</div><div class="line">&#123;</div><div class="line">    mLastMousePos.x = x;</div><div class="line">    mLastMousePos.y = y;</div><div class="line"></div><div class="line">    SetCapture(mhMainWnd);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::OnMouseUp(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</div><div class="line">&#123;</div><div class="line">    ReleaseCapture();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::OnMouseMove(WPARAM btnState, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>( (btnState &amp; MK_LBUTTON) != <span class="number">0</span> )</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Make each pixel correspond to a quarter of a degree.</span></div><div class="line">        <span class="keyword">float</span> dx = XMConvertToRadians(<span class="number">0.25f</span>*<span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(x - mLastMousePos.x));</div><div class="line">        <span class="keyword">float</span> dy = XMConvertToRadians(<span class="number">0.25f</span>*<span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(y - mLastMousePos.y));</div><div class="line"></div><div class="line">        <span class="comment">// Update angles based on input to orbit camera around box.</span></div><div class="line">        mTheta += dx;</div><div class="line">        mPhi   += dy;</div><div class="line"></div><div class="line">        <span class="comment">// Restrict the angle mPhi.</span></div><div class="line">        mPhi = MathHelper::Clamp(mPhi, <span class="number">0.1f</span>, MathHelper::Pi<span class="number">-0.1</span>f);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( (btnState &amp; MK_RBUTTON) != <span class="number">0</span> )</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Make each pixel correspond to 0.005 unit in the scene.</span></div><div class="line">        <span class="keyword">float</span> dx = <span class="number">0.005f</span>*<span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(x - mLastMousePos.x);</div><div class="line">        <span class="keyword">float</span> dy = <span class="number">0.005f</span>*<span class="keyword">static_cast</span>&lt;<span class="keyword">float</span>&gt;(y - mLastMousePos.y);</div><div class="line"></div><div class="line">        <span class="comment">// Update the camera radius based on input.</span></div><div class="line">        mRadius += dx - dy;</div><div class="line"></div><div class="line">        <span class="comment">// Restrict the radius.</span></div><div class="line">        mRadius = MathHelper::Clamp(mRadius, <span class="number">3.0f</span>, <span class="number">15.0f</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mLastMousePos.x = x;</div><div class="line">    mLastMousePos.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//******************************* rendering pipeline *****************************************</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::BuildGeometryBuffers() <span class="comment">//dbgb</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// directx use left-handed like this:</span></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">// |y       </span></div><div class="line">    <span class="comment">// |  /z     </span></div><div class="line">    <span class="comment">// | /       </span></div><div class="line">    <span class="comment">// |/_____x  </span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// Create vertex buffer</span></div><div class="line">    Vertex vertices[] =</div><div class="line">    &#123;</div><div class="line">        &#123; XMFLOAT3(<span class="number">-1.0</span>f, <span class="number">-1.0</span>f, <span class="number">-1.0</span>f), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::White   &#125;,</div><div class="line">        &#123; XMFLOAT3(<span class="number">-1.0</span>f, +<span class="number">1.0f</span>, <span class="number">-1.0</span>f), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Black   &#125;,</div><div class="line">        &#123; XMFLOAT3(+<span class="number">1.0f</span>, +<span class="number">1.0f</span>, <span class="number">-1.0</span>f), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Red     &#125;,</div><div class="line">        &#123; XMFLOAT3(+<span class="number">1.0f</span>, <span class="number">-1.0</span>f, <span class="number">-1.0</span>f), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Green   &#125;,</div><div class="line">        &#123; XMFLOAT3(<span class="number">-1.0</span>f, <span class="number">-1.0</span>f, +<span class="number">1.0f</span>), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Blue    &#125;,</div><div class="line">        &#123; XMFLOAT3(<span class="number">-1.0</span>f, +<span class="number">1.0f</span>, +<span class="number">1.0f</span>), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Yellow  &#125;,</div><div class="line">        &#123; XMFLOAT3(+<span class="number">1.0f</span>, +<span class="number">1.0f</span>, +<span class="number">1.0f</span>), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Cyan    &#125;,</div><div class="line">        &#123; XMFLOAT3(+<span class="number">1.0f</span>, <span class="number">-1.0</span>f, +<span class="number">1.0f</span>), (<span class="keyword">const</span> <span class="keyword">float</span>*)&amp;Colors::Magenta &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// color map:</span></div><div class="line"></div><div class="line">    <span class="comment">//   Yellow---Cyan</span></div><div class="line">    <span class="comment">//    /|      /|</span></div><div class="line">    <span class="comment">// Black---Red |</span></div><div class="line">    <span class="comment">//   | |     | |</span></div><div class="line">    <span class="comment">//   |Blue---|-Magenta</span></div><div class="line">    <span class="comment">//   |/      |/</span></div><div class="line">    <span class="comment">// White---Green</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    D3D11_BUFFER_DESC vbd; <span class="comment">// buffer description [vertex buffer]</span></div><div class="line">    vbd.Usage = D3D11_USAGE_IMMUTABLE;</div><div class="line">    vbd.ByteWidth = <span class="keyword">sizeof</span>(Vertex) * <span class="number">8</span>;</div><div class="line">    vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;</div><div class="line">    vbd.CPUAccessFlags = <span class="number">0</span>;</div><div class="line">    vbd.MiscFlags = <span class="number">0</span>;</div><div class="line">    vbd.StructureByteStride = <span class="number">0</span>;</div><div class="line"></div><div class="line">    D3D11_SUBRESOURCE_DATA vinitData; <span class="comment">// zone for init buffer</span></div><div class="line">    vinitData.pSysMem = vertices; <span class="comment">// set buffer container</span></div><div class="line"></div><div class="line">    HR(md3dDevice-&gt;CreateBuffer(&amp;vbd, &amp;vinitData, &amp;mBoxVB)); <span class="comment">// [vertex buffer created]</span></div><div class="line"></div><div class="line">    <span class="comment">// index map: Clockwise</span></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">//     5-------6    1→2         1→2   2        2  1→2          7--6</span></div><div class="line">    <span class="comment">//    /|      /|    ↑ ↓     LR: ↑    ↗↓   RL: ↗↓  ↑    backRL: |  |</span></div><div class="line">    <span class="comment">//   1-------2 |    0←3         0   0 3      0 3  0            4--5</span></div><div class="line">    <span class="comment">//   | |     | |</span></div><div class="line">    <span class="comment">//   | 4-----|-7</span></div><div class="line">    <span class="comment">//   |/      |/</span></div><div class="line">    <span class="comment">//   0-------3</span></div><div class="line"></div><div class="line">    <span class="comment">// Create the index buffer</span></div><div class="line"></div><div class="line">    UINT indices[] = &#123;</div><div class="line">        <span class="comment">// front face ↙LR  1--2</span></div><div class="line">        <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>,        <span class="comment">// |  |</span></div><div class="line">        <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>,        <span class="comment">// 0--3</span></div><div class="line"></div><div class="line">        <span class="comment">// back face       ↙LR        5--6  ↘RL    6--5   ↙RL      7--6</span></div><div class="line">        <span class="number">4</span>, <span class="number">6</span>, <span class="number">5</span>,        <span class="comment">// (front)    |  |  (back) |  |   (rotate) |  |</span></div><div class="line">        <span class="number">4</span>, <span class="number">7</span>, <span class="number">6</span>,        <span class="comment">// (anti-cw)  4--7         7--4            4--5</span></div><div class="line"></div><div class="line">        <span class="comment">// left face ↙LR   5--1</span></div><div class="line">        <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>,        <span class="comment">// |  |</span></div><div class="line">        <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>,        <span class="comment">// 4--0</span></div><div class="line"></div><div class="line">        <span class="comment">// right face ↙LR  2--6</span></div><div class="line">        <span class="number">3</span>, <span class="number">2</span>, <span class="number">6</span>,        <span class="comment">// |  |</span></div><div class="line">        <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>,        <span class="comment">// 3--7</span></div><div class="line"></div><div class="line">        <span class="comment">// top face  ↙LR   5--6</span></div><div class="line">        <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>,        <span class="comment">// |  |</span></div><div class="line">        <span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>,        <span class="comment">// 1--2</span></div><div class="line"></div><div class="line">        <span class="comment">// bottom face ↙LR 0--3</span></div><div class="line">        <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>,        <span class="comment">// |  |</span></div><div class="line">        <span class="number">4</span>, <span class="number">3</span>, <span class="number">7</span>         <span class="comment">// 4--7</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    D3D11_BUFFER_DESC ibd; <span class="comment">// buffer description [index buffer]</span></div><div class="line"></div><div class="line">    ibd.Usage = D3D11_USAGE_IMMUTABLE;</div><div class="line">    ibd.ByteWidth = <span class="keyword">sizeof</span>(UINT) * <span class="number">36</span>;</div><div class="line">    ibd.BindFlags = D3D11_BIND_INDEX_BUFFER;</div><div class="line">    ibd.CPUAccessFlags = <span class="number">0</span>;</div><div class="line">    ibd.MiscFlags = <span class="number">0</span>;</div><div class="line">    ibd.StructureByteStride = <span class="number">0</span>; <span class="comment">// set ibd args</span></div><div class="line"></div><div class="line">    D3D11_SUBRESOURCE_DATA iinitData; <span class="comment">// zone for init buffer</span></div><div class="line">    iinitData.pSysMem = indices; <span class="comment">// set buffer container</span></div><div class="line"></div><div class="line">    HR(md3dDevice-&gt;CreateBuffer(&amp;ibd, &amp;iinitData, &amp;mBoxIB)); <span class="comment">// [index buffer created]</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::BuildFX() <span class="comment">//dbfx use color.fx</span></div><div class="line">&#123;</div><div class="line">    DWORD shaderFlags = <span class="number">0</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> defined( DEBUG ) || defined( _DEBUG )</span></div><div class="line">    shaderFlags |= D3D10_SHADER_DEBUG;</div><div class="line">    shaderFlags |= D3D10_SHADER_SKIP_OPTIMIZATION;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    ID3D10Blob* compiledShader = <span class="number">0</span>;  <span class="comment">// compiling shader pointer</span></div><div class="line">    ID3D10Blob* compilationMsgs = <span class="number">0</span>; <span class="comment">// store errs or wanrings</span></div><div class="line"></div><div class="line">    <span class="comment">// main method &lt;D3DX11CompileFromFile&gt;</span></div><div class="line">    HRESULT hr = D3DX11CompileFromFile(<span class="string">L"FX/color.fx"</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">"fx_5_0"</span>, shaderFlags,</div><div class="line">        <span class="number">0</span>, <span class="number">0</span>, &amp;compiledShader, &amp;compilationMsgs, <span class="number">0</span>);</div><div class="line">    <span class="comment">// and check method&lt;D3DX11CompileFromFile&gt; result below</span></div><div class="line"></div><div class="line">    <span class="comment">// compilationMsgs can store errors or warnings.</span></div><div class="line">    <span class="keyword">if</span>( compilationMsgs != <span class="number">0</span> )</div><div class="line">    &#123;</div><div class="line">        MessageBoxA(<span class="number">0</span>, (<span class="keyword">char</span>*)compilationMsgs-&gt;GetBufferPointer(), <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        ReleaseCOM(compilationMsgs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Even if there are no compilationMsgs, check to make sure there were no other errors.</span></div><div class="line">    <span class="keyword">if</span>(FAILED(hr))</div><div class="line">    &#123;</div><div class="line">        DXTrace(<span class="number">__F</span>ILE__, (DWORD)<span class="number">__L</span>INE__, hr, <span class="string">L"D3DX11CompileFromFile"</span>, <span class="literal">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// main method &lt;D3DX11CreateEffectFromMemory&gt;</span></div><div class="line">    HR(D3DX11CreateEffectFromMemory(compiledShader-&gt;GetBufferPointer(), compiledShader-&gt;GetBufferSize(),</div><div class="line">        <span class="number">0</span>, md3dDevice, &amp;mFX)); <span class="comment">// update mFX</span></div><div class="line"></div><div class="line">    <span class="comment">// Done with compiled shader.</span></div><div class="line">    ReleaseCOM(compiledShader);</div><div class="line"></div><div class="line">    mTech    = mFX-&gt;GetTechniqueByName(<span class="string">"ColorTech"</span>);</div><div class="line">    mfxWorldViewProj = mFX-&gt;GetVariableByName(<span class="string">"gWorldViewProj"</span>)-&gt;AsMatrix();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> BoxApp::BuildVertexLayout() <span class="comment">//dbvl</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Create the vertex input layout.</span></div><div class="line">    D3D11_INPUT_ELEMENT_DESC vertexDesc[] =</div><div class="line">    &#123;</div><div class="line">        &#123;<span class="string">"POSITION"</span>, <span class="number">0</span>, DXGI_FORMAT_R32G32B32_FLOAT, <span class="number">0</span>, <span class="number">0</span>, D3D11_INPUT_PER_VERTEX_DATA, <span class="number">0</span>&#125;,</div><div class="line">        &#123;<span class="string">"COLOR"</span>,    <span class="number">0</span>, DXGI_FORMAT_R32G32B32A32_FLOAT, <span class="number">0</span>, <span class="number">12</span>, D3D11_INPUT_PER_VERTEX_DATA, <span class="number">0</span>&#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Create the input layout</span></div><div class="line">    D3DX11_PASS_DESC passDesc;</div><div class="line">    mTech-&gt;GetPassByIndex(<span class="number">0</span>)-&gt;GetDesc(&amp;passDesc);</div><div class="line">    HR(md3dDevice-&gt;CreateInputLayout(vertexDesc, <span class="number">2</span>, passDesc.pIAInputSignature,</div><div class="line">        passDesc.IAInputSignatureSize, &amp;mInputLayout)); <span class="comment">// update mInputLayout</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>color.fx （没啥好说的，一个顶点着色器和一个像素着色器</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">//***************************************************************************************</div><div class="line">// color.fx by Frank Luna (C) 2011 All Rights Reserved.</div><div class="line">//</div><div class="line">// Transforms and colors geometry.</div><div class="line">//***************************************************************************************</div><div class="line"></div><div class="line">cbuffer cbPerObject</div><div class="line">&#123;</div><div class="line">	float4x4 gWorldViewProj;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct VertexIn</div><div class="line">&#123;</div><div class="line">	float3 Pos   : POSITION;</div><div class="line">	float4 Color : COLOR;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct VertexOut</div><div class="line">&#123;</div><div class="line">	float4 PosH  : SV_POSITION;</div><div class="line">    float4 Color : COLOR;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">VertexOut VS(VertexIn vin)</div><div class="line">&#123;</div><div class="line">	VertexOut vout;</div><div class="line"></div><div class="line">	// Transform to homogeneous clip space.</div><div class="line">	vout.PosH = mul(float4(vin.Pos, 1.0f), gWorldViewProj);</div><div class="line"></div><div class="line">	// Just pass vertex color into the pixel shader.</div><div class="line">    vout.Color = vin.Color;</div><div class="line"></div><div class="line">    return vout;</div><div class="line">&#125;</div><div class="line"></div><div class="line">float4 PS(VertexOut pin) : SV_Target</div><div class="line">&#123;</div><div class="line">    return pin.Color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">technique11 ColorTech</div><div class="line">&#123;</div><div class="line">    pass P0</div><div class="line">    &#123;</div><div class="line">        SetVertexShader( CompileShader( vs_5_0, VS() ) );</div><div class="line">		SetGeometryShader( NULL );</div><div class="line">        SetPixelShader( CompileShader( ps_5_0, PS() ) );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>DirectX的官网只有一个sdk下载链接，没有实例，木有文档，正常开发者下了根本没卵用。所以没有办法，只能使用各种书籍的随书源码作为参考。不过书籍上的项目一般历史久远，想要run起来还是会有一定的挑战。</p>
-<p>vs的sln工程个有说法，不同版本的工程策略不同。不同版本vs构建的工程之间兼容性会有一定的问题，主要表现在开发工具（包括面向平台）、c++库等的更新迭代。当你需要打开一个远古时期的工程时，最简单粗暴的方法是下载构建版本时的vs（vs允许多版本共存）和相应的SDK，设置添加SDK的path include includepath lib 和源文件路径到项目的vc++目录中（绝大多数搜索引擎出来的vs兼容性问题的根源）。使用新的vs去跑老版本的工程会修改老工程中的配置，这样就无法再使用旧版本的vs去打开工程，而且新vs也不一定能够跑起来，可能会遇到各种问题（经常出现难以解决的情况），吃力不讨好。（突然感觉用unix-like的人控制欲都好强啊</p>
-<p>bin路径一般放二进制文件(.exe)，即path环境路径；lib路径放库文件(.lib)，有时候需要用sdk工程手动build出来，因为有时候为了区分debug和release出来的库，会在debug下出来的lib文件名后加个<code>d</code>（比如<code>Effects11.lib</code>和<code>Effects11d.lib</code>其实是同一个项目<code>Effects11</code>build出来的库）；include路径中存放需要被<code>#include</code>的文件；一般使用src路径存放源文件；vs的工程文件把不管你乱七八糟存放的文件路径整理成它自己的一套映射路径，这种方案可能一些人很舒服，一些人很不舒服（比如我，乱七八糟路径太多，一个工程一个沙盒不好么）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;123&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;人算不如天算&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;龙书第六章中间的一个例子，用到了前几节所有的知识点。把这几百行行代码读懂就基本了解渲染管线的工作流程（日常读源码&lt;/p&gt;
-&lt;h2 id=&quot;Demo-Debug&quot;&gt;&lt;a h
-    
-    </summary>
-    
-    
-      <category term="Directx11" scheme="http://yoursite.com/tags/Directx11/"/>
-    
-      <category term="cpp" scheme="http://yoursite.com/tags/cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Unity】February 2018 Progress Report</title>
-    <link href="http://yoursite.com/2018/03/09/uchan-learn/"/>
-    <id>http://yoursite.com/2018/03/09/uchan-learn/</id>
-    <published>2018-03-09T09:36:43.000Z</published>
-    <updated>2018-04-16T08:37:28.996Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子</p>
-</blockquote>
-<p><img src="https://oi3qt7c8d.qnssl.com/uchan.gif" alt="uchan.gif"></p>
-<h2 id="使用的组件"><a href="#使用的组件" class="headerlink" title="使用的组件"></a>使用的组件</h2><p>人物模型：开源项目Unity-Chan（以下简称uchan)<br>使用到的Unity标准库：<br>Camera（MultipurposeCameraRig组件，使视角自动旋转跟踪角色后上方）<br>Characters （第三人称人物Prefab，用uchan内的女性化动作代替模型内的男性动作）<br>CrossPlatformInput（适配移动端的输入，添加简单的摇杆和较大的按钮）</p>
-<h2 id="需要了解的知识"><a href="#需要了解的知识" class="headerlink" title="需要了解的知识"></a>需要了解的知识</h2><p>人物状态机，即图，在满足某个某个条件后状态即从某个顶点到达另一个顶点。一个顶点可以是段固定动画，也可以是一个动作树。</p>
-<p>人物动画，是可以通过设置关键帧来进行组合剪辑来形成连贯的新动作。</p>
-<p>第三人称人物Prefab的移动Animation和uchan的移动Animation有设计上的差异，前者具有移动的地面和脚本参数的设置（比如双腿交替频率），而uchan只是一个动画，即原地踏步而已。所以需要在uchan的移动动画的首帧至末帧添加一个参数来表示速度（从前者地面移动速度中获取数值），然后在移动逻辑里添加这个移动的向量，并且修改一下脚本参数使移动看起来较为顺畅。</p>
-<h2 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h2><p>mac版本的unity（5.3.4版本）目前因为苹果的新的文件格式APFS，导致Unity打开项目时显示Project为空，按照网上内容新建一个分区可解决。但还是存在text元素不显示的的问题，我开始以为是哪里代码的问题，后来发现所有以前的项目的text都不见了，在win上显示正常，所以仍然是Unity的问题。</p>
-<p>在win上利用AndroidStudio下载 Android-SDK 时卡住，在设置全局模式无效时，请不要使用国内乱七八糟的高校proxy，还是使用socks模式设置localhost:1080 靠谱的多。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;跟着油管上的外国教程指导下写了一个第三人称视角跳跃例子&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://oi3qt7c8d.qnssl.com/uchan.gif&quot; alt=&quot;uchan.gif&quot;&gt;&lt;/p&gt;
-&lt;h2 i
-    
-    </summary>
-    
-      <category term="Game" scheme="http://yoursite.com/categories/Game/"/>
-    
-    
-      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-      <category term="Game" scheme="http://yoursite.com/tags/Game/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Unity】做两个游戏Demo（二）</title>
-    <link href="http://yoursite.com/2018/02/16/%E5%81%9A%E4%B8%A4%E4%B8%AA%E6%B8%B8%E6%88%8FDemo%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/02/16/做两个游戏Demo（二）/</id>
-    <published>2018-02-15T17:25:19.000Z</published>
-    <updated>2018-04-15T15:14:29.416Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Foreward"><a href="#Foreward" class="headerlink" title="Foreward"></a>Foreward</h1><p>我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很时间错乱（你某个时间到底在干啥），还会有一种看起来好久没更新的感觉（我真的没拖更呀）。以后遇到时间间隔比较长的情况还是分篇写，这样两篇时间上并行的文章就看起来更有层次感一点，也比较利于自ji己de写tian作keng。</p>
-<h1 id="LLDP"><a href="#LLDP" class="headerlink" title="LLDP"></a>LLDP</h1><h2 id="version-0-2-2-14"><a href="#version-0-2-2-14" class="headerlink" title="version 0.2 (2.14"></a>version 0.2 (2.14</h2><p>到目前完成了条形飞行道具的抛物线运动和运动过程中的旋转变换，这里使用了<code>rigidbody</code>这个物理模型，通过赋予加速度和速度的方式来代替原本的数学公式计算。（有关物理引擎的计算要使用<code>FixedUpdate</code>中）</p>
-<p>优化了代码架构</p>
-<h2 id="version-0-3-2-23"><a href="#version-0-3-2-23" class="headerlink" title="version 0.3 (2.23"></a>version 0.3 (2.23</h2><p>完成飞行物体初始化（即发射），绑定到UI界面中。使用<code>Queue</code>对飞行道具数量进行有限控制，销毁掉队列头部的飞行道具从而控制一定数量</p>
-<p>重改并优化两个摄像机，自由视角摄像机(wasdSpaceCtrl+mouse)和鼠标控制左右边界平行拖动、滚轮缩放的远矩视角摄像机</p>
-<h2 id="version-1-0-2-24"><a href="#version-1-0-2-24" class="headerlink" title="version 1.0 (2.24"></a>version 1.0 (2.24</h2><p>完成碰撞检测，主要是双方玩家、飞行道具(trigger)和地面碰撞器，以及盒型边界的接触回收。飞行初始参数可以控制但目前先使用范围随机参数。</p>
-<p>此游戏已经有基本的发射、飞行、命中操作。（到这里有点想弃坑了，不过还是把它搞完把</p>
-<h2 id="version-1-1"><a href="#version-1-1" class="headerlink" title="version 1.1"></a>version 1.1</h2><p>给物体加上了一个血条，并使用脚本使血条永远对着摄像机。因为摄像机群管理是我自己写的一套工具，没有使用网上推荐的那种方法，所以不能使用<code>Camera.Current</code>来确定，所以在工具里暴露一个方法，return回当前的摄像机。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Foreward&quot;&gt;&lt;a href=&quot;#Foreward&quot; class=&quot;headerlink&quot; title=&quot;Foreward&quot;&gt;&lt;/a&gt;Foreward&lt;/h1&gt;&lt;p&gt;我有好几篇博客是写了很长时间的，但是在原来那篇文章上续写然后注明时间的话，所有文章看起来就很
-    
-    </summary>
-    
-      <category term="Game" scheme="http://yoursite.com/categories/Game/"/>
-    
-    
-      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-      <category term="Game" scheme="http://yoursite.com/tags/Game/"/>
     
   </entry>
   
