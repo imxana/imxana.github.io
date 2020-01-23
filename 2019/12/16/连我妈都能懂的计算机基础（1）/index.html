@@ -1,0 +1,660 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【科普】连我妈都能懂的计算机基础（1） | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="以下数字可能出现的比较频繁，我们先记住一些常用的数字：
+
+计量单位
+
+2^10^ = 1024 = 1K2^20^ = 1048576 = 1024K = 1M2^30^ = 1073741824 = 1024M = 1G
+
+常见数字
+
+2^8^ = 2562^16^ = 2^8*2^ = 655352^32^ = 2^8*4^ = 4294967296 = 4G2^64^ = 2^8*8^ =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【科普】连我妈都能懂的计算机基础（1）">
+<meta property="og:url" content="http://yoursite.com/2019/12/16/连我妈都能懂的计算机基础（1）/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="以下数字可能出现的比较频繁，我们先记住一些常用的数字：
+
+计量单位
+
+2^10^ = 1024 = 1K2^20^ = 1048576 = 1024K = 1M2^30^ = 1073741824 = 1024M = 1G
+
+常见数字
+
+2^8^ = 2562^16^ = 2^8*2^ = 655352^32^ = 2^8*4^ = 4294967296 = 4G2^64^ = 2^8*8^ =">
+<meta property="og:updated_time" content="2020-01-23T07:03:06.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【科普】连我妈都能懂的计算机基础（1）">
+<meta name="twitter:description" content="以下数字可能出现的比较频繁，我们先记住一些常用的数字：
+
+计量单位
+
+2^10^ = 1024 = 1K2^20^ = 1048576 = 1024K = 1M2^30^ = 1073741824 = 1024M = 1G
+
+常见数字
+
+2^8^ = 2562^16^ = 2^8*2^ = 655352^32^ = 2^8*4^ = 4294967296 = 4G2^64^ = 2^8*8^ =">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/12/16/连我妈都能懂的计算机基础（1）/" title="【科普】连我妈都能懂的计算机基础（1）" itemprop="url">【科普】连我妈都能懂的计算机基础（1）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2019-12-16T07:23:44.000Z" itemprop="datePublished"> Published 2019-12-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>以下数字可能出现的比较频繁，我们先记住一些常用的数字：</p>
+<ul>
+<li>计量单位</li>
+</ul>
+<p>2^10^ = 1024 = 1K<br>2^20^ = 1048576 = 1024K = 1M<br>2^30^ = 1073741824 = 1024M = 1G</p>
+<ul>
+<li>常见数字</li>
+</ul>
+<p>2^8^ = 256<br>2^16^ = 2^8*2^ = 65535<br>2^32^ = 2^8*4^ = 4294967296 = 4G<br>2^64^ = 2^8*8^ = ??</p>
+<p>我们知道计算机是由2进制来储存信息的，我们把一个2进制数位看成一个灯泡，它要么是亮的状态（1），要么是暗的状态（0），那么我们把这个灯泡叫做「位」，英文用bit（比特）表示。但是位的表达有限，我们用一个更大一点的单位来作为基础单位，那就是字节Byte（拜特）。一个字节就是8位，</p>
+<p>【灯泡1-灯泡2-灯泡3-灯泡4-灯泡5-灯泡6-灯泡7-灯泡8】 这样8个一串的灯泡就是一个字节，我们说的什么KB，GB的B就是这个字节Byte。而小区墙上贴的各种广告上说的什么10兆100兆带宽指的是位，比如10Mbps / 8(b/位) = 1.25MBps (1.25M/s)</p>
+<p>1个字节能表达多少信息呢？如果换成10进制数就是2^8^=256，就是说一个字节能存下范围为0~255的一个数字。那你可能会问，我为啥要存这样一个数字，我不能存2^4^=32，即0~31的两个数字吗？或者拆成其他的分等来表达行不行？</p>
+<p>答案是行，但是又不行。1字节的数字甚至可以表达8个布尔值（bool值的意思就是只能为真或假，就是值只能为1和0），比如一家有8口人，0~255的数字可以完全记录这家人的性别，比如1是男0是女，8个灯泡暗或者灭的所有排列组合，都对应了其中一个数字，倒过来反推也可以，1一个0~255的数字，可以推出这家8口人的性别。</p>
+<p>1个字节能表达的数字不大，那他能干什么呢？我们来学习第一个数据格式，叫做char。char是什么意思呢，就是字符的意思。观察一下我们手里的键盘，大小写字母符号乱七八糟加起来有多少？，是不是64个不够，256个又太多？刚好差不多不超过128个？所以一个char就能够表达英语环境中的一个基础字符（0~127）。为什么我这里要强调它的环境呢？因为要输入其他的特殊字符，1个字节就不够了。但对于最初最初的计算机来说，表达一个字符一个char就够了。</p>
+<p>我们上面说不行的原因，就是我们用了一个char来表达一个字符，那它作为char的话已经用了一个字节来表达所有的信息，哪怕它只用了一半。（我的意思就是说计算机就是这样的，有一个东西要什么东西你就只能给或者不给，给多了的东西你也没办法拿回来。有的游戏上来就直接申请2G的运行内存，哪怕它其实只是一个扫雷，但是你的电脑就是少了2G可用内存，电脑配置不行的话就卡成弱智，虽然你也不理解为什么，我只是开了一个不能再小的扫雷而已。）</p>
+<p>你可能会发现，127不就是刚好少了1位吗，那还有一个灯泡空着不是浪费电吗？这个灯泡其实是有用的。char取值为0-127的时候能代表一个字符，但是一定要记住，char的「本质」上还是一个数字。当我们定义了一个「char」的时候，它的第一位就变成了符号位，后面7位才是数值。所以它代表的数值范围其实是-128~127，共256个数字。</p>
+<p>为什么是-128~127呢？这个符号位当它是0的时候，就代表它是一个正数，意思就是我灭了，两眼一闭高高挂起，你们其他几个爱咋咋地，原来是多少就是多少，所以还是原来0~127。当它是1的时候，就是代表它是一个负数，就需要把后面的值加个负号变成-0~-127。-0那就看做最大负值，也就是-128。</p>
+<p>如果我们需要表达0~255的值的话，我们需要定义「unsigned char」，unsigned的意思就是无符号，整个意思就是无符号字符，也可以说是无符号字节，因为我们日常中很多数字都是自然数，不会出现负数，那这样我们就不需要符号位了，那unsigned char就能够表达128~255的数字。两个类型能够表达的数字都是256个，是一样的。</p>
+<p>我们还有其他的数据格式，整数的有short，int和long long（短整型，整型和长整型）以及对应的无符号类型（unsigned short，unsigned int和unsigned long long），它们分别占了2个，4个和8个字节。你可能会问，为什么没有6个字节的呢？你可以把这些数据想象成大小不一的砖头，把程序看成最后的建筑，1:2:4的砖头肯定比1:2:3的砖头来的号，为什么？因为他们在内存里能够一一「对齐」，内存对齐这个思想贯穿了整个图形学，总的来说会有很多好处，比如效率高，计算快等。</p>
+<p>这里有一些等价表达问题，这边可以说下：<br>short = short int = <strong>int16<br>int = long int = long = </strong>int32<br>long long = long long int = __int64</p>
+<p>我们可以简单计算下，short能表示带符号的3万多（2^15^），int能表示带符号的21亿（2^31^），long能表达的数字更大（2^63^），可以理解为42亿个int那么大。在我们列出小数的数据格式之前，我们先提出一个设想。</p>
+<p>假设我和你在一起计算机考试，你完全不会里面的内容，但是你知道我的答案肯定是对的，那你要怎么作弊才能确保满分呢？你可以偷偷看我的卷子，然后每一条都抄上答案。但是还有一种更简单的方法，就是直接拍张照片，打印了交上去啦！两个人最后都是满分！</p>
+<p>这两种方法有什么区别呢？第一个是值相同，第二个是址相同。什么意思呢，虽然两个方法最后的效果都是一样的，但是第一个卷子是你做的，第二个卷子相等于两张都是我做的。所以你想表达一个和现有值相同的方法，除了先在地上划出一块和原有值相同的大小，然后照模照样的搭房子，还能干脆在地上插一个路标，上面写着「去找他」！这个牌子实际上就是表达了一个地址。这的一个地址，我们叫做指针（pointer）。</p>
+<p>那这样一个地址在计算机里怎么表达呢？当然用数字就够了。在我这个世代还接触过32位（×86）的电脑，现在都是64位（×64）了，当然现在要创建一个程序有时候还要确定是32位的还是64位的。我们可能知道64位的电脑可以跑32位的程序，反之就不行。那这个位是啥意思呢？这就是代表了指针的大小。</p>
+<p>32位有多大？4个字节，2^32^ = 2^8*4^ = 4294967296，刚好就是4G。换而言之，32位的电脑内存不可能超过4G。在零几年的时候电脑内存还在几百M的时候，4G看起来还是非常遥远的目标，更早的时候甚至更小，以K为单位。这个时候插内存条有用吗，就没用了。就好像你拿着福建的地图到了浙江一样，这块地方你就管不了了。64位的电脑的内存上限就很大了，按上面说的相当于几十亿个4G的内存条，这样在相当长的一段时间内，计算机都不需要再改架构了。</p>
+<p>那么所有的指针都是等价的吗？是的，本质上就是一个正整数，无数的指针可以互相随意转换。</p>
+<p>它不管是指向一个几百亩的豪华别墅，还是指向一个半米宽乡间厕所，它本身就是一个地址，存的就是相同长度的数字。用刚刚的考试作弊做个例子，如果我们想交换答案，除了互相看卷子重新填写以外，是不是直接交换卷子就可以了？对！这样既简单又符合我们的直觉。那你可能会想到一个问题，如果你想那你的厕所换我的别墅，除了把两边都拆了重建以外，是不是只要交换我们的地址就可以了？我知道这很反直觉，但并不可行。</p>
+<p>如果我们直接交换了地址（&amp;），你能拿到的只能是这个别墅的前半平米，可能连大门都还没到，而我拿到的除了这个半米的厕所，还有剩下几百亩的地。这个地上有什么？不知道，可能是一片无垠的荒地，也可能存在别人的房子。计算机会把这部分整个看做是我的别墅，这明显是不合理的，其他的房主会来打我。即使是重建，你也需要重新申请一大块土地。本质上来说，我们拥有的不是同一个东西（类）。</p>
+<p>但是！如果我们房子不是买的，是租的，我们拥有的只是两个房子的带住址的名片（指针），那我们直接交换行不行？OK！我们交换了名片以后以后你只要告诉计算机，我拿到的已经不是厕所了，是一个大别墅！这样计算机就会用大别墅的方式去解析你的地址，这样你就住进了大别墅！</p>
+<p>假如你要拆房子，那又该怎么做？第一，把你的地址交给施工队，施工队按照你的房子说明的大小铲平了这块地，然后你应该把你的这个地址撕掉，因为它不再有用了。无用的数据残留在内存中没有及时释放，他们管这叫做内存泄漏，说白了就是钉子户。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/12/16/连我妈都能懂的计算机基础（1）/" data-title="【科普】连我妈都能懂的计算机基础（1） | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/12/16/【自省】SOP is killing me/" title="【自省】SOP is killing me">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【自省】SOP is killing me</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/11/11/【生活】目标设计指南 The Guide of Design Goals/"  title="【生活】目标设计指南 The Guide of Design Goals">
+ <strong>下一篇：</strong><br/> 
+ <span>【生活】目标设计指南 The Guide of Design Goals
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/TOP/" title="TOP">TOP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
