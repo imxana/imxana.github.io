@@ -257,6 +257,705 @@
   </entry>
   
   <entry>
+    <title>【TOP】pc定式的初步研究</title>
+    <link href="http://yoursite.com/2019/08/20/pc%E5%AE%9A%E5%BC%8F/"/>
+    <id>http://yoursite.com/2019/08/20/pc定式/</id>
+    <published>2019-08-20T13:51:12.000Z</published>
+    <updated>2020-01-29T13:56:49.026Z</updated>
+    
+    <content type="html"><![CDATA[<script type="text/javascript">
+    const BLOCKWITDH = 3;
+    const NC = "消除不能"
+    const LN = "连击不能";
+    const STYLE = {
+        O : "background-color:Gold;",
+        T : "background-color:BlueViolet;",
+        I : "background-color:DeepSkyBlue;",
+        S : "background-color:LawnGreen;",
+        Z : "background-color:Red;",
+        J : "background-color:Blue;",
+        L : "background-color:Orange;",
+        N : "background-color:SeaShell;border-style:none;",
+        G : "background-color:Grey;",
+        B : "background-color:Black;",
+        P : "background-color:Pink;",
+        V : "",
+    }
+    function Gen(tr, arr, num) {
+        var text = "<table>"
+        for (var x in arr) {
+            text += '<tr>'
+            for (var i in arr[x]){
+                var ele = arr[x][i]
+                text += '<td style="height:'+BLOCKWITDH+'px;width:'+BLOCKWITDH+'px;' + STYLE[ele]  + '"></td>';
+            }
+            text += '</tr>'
+        }
+        text += '</table>'
+        if (num) text += '<div>' + num + '</div>'
+        th = document.createElement("th");
+        th.innerHTML = text;
+        tr.appendChild(th);
+    }
+    function Tex(tr, t, t2) {
+        th = document.createElement("th");
+        th.innerHTML = '<div>' + t + '</div>';
+        if (t2) th.innerHTML += '<div>' + t2 + '</div>';
+        tr.appendChild(th);
+    }
+
+    function change(id) {
+        var tr = id.tHead.firstChild
+        var i = tr.children.length
+        var r = parseInt(Math.random() * i) + 1; //  +1 to keep the first element order
+        while (i-- > 1) tr.insertBefore(tr.children[i], tr.children[r])
+    }
+</script>
+
+
+<h2 id="什么是PC"><a href="#什么是PC" class="headerlink" title="什么是PC"></a>什么是PC</h2><p>PC即<code>Perfect Clean</code>，即消除屏幕内的所有单元格，是Tetris游戏中的一种特殊攻击方式。PC一旦完成，会给对手短时间大量的（整齐的）垃圾行。PC开局对C4W开和DT开（这种需要一定时间的开局）优势，对BT开和信天翁开（TSpin开局）劣势，因为没有对手快而会PC失败。</p>
+<h2 id="什么是PC开局"><a href="#什么是PC开局" class="headerlink" title="什么是PC开局"></a>什么是PC开局</h2><p>在7-pack系统下因为开局7个方块固定，最少需要4行(40格，10个方块)进行PC，剩余12个空格放接下来的3个方块完成全消。PC之后再使用定式就比较困难了。</p>
+<p>因此在开局能够使用PC定式，定式容错率高且简单。</p>
+<h2 id="PC定式的一般规律"><a href="#PC定式的一般规律" class="headerlink" title="PC定式的一般规律"></a>PC定式的一般规律</h2><table id="pc1" style=""></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['IIIINNNNSS','LOOJNNNSST','LOOJNNZZTT','LLJJNNNZZT'], 'PC开局定式1');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['ZZNNNNJJLL','TZZNNNJOOL','TTSSNNJOOL','TSSNNNIIII'], 'PC开局定式R');
+
+</script>
+
+<p>PC开局理论上能够分为两部分，<code>TZS</code>部分和<code>OIJL</code>部分。</p>
+<p><code>TZS</code>部分唯一的顺序要求就是T不能在最后，T如果不在最前的话可以根据Z和S的顺序顺势构成定式1或者定式R。（<code>TZS</code>平滑一侧贴在<code>OIJL</code>一侧也可）</p>
+<p><code>OIJL</code>部分的要求只有前两个的顺序不能是O-I，所以只有开局是[S-Z-O-I]或者[Z-S-O-I]这种极限情况下才无法完成定式。然而这种情况下仍有机会PC（定式1-S或定式R-Z）。</p>
+<p>我们从定式1的变化情况开始讨论，看定式1对第一个方块的兼容性。很明显，定式1下对开始的7个方块都是兼容的(首行)，又因为第三个方块要求PC，因此变式2很容易得出，第二个方块必须构造出以下局部形状(首列)：</p>
+<table id="pc4"></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc4");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Tex(tr,  "变式2(12种)", "(有效方块二)");
+    Gen(tr,  ['GNNNNG','GNNNGG','GGGNGG'], '定式1-O');
+    Gen(tr,  ['GNNNGG','GNNGGG','GNNNGG'], '定式1-I');
+    Gen(tr,  ['GNNNNG','GGNNGG','GGNNGG'], '定式1-T');
+    Gen(tr,  ['GNNNNG','GNNNGG','GNGGGG'], '定式1-Z(TSpin)');
+    Gen(tr,  ['GNNNNG','GNGGGG','GNNNGG'], '定式1-S(T)');
+    Gen(tr,  ['GNNNNG','GNGNGG','GNGGGG','GNGGGG'], '定式1-L');
+    Gen(tr,  ['GNNNNG','GNNNGG','GGNGGG'], '定式1-J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GNNG'], '变式2-O');
+    Tex(tr,  "-");
+    Tex(tr,  "[T]");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNNG'], '变式2-I1');
+    Tex(tr,  "[J]");
+    Tex(tr,  "-");
+    Tex(tr,  "[O]");
+    Tex(tr,  "[L]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "[T]");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNG','GNG','GNG','GNG'], '变式2-I1');
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[T]");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GGNGG'], '变式2-T');
+    Tex(tr,  "[J]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "[I, S]");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNGG','GGNNG'], '变式2-Z');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GGNNG','GNNGG'], '变式2-S');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[Z]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GNGGG'], '变式2-L1');
+    Tex(tr,  "∅");
+    Tex(tr,  "[T,Z]");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GGGNG','GNNNG'], '变式2-L2');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GGNG','GGNG'], '变式2-L3');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GGGNG'], '变式2-J1');
+    Tex(tr,  "[I]");
+    Tex(tr,  "[O]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNGGG','GNNNG'], '变式2-J2');
+    Tex(tr,  "∅");
+    Tex(tr,  "[T,S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GNGG','GNGG'], '变式2-J3');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[L]");
+    Tex(tr,  "[S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+</script>
+
+
+
+<p>
+    通过观察定式1可得出结论：
+
+</p><p>
+
+    * 定式1-T: T[IO] T[SZ] T[JL] (1-T(Z): T[IL] T[JS]   1-T(S): T[JI] TJS  Other: 1-TIS)
+
+    T开局的收益非常高，但前两个方块出现T方快也不能无脑做1-T，再有IL/JS或IJ/JS的时候得转向1-T(Z)或1-T(S)
+</p><p>
+    * 定式1-I: I[TJ] ITL ITO IOJ IZL ISJ
+
+    因为I是横向消除不影响结构，所以把I放到公式最后也成立。但是正是由于带I公式常带着消行操作，所以1-I公式往往都是固定公式。
+</p><p>
+
+    * 定式1-O: O[JI] OJT
+    * 定式1-S: S[JI]
+    * 定式1-Z: Z[IL] Z[JS] (T[IL] T[JS])
+
+    后续出现的固定顺序可做。
+</p><p>
+    * 定式1-L: L[TI]
+    * 定式1-J: J[TI]
+
+    这3个公式有着很高的重复度，很明显4个方块中如果含IT方块和一个JL其中一个方块，那大概率就是走这三个公式之一。
+</p><p>
+
+    定式R与定式1取相反的方块即可。（在TOP上一开始无法看到第7个之后的方块，因此理论上开局去刻意构造定式1或定式R并没有任何的用处，除非给的方块够给力能完全先构造出`OIJL`）
+</p><p>
+</p><p>
+    * 除了1-Z[JS]和R-S[JZ] 外，PC公式必定带有一个I或者一个T，换言之，前四个方块中不存在I或者T，基本PC无望，且IT越靠后越困难，T基本不可能作为结尾。
+</p><p>
+    * 定式1-T能PC的概率为 18/30 = 60%  定式1-Z能PC的概率为 12/30 = 40%
+
+    因此T开局的综合PC概率为 1-(0.4*0.6) = 76%(↓) (这里的概率都是含hold操作的情况) (后附：这里的全部的概率计算有问题，hold机制比较复杂，仅供大致参考)
+</p><p>
+    * 定式1-I的PC概率为也很高，没啥规律，观察下序列即可。
+
+    其余定式概率均不足30%，尽量不做
+</p><p>
+    * 定式1公式同时出现I和T，基本能认定PC（其余5个中取2个只要不为Z和S，90%）
+</p><p>
+    * [ITL]仅有ILT不能PC，[ITJ]全部OK，基本认定PC。(稳定PC可以先下J或L)
+</p><p>
+    * [ITO]达成的序列中，T在O之前，必定PC。
+</p>
+
+
+<p>当然这是一种讨论的方式，不过比较繁琐和不直观(比如遗漏定式1-T的另一种方式从而遗漏[TI]S)，我们可以换一种思路来思考。</p>
+<h2 id="方块的奇偶性"><a href="#方块的奇偶性" class="headerlink" title="方块的奇偶性"></a>方块的奇偶性</h2><table id="jo1"></table>
+
+<p>我们可以清楚的看到方块或者PC定式剩余空间必定处于+2或者+0的状态。</p>
+<table id="jo2"></table>
+
+<p>因此我们可以得出要完成PC，必须维持奇偶方块的平衡，能够改变空间奇偶性的操作有以下几个：</p>
+<ol>
+<li><p>使用T方块</p>
+</li>
+<li><p>消单行时维持上部空间为奇数格</p>
+</li>
+</ol>
+<p>因为PC定式1的奇偶性，所以最终需要1次或者3次的改变奇偶性的操作。因为3个方块要求消除4行，所以必定有一个方块至少消除两行，所以最多两个方块消除单行。即操作1能有1次，操作2最多有2次。</p>
+<p>所以使用T方块时，必须有两次单行反转的操作，或者不能有反转的操作，不使用T方块时，需要有一次单行反转的操作。</p>
+<script type="text/javascript">
+
+    var root = document.getElementById("jo1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NGBN', 'NBGN'], 'O');
+    Gen(tr, ['NGNN', 'GBGN'], 'T');
+    Gen(tr, ['NNNN', 'GBGB'], 'I');
+    Gen(tr, ['NGBN', 'GBNN'], 'S');
+    Gen(tr, ['BGNN', 'NBGN'], 'Z');
+    Gen(tr, ['BNNN', 'GBGN'], 'J');
+    Gen(tr, ['NNBN', 'GBGN'], 'L');
+
+    var root = document.getElementById("jo2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GNPNPG','GPNPGG','GNPGGG','GPNPGG'], '定式1的奇偶性');
+    Gen(tr,  ['GNPNPG','GTNPGG','GTTGGG','GTNPGG'], '奇方块改变奇偶性');
+    Gen(tr,  ['GNPNPG','GPNPGG','GOOGGG','GOOPGG'], '偶方块不改变奇偶性');
+    Gen(tr,  ['GNPNPG','GPNPGG','GZZGGG','GPZZGG'], '奇数消行');
+    Gen(tr,  ['VVVVVV','GPNPNG','GNPNGG','GPZZGG'], '奇数消行反转行上奇偶性');
+    Gen(tr,  ['GIPNPG','GIJJGG','GIJGGG','GIJPGG'], '偶数消行');
+    Gen(tr,  ['VVVVVV','VVVVVV','GIPNPG','GIJPGG'], '偶数消行不改变奇偶性');
+    thead.appendChild(tr);
+</script>
+
+<p>因此定式1有下列PC公式：</p>
+<table id="pc5"></table>
+<table id="pratice1" onclick="change(this)" style=""></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc5");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNG','GNNNGG','GNNGGG','GNNNGG'], '定式1');
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJTTTG','GJJJGG','GOOGGG','GOOTGG'], 'OJT');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GJJJGG','GOOGGG','GOOJGG'], 'O[JI] IOJ');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITTTG','GILTGG','GILGGG','GILLGG'], 'L[IT]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GLLLGG','GLTGGG','GTTTGG'], 'T[IL] ITL');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITTTG','GIJJGG','GIJGGG','GIJTGG'], '[IJ]T');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITSSG','GITTGG','GITGGG','GISSGG'], '[IT]S');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GTTTGG','GJTGGG','GJJJGG'], '[TJI]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GSTTTG','GSSTGG','GJSGGG','GJJJGG'], 'JST');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GTTTGG','GJTGGG','GJSSGG'], 'TJS');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GJSSGG','GJTGGG','GTTTGG'], 'T[SJ]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GLLLGG','GZZGGG','GLZZGG'], 'Z[IL] IZL');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GJSSGG','GSSGGG','GJJJGG'], 'S[IJ] ISJ');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GTOOGG','GTTGGG','GTOOGG'], 'T[IO] ITO');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GLLJJG','GTLJGG','GTTGGG','GTLJGG'], 'T[JL]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GZZSSG','GTSSGG','GTTGGG','GTZZGG'], 'T[SZ]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GJSSGG','GZZGGG','GJZZGG'], 'Z[SJ]');
+    tbody.appendChild(tr);
+
+    var root = document.getElementById("pratice1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+
+    Gen(tr,  ['GNNNNG','GNNNGG','GNNGGG','GNNNGG'], '定式1练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>此外PC开局如果I方块在最后的话，还会有额外的PC方式，即定式I(IR)，I方块的放置方式不同，最后生成的定式I奇偶性也不同</p>
+<table id="pc2" style=""></table>
+
+<p>同理得定式I-1有下列PC公式：</p>
+<table id="I-1" style=""></table>
+<table id="pratice2" onclick="change(this)" style=""></table>
+
+<script type="text/javascript">
+
+    var root = document.getElementById("pc2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    Gen(tr, ['LLLNNNNNSS','LOONNNNSST','JOONNNZZTT','JJJNNNNZZT'], 'PC开局定式I');
+
+    Gen(tr, ['GGGINPNPGG','GGGIPNPGGG','GGGINPGGGG','GGGIPNPGGG'], '定式I-0(定式1)');
+
+    Gen(tr, ['V','GGGPNPNPGG','GGGNPNGGGG','GGGPNPNGGG'], '定式I-1');
+
+    Gen(tr, ['V','GGGPNPNPGG','GGGNPNPGGG','GGGPNPGGGG'], '定式I-2(ISpin)');
+    tbody.appendChild(tr);
+
+    var root = document.getElementById("I-1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNGGG','GNNNNGG'], '定式I-1');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLIIIIG','GLZZGGG','GLLZZGG'], 'L[ZI]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOLLLG','GOOLGGG','GIIIIGG'], '[IL]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTJLLLG','GTTLGGG','GTJJJGG'], '[TL]J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GOOLGGG','GLLLTGG'], 'LOT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GJJJGGG','GOOJTGG'], 'J[OT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJTTTG','GJOOGGG','GJOOTGG'], 'OJT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GJZZGGG','GJJJTGG'], 'JZT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GLLLGGG','GLZZTGG'], 'L[ZT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLSTTTG','GLSSGGG','GLLSTGG'], 'LST');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJJSSG','GOOJGGG','GOOSSGG'], 'OJS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTTTSSG','GLLLGGG','GLTSSGG'], 'L[TS] T[LS]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLOOSSG','GLOOGGG','GLLSSGG'], 'LOS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJZSSG','GJZZGGG','GJZSSGG'], 'ZJS');
+
+    var root = document.getElementById("pratice2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['GNNNNNG','GNNNGGG','GNNNNGG'], '定式I-1练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>定式I-2有下列PC公式：</p>
+<table id="I-2" style=""></table>
+
+<table id="pratice3" onclick="change(this)" style=""></table>
+
+
+<script type="text/javascript">
+    var root = document.getElementById("I-2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNNGG','GNNNGGG'], '定式I-2');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTIIIIG','GTTSSGG','GTSSGGG'], '[TS]I TIS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLIIIIG','GLTTTGG','GLLTGGG'], 'L[IT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOLLLG','GIIIIGG','GOOLGGG'], 'I[LO]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJTTTG','GJOOTGG','GJOOGGG'], 'O[JT] T[OJ] JTO');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GOOLTGG','GLLLGGG'], '[LT]O TLO');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLSTTTG','GLSSTGG','GLLSGGG'], 'LST');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GJZZTGG','GJJJGGG'], 'J[ZT] TJZ');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GLLLTGG','GLZZGGG'], '[LT]Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GJJJTGG','GOOJGGG'], '[JT]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNSSG','GNNSSGG','GNNNGGG'], '定式I-2-S1(定式1-I)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJJSSG','GOOSSGG','GOOJGGG'], '[SO]J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTTTSSG','GJTSSGG','GJJJGGG'], '[SJ]T JTS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTOOSSG','GTTSSGG','GTOOGGG'], '[ST]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLLLSSG','GLTSSGG','GTTTGGG'], '[ST]L TLS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLLLSSG','GZZSSGG','GLZZGGG'], '[SZ]L');
+
+    var root = document.getElementById("pratice3");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNNGG','GNNNGGG'], '定式I-2练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>
+    通过观察定式I可得出结论：
+
+</p><p>
+    * 定式1-L: L[TI]
+    * 定式I-1-L: L[ZI] LIO LTJ L[ZT] L[ST] LOS
+    * 定式I-2-L: L[IT] LTO LST LTZ
+</p><p>
+
+    * 定式1-S: S[JI]
+    * 定式I-2-S: SOJ SJT STO STL SZL
+    * 定式I-1-S: PC不能
+</p><p>
+
+    定式I-1-L的开局PC率远高于定式1-L(定式IR-1-J >> 定式R-J)
+
+    定式I-2-S的开局PC率远高于定式1-S(定式IR-2-J>> 定式R-Z)
+
+    因此在定式1开局I结尾可选的情况下，接下的的方块中L开头考虑I速降，S开头考虑ISpin。
+</p>
+
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>我在每个定式后面都放置了一个练习的小函数，理论学习了还是需要熟能生巧最重要。(出现概率-定式1:定式I:定式R:定式IR = 5:2:5:2)</p>
+<table id="I-2" style=""></table>
+
+<table id="praticeS" onclick="change(this);changeT(this);" style=""></table>
+
+
+<script type="text/javascript">
+
+    var root = document.getElementById("praticeS");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GGGGNNNNGG','GGGGNNNGGG','GGGGNNGGGG','GGGGNNNGGG'], '综合练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+    function changeT(id){
+        var tr = id.tHead.firstChild
+        var i = parseInt(Math.random() * 14) // 5:2:5:2
+        if (i<5) {
+            Gen(tr,  ['GGGGNNNNGG','GGGGNNNGGG','GGGGNNGGGG','GGGGNNNGGG'], '综合练习(定式1)');
+        } else if (i<7) {
+            Gen(tr,  ['GGGINNNNGG','GGGINNNGGG','GGGINNGGGG','GGGINNNGGG'], '综合练习(定式I)');
+        } else if (i<12) {
+            Gen(tr,  ['GGNNNNGGGG','GGGNNNGGGG','GGGGNNGGGG','GGGNNNGGGG'], '综合练习(定式R)');
+        }else {
+            Gen(tr,  ['GGNNNNIGGG','GGGNNNIGGG','GGGGNNIGGG','GGGNNNIGGG'], '综合练习(定式RI)');
+        }
+        tr.replaceChild(tr.lastChild, tr.firstChild)
+    }
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script type=&quot;text/javascript&quot;&gt;
+    const BLOCKWITDH = 3;
+    const NC = &quot;消除不能&quot;
+    const LN = &quot;连击不能&quot;;
+    const STYLE = {
+        O : &quot;back
+    
+    </summary>
+    
+    
+      <category term="Game" scheme="http://yoursite.com/tags/Game/"/>
+    
+      <category term="TOP" scheme="http://yoursite.com/tags/TOP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【闲聊】写给和我一样在游戏行业迷茫的人</title>
     <link href="http://yoursite.com/2019/06/30/tosomeonelikeme/"/>
     <id>http://yoursite.com/2019/06/30/tosomeonelikeme/</id>
@@ -1424,75 +2123,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【Unity】May 6 Study Progerss</title>
-    <link href="http://yoursite.com/2018/05/16/May6/"/>
-    <id>http://yoursite.com/2018/05/16/May6/</id>
-    <published>2018-05-16T05:50:31.000Z</published>
-    <updated>2018-06-04T16:52:17.270Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>动图（大图）杀猫，流量预警</p>
-</blockquote>
-<h2 id="AntiShader"><a href="#AntiShader" class="headerlink" title="AntiShader"></a>AntiShader</h2><p>Last Update: <a href="http://mikumiku.com.cn/2018/05/08/AntiEffect/" target="_blank" rel="external">2018/05/08</a></p>
-<ul>
-<li>改进了反色Shader，现在物体会被平行光源/点光源影响了</li>
-</ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/AntiSpecular.gif" alt="AntiSpecular.gif"></p>
-<h2 id="CharactorSimulator"><a href="#CharactorSimulator" class="headerlink" title="CharactorSimulator"></a>CharactorSimulator</h2><p>Last Update: <a href="http://mikumiku.com.cn/2018/04/29/CharactorSimulator/" target="_blank" rel="external">2018/04/29</a></p>
-<ul>
-<li>添加了物品栏满后无法拾取的互动提示</li>
-</ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/PackageFullTips.gif" alt="PackageFullTips.gif"></p>
-<ul>
-<li>和NPC互动会控制玩家位置</li>
-</ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/NPCTalking.gif" alt="NPCTalking.gif"></p>
-<ul>
-<li><p>NPC在对话一定范围内会朝向玩家</p>
-</li>
-<li><p>添加快速转身</p>
-</li>
-</ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/QuickTurn.gif" alt="QuickTurn.gif"></p>
-<ul>
-<li>设计一个玩家技能</li>
-</ul>
-<p><img src="https://oi3qt7c8d.qnssl.com/SkillDemo.gif" alt="SkillDemo.gif（TODO"></p>
-<h2 id="hackathon设计构思（备胎"><a href="#hackathon设计构思（备胎" class="headerlink" title="hackathon设计构思（备胎"></a>hackathon设计构思（备胎</h2><p>写一个123木头人的即时游戏</p>
-<p>角色：主机（蒙眼人），其他玩家（木头人，自由观察者）</p>
-<p>开始条件：主机开始</p>
-<p>结束条件：主机消灭其他玩家，或者被其他玩家消灭</p>
-<p>意外处理：无重连，玩家掉线即被消灭</p>
-<ul>
-<li>基础玩法</li>
-</ul>
-<p>场地：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">         人          人 人 人</div><div class="line">========================================</div><div class="line">   |               人↓              |</div><div class="line">  ===================================</div></pre></td></tr></table></figure>
-<p>设计主机的转身cd，转身会释放一个很帅的反色球，在球内移动的玩家会被消灭（或设置重力掉到下一个败者场景）</p>
-<p>再次转身收回反色球</p>
-<ul>
-<li>进阶玩法</li>
-</ul>
-<p>把主机设计成ai，使用生存模式，设计道具使玩家竞争（香蕉皮，炸弹，固定的障碍等</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;动图（大图）杀猫，流量预警&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;AntiShader&quot;&gt;&lt;a href=&quot;#AntiShader&quot; class=&quot;headerlink&quot; title=&quot;AntiShader&quot;&gt;&lt;/a&gt;AntiShad
-    
-    </summary>
-    
-    
-      <category term="Unity" scheme="http://yoursite.com/tags/Unity/"/>
-    
-      <category term="ShaderLab" scheme="http://yoursite.com/tags/ShaderLab/"/>
     
   </entry>
   

@@ -1,0 +1,1301 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【TOP】pc定式的初步研究 | XANA&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="XANA">
+    
+
+    
+    <meta name="description" content="const BLOCKWITDH = 3;
+    const NC = &quot;消除不能&quot;
+    const LN = &quot;连击不能&quot;;
+    const STYLE = {
+        O : &quot;background-color:Gold;&quot;,
+        T : &quot;background-color:BlueViolet;&quot;,
+        I : &quot;background-co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【TOP】pc定式的初步研究">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/pc定式/index.html">
+<meta property="og:site_name" content="XANA's Blog">
+<meta property="og:description" content="const BLOCKWITDH = 3;
+    const NC = &quot;消除不能&quot;
+    const LN = &quot;连击不能&quot;;
+    const STYLE = {
+        O : &quot;background-color:Gold;&quot;,
+        T : &quot;background-color:BlueViolet;&quot;,
+        I : &quot;background-co">
+<meta property="og:updated_time" content="2020-01-29T13:56:49.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【TOP】pc定式的初步研究">
+<meta name="twitter:description" content="const BLOCKWITDH = 3;
+    const NC = &quot;消除不能&quot;
+    const LN = &quot;连击不能&quot;;
+    const STYLE = {
+        O : &quot;background-color:Gold;&quot;,
+        T : &quot;background-color:BlueViolet;&quot;,
+        I : &quot;background-co">
+<meta name="twitter:creator" content="@hdu_xana">
+
+    
+    <link rel="alternative" href="/atom.xml" title="XANA&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/xana.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="XANA&#39;s Blog">XANA&#39;s Blog</a></h1>
+				<h2 class="blog-motto">I can be who you are</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/08/20/pc定式/" title="【TOP】pc定式的初步研究" itemprop="url">【TOP】pc定式的初步研究</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="XANA" target="_blank" itemprop="author">XANA</a>
+		
+  <p class="article-time">
+    <time datetime="2019-08-20T13:51:12.000Z" itemprop="datePublished"> Published 2019-08-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是PC"><span class="toc-number">1.</span> <span class="toc-text">什么是PC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是PC开局"><span class="toc-number">2.</span> <span class="toc-text">什么是PC开局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PC定式的一般规律"><span class="toc-number">3.</span> <span class="toc-text">PC定式的一般规律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方块的奇偶性"><span class="toc-number">4.</span> <span class="toc-text">方块的奇偶性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#练习"><span class="toc-number">5.</span> <span class="toc-text">练习</span></a></li></ol>
+		
+		</div>
+		
+		<script type="text/javascript">
+    const BLOCKWITDH = 3;
+    const NC = "消除不能"
+    const LN = "连击不能";
+    const STYLE = {
+        O : "background-color:Gold;",
+        T : "background-color:BlueViolet;",
+        I : "background-color:DeepSkyBlue;",
+        S : "background-color:LawnGreen;",
+        Z : "background-color:Red;",
+        J : "background-color:Blue;",
+        L : "background-color:Orange;",
+        N : "background-color:SeaShell;border-style:none;",
+        G : "background-color:Grey;",
+        B : "background-color:Black;",
+        P : "background-color:Pink;",
+        V : "",
+    }
+    function Gen(tr, arr, num) {
+        var text = "<table>"
+        for (var x in arr) {
+            text += '<tr>'
+            for (var i in arr[x]){
+                var ele = arr[x][i]
+                text += '<td style="height:'+BLOCKWITDH+'px;width:'+BLOCKWITDH+'px;' + STYLE[ele]  + '"></td>';
+            }
+            text += '</tr>'
+        }
+        text += '</table>'
+        if (num) text += '<div>' + num + '</div>'
+        th = document.createElement("th");
+        th.innerHTML = text;
+        tr.appendChild(th);
+    }
+    function Tex(tr, t, t2) {
+        th = document.createElement("th");
+        th.innerHTML = '<div>' + t + '</div>';
+        if (t2) th.innerHTML += '<div>' + t2 + '</div>';
+        tr.appendChild(th);
+    }
+
+    function change(id) {
+        var tr = id.tHead.firstChild
+        var i = tr.children.length
+        var r = parseInt(Math.random() * i) + 1; //  +1 to keep the first element order
+        while (i-- > 1) tr.insertBefore(tr.children[i], tr.children[r])
+    }
+</script>
+
+
+<h2 id="什么是PC"><a href="#什么是PC" class="headerlink" title="什么是PC"></a>什么是PC</h2><p>PC即<code>Perfect Clean</code>，即消除屏幕内的所有单元格，是Tetris游戏中的一种特殊攻击方式。PC一旦完成，会给对手短时间大量的（整齐的）垃圾行。PC开局对C4W开和DT开（这种需要一定时间的开局）优势，对BT开和信天翁开（TSpin开局）劣势，因为没有对手快而会PC失败。</p>
+<h2 id="什么是PC开局"><a href="#什么是PC开局" class="headerlink" title="什么是PC开局"></a>什么是PC开局</h2><p>在7-pack系统下因为开局7个方块固定，最少需要4行(40格，10个方块)进行PC，剩余12个空格放接下来的3个方块完成全消。PC之后再使用定式就比较困难了。</p>
+<p>因此在开局能够使用PC定式，定式容错率高且简单。</p>
+<h2 id="PC定式的一般规律"><a href="#PC定式的一般规律" class="headerlink" title="PC定式的一般规律"></a>PC定式的一般规律</h2><table id="pc1" style=""></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['IIIINNNNSS','LOOJNNNSST','LOOJNNZZTT','LLJJNNNZZT'], 'PC开局定式1');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr, ['ZZNNNNJJLL','TZZNNNJOOL','TTSSNNJOOL','TSSNNNIIII'], 'PC开局定式R');
+
+</script>
+
+<p>PC开局理论上能够分为两部分，<code>TZS</code>部分和<code>OIJL</code>部分。</p>
+<p><code>TZS</code>部分唯一的顺序要求就是T不能在最后，T如果不在最前的话可以根据Z和S的顺序顺势构成定式1或者定式R。（<code>TZS</code>平滑一侧贴在<code>OIJL</code>一侧也可）</p>
+<p><code>OIJL</code>部分的要求只有前两个的顺序不能是O-I，所以只有开局是[S-Z-O-I]或者[Z-S-O-I]这种极限情况下才无法完成定式。然而这种情况下仍有机会PC（定式1-S或定式R-Z）。</p>
+<p>我们从定式1的变化情况开始讨论，看定式1对第一个方块的兼容性。很明显，定式1下对开始的7个方块都是兼容的(首行)，又因为第三个方块要求PC，因此变式2很容易得出，第二个方块必须构造出以下局部形状(首列)：</p>
+<table id="pc4"></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc4");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Tex(tr,  "变式2(12种)", "(有效方块二)");
+    Gen(tr,  ['GNNNNG','GNNNGG','GGGNGG'], '定式1-O');
+    Gen(tr,  ['GNNNGG','GNNGGG','GNNNGG'], '定式1-I');
+    Gen(tr,  ['GNNNNG','GGNNGG','GGNNGG'], '定式1-T');
+    Gen(tr,  ['GNNNNG','GNNNGG','GNGGGG'], '定式1-Z(TSpin)');
+    Gen(tr,  ['GNNNNG','GNGGGG','GNNNGG'], '定式1-S(T)');
+    Gen(tr,  ['GNNNNG','GNGNGG','GNGGGG','GNGGGG'], '定式1-L');
+    Gen(tr,  ['GNNNNG','GNNNGG','GGNGGG'], '定式1-J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GNNG'], '变式2-O');
+    Tex(tr,  "-");
+    Tex(tr,  "[T]");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNNG'], '变式2-I1');
+    Tex(tr,  "[J]");
+    Tex(tr,  "-");
+    Tex(tr,  "[O]");
+    Tex(tr,  "[L]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "[T]");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNG','GNG','GNG','GNG'], '变式2-I1');
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[T]");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GGNGG'], '变式2-T');
+    Tex(tr,  "[J]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "[I, S]");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNGG','GGNNG'], '变式2-Z');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GGNNG','GNNGG'], '变式2-S');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[Z]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GNGGG'], '变式2-L1');
+    Tex(tr,  "∅");
+    Tex(tr,  "[T,Z]");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GGGNG','GNNNG'], '变式2-L2');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GGNG','GGNG'], '变式2-L3');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[J]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+    Tex(tr,  "∅");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNG','GGGNG'], '变式2-J1');
+    Tex(tr,  "[I]");
+    Tex(tr,  "[O]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNGGG','GNNNG'], '变式2-J2');
+    Tex(tr,  "∅");
+    Tex(tr,  "[T,S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[I]");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNG','GNGG','GNGG'], '变式2-J3');
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "[L]");
+    Tex(tr,  "[S]");
+    Tex(tr,  "∅");
+    Tex(tr,  "∅");
+    Tex(tr,  "-");
+
+</script>
+
+
+
+<p>
+    通过观察定式1可得出结论：
+
+</p><p>
+
+    * 定式1-T: T[IO] T[SZ] T[JL] (1-T(Z): T[IL] T[JS]   1-T(S): T[JI] TJS  Other: 1-TIS)
+
+    T开局的收益非常高，但前两个方块出现T方快也不能无脑做1-T，再有IL/JS或IJ/JS的时候得转向1-T(Z)或1-T(S)
+</p><p>
+    * 定式1-I: I[TJ] ITL ITO IOJ IZL ISJ
+
+    因为I是横向消除不影响结构，所以把I放到公式最后也成立。但是正是由于带I公式常带着消行操作，所以1-I公式往往都是固定公式。
+</p><p>
+
+    * 定式1-O: O[JI] OJT
+    * 定式1-S: S[JI]
+    * 定式1-Z: Z[IL] Z[JS] (T[IL] T[JS])
+
+    后续出现的固定顺序可做。
+</p><p>
+    * 定式1-L: L[TI]
+    * 定式1-J: J[TI]
+
+    这3个公式有着很高的重复度，很明显4个方块中如果含IT方块和一个JL其中一个方块，那大概率就是走这三个公式之一。
+</p><p>
+
+    定式R与定式1取相反的方块即可。（在TOP上一开始无法看到第7个之后的方块，因此理论上开局去刻意构造定式1或定式R并没有任何的用处，除非给的方块够给力能完全先构造出`OIJL`）
+</p><p>
+</p><p>
+    * 除了1-Z[JS]和R-S[JZ] 外，PC公式必定带有一个I或者一个T，换言之，前四个方块中不存在I或者T，基本PC无望，且IT越靠后越困难，T基本不可能作为结尾。
+</p><p>
+    * 定式1-T能PC的概率为 18/30 = 60%  定式1-Z能PC的概率为 12/30 = 40%
+
+    因此T开局的综合PC概率为 1-(0.4*0.6) = 76%(↓) (这里的概率都是含hold操作的情况) (后附：这里的全部的概率计算有问题，hold机制比较复杂，仅供大致参考)
+</p><p>
+    * 定式1-I的PC概率为也很高，没啥规律，观察下序列即可。
+
+    其余定式概率均不足30%，尽量不做
+</p><p>
+    * 定式1公式同时出现I和T，基本能认定PC（其余5个中取2个只要不为Z和S，90%）
+</p><p>
+    * [ITL]仅有ILT不能PC，[ITJ]全部OK，基本认定PC。(稳定PC可以先下J或L)
+</p><p>
+    * [ITO]达成的序列中，T在O之前，必定PC。
+</p>
+
+
+<p>当然这是一种讨论的方式，不过比较繁琐和不直观(比如遗漏定式1-T的另一种方式从而遗漏[TI]S)，我们可以换一种思路来思考。</p>
+<h2 id="方块的奇偶性"><a href="#方块的奇偶性" class="headerlink" title="方块的奇偶性"></a>方块的奇偶性</h2><table id="jo1"></table>
+
+<p>我们可以清楚的看到方块或者PC定式剩余空间必定处于+2或者+0的状态。</p>
+<table id="jo2"></table>
+
+<p>因此我们可以得出要完成PC，必须维持奇偶方块的平衡，能够改变空间奇偶性的操作有以下几个：</p>
+<ol>
+<li><p>使用T方块</p>
+</li>
+<li><p>消单行时维持上部空间为奇数格</p>
+</li>
+</ol>
+<p>因为PC定式1的奇偶性，所以最终需要1次或者3次的改变奇偶性的操作。因为3个方块要求消除4行，所以必定有一个方块至少消除两行，所以最多两个方块消除单行。即操作1能有1次，操作2最多有2次。</p>
+<p>所以使用T方块时，必须有两次单行反转的操作，或者不能有反转的操作，不使用T方块时，需要有一次单行反转的操作。</p>
+<script type="text/javascript">
+
+    var root = document.getElementById("jo1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['NGBN', 'NBGN'], 'O');
+    Gen(tr, ['NGNN', 'GBGN'], 'T');
+    Gen(tr, ['NNNN', 'GBGB'], 'I');
+    Gen(tr, ['NGBN', 'GBNN'], 'S');
+    Gen(tr, ['BGNN', 'NBGN'], 'Z');
+    Gen(tr, ['BNNN', 'GBGN'], 'J');
+    Gen(tr, ['NNBN', 'GBGN'], 'L');
+
+    var root = document.getElementById("jo2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GNPNPG','GPNPGG','GNPGGG','GPNPGG'], '定式1的奇偶性');
+    Gen(tr,  ['GNPNPG','GTNPGG','GTTGGG','GTNPGG'], '奇方块改变奇偶性');
+    Gen(tr,  ['GNPNPG','GPNPGG','GOOGGG','GOOPGG'], '偶方块不改变奇偶性');
+    Gen(tr,  ['GNPNPG','GPNPGG','GZZGGG','GPZZGG'], '奇数消行');
+    Gen(tr,  ['VVVVVV','GPNPNG','GNPNGG','GPZZGG'], '奇数消行反转行上奇偶性');
+    Gen(tr,  ['GIPNPG','GIJJGG','GIJGGG','GIJPGG'], '偶数消行');
+    Gen(tr,  ['VVVVVV','VVVVVV','GIPNPG','GIJPGG'], '偶数消行不改变奇偶性');
+    thead.appendChild(tr);
+</script>
+
+<p>因此定式1有下列PC公式：</p>
+<table id="pc5"></table>
+<table id="pratice1" onclick="change(this)" style=""></table>
+
+<script type="text/javascript">
+    var root = document.getElementById("pc5");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNG','GNNNGG','GNNGGG','GNNNGG'], '定式1');
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJTTTG','GJJJGG','GOOGGG','GOOTGG'], 'OJT');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GJJJGG','GOOGGG','GOOJGG'], 'O[JI] IOJ');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITTTG','GILTGG','GILGGG','GILLGG'], 'L[IT]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GLLLGG','GLTGGG','GTTTGG'], 'T[IL] ITL');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITTTG','GIJJGG','GIJGGG','GIJTGG'], '[IJ]T');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GITSSG','GITTGG','GITGGG','GISSGG'], '[IT]S');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GTTTGG','GJTGGG','GJJJGG'], '[TJI]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GSTTTG','GSSTGG','GJSGGG','GJJJGG'], 'JST');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GTTTGG','GJTGGG','GJSSGG'], 'TJS');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GJSSGG','GJTGGG','GTTTGG'], 'T[SJ]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GLLLGG','GZZGGG','GLZZGG'], 'Z[IL] IZL');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GJSSGG','GSSGGG','GJJJGG'], 'S[IJ] ISJ');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GIIIIG','GTOOGG','GTTGGG','GTOOGG'], 'T[IO] ITO');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GLLJJG','GTLJGG','GTTGGG','GTLJGG'], 'T[JL]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GZZSSG','GTSSGG','GTTGGG','GTZZGG'], 'T[SZ]');
+    tbody.appendChild(tr);
+
+    var tr = document.createElement("tr");
+    Gen(tr,  ['GJJSSG','GJSSGG','GZZGGG','GJZZGG'], 'Z[SJ]');
+    tbody.appendChild(tr);
+
+    var root = document.getElementById("pratice1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+
+    Gen(tr,  ['GNNNNG','GNNNGG','GNNGGG','GNNNGG'], '定式1练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>此外PC开局如果I方块在最后的话，还会有额外的PC方式，即定式I(IR)，I方块的放置方式不同，最后生成的定式I奇偶性也不同</p>
+<table id="pc2" style=""></table>
+
+<p>同理得定式I-1有下列PC公式：</p>
+<table id="I-1" style=""></table>
+<table id="pratice2" onclick="change(this)" style=""></table>
+
+<script type="text/javascript">
+
+    var root = document.getElementById("pc2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    Gen(tr, ['LLLNNNNNSS','LOONNNNSST','JOONNNZZTT','JJJNNNNZZT'], 'PC开局定式I');
+
+    Gen(tr, ['GGGINPNPGG','GGGIPNPGGG','GGGINPGGGG','GGGIPNPGGG'], '定式I-0(定式1)');
+
+    Gen(tr, ['V','GGGPNPNPGG','GGGNPNGGGG','GGGPNPNGGG'], '定式I-1');
+
+    Gen(tr, ['V','GGGPNPNPGG','GGGNPNPGGG','GGGPNPGGGG'], '定式I-2(ISpin)');
+    tbody.appendChild(tr);
+
+    var root = document.getElementById("I-1");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNGGG','GNNNNGG'], '定式I-1');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLIIIIG','GLZZGGG','GLLZZGG'], 'L[ZI]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOLLLG','GOOLGGG','GIIIIGG'], '[IL]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTJLLLG','GTTLGGG','GTJJJGG'], '[TL]J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GOOLGGG','GLLLTGG'], 'LOT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GJJJGGG','GOOJTGG'], 'J[OT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJTTTG','GJOOGGG','GJOOTGG'], 'OJT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GJZZGGG','GJJJTGG'], 'JZT');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GLLLGGG','GLZZTGG'], 'L[ZT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLSTTTG','GLSSGGG','GLLSTGG'], 'LST');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJJSSG','GOOJGGG','GOOSSGG'], 'OJS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTTTSSG','GLLLGGG','GLTSSGG'], 'L[TS] T[LS]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLOOSSG','GLOOGGG','GLLSSGG'], 'LOS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJZSSG','GJZZGGG','GJZSSGG'], 'ZJS');
+
+    var root = document.getElementById("pratice2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr, ['GNNNNNG','GNNNGGG','GNNNNGG'], '定式I-1练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>定式I-2有下列PC公式：</p>
+<table id="I-2" style=""></table>
+
+<table id="pratice3" onclick="change(this)" style=""></table>
+
+
+<script type="text/javascript">
+    var root = document.getElementById("I-2");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNNGG','GNNNGGG'], '定式I-2');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTIIIIG','GTTSSGG','GTSSGGG'], '[TS]I TIS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLIIIIG','GLTTTGG','GLLTGGG'], 'L[IT]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOLLLG','GIIIIGG','GOOLGGG'], 'I[LO]');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJTTTG','GJOOTGG','GJOOGGG'], 'O[JT] T[OJ] JTO');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GOOLTGG','GLLLGGG'], '[LT]O TLO');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLSTTTG','GLSSTGG','GLLSGGG'], 'LST');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GJZZTGG','GJJJGGG'], 'J[ZT] TJZ');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GZZTTTG','GLLLTGG','GLZZGGG'], '[LT]Z');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GOOTTTG','GJJJTGG','GOOJGGG'], '[JT]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GNNNSSG','GNNSSGG','GNNNGGG'], '定式I-2-S1(定式1-I)');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GJJJSSG','GOOSSGG','GOOJGGG'], '[SO]J');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTTTSSG','GJTSSGG','GJJJGGG'], '[SJ]T JTS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GTOOSSG','GTTSSGG','GTOOGGG'], '[ST]O');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLLLSSG','GLTSSGG','GTTTGGG'], '[ST]L TLS');
+
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    Gen(tr,  ['GLLLSSG','GZZSSGG','GLZZGGG'], '[SZ]L');
+
+    var root = document.getElementById("pratice3");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GNNNNNG','GNNNNGG','GNNNGGG'], '定式I-2练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+</script>
+
+<p>
+    通过观察定式I可得出结论：
+
+</p><p>
+    * 定式1-L: L[TI]
+    * 定式I-1-L: L[ZI] LIO LTJ L[ZT] L[ST] LOS
+    * 定式I-2-L: L[IT] LTO LST LTZ
+</p><p>
+
+    * 定式1-S: S[JI]
+    * 定式I-2-S: SOJ SJT STO STL SZL
+    * 定式I-1-S: PC不能
+</p><p>
+
+    定式I-1-L的开局PC率远高于定式1-L(定式IR-1-J >> 定式R-J)
+
+    定式I-2-S的开局PC率远高于定式1-S(定式IR-2-J>> 定式R-Z)
+
+    因此在定式1开局I结尾可选的情况下，接下的的方块中L开头考虑I速降，S开头考虑ISpin。
+</p>
+
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>我在每个定式后面都放置了一个练习的小函数，理论学习了还是需要熟能生巧最重要。(出现概率-定式1:定式I:定式R:定式IR = 5:2:5:2)</p>
+<table id="I-2" style=""></table>
+
+<table id="praticeS" onclick="change(this);changeT(this);" style=""></table>
+
+
+<script type="text/javascript">
+
+    var root = document.getElementById("praticeS");
+    var thead = root.createTHead();
+    var tbody = root.createTBody();
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+    Gen(tr,  ['GGGGNNNNGG','GGGGNNNGGG','GGGGNNGGGG','GGGGNNNGGG'], '综合练习(点击更新)');
+    Gen(tr, ['NOON', 'NOON'], 'O');
+    Gen(tr, ['NTNN', 'TTTN'], 'T');
+    Gen(tr, ['NNNN', 'IIII'], 'I');
+    Gen(tr, ['NSSN', 'SSNN'], 'S');
+    Gen(tr, ['ZZNN', 'NZZN'], 'Z');
+    Gen(tr, ['JNNN', 'JJJN'], 'J');
+    Gen(tr, ['NNLN', 'LLLN'], 'L');
+
+    function changeT(id){
+        var tr = id.tHead.firstChild
+        var i = parseInt(Math.random() * 14) // 5:2:5:2
+        if (i<5) {
+            Gen(tr,  ['GGGGNNNNGG','GGGGNNNGGG','GGGGNNGGGG','GGGGNNNGGG'], '综合练习(定式1)');
+        } else if (i<7) {
+            Gen(tr,  ['GGGINNNNGG','GGGINNNGGG','GGGINNGGGG','GGGINNNGGG'], '综合练习(定式I)');
+        } else if (i<12) {
+            Gen(tr,  ['GGNNNNGGGG','GGGNNNGGGG','GGGGNNGGGG','GGGNNNGGGG'], '综合练习(定式R)');
+        }else {
+            Gen(tr,  ['GGNNNNIGGG','GGGNNNIGGG','GGGGNNIGGG','GGGNNNIGGG'], '综合练习(定式RI)');
+        }
+        tr.replaceChild(tr.lastChild, tr.firstChild)
+    }
+</script>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Game/">Game</a><a href="/tags/TOP/">TOP</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/08/20/pc定式/" data-title="【TOP】pc定式的初步研究 | XANA&#39;s Blog" data-tsina="_Kuroneko" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/08/21/【闲聊】艺术与商业/" title="【闲聊】艺术与商业">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【闲聊】艺术与商业</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/06/30/tosomeonelikeme/"  title="【闲聊】写给和我一样在游戏行业迷茫的人">
+ <strong>下一篇：</strong><br/> 
+ <span>【闲聊】写给和我一样在游戏行业迷茫的人
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是PC"><span class="toc-number">1.</span> <span class="toc-text">什么是PC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是PC开局"><span class="toc-number">2.</span> <span class="toc-text">什么是PC开局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PC定式的一般规律"><span class="toc-number">3.</span> <span class="toc-text">PC定式的一般规律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方块的奇偶性"><span class="toc-number">4.</span> <span class="toc-text">方块的奇偶性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#练习"><span class="toc-number">5.</span> <span class="toc-text">练习</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Game/" title="Game">Game<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/GeekLub/" title="GeekLub">GeekLub<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Processing/" title="Processing">Processing<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/canvas/" title="canvas">canvas<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python3/" title="python3">python3<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/webAudio/" title="webAudio">webAudio<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础工具/" title="基础工具">基础工具<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Others/" title="Others">Others<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Unity/" title="Unity">Unity<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>12</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing/" title="Processing">Processing<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/others/" title="others">others<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验班/" title="实验班">实验班<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Game/" title="Game">Game<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python3/" title="python3">python3<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cpp/" title="cpp">cpp<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/django/" title="django">django<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Shader/" title="Shader">Shader<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Processing-js/" title="Processing.js">Processing.js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/TOP/" title="TOP">TOP<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/canvas/" title="canvas">canvas<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GeekLub/" title="GeekLub">GeekLub<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/reactnative/" title="reactnative">reactnative<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Directx11/" title="Directx11">Directx11<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Box2D/" title="Box2D">Box2D<sup>2</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mephis.me" target="_blank" title="基东-Go/Py3">基东-Go/Py3</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.pwhack.me" target="_blank" title="熊桑-iOS/JS">熊桑-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.sprabbit.com" target="_blank" title="Kenneth Teng-iOS/JS">Kenneth Teng-iOS/JS</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://xcoder.in" target="_blank" title="XadillaX-JS/CPP">XadillaX-JS/CPP</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.edagarli.com" target="_blank" title="李智学长-FullStack">李智学长-FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://tecotaku.cn" target="_blank" title="给哈-Android/FullStack">给哈-Android/FullStack</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://b0lv42.github.io" target="_blank" title="果果-ACM">果果-ACM</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://puppetkant.cn" target="_blank" title="我豪-Py">我豪-Py</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://fogdong.github.io" target="_blank" title="雾聚-Fontend">雾聚-Fontend</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hellovass.info" target="_blank" title="轲爷-Android">轲爷-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://yorhp.com" target="_blank" title="韩13-Android">韩13-Android</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.haotunet.com" target="_blank" title="浩途网络">浩途网络</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m XANA in HDU. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3913453110" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/imxana" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/hdu_xana" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/imxana" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/imxana" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:xana.awaken@gamil.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="XANA">XANA</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc2bd5e513619df57afa8c0b51ccf66' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/miku.gif"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
